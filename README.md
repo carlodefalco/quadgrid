@@ -15,3 +15,8 @@ per compilare le funzioni utilizzabili da Octave
 
     CXX=mpicxx CPPFLAGS="-I. -std=c++17" mkoctfile quadgrid.cc 
     
+per testare da Octave
+
+     q = quadgrid (10, .1, 5, .02)
+     quadgrid_loop (q)
+     
