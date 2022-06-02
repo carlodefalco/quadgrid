@@ -130,57 +130,57 @@ public:
     { return neighbor_iterator (); };
 
     idx_t
-    get_local_cell_idx ()
+    get_local_cell_idx () const
     { return local_cell_idx; };
 
     idx_t
-    get_global_cell_idx ()
+    get_global_cell_idx () const
     { return global_cell_idx; };
 
     idx_t
-    end_cell_col ()
+    end_cell_col () const
     { return grid_properties.end_cell_col; };
 
     idx_t
-    end_cell_row ()
+    end_cell_row () const
     { return grid_properties.end_cell_row; };
 
     idx_t
-    start_cell_col ()
+    start_cell_col () const
     { return grid_properties.start_cell_col; };
 
     idx_t
-    start_cell_row ()
+    start_cell_row () const
     { return grid_properties.start_cell_row; };
 
     idx_t
-    num_rows ()
+    num_rows () const
     { return grid_properties.numrows; };
 
     idx_t
-    num_cols ()
+    num_cols () const
     { return grid_properties.numcols; };
 
     idx_t
-    row_idx ()
+    row_idx () const
     { return rowidx; };
 
     idx_t
-    col_idx ()
+    col_idx () const
     { return colidx; };
 
     idx_t
-    sub2gind (idx_t r, idx_t c) {
-      return  (rowidx + grid_properties.numrows * colidx);
+    sub2gind (idx_t r, idx_t c) const {
+      return  (r + grid_properties.numrows * c);
     }
 
     idx_t
-    gind2row (idx_t idx) {
+    gind2row (idx_t idx) const {
       return  (idx / grid_properties.numrows);
     }
 
     idx_t
-    gind2col (idx_t idx) {
+    gind2col (idx_t idx) const {
       return  (idx % grid_properties.numrows);
     }
     
@@ -294,6 +294,20 @@ public:
   hy () const
   { return grid_properties.hy; };
 
+  idx_t
+  sub2gind (idx_t r, idx_t c) const {
+    return  (r + grid_properties.numrows * c);
+  }
+
+  idx_t
+  gind2row (idx_t idx) const {
+    return  (idx / grid_properties.numrows);
+  }
+
+  idx_t
+  gind2col (idx_t idx) const {
+    return  (idx % grid_properties.numrows);
+  }
   
   MPI_Comm          comm;
   int               rank;
