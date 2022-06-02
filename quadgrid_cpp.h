@@ -169,17 +169,17 @@ public:
     col_idx ()
     { return colidx; };
 
-    static idx_t
+    idx_t
     sub2gind (idx_t r, idx_t c) {
       return  (rowidx + grid_properties.numrows * colidx);
     }
 
-    static idx_t
+    idx_t
     gind2row (idx_t idx) {
       return  (idx / grid_properties.numrows);
     }
 
-    static idx_t
+    idx_t
     gind2col (idx_t idx) {
       return  (idx % grid_properties.numrows);
     }
