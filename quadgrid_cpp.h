@@ -122,6 +122,9 @@ public:
     idx_t
     e (idx_t i) const;
 
+    double
+    shp (double x, double y, idx_t inode) const;
+    
     neighbor_iterator
     begin_neighbor_sweep ();
 
@@ -262,6 +265,10 @@ public:
   end_cell_sweep ()
   { return cell_iterator (); };
 
+  const cell_iterator
+  end_cell_sweep () const
+  { return cell_iterator (); };
+
   idx_t
   num_owned_nodes ()
   { return grid_properties.num_owned_nodes; };
@@ -359,8 +366,9 @@ quadgrid_t<T>::cell_iterator::operator++ () {
       data->rowidx = tmp % data->num_rows ();
       data->colidx = tmp / data->num_rows ();
       data->global_cell_idx = tmp;
-      data->local_cell_idx = tmp - (data->start_cell_row () +
-                                    data->num_rows () * data->start_cell_col ());
+      data->local_cell_idx = tmp -
+        (data->start_cell_row () +
+         data->num_rows () * data->start_cell_col ());
     } 
   }
 };
@@ -431,6 +439,7 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
 //-----------------------------------
 //
 //   Numbering of nodes and edges :
+//
 //              1
 //              |
 //              V
@@ -446,9 +455,12 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
 //              0
 //
 //-----------------------------------
+
+
 template <class T>
 double
-quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir, typename quadgrid_t<T>::idx_t inode) const {
+quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
+                          typename quadgrid_t<T>::idx_t inode) const {
   static double bottom_left = 0.0;
   // should check that inode < 4 in an efficient way
   if (idir == 0) {
@@ -482,6 +494,32 @@ quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) const {
   
   return (NOT_ON_BOUNDARY);
 }
+
+template <class T>
+double
+quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
+  switch (inode) {
+  case 0 : 
+    return ((x - p(0,0))/grid_properties.hx *
+            (y - p(1,0))/grid_properties.hy);
+    break;
+  case 1 : 
+    return ((x - p(0,0))/grid_properties.hx *
+            (1. - (y - p(1,0))/grid_properties.hy));
+    break;
+  case 2 :
+    return ((1. - (x - p(0,0))/grid_properties.hx) *
+            (y - p(1,0))/grid_properties.hy);
+    break;
+  case 3 :
+    return ((1. - (x - p(0,0))/grid_properties.hx) *
+            (1. - (y - p(1,0))/grid_properties.hy));
+    break;
+  default :
+    return -1;    
+  }
+};
+
 
 #endif /* QUADGRID_H */
 
