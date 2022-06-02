@@ -108,19 +108,19 @@ public:
       : grid_properties (_gp), rowidx (0), colidx (0), is_ghost (false) { };
 
     double
-    p (idx_t i, idx_t j);
+    p (idx_t i, idx_t j) const;
 
     double
     centroid (idx_t i);
 
     idx_t
-    t (idx_t i);
+    t (idx_t i) const;
 
     idx_t
-    gt (idx_t i);
+    gt (idx_t i) const;
 
     idx_t
-    e (idx_t i);
+    e (idx_t i) const;
 
     neighbor_iterator
     begin_neighbor_sweep ();
@@ -168,15 +168,30 @@ public:
     idx_t
     col_idx ()
     { return colidx; };
+
+    static idx_t
+    sub2gind (idx_t r, idx_t c) {
+      return  (rowidx + grid_properties.numrows * colidx);
+    }
+
+    static idx_t
+    gind2row (idx_t idx) {
+      return  (idx / grid_properties.numrows);
+    }
+
+    static idx_t
+    gind2col (idx_t idx) {
+      return  (idx % grid_properties.numrows);
+    }
     
     void
     reset () {
       rowidx = grid_properties.start_cell_row;
       colidx = grid_properties.start_cell_col;
-      global_cell_idx = rowidx + grid_properties.numrows * colidx;
+      global_cell_idx = sub2gind (rowidx, colidx);
       local_cell_idx = global_cell_idx -
-        (grid_properties.start_cell_row +
-         grid_properties.numrows * grid_properties.start_cell_col);
+        sub2gind (grid_properties.start_cell_row,
+                  grid_properties.start_cell_col);
     };
     
   private:
@@ -252,31 +267,31 @@ public:
   { return grid_properties.num_owned_nodes; };
 
   idx_t
-  num_local_nodes ();
+  num_local_nodes () const;
 
   idx_t
-  num_global_nodes ();
+  num_global_nodes () const;
 
   idx_t
-  num_local_cells ();
+  num_local_cells () const;
 
   idx_t
-  num_global_cells ();
+  num_global_cells () const;
 
   idx_t
-  num_rows ()
+  num_rows () const
   { return grid_properties.numrows; };
 
   idx_t
-  num_cols ()
+  num_cols () const
   { return grid_properties.numcols; };
 
   double
-  hx ()
+  hx () const
   { return grid_properties.hx; };
 
   double
-  hy ()
+  hy () const
   { return grid_properties.hy; };
 
   
@@ -338,31 +353,31 @@ quadgrid_t<T>::cell_iterator::operator++ () {
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::num_local_cells () {
+quadgrid_t<T>::num_local_cells () const {
   return grid_properties.numrows*grid_properties.numcols;
 }
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::num_global_cells () {
+quadgrid_t<T>::num_global_cells () const {
   return grid_properties.numrows*grid_properties.numcols;
 }
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::num_global_nodes () {
+quadgrid_t<T>::num_global_nodes () const {
   return (grid_properties.numrows+1)*(grid_properties.numcols+1);
 }
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::num_local_nodes () {
+quadgrid_t<T>::num_local_nodes () const {
   return (grid_properties.numrows+1)*(grid_properties.numcols+1);
 }
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::cell_t::gt (typename quadgrid_t<T>::idx_t inode) {
+quadgrid_t<T>::cell_t::gt (typename quadgrid_t<T>::idx_t inode) const {
   static idx_t bottom_left = 0;
   // should check that inode < 4 in an efficient way
   bottom_left =  row_idx () + col_idx () * (num_rows () + 1);
@@ -386,7 +401,7 @@ quadgrid_t<T>::cell_t::gt (typename quadgrid_t<T>::idx_t inode) {
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) {
+quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
   static idx_t glob = 0;
   glob = gt (inode);
   // should check that inode < 4 in an efficient way
@@ -419,7 +434,7 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) {
 //-----------------------------------
 template <class T>
 double
-quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir, typename quadgrid_t<T>::idx_t inode) {
+quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir, typename quadgrid_t<T>::idx_t inode) const {
   static double bottom_left = 0.0;
   // should check that inode < 4 in an efficient way
   if (idir == 0) {
@@ -436,7 +451,7 @@ quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir, typename quadgrid_
 
 template <class T>
 typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) {
+quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) const {
   // should check that iedge < 4 in an efficient way
 
   if (row_idx () == 0 && iedge == 0)
