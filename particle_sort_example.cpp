@@ -30,7 +30,7 @@ struct particles_t {
     idx_t ilab = 0;
     std::iota (label.begin (), label.end (), ilab);
     
-    init_particle_mesh (),
+    init_particle_mesh ();
   };
 
   void
@@ -65,19 +65,21 @@ struct particles_t {
   
   void
   p2g (std::vector<double>& gm, std::vector<double>& gvx, std::vector<double>& gvy, std::vector<double>& ge) const {
-
+    double N = 0.0, xx = 0.0, yy = 0.0, mm = 0.0, vx = 0.0, vy = 0.0, ee = 0.0;
+    idx_t idx = 0;
     for (auto icell = grid.begin_cell_sweep ();
          icell != grid.end_cell_sweep (); ++icell) {
       if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
         for (idx_t ii = 0; ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size (); ++ii) {
-          double xx = x[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
-          double yy = y[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
-          double mm = mass[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
-          double vx = xvelocity[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
-          double vy = yvelocity[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
-          double ee = energy[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
+          idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
+          xx = x[idx];
+          yy = y[idx];
+          mm = mass[idx];
+          vx = xvelocity[idx];
+          vy = yvelocity[idx];
+          ee = energy[idx];
           for (idx_t inode = 0; inode < 4; ++inode) {
-            double N = icell->shp(xx, yy, inode);
+            N = icell->shp(xx, yy, inode);
             gm[icell->t(inode)]  += N * mm;
             gvx[icell->t(inode)] += N * vx;
             gvy[icell->t(inode)] += N * vy;
@@ -87,10 +89,10 @@ struct particles_t {
     }
 
     for (idx_t ii = 0; ii < gm.size (); ++ii) {
-      gm[ii] /= M[ii];
+      gm[ii]  /= M[ii];
       gvx[ii] /= M[ii];
       gvy[ii] /= M[ii];
-      ge[ii] /= M[ii];
+      ge[ii]  /= M[ii];
     }
   };
 
