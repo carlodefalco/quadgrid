@@ -10,11 +10,14 @@ int
 main (int argc, char *argv[]) {
 
   quadgrid_t<std::vector<double>> grid;
-  grid.set_sizes (20, 20, 1./20., 1./20.);
+  grid.set_sizes (16, 16, 1./16., 1./16.);
 
-  constexpr idx_t num_particles = 1000;
+  constexpr idx_t num_particles = 1000000;
   particles_t ptcls (num_particles, {"label"}, {"m", "vx", "vy"}, grid);
-  ptcls.dprops["m"].assign (num_particles, 1.);
+  ptcls.dprops["m"].assign (num_particles, 1. / static_cast<double>(num_particles));
+
+  idx_t ilabel = 0;
+  std::iota (ptcls.iprops["label"].begin (), ptcls.iprops["label"].end (), ilabel);
   /*
   //
   // This will produce very verbose output
