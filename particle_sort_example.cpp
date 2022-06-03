@@ -23,31 +23,46 @@ struct particles_t {
       energy (n,1.0), grid(grid_) {
 
     M = std::vector<double> (grid.num_global_nodes (), 0.0);
-   
-     for (auto icell = grid.begin_cell_sweep ();
-          icell != grid.end_cell_sweep (); ++icell) {      
-       for (auto inode = 0; inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell; ++inode) {
-         M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);          
-       }
-     }
-  
-     std::random_device rd;  
-     std::mt19937 gen (rd ()); 
-     std::uniform_real_distribution<> dis (0.0, 1.0);
-     std::generate (x.begin (), x.end (), [&] () { return dis (gen) * grid.num_cols () * grid.hx (); });
-     std::generate (y.begin (), y.end (), [&] () { return dis (gen) * grid.num_rows () * grid.hy (); });
-  
-     idx_t ilab = 0;
-     std::iota (label.begin (), label.end (), ilab);
-     
-     for (auto ii = 0; ii - x.size (); ++ii) {
-       idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
-       idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
-       
-       grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
-     }
+    build_mass ();
+        
+    random_particle_positions (n);
+    
+    idx_t ilab = 0;
+    std::iota (label.begin (), label.end (), ilab);
+    
+    init_particle_mesh (),
   };
 
+  void
+  init_particle_mesh () {
+    for (auto ii = 0; ii - x.size (); ++ii) {
+      idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
+      idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
+      
+      grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
+    }
+  };
+  
+  void
+  random_particle_positions (idx_t n) {
+    std::random_device rd;  
+    std::mt19937 gen (rd ()); 
+    std::uniform_real_distribution<> dis (0.0, 1.0);
+    std::generate (x.begin (), x.end (), [&] () { return dis (gen) * grid.num_cols () * grid.hx (); });
+    std::generate (y.begin (), y.end (), [&] () { return dis (gen) * grid.num_rows () * grid.hy (); });
+  };
+  
+  void
+  build_mass () {
+    M.assign (M.size (), 0.0);
+    for (auto icell = grid.begin_cell_sweep ();
+         icell != grid.end_cell_sweep (); ++icell) {      
+      for (auto inode = 0; inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell; ++inode) {
+        M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);          
+      }
+    }
+  };
+  
   void
   p2g (std::vector<double>& gm, std::vector<double>& gvx, std::vector<double>& gvy, std::vector<double>& ge) const {
 
