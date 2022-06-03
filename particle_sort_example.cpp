@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <random>
 #include <quadgrid_cpp.h>
 
