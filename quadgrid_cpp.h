@@ -1,6 +1,7 @@
 #ifndef QUADGRID_H
 #define QUADGRID_H
 
+#include <fstream>
 #include <mpi.h>
 #include <vector>
 
@@ -128,10 +129,18 @@ public:
     neighbor_iterator
     begin_neighbor_sweep ();
 
+    const neighbor_iterator
+    begin_neighbor_sweep () const;
+    
     neighbor_iterator
     end_neighbor_sweep ()
     { return neighbor_iterator (); };
 
+    const neighbor_iterator
+    end_neighbor_sweep () const
+    { return neighbor_iterator (); };
+
+    
     idx_t
     get_local_cell_idx () const
     { return local_cell_idx; };
@@ -252,14 +261,17 @@ public:
 
   void
   vtk_export (const char *filename,
-              const distributed_vector & f);
+              const distributed_vector & f) const;
 
   void
   vtk_export_cell (const char * filename,
-                   const std::vector<double> & f);
+                   const std::vector<double> & f) const;
 
   cell_iterator
   begin_cell_sweep ();
+
+  const cell_iterator
+  begin_cell_sweep () const;
 
   cell_iterator
   end_cell_sweep ()
@@ -322,8 +334,8 @@ public:
   
 private :
 
-  cell_t            current_cell;
-  cell_t            current_neighbor;
+  mutable cell_t   current_cell;
+  mutable cell_t   current_neighbor;
 
   grid_properties_t grid_properties;
 
@@ -333,6 +345,13 @@ private :
 template <class T>
 typename quadgrid_t<T>::cell_iterator
 quadgrid_t<T>::begin_cell_sweep () {
+  current_cell.reset ();
+  return cell_iterator (&current_cell);
+}
+
+template <class T>
+const typename quadgrid_t<T>::cell_iterator
+quadgrid_t<T>::begin_cell_sweep () const {
   current_cell.reset ();
   return cell_iterator (&current_cell);
 }
@@ -521,5 +540,27 @@ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
 };
 
 
+template <class T>
+void
+quadgrid_t<T>::vtk_export (const char *filename,
+                           const T & f) const {
+
+  std::ofstream ofs (filename, std::ofstream::out);
+
+  // This is the XML format of a VTS file to write :
+    
+  /* <VTKFile type="StructuredGrid" ...> */
+  /*   <StructuredGrid WholeExtent="x1 x2 y1 y2 z1 z2"> */
+  /*   <Piece Extent="x1 x2 y1 y2 z1 z2"> */
+  /*   <PointData>...</PointData> */
+  /*   <CellData>...</CellData> */
+  /*   <Points>...</Points> */
+  /*   </Piece> */
+  /*   </StructuredGrid> */
+  /*   </VTKFile> */
+    
+};
+
+  
 #endif /* QUADGRID_H */
 
