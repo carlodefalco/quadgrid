@@ -2,6 +2,7 @@
 simple cartesian quad grid for c++/octave
 
 `quadgrid_cpp.h`            contiene la classe (template) `quadgrid_t`
+`particles.h`               contiene la classe `particles_t` che rappresenta un insieme di particelle distribuite nella griglia
 `quadgrid_cpp.cpp`          è una demo di come utilizzare la classe in una applicazione c++
 `mass_matrix_example.cpp`   è una demo di come utilizzare la classe in una applicazione c++ per costruire la matrice di massa
 `particle_sort_example.cpp` è una demo di come utilizzare la classe in una applicazione c++ per gestire particelle e interpolazione
