@@ -10,7 +10,8 @@ struct particles_t {
   std::vector<double> x;
   std::vector<double> y;
   std::vector<double> mass;
-  std::vector<double> velocity;
+  std::vector<double> xvelocity;
+  std::vector<double> yvelocity;
   std::vector<double> energy;
   std::vector<double> M;
   std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;
@@ -18,7 +19,8 @@ struct particles_t {
   
   particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
     : label(n,0), x(n,0.0), y(n,0.0), mass(n,1.0),
-      velocity (n,1.0), energy (n,1.0), grid(grid_) {
+      xvelocity (n,1.0), yvelocity (n,1.0),
+      energy (n,1.0), grid(grid_) {
 
     M = std::vector<double> (grid.num_global_nodes (), 0.0);
    
@@ -47,7 +49,7 @@ struct particles_t {
   };
 
   void
-  p2g (std::vector<double>& gm, std::vector<double>& gv, std::vector<double>& ge) const {
+  p2g (std::vector<double>& gm, std::vector<double>& gvx, std::vector<double>& gvy, std::vector<double>& ge) const {
 
     for (auto icell = grid.begin_cell_sweep ();
          icell != grid.end_cell_sweep (); ++icell) {
@@ -56,27 +58,31 @@ struct particles_t {
           double xx = x[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
           double yy = y[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
           double mm = mass[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
-          double vv = velocity[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
+          double vx = xvelocity[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
+          double vy = yvelocity[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
           double ee = energy[grd_to_ptcl.at(icell->get_global_cell_idx ())[ii]];
           for (idx_t inode = 0; inode < 4; ++inode) {
             double N = icell->shp(xx, yy, inode);
-            gm[icell->t(inode)] += N * mm;
-            gv[icell->t(inode)] += N * vv;
-            ge[icell->t(inode)] += N * ee;
+            gm[icell->t(inode)]  += N * mm;
+            gvx[icell->t(inode)] += N * vx;
+            gvy[icell->t(inode)] += N * vy;
+            ge[icell->t(inode)]  += N * ee;
           }                
         }
     }
 
     for (idx_t ii = 0; ii < gm.size (); ++ii) {
       gm[ii] /= M[ii];
-      gv[ii] /= M[ii];
+      gvx[ii] /= M[ii];
+      gvy[ii] /= M[ii];
       ge[ii] /= M[ii];
     }
   };
 
   void
-  g2p (std::vector<double>& mass, std::vector<double>& velocity, std::vector<double>& energy) const {
-    
+  g2p (const std::vector<double>& gm, const std::vector<double>& gvx,
+       const std::vector<double>& gvy, const std::vector<double>& ge) const {
+    // TO DO : Interpolazione dalla griglia alle particelle 
   };
 
 };
@@ -114,10 +120,11 @@ main (int argc, char *argv[]) {
   */
   
   std::vector<double> rho (grid.num_global_nodes (), 0.0);
-  std::vector<double> p (grid.num_global_nodes (), 0.0);
+  std::vector<double> px (grid.num_global_nodes (), 0.0);
+  std::vector<double> py (grid.num_global_nodes (), 0.0);
   std::vector<double> ie (grid.num_global_nodes (), 0.0);
 
-  ptcls.p2g (rho, p, ie);
+  ptcls.p2g (rho, px, py, ie);
     
   for (auto ii : rho)
     std::cout << ii << std::endl;
