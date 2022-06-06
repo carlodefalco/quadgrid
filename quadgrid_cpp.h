@@ -28,7 +28,7 @@ public:
     idx_t             start_owned_nodes;
     idx_t             num_owned_nodes;
   };
-  
+
   class
   cell_iterator
   {
@@ -64,7 +64,7 @@ public:
     bool
     operator!= (const cell_iterator& other)
     { return ! ((*this) == other); }
-    
+
 
   private :
     cell_t *data;
@@ -73,7 +73,7 @@ public:
   class
   neighbor_iterator : public cell_iterator
   {
-    
+
   public:
 
     void
@@ -99,13 +99,13 @@ public:
   {
 
     friend class cell_iterator;
-    
+
   public:
 
     static constexpr idx_t nodes_per_cell = 4;
     static constexpr idx_t edges_per_cell = 4;
     static constexpr idx_t NOT_ON_BOUNDARY = -1;
-    
+
     cell_t (const grid_properties_t& _gp)
       : grid_properties (_gp), rowidx (0), colidx (0), is_ghost (false) { };
 
@@ -126,13 +126,13 @@ public:
 
     double
     shp (double x, double y, idx_t inode) const;
-    
+
     neighbor_iterator
     begin_neighbor_sweep ();
 
     const neighbor_iterator
     begin_neighbor_sweep () const;
-    
+
     neighbor_iterator
     end_neighbor_sweep ()
     { return neighbor_iterator (); };
@@ -141,7 +141,7 @@ public:
     end_neighbor_sweep () const
     { return neighbor_iterator (); };
 
-    
+
     idx_t
     get_local_cell_idx () const
     { return local_cell_idx; };
@@ -196,7 +196,7 @@ public:
     gind2col (idx_t idx) const {
       return  (idx % grid_properties.numrows);
     }
-    
+
     void
     reset () {
       rowidx = grid_properties.start_cell_row;
@@ -206,16 +206,16 @@ public:
         sub2gind (grid_properties.start_cell_row,
                   grid_properties.start_cell_col);
     };
-    
+
   private:
-    
+
     bool                     is_ghost;
     idx_t                    rowidx;
     idx_t                    colidx;
     idx_t                    local_cell_idx;
     idx_t                    global_cell_idx;
     const grid_properties_t &grid_properties;
-    
+
   };
 
 
@@ -328,11 +328,11 @@ public:
   gind2col (idx_t idx) const {
     return  (idx % grid_properties.numrows);
   }
-  
+
   MPI_Comm          comm;
   int               rank;
   int               size;
-  
+
 private :
 
   mutable cell_t   current_cell;
@@ -389,7 +389,54 @@ quadgrid_t<T>::cell_iterator::operator++ () {
       data->local_cell_idx = tmp -
         (data->start_cell_row () +
          data->num_rows () * data->start_cell_col ());
-    } 
+    }
+  }
+};
+
+template <class T>
+void
+quadgrid_t<T>::neighbor_iterator::operator++ () {
+  static idx_t tmp;
+  if (data != nullptr) {
+    tmp++;
+    if (tmp >= quadgrid_t<T>::cell_t::edges_per_cell) {
+      data = nullptr;
+      face_idx = -1;
+    }
+    else {
+      switch (face_idx) {
+      case 0 :
+        if (data->rowidx == 0)
+          face_idx++;
+        else {
+
+          
+            }
+      case 1 :
+        if (data->rowidx == data->num_rows () - 1)
+          face_idx++;
+        else {
+        }
+      case 2 :
+        if (data->colidx == 1)
+          face_idx++;
+        else {
+        }
+      case 3 :
+        if (data->colidx == data->num_cols () - 1) {
+          face_idx = -1;
+          data = nullptr;
+        }
+        else {
+        }
+      }
+      data->rowidx = tmp % data->num_rows ();
+      data->colidx = tmp / data->num_rows ();
+      data->global_cell_idx = tmp;
+      data->local_cell_idx = tmp -x
+        (data->start_cell_row () +
+         data->num_rows () * data->start_cell_col ());
+    }
   }
 };
 
@@ -424,10 +471,10 @@ quadgrid_t<T>::cell_t::gt (typename quadgrid_t<T>::idx_t inode) const {
   // should check that inode < 4 in an efficient way
   bottom_left =  row_idx () + col_idx () * (num_rows () + 1);
   switch (inode) {
-  case 0 : 
+  case 0 :
     return (bottom_left);
     break;
-  case 1 : 
+  case 1 :
     return (bottom_left + 1);
     break;
   case 2 :
@@ -437,7 +484,7 @@ quadgrid_t<T>::cell_t::gt (typename quadgrid_t<T>::idx_t inode) const {
     return (bottom_left + (num_rows () + 2));
     break;
   default :
-    return -1;    
+    return -1;
   }
 }
 
@@ -510,8 +557,8 @@ quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) const {
     return 2;
 
   if (col_idx () == num_cols () - 1 && iedge == 3)
-    return 3;    
-  
+    return 3;
+
   return (NOT_ON_BOUNDARY);
 }
 
@@ -519,11 +566,11 @@ template <class T>
 double
 quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
   switch (inode) {
-  case 0 : 
+  case 0 :
     return ((x - p(0,0))/grid_properties.hx *
             (y - p(1,0))/grid_properties.hy);
     break;
-  case 1 : 
+  case 1 :
     return ((x - p(0,0))/grid_properties.hx *
             (1. - (y - p(1,0))/grid_properties.hy));
     break;
@@ -536,7 +583,7 @@ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
             (1. - (y - p(1,0))/grid_properties.hy));
     break;
   default :
-    return -1;    
+    return -1;
   }
 };
 
@@ -549,7 +596,7 @@ quadgrid_t<T>::vtk_export (const char *filename,
   std::ofstream ofs (filename, std::ofstream::out);
 
   // This is the XML format of a VTS file to write :
-    
+
   /* <VTKFile type="StructuredGrid" ...> */
   /*   <StructuredGrid WholeExtent="x1 x2 y1 y2 z1 z2"> */
   /*   <Piece Extent="x1 x2 y1 y2 z1 z2"> */
@@ -559,9 +606,9 @@ quadgrid_t<T>::vtk_export (const char *filename,
   /*   </Piece> */
   /*   </StructuredGrid> */
   /*   </VTKFile> */
-    
+
 };
 
-  
+
 #endif /* QUADGRID_H */
 
