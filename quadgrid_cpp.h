@@ -602,7 +602,6 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
     else if (idir == 1) {
       return (((x - p(0,0)) / grid_properties.hx) *
               (1. / grid_properties.hy));
-      break;
     }    
   case 1 :
     if (idir == 0) {
