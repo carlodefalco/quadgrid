@@ -127,6 +127,9 @@ public:
     double
     shp (double x, double y, idx_t inode) const;
 
+    double
+    shg (double x, double y, idx_t idir, idx_t inode) const;
+        
     neighbor_iterator
     begin_neighbor_sweep ();
 
@@ -583,9 +586,56 @@ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
             (1. - (y - p(1,0))/grid_properties.hy));
     break;
   default :
-    return -1;
+    throw std::out_of_range ("inode must be in range 0..3");
   }
 };
+
+template <class T>
+double
+quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
+   switch (inode) {
+  case 0 :
+    if (idir == 0) {
+      return ((1. / grid_properties.hx) *
+              ((y - p(1,0)) / grid_properties.hy));
+    }
+    else if (idir == 1) {
+      return (((x - p(0,0)) / grid_properties.hx) *
+              (1. / grid_properties.hy));
+      break;
+    }    
+  case 1 :
+    if (idir == 0) {
+      return ((1. / grid_properties.hx) *
+              ((1. - (y - p(1,0)) / grid_properties.hy)));
+    }
+    else if (idir == 1) {
+      return (((x - p(0,0)) / grid_properties.hx) *
+              (- 1. / grid_properties.hy));
+    }
+  case 2 :
+    if (idir == 0) {
+    return ((- 1. / grid_properties.hx) *
+            ((y - p(1,0)) / grid_properties.hy));
+    }
+    else if (idir == 1) {
+      return ((1. - (x - p(0,0)) / grid_properties.hx) *
+              (1. / grid_properties.hy));
+    }
+  case 3 :
+    if (idir == 0) {
+      return ((- 1. /grid_properties.hx) *
+              (1. - (y - p(1,0)) / grid_properties.hy));
+    }
+    else if (idir == 1) {
+    return ((1. - (x - p(0,0))/grid_properties.hx) *
+            (- 1. / grid_properties.hy));
+    }
+  default :
+    throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
+  }
+};
+
 
 
 template <class T>
