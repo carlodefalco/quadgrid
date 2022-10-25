@@ -2,7 +2,8 @@
 #include <random>
 #include <quadgrid_cpp.h>
 #include <particles.h>
-
+#include <map>
+#include <iostream>
 
 using idx_t = quadgrid_t<std::vector<double>>::idx_t;
 
