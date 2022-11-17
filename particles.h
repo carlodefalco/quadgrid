@@ -78,7 +78,7 @@ particles_t {
   };
 
   void
-  p2g (std::map<std::string, std::vector<double>>& vars, bool apply_mass = true) const {
+  p2g (std::map<std::string, std::vector<double>>& vars, bool apply_mass = false) const {
     double N = 0.0, xx = 0.0, yy = 0.0;
     idx_t idx = 0;
 
