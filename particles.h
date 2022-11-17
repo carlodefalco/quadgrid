@@ -106,6 +106,44 @@ particles_t {
           vars[ivar.first][ii]  /= M[ii];
         }
   };
+  
+/*  void
+  p2gdx(std::map<std::string, std::vector<double>>& vars, bool apply_mass = false) const {
+    double N = 0.0, xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
+    idx_t idx = 0;
+
+    for (auto icell = grid.begin_cell_sweep(); icell != grid.end_cell_sweep(); ++icell) {
+      for (idx_t ii = 0; ii<grd_to_ptcl.at(icell->get_global_cell_idx()).size(); ++ii) {
+	idx = grd_to_ptcl.at(icell->get_global_cell_idx())[ii];
+	xx = x[idx];
+	yy = y[idx];
+
+	for (idx_t inode=0; inode<4; ++inode) {
+
+	  N = icell->shp(xx,yy,inode);
+	  Nx = icell->shg(xx,yy,0,inode);
+	  Ny = icell->shg(xx,yy,1,inode);
+	  for (auto &ivar : vars)
+	    vars[ivar.first][icell->t(inode)] += Nx*dprops.at(ivar.first)[ii];
+	  for (auto &ivar : vars)
+	    vars[ivar.first][icell->t(inode)] += Ny*dprops.at(ivar.first)[ii];
+	  
+
+	}
+
+      }
+
+    }
+
+    if (apply_mass)
+      for (auto &ivar : vars)
+	for (idx_t ii = 0; ii<M.size();+ii) {
+
+	  vars[ivar.first][ii] /= M[ii];
+
+	}
+
+  }; */
 
   void
   g2p (std::map<std::string, std::vector<double>> vars, bool apply_mass) {
