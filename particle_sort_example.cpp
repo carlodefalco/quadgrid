@@ -4,6 +4,7 @@
 #include <particles.h>
 #include <map>
 #include <iostream>
+#include <fstream>
 
 using idx_t = quadgrid_t<std::vector<double>>::idx_t;
 
@@ -13,7 +14,7 @@ main (int argc, char *argv[]) {
   quadgrid_t<std::vector<double>> grid;
   grid.set_sizes (16, 16, 1./16., 1./16.);
 
-  constexpr idx_t num_particles = 1000000;
+  constexpr idx_t num_particles = 1000;//1000000;
   particles_t ptcls (num_particles, {"label"}, {"m", "vx", "vy"}, grid);
   ptcls.dprops["m"].assign (num_particles, 1. / static_cast<double>(num_particles));
 
@@ -42,16 +43,47 @@ main (int argc, char *argv[]) {
   }
   */
 
+	std::ofstream of("dprops_m.dat");
+	if(of){
+		std::cout<<"Writing on dprops_m file...";
+  	for (auto ii : ptcls.dprops["m"])
+    	of << ii << std::endl;
+		std::cout<<" done"<<std::endl;
+		of.close();
+	}
+	else
+		std::cerr<<"Could not open the file\n";
+
   std::map<std::string, std::vector<double>>
     vars{{"m", std::vector<double>(grid.num_global_nodes (), 0.0)},
       {"vx", std::vector<double>(grid.num_global_nodes (), 0.0)},
         {"vy", std::vector<double>(grid.num_global_nodes (), 0.0)}};
 
   ptcls.p2g (vars);
-    
-  for (auto ii : vars["m"])
-    std::cout << ii << std::endl;
-  
+	of.open("p2g_m.dat");
+	if(of){
+		std::cout<<"Writing on p2g_m file...";
+  	for (auto ii : vars["m"])
+    	of << ii << std::endl;
+		std::cout<<" done"<<std::endl;
+		of.close();
+	}
+	else
+		std::cerr<<"Could not open the file\n";
+
+
+	ptcls.g2p(vars,0);
+	of.open("g2p_m.dat");
+	if(of){
+		std::cout<<"Writing on g2p_m file...";
+		for (auto ii : ptcls.dprops["m"])
+			of << ii << std::endl;
+		std::cout<<" done" <<std::endl;
+		of.close();
+	}
+	else
+		std::cerr<<"Could not open the file\n";
+
   return 0;
 };
 

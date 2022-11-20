@@ -148,7 +148,37 @@ particles_t {
   void
   g2p (std::map<std::string, std::vector<double>> vars, bool apply_mass) {
     // TO DO : Interpolazione dalla griglia alle particelle
+ 
+    double N = 0.0, xx = 0.0, yy = 0.0;
+    idx_t idx = 0;
+
+    for (auto icell = grid.begin_cell_sweep ();
+         icell != grid.end_cell_sweep (); ++icell) {
+      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+        for (idx_t ii = 0;
+             ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+             ++ii) {
+          idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
+          xx = x[idx];
+          yy = y[idx];
+
+          for (idx_t inode = 0; inode < 4; ++inode) {
+            N = icell->shp(xx, yy, inode);
+            for (const auto &ivar : vars)
+              dprops.at (ivar.first)[ii] += N * vars[ivar.first][icell->t(inode)];
+          }
+        }
+
+    }
+
+    if (apply_mass)
+      for (const auto &ivar : vars)
+        for (idx_t ii = 0; ii < M.size (); ++ii) {
+          dprops.at (ivar.first)[ii]  /= M[ii];
+        }
+
   };
+
 
 };
 
