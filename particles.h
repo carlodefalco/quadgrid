@@ -1,12 +1,13 @@
 #ifndef PARTICLES_H
 #define PARTICLES_H
 
+#include <quadgrid_cpp.h>
+#include <vector>
+#include <map>
+#include <string>
 #include <algorithm>
 #include <random>
-#include <string>
-#include <quadgrid_cpp.h>
-#include <map>
-#include <iostream>
+#include <unordered_map>
 
 struct
 particles_t {
@@ -77,11 +78,25 @@ particles_t {
     }
   };
 
-  void
-  p2g (std::map<std::string, std::vector<double>>& vars, bool apply_mass = false) const {
-    double N = 0.0, xx = 0.0, yy = 0.0;
-    idx_t idx = 0;
 
+	void 
+	transfer (const std::string & transfer_type,
+						const std::string & variable_name,
+						std::map<std::string, std::vector<double>>& vars, //auxiliary grid vars
+						const std::vector<double> & input_var, //could be a combination of grid XOR ptcls vars
+						bool apply_mass = false) {
+		double N = 0.0, xx = 0.0, yy = 0.0;
+    idx_t idx = 0;
+		const static std::unordered_map<std::string,int> um =
+		{
+			{"p2g", 1},
+			{"p2g_dx", 2},
+			{"p2g_dy", 3},
+			{"g2p", 4},
+			{"g2p_dx", 5},
+			{"g2p_dy", 6},
+		};
+		int transfer_code = um.at(transfer_type);
     for (auto icell = grid.begin_cell_sweep ();
          icell != grid.end_cell_sweep (); ++icell) {
       if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
@@ -91,95 +106,50 @@ particles_t {
           idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
           xx = x[idx];
           yy = y[idx];
-
           for (idx_t inode = 0; inode < 4; ++inode) {
-            N = icell->shp(xx, yy, inode);
-            for (auto &ivar : vars)
-              vars[ivar.first][icell->t(inode)]  += N * dprops.at (ivar.first)[ii];
-          }
-        }
-    }
-
+            switch (transfer_code) {
+							case 1: //p2g
+								N = icell->shp(xx, yy, inode);
+								vars.at(variable_name).at(icell->t(inode)) += N * input_var.at(ii);
+							break;
+							case 2: //p2g dx
+								N = icell->shg(xx,yy,0,inode);
+								vars.at(variable_name).at(icell->t(inode)) += N * input_var.at(ii);
+							break;
+							case 3: //p2g dy
+								N = icell->shg(xx,yy,1,inode);
+								vars.at(variable_name).at(icell->t(inode)) += N * input_var.at(ii);
+							break;
+							case 4: //g2p
+								N = icell->shp(xx, yy, inode);
+								dprops.at(variable_name).at(ii) += N * input_var.at(icell->t(inode));
+							break;
+							case 5: //g2p dx
+								N = icell->shg(xx,yy,0,inode);
+								dprops.at(variable_name).at(ii) += N * input_var.at(icell->t(inode));
+							break;
+							case 6: //g2p dy
+								N = icell->shg(xx,yy,1,inode);
+								dprops.at(variable_name).at(ii) += N * input_var.at(icell->t(inode));
+							break;
+						}//switch
+          }//inode for
+        }//ii for
+    }//icell for
+    
     if (apply_mass)
-      for (auto &ivar : vars)
-        for (idx_t ii = 0; ii < M.size (); ++ii) {
-          vars[ivar.first][ii]  /= M[ii];
-        }
-  };
-  
-/*  void
-  p2gdx(std::map<std::string, std::vector<double>>& vars, bool apply_mass = false) const {
-    double N = 0.0, xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
-    idx_t idx = 0;
+    	switch ((transfer_code - 1) / 3){
+    		case 0:
+    			for (idx_t ii = 0; ii < M.size (); ++ii)
+    				vars.at(variable_name).at(ii) /= M.at(ii);
+    		break;
+    		case 1:
+    			for (idx_t ii = 0; ii < M.size (); ++ii)
+    				dprops.at(variable_name).at(ii) /= M.at(ii);
+    		break;
+    	}
+	}//transfer func
 
-    for (auto icell = grid.begin_cell_sweep(); icell != grid.end_cell_sweep(); ++icell) {
-      for (idx_t ii = 0; ii<grd_to_ptcl.at(icell->get_global_cell_idx()).size(); ++ii) {
-	idx = grd_to_ptcl.at(icell->get_global_cell_idx())[ii];
-	xx = x[idx];
-	yy = y[idx];
-
-	for (idx_t inode=0; inode<4; ++inode) {
-
-	  N = icell->shp(xx,yy,inode);
-	  Nx = icell->shg(xx,yy,0,inode);
-	  Ny = icell->shg(xx,yy,1,inode);
-	  for (auto &ivar : vars)
-	    vars[ivar.first][icell->t(inode)] += Nx*dprops.at(ivar.first)[ii];
-	  for (auto &ivar : vars)
-	    vars[ivar.first][icell->t(inode)] += Ny*dprops.at(ivar.first)[ii];
-	  
-
-	}
-
-      }
-
-    }
-
-    if (apply_mass)
-      for (auto &ivar : vars)
-	for (idx_t ii = 0; ii<M.size();+ii) {
-
-	  vars[ivar.first][ii] /= M[ii];
-
-	}
-
-  }; */
-
-  void
-  g2p (std::map<std::string, std::vector<double>> vars, bool apply_mass) {
-    // TO DO : Interpolazione dalla griglia alle particelle
- 
-    double N = 0.0, xx = 0.0, yy = 0.0;
-    idx_t idx = 0;
-
-    for (auto icell = grid.begin_cell_sweep ();
-         icell != grid.end_cell_sweep (); ++icell) {
-      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
-        for (idx_t ii = 0;
-             ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
-             ++ii) {
-          idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
-          xx = x[idx];
-          yy = y[idx];
-
-          for (idx_t inode = 0; inode < 4; ++inode) {
-            N = icell->shp(xx, yy, inode);
-            for (const auto &ivar : vars)
-              dprops.at (ivar.first)[ii] += N * vars[ivar.first][icell->t(inode)];
-          }
-        }
-
-    }
-
-    if (apply_mass)
-      for (const auto &ivar : vars)
-        for (idx_t ii = 0; ii < M.size (); ++ii) {
-          dprops.at (ivar.first)[ii]  /= M[ii];
-        }
-
-  };
-
-
-};
+};//particles_t class
 
 #endif /* PARTICLES_H */

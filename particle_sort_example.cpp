@@ -1,8 +1,9 @@
-#include <algorithm>
-#include <random>
 #include <quadgrid_cpp.h>
 #include <particles.h>
+#include <algorithm>
 #include <map>
+#include <string>
+#include <vector>
 #include <iostream>
 #include <fstream>
 
@@ -59,7 +60,8 @@ main (int argc, char *argv[]) {
       {"vx", std::vector<double>(grid.num_global_nodes (), 0.0)},
         {"vy", std::vector<double>(grid.num_global_nodes (), 0.0)}};
 
-  ptcls.p2g (vars);
+  //ptcls.p2g (vars);
+  ptcls.transfer("p2g", "m", vars, ptcls.dprops.at("m"));
 	of.open("p2g_m.dat");
 	if(of){
 		std::cout<<"Writing on p2g_m file...";
@@ -72,7 +74,8 @@ main (int argc, char *argv[]) {
 		std::cerr<<"Could not open the file\n";
 
 
-	ptcls.g2p(vars,0);
+	//ptcls.g2p(vars,0);
+	ptcls.transfer("g2p", "m", vars, vars.at("m"));
 	of.open("g2p_m.dat");
 	if(of){
 		std::cout<<"Writing on g2p_m file...";
