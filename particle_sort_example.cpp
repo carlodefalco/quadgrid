@@ -15,16 +15,16 @@ main (int argc, char *argv[]) {
   quadgrid_t<std::vector<double>> grid;
   grid.set_sizes (16, 16, 1./16., 1./16.);
 
-  constexpr idx_t num_particles = 1000;//1000000;
+  constexpr idx_t num_particles = 1000000;//1000;//1000000;
   particles_t ptcls (num_particles, {"label"}, {"m", "vx", "vy"}, grid);
   ptcls.dprops["m"].assign (num_particles, 1. / static_cast<double>(num_particles));
 
   idx_t ilabel = 0;
   std::iota (ptcls.iprops["label"].begin (), ptcls.iprops["label"].end (), ilabel);
-  /*
-  //
+  
+  
+ #ifdef VERBOSE
   // This will produce very verbose output
-  //
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
 
@@ -42,7 +42,7 @@ main (int argc, char *argv[]) {
     }
 
   }
-  */
+ #endif //VERBOSE
 
 	std::ofstream of("dprops_m.dat");
 	if(of){

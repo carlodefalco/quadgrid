@@ -1,7 +1,6 @@
 #ifndef QUADGRID_H
 #define QUADGRID_H
 
-#include <algorithm>
 #include <fstream>
 #include <mpi.h>
 #include <vector>
