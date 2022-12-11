@@ -6,7 +6,12 @@
 #include <map>
 #include <string>
 #include <algorithm>
-#include <random>
+#ifdef RANDOM_POS
+	#include <random>
+#else
+	#include <numeric>
+	#include <cmath>
+#endif //RANDOM_POS
 #include <unordered_map>
 
 struct
@@ -38,15 +43,21 @@ particles_t {
 
     M = std::vector<double> (grid.num_global_nodes (), 0.0);
     build_mass ();
-
-    random_particle_positions (n);
-
-    init_particle_mesh ();
+	
+		#ifdef RANDOM_POS
+   		random_particle_positions (n);
+   		init_particle_mesh ();
+   		
+		#endif //RANDOM_POS
+		
+   
+    //init_particle_mesh ();
   };
 
   void
   init_particle_mesh () {
-    for (auto ii = 0; ii - x.size (); ++ii) {
+    //for (auto ii = 0; ii - x.size (); ++ii) {
+    for (auto ii = 0; ii < x.size (); ++ii) {
       idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
       idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
 
@@ -54,6 +65,7 @@ particles_t {
     }
   };
 
+	#ifdef RANDOM_POS
   void
   random_particle_positions (idx_t n) {
     std::random_device rd;
@@ -64,6 +76,7 @@ particles_t {
     std::generate (y.begin (), y.end (),
                    [&] () { return dis (gen) * grid.num_rows () * grid.hy (); });
   };
+	#endif //RANDOM_POS
 
   void
   build_mass () {
