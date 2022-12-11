@@ -13,8 +13,12 @@ simple cartesian quad grid for c++/octave
 per compilare le demo in c++
 
     mpicxx -std=c++17 -I. -o quadgrid_cpp quadgrid_cpp.cpp 
-    mpicxx -std=c++17 -I. -o mass_matrix_example mass_matrix_example.cpp
-    mpicxx -std=c++17 -I. -o particle_sort_example particle_sort_example.cpp 
+    mpicxx -std=c++17 -I. -o mass_matrix_example mass_matrix_example.cpp 
+    mpicxx -std=c++17 -I. -DRANDOM_POS -o particle_sort_example particle_sort_example.cpp 
+    
+per verbose output
+
+     mpicxx -std=c++17 -I. -DRANDOM_POS -DVERBOSE -o particle_sort_example particle_sort_example_verbose.cpp 
     
 per compilare le funzioni utilizzabili da Octave
 
