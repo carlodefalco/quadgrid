@@ -88,18 +88,19 @@ particles_t {
 
     for (auto icell = grid.begin_cell_sweep ();
 	 icell != grid.end_cell_sweep (); ++icell) {
+
       if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
 	for (idx_t ii = 0;
 	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
 	     ++ii) {
-	  idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
+	  idx = grd_to_ptcl.at (icell->get_global_cell_idx ())[ii];
 	  xx = x[idx];
 	  yy = y[idx];
 
 	  for (idx_t inode = 0; inode < 4; ++inode) {
 	    N = icell->shp(xx, yy, inode);
-	    for (auto &ivar : vars) {
-	      vars[ivar.first][icell->gt(inode)]  += N * dprops.at (ivar.first)[ii];
+	    for (auto &ivar : vars) {	    
+	      vars[ivar.first][icell->gt(inode)]  += N * dprops.at (ivar.first)[idx];
 	    }
 	  }
 	}
