@@ -13,7 +13,7 @@ main (int argc, char *argv[]) {
   grid.set_sizes (4, 16, 1./16., 1./16.);
 
   constexpr idx_t num_particles = 100000;
-  particles_t ptcls (num_particles, {"label"}, {"m"}, grid);
+  particles_t ptcls (num_particles, {"label"}, {"m","vx","vy"}, grid);
   std::cerr << " 1 " << "\n";
 
   ptcls.dprops["m"].assign (num_particles, 1.);
@@ -71,7 +71,8 @@ main (int argc, char *argv[]) {
     vars{{"m", std::vector<double>(grid.num_global_nodes (), 0.0)}};
   std::cerr << " 5 " << "\n";
 
-  ptcls.p2g (vars, true);
+  std::vector<std::string> pvarnames{"m"};
+  ptcls.p2g (vars, pvarnames, pvarnames, true);
   std::cerr << " 6 " << "\n";
   
   for (auto ii : vars["m"])
