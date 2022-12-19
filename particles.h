@@ -107,6 +107,7 @@ particles_t {
        PT const & pvarnames,
        GT const & gvarnames,
        bool apply_mass = false) const {
+    
     double N = 0.0, xx = 0.0, yy = 0.0;
     idx_t idx = 0;
 
@@ -137,44 +138,54 @@ particles_t {
 	  vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
 	}
   };
-  
-/*  void
-  p2gdx(std::map<std::string, std::vector<double>>& vars, bool apply_mass = false) const {
-    double N = 0.0, xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
+
+  template<typename GT, typename PT>
+  void
+  p2gd (std::map<std::string, std::vector<double>> & vars,
+	PT const & pvarnames,
+	GT const & gxvarnames,
+	GT const & gyvarnames,
+	bool apply_mass = false) const {
+    
+    double xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
     idx_t idx = 0;
 
-    for (auto icell = grid.begin_cell_sweep(); icell != grid.end_cell_sweep(); ++icell) {
-      for (idx_t ii = 0; ii<grd_to_ptcl.at(icell->get_global_cell_idx()).size(); ++ii) {
-	idx = grd_to_ptcl.at(icell->get_global_cell_idx())[ii];
-	xx = x[idx];
-	yy = y[idx];
+    for (auto icell = grid.begin_cell_sweep();
+	 icell != grid.end_cell_sweep(); ++icell) {
+      
+      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+	for (idx_t ii = 0;
+	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+	     ++ii) {
 
-	for (idx_t inode=0; inode<4; ++inode) {
+	  idx = grd_to_ptcl.at (icell->get_global_cell_idx())[ii];
+	  xx = x[idx];
+	  yy = y[idx];
 
-	  N = icell->shp(xx,yy,inode);
-	  Nx = icell->shg(xx,yy,0,inode);
-	  Ny = icell->shg(xx,yy,1,inode);
-	  for (auto &ivar : vars)
-	    vars[ivar.first][icell->t(inode)] += Nx*dprops.at(ivar.first)[ii];
-	  for (auto &ivar : vars)
-	    vars[ivar.first][icell->t(inode)] += Ny*dprops.at(ivar.first)[ii];
-	  
+	  for (idx_t inode=0; inode<4; ++inode) {
 
+	    Nx = icell->shg (xx, yy, 0, inode);
+	    Ny = icell->shg (xx, yy, 1, inode);
+
+	    for (std::size_t ivar = 0; ivar < pvarnames.size (); ++ivar) {	    
+	      vars[getkey(gxvarnames, ivar)][icell->gt(inode)]  +=
+		Nx * dprops.at (getkey(pvarnames, ivar))[idx];
+	      vars[getkey(gyvarnames, ivar)][icell->gt(inode)]  +=
+		Ny * dprops.at (getkey(pvarnames, ivar))[idx];
+	    }	    
+	  }
 	}
-
-      }
 
     }
 
     if (apply_mass)
-      for (auto &ivar : vars)
-	for (idx_t ii = 0; ii<M.size();+ii) {
-
-	  vars[ivar.first][ii] /= M[ii];
-
+      for (std::size_t ivar = 0; ivar < pvarnames.size (); ++ivar)
+	for (idx_t ii = 0; ii < M.size (); ++ii) {
+	  vars[getkey(gxvarnames, ivar)][ii]  /= M[ii];
+	  vars[getkey(gyvarnames, ivar)][ii]  /= M[ii];
 	}
 
-  }; */
+  }; 
 
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
