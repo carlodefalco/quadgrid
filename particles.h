@@ -81,8 +81,32 @@ particles_t {
     }
   };
 
+
+  const std::string &
+  getkey(std::map<std::string, std::vector<double>> const &varnames,
+	 int ivar) const {
+    return std::next (varnames.begin (), ivar)->first;
+  };
+
+
+  const std::string &
+  getkey(std::vector<std::string> const &varnames,
+	 std::size_t ivar) const {
+    return varnames[ivar];
+  };
+
   void
-  p2g (std::map<std::string, std::vector<double>>& vars, bool apply_mass = false) const {
+  p2g (std::map<std::string, std::vector<double>> & vars,
+       bool apply_mass = false) const {
+    p2g (vars, vars, vars, apply_mass);
+  }
+
+  template<typename GT, typename PT>
+  void
+  p2g (std::map<std::string, std::vector<double>> & vars,       
+       PT const & pvarnames,
+       GT const & gvarnames,
+       bool apply_mass = false) const {
     double N = 0.0, xx = 0.0, yy = 0.0;
     idx_t idx = 0;
 
@@ -99,17 +123,18 @@ particles_t {
 
 	  for (idx_t inode = 0; inode < 4; ++inode) {
 	    N = icell->shp(xx, yy, inode);
-	    for (auto &ivar : vars) {	    
-	      vars[ivar.first][icell->gt(inode)]  += N * dprops.at (ivar.first)[idx];
+	    for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar) {	    
+	      vars[getkey(gvarnames, ivar)][icell->gt(inode)]  +=
+		N * dprops.at (getkey(pvarnames, ivar))[idx];
 	    }
 	  }
 	}
     }
 
     if (apply_mass)
-      for (auto &ivar : vars)
+      for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar)
 	for (idx_t ii = 0; ii < M.size (); ++ii) {
-	  vars[ivar.first][ii]  /= M[ii];
+	  vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
 	}
   };
   
@@ -152,7 +177,17 @@ particles_t {
   }; */
 
   void
-  g2p (std::map<std::string, std::vector<double>> vars, bool apply_mass) {
+  g2p (const std::map<std::string, std::vector<double>>& vars,
+       bool apply_mass) {
+    g2p (vars, vars, vars, apply_mass);
+  }
+
+  template<typename GT, typename PT>
+  void
+  g2p (const std::map<std::string, std::vector<double>>& vars,
+       GT const & gvarnames,
+       PT const & pvarnames,
+       bool apply_mass) {
  
     double N = 0.0, xx = 0.0, yy = 0.0;
     idx_t idx = 0;
@@ -173,8 +208,8 @@ particles_t {
             N = apply_mass ?
 	      icell->shp(xx, yy, inode) * M[icell->gt(inode)] :
 	      icell->shp(xx, yy, inode);
-            for (const auto &ivar : vars)
-              dprops.at (ivar.first)[idx] += N * vars[ivar.first][icell->gt(inode)];
+            for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar)
+              dprops.at (getkey (pvarnames, ivar))[idx] += N * vars.at (getkey (gvarnames, ivar))[icell->gt(inode)];
           }
         }
 
