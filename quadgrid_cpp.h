@@ -399,9 +399,9 @@ quadgrid_t<T>::cell_iterator::operator++ () {
 template <class T>
 void
 quadgrid_t<T>::neighbor_iterator::operator++ () {
-  static idx_t tmp;
+  static idx_t tmp = 0;
   if (data != nullptr) {
-    tmp++;
+    tmp = ++face_idx;
     if (tmp >= quadgrid_t<T>::cell_t::edges_per_cell) {
       data = nullptr;
       face_idx = -1;
@@ -412,18 +412,26 @@ quadgrid_t<T>::neighbor_iterator::operator++ () {
         if (data->rowidx == 0)
           face_idx++;
         else {
-
-          
-            }
+          data->rowidx = tmp % data->num_rows ();
+          data->colidx = tmp / data->num_rows ();
+          data->global_cell_idx = tmp;
+	  data->local_cell_idx = tmp -
+	    (data->start_cell_row () +
+	     data->num_rows () * data->start_cell_col ());          
+        }
       case 1 :
         if (data->rowidx == data->num_rows () - 1)
           face_idx++;
         else {
+
+          
         }
       case 2 :
         if (data->colidx == 1)
           face_idx++;
         else {
+
+          
         }
       case 3 :
         if (data->colidx == data->num_cols () - 1) {
@@ -431,6 +439,8 @@ quadgrid_t<T>::neighbor_iterator::operator++ () {
           data = nullptr;
         }
         else {
+
+          
         }
       }
       data->rowidx = tmp % data->num_rows ();
@@ -656,6 +666,7 @@ quadgrid_t<T>::vtk_export (const char *filename,
   /*   </StructuredGrid> */
   /*   </VTKFile> */
 
+  ofs.close ();
 };
 
 
