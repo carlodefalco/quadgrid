@@ -265,11 +265,7 @@ public:
 
   void
   vtk_export (const char *filename,
-              const distributed_vector & f) const;
-
-  void
-  vtk_export_cell (const char * filename,
-                   const std::vector<double> & f) const;
+              const std::map<std::string, distributed_vector> & f) const;
 
   cell_iterator
   begin_cell_sweep ();
@@ -650,22 +646,51 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
 template <class T>
 void
 quadgrid_t<T>::vtk_export (const char *filename,
-                           const T & f) const {
+                           const std::map<std::string, T> & f) const {
 
   std::ofstream ofs (filename, std::ofstream::out);
 
   // This is the XML format of a VTS file to write :
 
-  /* <VTKFile type="StructuredGrid" ...> */
-  /*   <StructuredGrid WholeExtent="x1 x2 y1 y2 z1 z2"> */
-  /*   <Piece Extent="x1 x2 y1 y2 z1 z2"> */
-  /*   <PointData>...</PointData> */
-  /*   <CellData>...</CellData> */
-  /*   <Points>...</Points> */
-  /*   </Piece> */
-  /*   </StructuredGrid> */
-  /*   </VTKFile> */
+  ofs <<
+"<VTKFile type=\"StructuredGrid\" version=\"StructuredGrid\" byte_order=\"LittleEndian\">\n\
+    <StructuredGrid WholeExtent=\"0 " << num_rows() << " 0 " << num_cols() << " 0 0\">\n \
+      <Piece Extent=\"0 " << num_rows() << " 0 " << num_cols() << " 0 0\">\n";
+    
+  ofs << "      <PointData Scalars=\"";
+  for (auto const & ii : f) {
+    ofs << ii.first << ","; 
+  }
+  ofs  << "\">\n";
+  
+  for (auto const & ii : f) {
+    ofs << "        <DataArray type=\"Float64\" Name=\"" << ii.first <<"\" format=\"ascii\">\n        ";
+    for (auto const & jj : ii.second) {
+      ofs << jj << " ";
+    }
+    ofs << std::endl << "        </DataArray>" << std::endl;
+  }
+  
+  
+  
+  ofs << "      </PointData>\n";    
+    
+  ofs << "      <Points>\n        <DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
+  for (idx_t ii = 0; ii <= num_rows(); ++ii) {
+    ofs << "          ";
+    for (idx_t jj = 0; jj <= num_cols(); ++jj) {
+      ofs << std::setprecision(16) << hx()*ii << " " << hy()*jj << " 0 ";
+    }
+    ofs << std::endl;
+  }
+  ofs << "        </DataArray>\n      </Points>\n";
+  
 
+  ofs <<
+"    </Piece>\n\
+  </StructuredGrid>\n\
+</VTKFile>\n";
+ 
   ofs.close ();
 };
 
