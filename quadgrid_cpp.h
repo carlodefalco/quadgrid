@@ -676,9 +676,9 @@ quadgrid_t<T>::vtk_export (const char *filename,
   ofs << "      </PointData>\n";    
     
   ofs << "      <Points>\n        <DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
-  for (idx_t ii = 0; ii <= num_rows(); ++ii) {
+  for (idx_t ii = 0; ii <= num_cols(); ++ii) {
     ofs << "          ";
-    for (idx_t jj = 0; jj <= num_cols(); ++jj) {
+    for (idx_t jj = 0; jj <= num_rows(); ++jj) {
       ofs << std::setprecision(16) << hx()*ii << " " << hy()*jj << " 0 ";
     }
     ofs << std::endl;
