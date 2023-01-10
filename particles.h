@@ -31,6 +31,21 @@ particles_t {
     octave_ascii = 1
   };
 
+  double
+  default_x_generator () {
+    static std::random_device rd;
+    static std::mt19937 gen (rd ());
+    static std::uniform_real_distribution<> dis (0.0, 1.0);
+    return dis (gen) * grid.num_cols () * grid.hx ();
+  }
+  double
+  default_y_generator () {
+    static std::random_device rd;
+    static std::mt19937 gen (rd ());
+    static std::uniform_real_distribution<> dis (0.0, 1.0);
+    return dis (gen) * grid.num_rows () * grid.hy (); 
+  }
+  
   template<output_format fmt = output_format::csv>
   void
   print (std::ostream & os) const {
@@ -121,7 +136,9 @@ particles_t {
 
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
-	       const quadgrid_t<std::vector<double>>& grid_)
+	       const quadgrid_t<std::vector<double>>& grid_,
+	       std::function<double ()> xgentr = default_x_generator,
+	       std::function<double ()> ygentr = default_y_generator)
     : x(n, 0.0), y(n, 0.0), grid(grid_) {
 
     for (idx_t ii = 0; ii < ipropnames.size (); ++ii) {
@@ -135,7 +152,7 @@ particles_t {
     M = std::vector<double> (grid.num_global_nodes (), 0.0);
     build_mass ();
 
-    random_particle_positions (n);
+    init_particle_positions (xgentr, ygentr);
 
     init_particle_mesh ();
   };
@@ -155,14 +172,11 @@ particles_t {
   };
 
   void
-  random_particle_positions (idx_t n) {
-    std::random_device rd;
-    std::mt19937 gen (rd ());
-    std::uniform_real_distribution<> dis (0.0, 1.0);
-    std::generate (x.begin (), x.end (),
-		   [&] () { return dis (gen) * grid.num_cols () * grid.hx (); });
-    std::generate (y.begin (), y.end (),
-		   [&] () { return dis (gen) * grid.num_rows () * grid.hy (); });
+  init_particle_positions (std::function<double ()> xgentr,
+			   std::function<double ()> ygentr)
+  {
+    std::generate (x.begin (), x.end (), xgentr);
+    std::generate (y.begin (), y.end (), ygentr);
   };
 
   void
