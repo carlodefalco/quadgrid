@@ -55,88 +55,7 @@ particles_t {
     os << "output format not implementd" << std::endl;
   };
 
-  template<>
-  void
-  print<output_format::csv> (std::ostream & os) const {
-    os << "\"x\", " << "\"y\"";
-    for (auto const & ii : dprops)
-      os << ", \"" << ii.first << "\"";
-    for (auto const & ii : iprops)
-      os << ", \"" << ii.first << "\"";
-    os << std::endl;
-
-
-    for (idx_t jj = 0; jj < x.size (); ++jj) {
-      os << x[jj] << ", " << y[jj];
-      for (auto const & ii : dprops)
-	os << ", " << std::setprecision (16) << ii.second[jj];
-      for (auto const & ii : iprops)
-	os << ", " << ii.second[jj];
-      os << std::endl;
-    }
-  };
-
-  template<>
-  void
-  print<output_format::octave_ascii> (std::ostream & os) const {
-
-
-    os << "# name: x" << std::endl
-       << "# type: matrix" << std::endl
-       << "# rows: 1" << std::endl
-       << "# columns: " << x.size () << std::endl;
-    for (auto const & kk : x) {
-      os  << std::setprecision(16) << kk << " ";
-    }
-    os << std::endl;
-
-    os << "# name: y" << std::endl
-       << "# type: matrix" << std::endl
-       << "# rows: 1" << std::endl
-       << "# columns: " << y.size () << std::endl;
-    for (auto const & kk : y) {
-      os  << std::setprecision(16) << kk << " ";
-    }
-    os << std::endl;
-
-    os << "# name: dprops" << std::endl
-       << "# type: scalar struct" << std::endl
-       << "# ndims: 2" << std::endl
-       << "1 1" << std::endl
-       << "# length: " << dprops.size () << std::endl;
-
-
-    for (auto const & ii : dprops) {
-      os << "# name: " << ii.first << std::endl
-	 << "# type: matrix" << std::endl
-	 << "# rows: 1" << std::endl
-	 << "# columns: " << ii.second.size () << std::endl;
-      for (auto const & kk : ii.second) {
-	os << std::setprecision(16) << kk << " ";
-      }
-      os << std::endl;
-    }
-    os << std::endl;
-
-    os << "# name: iprops" << std::endl
-       << "# type: scalar struct" << std::endl
-       << "# ndims: 2" << std::endl
-       << "1 1" << std::endl
-       << "# length: " << iprops.size () << std::endl;
-
-    for (auto const & ii : iprops) {
-      os << "# name: " << ii.first << std::endl
-	 << "# type: int64 matrix" << std::endl
-	 << "# ndims: 2" << std::endl
-	 << "1 " << ii.second.size () << std::endl;
-      for (auto const & kk : ii.second) {
-	os << kk << " ";
-      }
-      os << std::endl;
-    }
-    os << std::endl;
-  };
-
+ 
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_)
@@ -343,5 +262,89 @@ particles_t {
 
 
 };
+
+
+ template<>
+  void
+ particles_t::print<particles_t::output_format::csv> (std::ostream & os) const {
+    os << "\"x\", " << "\"y\"";
+    for (auto const & ii : dprops)
+      os << ", \"" << ii.first << "\"";
+    for (auto const & ii : iprops)
+      os << ", \"" << ii.first << "\"";
+    os << std::endl;
+
+
+    for (idx_t jj = 0; jj < x.size (); ++jj) {
+      os << x[jj] << ", " << y[jj];
+      for (auto const & ii : dprops)
+	os << ", " << std::setprecision (16) << ii.second[jj];
+      for (auto const & ii : iprops)
+	os << ", " << ii.second[jj];
+      os << std::endl;
+    }
+  };
+
+  template<>
+  void
+  particles_t::print<particles_t::output_format::octave_ascii> (std::ostream & os) const {
+
+
+    os << "# name: x" << std::endl
+       << "# type: matrix" << std::endl
+       << "# rows: 1" << std::endl
+       << "# columns: " << x.size () << std::endl;
+    for (auto const & kk : x) {
+      os  << std::setprecision(16) << kk << " ";
+    }
+    os << std::endl;
+
+    os << "# name: y" << std::endl
+       << "# type: matrix" << std::endl
+       << "# rows: 1" << std::endl
+       << "# columns: " << y.size () << std::endl;
+    for (auto const & kk : y) {
+      os  << std::setprecision(16) << kk << " ";
+    }
+    os << std::endl;
+
+    os << "# name: dprops" << std::endl
+       << "# type: scalar struct" << std::endl
+       << "# ndims: 2" << std::endl
+       << "1 1" << std::endl
+       << "# length: " << dprops.size () << std::endl;
+
+
+    for (auto const & ii : dprops) {
+      os << "# name: " << ii.first << std::endl
+	 << "# type: matrix" << std::endl
+	 << "# rows: 1" << std::endl
+	 << "# columns: " << ii.second.size () << std::endl;
+      for (auto const & kk : ii.second) {
+	os << std::setprecision(16) << kk << " ";
+      }
+      os << std::endl;
+    }
+    os << std::endl;
+
+    os << "# name: iprops" << std::endl
+       << "# type: scalar struct" << std::endl
+       << "# ndims: 2" << std::endl
+       << "1 1" << std::endl
+       << "# length: " << iprops.size () << std::endl;
+
+    for (auto const & ii : iprops) {
+      os << "# name: " << ii.first << std::endl
+	 << "# type: int64 matrix" << std::endl
+	 << "# ndims: 2" << std::endl
+	 << "1 " << ii.second.size () << std::endl;
+      for (auto const & kk : ii.second) {
+	os << kk << " ";
+      }
+      os << std::endl;
+    }
+    os << std::endl;
+  };
+
 
 #endif /* PARTICLES_H */
