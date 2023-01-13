@@ -305,20 +305,27 @@ particles_t {
  particles_t::print<particles_t::output_format::csv> (std::ostream & os) const {
 
    os << "\"x\", " << "\"y\"";
-    for (auto const & ii : dprops)
-      os << ", \"" << ii.first << "\"";
-    for (auto const & ii : iprops)
-      os << ", \"" << ii.first << "\"";
-    os << std::endl;
+
+   for (auto const & ii : dprops)
+     os << ", \"" << ii.first << "\"";
+
+   for (auto const & ii : iprops)
+     os << ", \"" << ii.first << "\"";
+
+   os << std::endl;
 
 
-    for (idx_t jj = 0; jj < x.size (); ++jj) {
-      os << x[jj] << ", " << y[jj];
-      for (auto const & ii : dprops)
-	os << ", " << std::setprecision (16) << ii.second[jj];
-      for (auto const & ii : iprops)
-	os << ", " << ii.second[jj];
-      os << std::endl;
+   for (idx_t jj = 0; jj < x.size (); ++jj) {
+
+     os << x[jj] << ", " << y[jj];
+
+     for (auto const & ii : dprops)
+       os << ", " << std::setprecision (16) << ii.second[jj];
+
+     for (auto const & ii : iprops)
+       os << ", " << ii.second[jj];
+
+     os << std::endl;
     }
   };
 
