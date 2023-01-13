@@ -54,10 +54,14 @@ particles_t {
     os << "output format not implementd" << std::endl;
   }
 
+  particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
+    : num_particles(n), grid(grid_) { }
+    
+  
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_)
-  : num_particles(n), x(n, 0.0), y(n, 0.0), grid(grid_) {
+    :  particles_t (n, grid_) {
     
     init_props (ipropnames, dpropnames);
     
@@ -66,16 +70,32 @@ particles_t {
     
     init_particle_mesh ();
   }
-
+  
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_,
-	       std::function<double ()> xgen, std::function<double ()> ygen)
-  : num_particles(n), x(n, 0.0), y(n, 0.0), grid(grid_) {
+	       const std::vector<double> & xgen,
+	       const std::vector<double> & ygen)
+    : particles_t{n, grid_} {
+
+    x = xgen;
+    y = ygen;
+    
+    init_props (ipropnames, dpropnames);
+ 
+    init_particle_mesh ();
+  }
+  
+  particles_t (idx_t n, const std::vector<std::string>& ipropnames,
+	       const std::vector<std::string>& dpropnames,
+	       const quadgrid_t<std::vector<double>>& grid_,
+	       const std::function<double ()> xgen,
+	       std::function<double ()> ygen)
+  : particles_t (n, grid_) {
     
     init_props (ipropnames, dpropnames);
     
-    init_particle_positions (xgen,ygen);
+    init_particle_positions (xgen, ygen);
     
     init_particle_mesh ();
   }
@@ -283,7 +303,8 @@ particles_t {
  template<>
   void
  particles_t::print<particles_t::output_format::csv> (std::ostream & os) const {
-    os << "\"x\", " << "\"y\"";
+
+   os << "\"x\", " << "\"y\"";
     for (auto const & ii : dprops)
       os << ", \"" << ii.first << "\"";
     for (auto const & ii : iprops)
