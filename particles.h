@@ -15,6 +15,7 @@ struct
 particles_t {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  idx_t num_particles;
   std::vector<double> x;
   std::vector<double> y;
 
@@ -31,18 +32,16 @@ particles_t {
     octave_ascii = 1
   };
 
-  static
   double
-  default_x_generator (const quadgrid_t<std::vector<double>>& grid) {
+  default_x_generator () {
     static std::random_device rd;
     static std::mt19937 gen (rd ());
     static std::uniform_real_distribution<> dis (0.0, 1.0);
     return dis (gen) * grid.num_cols () * grid.hx ();
   }
 
-  static
   double
-  default_y_generator (const quadgrid_t<std::vector<double>>& grid) {
+  default_y_generator () {
     static std::random_device rd;
     static std::mt19937 gen (rd ());
     static std::uniform_real_distribution<> dis (0.0, 1.0);
@@ -53,31 +52,48 @@ particles_t {
   void
   print (std::ostream & os) const {
     os << "output format not implementd" << std::endl;
-  };
+  }
 
- 
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_)
-    : x(n, 0.0), y(n, 0.0), grid(grid_) {
+  : num_particles(n), x(n, 0.0), y(n, 0.0), grid(grid_) {
+    
+    init_props (ipropnames, dpropnames);
+    
+    init_particle_positions ([this] {return default_x_generator (); },
+			     [this] {return default_y_generator (); });
+    
+    init_particle_mesh ();
+  }
+
+  particles_t (idx_t n, const std::vector<std::string>& ipropnames,
+	       const std::vector<std::string>& dpropnames,
+	       const quadgrid_t<std::vector<double>>& grid_,
+	       std::function<double ()> xgen, std::function<double ()> ygen)
+  : num_particles(n), x(n, 0.0), y(n, 0.0), grid(grid_) {
+    
+    init_props (ipropnames, dpropnames);
+    
+    init_particle_positions (xgen,ygen);
+    
+    init_particle_mesh ();
+  }
+  
+  void
+  init_props (const std::vector<std::string>& ipropnames,
+	      const std::vector<std::string>& dpropnames) {
 
     for (idx_t ii = 0; ii < ipropnames.size (); ++ii) {
-      iprops[ipropnames[ii]].assign (n, 0);
+      iprops[ipropnames[ii]].assign (num_particles, 0);
     }
 
     for (idx_t ii = 0; ii < dpropnames.size (); ++ii) {
-      dprops[dpropnames[ii]].assign (n, 0.0);
+      dprops[dpropnames[ii]].assign (num_particles, 0.0);
     }
 
-    M = std::vector<double> (grid.num_global_nodes (), 0.0);
-    build_mass ();
-
-    init_particle_positions ([this] {return default_x_generator (this->grid); },
-			     [this] {return default_y_generator (this->grid); });
-
-    init_particle_mesh ();
   };
-
+  
   void
   init_particle_mesh () {
 
@@ -102,7 +118,7 @@ particles_t {
 
   void
   build_mass () {
-    M.assign (M.size (), 0.0);
+    M.assign (num_particles, 0.0);
     for (auto icell = grid.begin_cell_sweep ();
 	 icell != grid.end_cell_sweep (); ++icell) {
       for (auto inode = 0;
