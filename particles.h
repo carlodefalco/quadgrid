@@ -31,15 +31,18 @@ particles_t {
     octave_ascii = 1
   };
 
+  static
   double
-  default_x_generator () {
+  default_x_generator (const quadgrid_t<std::vector<double>>& grid) {
     static std::random_device rd;
     static std::mt19937 gen (rd ());
     static std::uniform_real_distribution<> dis (0.0, 1.0);
     return dis (gen) * grid.num_cols () * grid.hx ();
   }
+
+  static
   double
-  default_y_generator () {
+  default_y_generator (const quadgrid_t<std::vector<double>>& grid) {
     static std::random_device rd;
     static std::mt19937 gen (rd ());
     static std::uniform_real_distribution<> dis (0.0, 1.0);
@@ -136,9 +139,7 @@ particles_t {
 
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
-	       const quadgrid_t<std::vector<double>>& grid_,
-	       std::function<double ()> xgentr = default_x_generator,
-	       std::function<double ()> ygentr = default_y_generator)
+	       const quadgrid_t<std::vector<double>>& grid_)
     : x(n, 0.0), y(n, 0.0), grid(grid_) {
 
     for (idx_t ii = 0; ii < ipropnames.size (); ++ii) {
@@ -152,7 +153,8 @@ particles_t {
     M = std::vector<double> (grid.num_global_nodes (), 0.0);
     build_mass ();
 
-    init_particle_positions (xgentr, ygentr);
+    init_particle_positions ([this] {return default_x_generator (this->grid); },
+			     [this] {return default_y_generator (this->grid); });
 
     init_particle_mesh ();
   };
