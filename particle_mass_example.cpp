@@ -1,7 +1,7 @@
 #include <algorithm>
-#include <random>
-#include <quadgrid_cpp.h>
 #include <particles.h>
+#include <quadgrid_cpp.h>
+#include <random>
 
 
 using idx_t = quadgrid_t<std::vector<double>>::idx_t;
@@ -88,5 +88,3 @@ main (int argc, char *argv[]) {
 
   return 0;
 };
-
-
