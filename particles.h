@@ -2,6 +2,7 @@
 #define PARTICLES_H
 
 #include <algorithm>
+#include <functional>
 #include <iomanip>
 #include <iostream>
 #include <map>
