@@ -237,7 +237,7 @@ particles_t {
 	    Nx = icell->shg (xx, yy, 0, inode);
 	    Ny = icell->shg (xx, yy, 1, inode);
 
-	    for (std::size_t ivar = 0; ivar < pvarnames.size (); ++ivar) {
+	    for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar) {
 	      vars[getkey(gvarnames, ivar)][icell->gt(inode)]  +=
 		(Nx * dprops.at (getkey(pxvarnames, ivar))[idx] +
 		 Ny * dprops.at (getkey(pyvarnames, ivar))[idx]) *
