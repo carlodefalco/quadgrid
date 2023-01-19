@@ -211,9 +211,10 @@ particles_t {
   template<typename GT, typename PT>
   void
   p2gd (std::map<std::string, std::vector<double>> & vars,
-	PT const & pvarnames,
-	GT const & gxvarnames,
-	GT const & gyvarnames,
+	PT const & pxvarnames,
+	PT const & pyvarnames,
+	std::string const &area,
+	GT const & gvarnames,
 	bool apply_mass = false) const {
 
     double xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
@@ -237,10 +238,10 @@ particles_t {
 	    Ny = icell->shg (xx, yy, 1, inode);
 
 	    for (std::size_t ivar = 0; ivar < pvarnames.size (); ++ivar) {
-	      vars[getkey(gxvarnames, ivar)][icell->gt(inode)]  +=
-		Nx * dprops.at (getkey(pvarnames, ivar))[idx];
-	      vars[getkey(gyvarnames, ivar)][icell->gt(inode)]  +=
-		Ny * dprops.at (getkey(pvarnames, ivar))[idx];
+	      vars[getkey(gvarnames, ivar)][icell->gt(inode)]  +=
+		(Nx * dprops.at (getkey(pxvarnames, ivar))[idx] +
+		 Ny * dprops.at (getkey(pyvarnames, ivar))[idx]) *
+		dprops.at (area)[idx];
 	    }
 	  }
 	}
@@ -248,10 +249,9 @@ particles_t {
     }
 
     if (apply_mass)
-      for (std::size_t ivar = 0; ivar < pvarnames.size (); ++ivar)
+      for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar)
 	for (idx_t ii = 0; ii < M.size (); ++ii) {
-	  vars[getkey(gxvarnames, ivar)][ii]  /= M[ii];
-	  vars[getkey(gyvarnames, ivar)][ii]  /= M[ii];
+	  vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
 	}
 
   };
