@@ -139,7 +139,7 @@ particles_t {
 
   void
   build_mass () {
-    M.assign (num_particles, 0.0);
+    M.assign (grid.num_global_nodes (), 0.0);
     for (auto icell = grid.begin_cell_sweep ();
 	 icell != grid.end_cell_sweep (); ++icell) {
       for (auto inode = 0;
