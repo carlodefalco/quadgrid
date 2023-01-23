@@ -305,7 +305,7 @@ particles_t {
 	PT const & pyvarnames,
 	bool apply_mass) {
 
-    double N = 0.0, xx = 0.0, yy = 0.0;
+    double Nx = 0.0, Ny = 0.0, xx = 0.0, yy = 0.0;
     idx_t idx = 0;
 
     for (auto icell = grid.begin_cell_sweep ();
