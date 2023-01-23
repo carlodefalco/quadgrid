@@ -297,7 +297,47 @@ particles_t {
 
   };
 
+  template<typename GT, typename PT>
+  void
+  g2pd (const std::map<std::string, std::vector<double>>& vars,
+	GT const & gvarnames,
+	PT const & pxvarnames,
+	PT const & pyvarnames,
+	bool apply_mass) {
 
+    double N = 0.0, xx = 0.0, yy = 0.0;
+    idx_t idx = 0;
+
+    for (auto icell = grid.begin_cell_sweep ();
+	 icell != grid.end_cell_sweep (); ++icell) {
+
+      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+	for (idx_t ii = 0;
+	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+	     ++ii) {
+
+	  idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
+	  xx = x[idx];
+	  yy = y[idx];
+
+	  for (idx_t inode = 0; inode < 4; ++inode) {
+	    Nx = apply_mass ?
+	      icell->shg(xx, yy, 0, inode) * M[icell->gt(inode)] :
+	      icell->shg(xx, yy, 0, inode);
+	    Ny = apply_mass ?
+	      icell->shg(xx, yy, 1, inode) * M[icell->gt(inode)] :
+	      icell->shg(xx, yy, 1, inode);
+	    for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar) {
+	      dprops.at (getkey (pxvarnames, ivar))[idx] += Nx * vars.at (getkey (gvarnames, ivar))[icell->gt(inode)];
+	      dprops.at (getkey (pxvarnames, ivar))[idx] += Ny * vars.at (getkey (gvarnames, ivar))[icell->gt(inode)];
+	    }
+	  }
+	}
+
+    }
+
+  };
+  
 };
 
 
