@@ -82,7 +82,7 @@ public:
     operator++ ();
 
     neighbor_iterator (cell_t *_data = nullptr,
-                       int _face_idx = -1)
+		       int _face_idx = -1)
       : cell_iterator (_data), face_idx (_face_idx) { };
 
     int
@@ -131,7 +131,7 @@ public:
 
     double
     shg (double x, double y, idx_t idir, idx_t inode) const;
-        
+
     neighbor_iterator
     begin_neighbor_sweep ();
 
@@ -208,8 +208,8 @@ public:
       colidx = grid_properties.start_cell_col;
       global_cell_idx = sub2gind (rowidx, colidx);
       local_cell_idx = global_cell_idx -
-        sub2gind (grid_properties.start_cell_row,
-                  grid_properties.start_cell_col);
+	sub2gind (grid_properties.start_cell_row,
+		  grid_properties.start_cell_col);
     };
 
   private:
@@ -263,11 +263,11 @@ public:
 
   void
   set_sizes (idx_t numrows, idx_t numcols,
-             double hx, double hy);
+	     double hx, double hy);
 
   void
   vtk_export (const char *filename,
-              const std::map<std::string, distributed_vector> & f) const;
+	      const std::map<std::string, distributed_vector> & f) const;
 
   cell_iterator
   begin_cell_sweep ();
@@ -361,7 +361,7 @@ quadgrid_t<T>::begin_cell_sweep () const {
 template <class T>
 void
 quadgrid_t<T>::set_sizes (idx_t numrows, idx_t numcols,
-                          double hx, double hy) {
+			  double hx, double hy) {
   grid_properties.numrows = numrows;
   grid_properties.numcols = numcols;
   grid_properties.hx = hx;
@@ -381,15 +381,15 @@ quadgrid_t<T>::cell_iterator::operator++ () {
   if (data != nullptr) {
     tmp =  data->rowidx + data->num_rows () *  data->colidx + 1;
     if (tmp > (data->end_cell_row () +
-               data->num_rows () * data->end_cell_col ()))
+	       data->num_rows () * data->end_cell_col ()))
       data = nullptr;
     else {
       data->rowidx = tmp % data->num_rows ();
       data->colidx = tmp / data->num_rows ();
       data->global_cell_idx = tmp;
       data->local_cell_idx = tmp -
-        (data->start_cell_row () +
-         data->num_rows () * data->start_cell_col ());
+	(data->start_cell_row () +
+	 data->num_rows () * data->start_cell_col ());
     }
   }
 };
@@ -407,46 +407,46 @@ quadgrid_t<T>::neighbor_iterator::operator++ () {
     else {
       switch (face_idx) {
       case 0 :
-        if (data->rowidx == 0)
-          face_idx++;
-        else {
-          data->rowidx = tmp % data->num_rows ();
-          data->colidx = tmp / data->num_rows ();
-          data->global_cell_idx = tmp;
+	if (data->rowidx == 0)
+	  face_idx++;
+	else {
+	  data->rowidx = tmp % data->num_rows ();
+	  data->colidx = tmp / data->num_rows ();
+	  data->global_cell_idx = tmp;
 	  data->local_cell_idx = tmp -
 	    (data->start_cell_row () +
-	     data->num_rows () * data->start_cell_col ());          
-        }
+	     data->num_rows () * data->start_cell_col ());
+	}
       case 1 :
-        if (data->rowidx == data->num_rows () - 1)
-          face_idx++;
-        else {
+	if (data->rowidx == data->num_rows () - 1)
+	  face_idx++;
+	else {
 
-          
-        }
+
+	}
       case 2 :
-        if (data->colidx == 1)
-          face_idx++;
-        else {
+	if (data->colidx == 1)
+	  face_idx++;
+	else {
 
-          
-        }
+
+	}
       case 3 :
-        if (data->colidx == data->num_cols () - 1) {
-          face_idx = -1;
-          data = nullptr;
-        }
-        else {
+	if (data->colidx == data->num_cols () - 1) {
+	  face_idx = -1;
+	  data = nullptr;
+	}
+	else {
 
-          
-        }
+
+	}
       }
       data->rowidx = tmp % data->num_rows ();
       data->colidx = tmp / data->num_rows ();
       data->global_cell_idx = tmp;
       data->local_cell_idx = tmp -x
-        (data->start_cell_row () +
-         data->num_rows () * data->start_cell_col ());
+	(data->start_cell_row () +
+	 data->num_rows () * data->start_cell_col ());
     }
   }
 };
@@ -507,7 +507,7 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
   // should check that inode < 4 in an efficient way
   if (glob < grid_properties.start_owned_nodes
       || glob >= (grid_properties.start_owned_nodes
-                  + grid_properties.num_owned_nodes))
+		  + grid_properties.num_owned_nodes))
     return (glob);
   else
     return (glob - grid_properties.start_owned_nodes);
@@ -538,7 +538,7 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
 template <class T>
 double
 quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
-                          typename quadgrid_t<T>::idx_t inode) const {
+			  typename quadgrid_t<T>::idx_t inode) const {
   static double bottom_left = 0.0;
   // should check that inode < 4 in an efficient way
   if (idir == 0) {
@@ -579,19 +579,19 @@ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
   switch (inode) {
   case 0 :
     return ((x - p(0,0))/grid_properties.hx *
-            (y - p(1,0))/grid_properties.hy);
+	    (y - p(1,0))/grid_properties.hy);
     break;
   case 1 :
     return ((x - p(0,0))/grid_properties.hx *
-            (1. - (y - p(1,0))/grid_properties.hy));
+	    (1. - (y - p(1,0))/grid_properties.hy));
     break;
   case 2 :
     return ((1. - (x - p(0,0))/grid_properties.hx) *
-            (y - p(1,0))/grid_properties.hy);
+	    (y - p(1,0))/grid_properties.hy);
     break;
   case 3 :
     return ((1. - (x - p(0,0))/grid_properties.hx) *
-            (1. - (y - p(1,0))/grid_properties.hy));
+	    (1. - (y - p(1,0))/grid_properties.hy));
     break;
   default :
     throw std::out_of_range ("inode must be in range 0..3");
@@ -601,42 +601,43 @@ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
 template <class T>
 double
 quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
-   switch (inode) {
+  switch (inode) {
   case 0 :
     if (idir == 0) {
       return ((1. / grid_properties.hx) *
-              ((y - p(1,0)) / grid_properties.hy));
+	      ((y - p(1,0)) / grid_properties.hy));
     }
     else if (idir == 1) {
       return (((x - p(0,0)) / grid_properties.hx) *
-              (1. / grid_properties.hy));
-    }    
+	      (1. / grid_properties.hy));
+    }
+
   case 1 :
     if (idir == 0) {
       return ((1. / grid_properties.hx) *
-              ((1. - (y - p(1,0)) / grid_properties.hy)));
+	      ((1. - (y - p(1,0)) / grid_properties.hy)));
     }
     else if (idir == 1) {
       return (((x - p(0,0)) / grid_properties.hx) *
-              (- 1. / grid_properties.hy));
+	      (- 1. / grid_properties.hy));
     }
   case 2 :
     if (idir == 0) {
-    return ((- 1. / grid_properties.hx) *
-            ((y - p(1,0)) / grid_properties.hy));
+      return ((- 1. / grid_properties.hx) *
+	      ((y - p(1,0)) / grid_properties.hy));
     }
     else if (idir == 1) {
       return ((1. - (x - p(0,0)) / grid_properties.hx) *
-              (1. / grid_properties.hy));
+	      (1. / grid_properties.hy));
     }
   case 3 :
     if (idir == 0) {
       return ((- 1. /grid_properties.hx) *
-              (1. - (y - p(1,0)) / grid_properties.hy));
+	      (1. - (y - p(1,0)) / grid_properties.hy));
     }
     else if (idir == 1) {
-    return ((1. - (x - p(0,0))/grid_properties.hx) *
-            (- 1. / grid_properties.hy));
+      return ((1. - (x - p(0,0))/grid_properties.hx) *
+	      (- 1. / grid_properties.hy));
     }
   default :
     throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
@@ -648,23 +649,23 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
 template <class T>
 void
 quadgrid_t<T>::vtk_export (const char *filename,
-                           const std::map<std::string, T> & f) const {
+			   const std::map<std::string, T> & f) const {
 
   std::ofstream ofs (filename, std::ofstream::out);
 
   // This is the XML format of a VTS file to write :
 
   ofs <<
-"<VTKFile type=\"StructuredGrid\" version=\"StructuredGrid\" byte_order=\"LittleEndian\">\n\
+    "<VTKFile type=\"StructuredGrid\" version=\"StructuredGrid\" byte_order=\"LittleEndian\">\n\
     <StructuredGrid WholeExtent=\"0 " << num_rows() << " 0 " << num_cols() << " 0 0\">\n \
       <Piece Extent=\"0 " << num_rows() << " 0 " << num_cols() << " 0 0\">\n";
-    
+
   ofs << "      <PointData Scalars=\"";
   for (auto const & ii : f) {
-    ofs << ii.first << ","; 
+    ofs << ii.first << ",";
   }
   ofs  << "\">\n";
-  
+
   for (auto const & ii : f) {
     ofs << "        <DataArray type=\"Float64\" Name=\"" << ii.first <<"\" format=\"ascii\">\n        ";
     for (auto const & jj : ii.second) {
@@ -672,11 +673,11 @@ quadgrid_t<T>::vtk_export (const char *filename,
     }
     ofs << std::endl << "        </DataArray>" << std::endl;
   }
-  
-  
-  
-  ofs << "      </PointData>\n";    
-    
+
+
+
+  ofs << "      </PointData>\n";
+
   ofs << "      <Points>\n        <DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
   for (idx_t ii = 0; ii <= num_cols(); ++ii) {
     ofs << "          ";
@@ -686,13 +687,13 @@ quadgrid_t<T>::vtk_export (const char *filename,
     ofs << std::endl;
   }
   ofs << "        </DataArray>\n      </Points>\n";
-  
+
 
   ofs <<
-"    </Piece>\n\
+    "    </Piece>\n\
   </StructuredGrid>\n\
 </VTKFile>\n";
- 
+
   ofs.close ();
 };
 
