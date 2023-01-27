@@ -611,7 +611,7 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
       return (((x - p(0,0)) / grid_properties.hx) *
 	      (1. / grid_properties.hy));
     }
-
+    break;
   case 1 :
     if (idir == 0) {
       return ((1. / grid_properties.hx) *
@@ -621,6 +621,7 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
       return (((x - p(0,0)) / grid_properties.hx) *
 	      (- 1. / grid_properties.hy));
     }
+    break;
   case 2 :
     if (idir == 0) {
       return ((- 1. / grid_properties.hx) *
@@ -630,6 +631,7 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
       return ((1. - (x - p(0,0)) / grid_properties.hx) *
 	      (1. / grid_properties.hy));
     }
+    break;
   case 3 :
     if (idir == 0) {
       return ((- 1. /grid_properties.hx) *
@@ -639,6 +641,7 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
       return ((1. - (x - p(0,0))/grid_properties.hx) *
 	      (- 1. / grid_properties.hy));
     }
+    break;
   default :
     throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
   }
