@@ -267,8 +267,14 @@ public:
 
   void
   vtk_export (const char *filename,
-	      const std::map<std::string, distributed_vector> & f) const;
+	      const std::map<std::string,
+	      distributed_vector> & f) const;
 
+  void
+  octave_ascii_export (const char *filename,
+		       const std::map<std::string,
+		       distributed_vector> & f) const;
+  
   cell_iterator
   begin_cell_sweep ();
 

@@ -398,4 +398,71 @@ quadgrid_t<T>::vtk_export (const char *filename,
 </VTKFile>\n";
 
   ofs.close ();
-};
+}
+
+
+template <class T>
+void
+quadgrid_t<T>::octave_ascii_export
+(
+ std::ostream & os, std::map<std::string,
+ double> const & vars
+ ) const {
+
+  os << "# name: p" << std::endl
+     << "# type: matrix" << std::endl
+     << "# rows: 2" << std::endl
+     << "# columns: " << num_owned_nodes () << std::endl;
+
+  for (idx_t jj = 0; jj < num_cols () + 1; ++jj) {
+    for (idx_t ii = 0; ii < num_rows () + 1; ++ii) {
+      os  << std::setprecision(16) << jj*hx << " ";
+    }
+  }
+  os << std::endl;
+
+  for (idx_t jj = 0; jj < num_cols () + 1; ++jj) {
+    for (idx_t ii = 0; ii < num_rows () + 1; ++ii) {
+      os  << std::setprecision(16) << ii*hy << " ";
+    }
+  }
+  os << std::endl;
+  
+  os << "# name: t" << std::endl
+     << "# type: matrix" << std::endl
+     << "# rows: 4" << std::endl
+     << "# columns: " << num_local_cells () << std::endl;
+  for (auto inode = 0;
+       inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+       ++inode) {
+    for (auto icell = grid.begin_cell_sweep ();
+	 icell != grid.end_cell_sweep (); ++icell) {
+      os  << std::setprecision(16) << icell->gt(inode) << " ";
+    }
+    os << std::endl;
+  }
+  
+
+  os << "# name: vars" << std::endl
+     << "# type: scalar struct" << std::endl
+     << "# ndims: 2" << std::endl
+     << "1 1" << std::endl
+     << "# length: " << vars.size () << std::endl;
+
+
+  for (auto const & ii : vars) {
+    os << "# name: " << ii.first << std::endl
+       << "# type: matrix" << std::endl
+       << "# rows: 1" << std::endl
+       << "# columns: " << ii.second.size () << std::endl;
+    for (auto const & kk : ii.second) {
+      os << std::setprecision(16) << kk << " ";
+    }
+    os << std::endl;
+  }
+  os << std::endl;
+
+}
+
+
+
