@@ -1,31 +1,50 @@
-# quadgrid
-## simple cartesian quad grid with embedded particles for c++/octave
+quadgrid - a simple c++ library for particles in a cartesian quad grid
+======
 
 This library provides simple (template) classes that for a useful
-starting point for the implementation of <a url="https://doi.org/10.1016/bs.aams.2020.12.002">MPM/PIC</a> methods 
+starting point for the implementation of [MPM/PIC](https://www.sciencedirect.com/science/article/abs/pii/S0065215620300120) methods 
 
-The main 
-* `quadgrid_cpp.h`            contiene la classe (template) `quadgrid_t`
-* `particles.h`               contiene la classe `particles_t` che rappresenta un insieme di particelle distribuite nella griglia
-* `quadgrid_cpp.cpp`          è una demo di come utilizzare la classe in una applicazione c++
-* `mass_matrix_example.cpp`   è una demo di come utilizzare la classe in una applicazione c++ per costruire la matrice di massa
-* `particle_sort_example.cpp` è una demo di come utilizzare la classe in una applicazione c++ per gestire particelle e interpolazione
 
-* `quadgrid.h`          definisce la classe `quadgrid` derivata da `octave_base_value` che permette di definire un oggetto `quadgrid_t` in Octave
-* `quadgrid.cc`         definisce le due funzioni Octave `quadgrid` (costruttore della classe quadgrid) e `quadgrid_loop` (esempio di uso di quadgrid in Octave)
+The repository consists of the following folders :
 
-per compilare le demo in c++
+* `include`  contains headers (*`.h`) and template method definition
+  files (`*_imp.h`) the main files included are
+	* `quadgrid_cpp.h`  including the declaration of the (template) class
+      `quadgrid_t` representing the quad grid
+	* `quadgrid_cpp_imp.h` contains *out-of-line* definitions for
+      template methods of the `quadgrid_t`  class   
+	* `particles.h` declares the `particles_t` clares representing
+      particles embedded in a `quadgrid_t` grid
+* `src` contains implementation of methods in the above classes that
+  do not depend on template parameters
+* `test`  provides a few tests and examples
+* `octave` provides a draft of an interface for accessing qudtree
+  objects from within the [GNU Octave](http://www.octave.org)
+  interpreter, which consists of 
+    * `quadgrid.h`  defining the `quadgrid` class inheriting from
+      `octave_base_value`
+	* `quadgrid.cc` defines two Octave functions `quadgrid` and
+      `quadgrid_loop`accessible from the interpreter
 
-    mpicxx -std=c++17 -I. -o quadgrid_cpp quadgrid_cpp.cpp 
-    mpicxx -std=c++17 -I. -o mass_matrix_example mass_matrix_example.cpp
-    mpicxx -std=c++17 -I. -o particle_sort_example particle_sort_example.cpp 
+### Building the examples
+
+To build the examples move to the `test` directory and run
+
+    mpicxx -std=c++17 -I../include -o particle_sort_example
+	particle_sort_example.cpp ../src/particles.cpp
     
-per compilare le funzioni utilizzabili da Octave
+### Main methods in the particles_t class
 
-    CXX=mpicxx CPPFLAGS="-I. -std=c++17" mkoctfile quadgrid.cc 
-    
-per testare da Octave
+* `particles_t::p2g` implements transfer of quantities from the
+  particles to the grid according to the formula
+  
+  \f[
+     u_i = \sum_p N_i(x_p) U_p
+  \f]
 
-     q = quadgrid (10, .1, 5, .02)
-     quadgrid_loop (q)
-     
+* `particles_t::g2p` implements transfer of quantities from the
+  particles to the grid according to the formula
+  
+  \f[
+     U_p = \sum_i N_i(x_p) u_i
+  \f]
