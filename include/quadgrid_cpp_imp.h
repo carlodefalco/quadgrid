@@ -404,11 +404,11 @@ quadgrid_t<T>::vtk_export (const char *filename,
 template <class T>
 void
 quadgrid_t<T>::octave_ascii_export
-(
- std::ostream & os, std::map<std::string,
- double> const & vars
- ) const {
+(const char *filename,
+ std::map<std::string, T> const & vars) const {
 
+  std::ofstream os (filename, std::ofstream::out);
+  
   os << "# name: p" << std::endl
      << "# type: matrix" << std::endl
      << "# rows: 2" << std::endl
@@ -416,14 +416,14 @@ quadgrid_t<T>::octave_ascii_export
 
   for (idx_t jj = 0; jj < num_cols () + 1; ++jj) {
     for (idx_t ii = 0; ii < num_rows () + 1; ++ii) {
-      os  << std::setprecision(16) << jj*hx << " ";
+      os  << std::setprecision(16) << jj*hx() << " ";
     }
   }
   os << std::endl;
 
   for (idx_t jj = 0; jj < num_cols () + 1; ++jj) {
     for (idx_t ii = 0; ii < num_rows () + 1; ++ii) {
-      os  << std::setprecision(16) << ii*hy << " ";
+      os  << std::setprecision(16) << ii*hy() << " ";
     }
   }
   os << std::endl;
@@ -435,8 +435,8 @@ quadgrid_t<T>::octave_ascii_export
   for (auto inode = 0;
        inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
        ++inode) {
-    for (auto icell = grid.begin_cell_sweep ();
-	 icell != grid.end_cell_sweep (); ++icell) {
+    for (auto icell = begin_cell_sweep ();
+	 icell != end_cell_sweep (); ++icell) {
       os  << std::setprecision(16) << icell->gt(inode) << " ";
     }
     os << std::endl;
@@ -462,6 +462,7 @@ quadgrid_t<T>::octave_ascii_export
   }
   os << std::endl;
 
+  os.close ();
 }
 
 
