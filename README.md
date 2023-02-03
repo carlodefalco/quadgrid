@@ -30,8 +30,7 @@ The repository consists of the following folders :
 
 To build the examples move to the `test` directory and run
 
-    mpicxx -std=c++17 -I../include -o particle_sort_example
-	particle_sort_example.cpp ../src/particles.cpp
+    mpicxx -std=c++17 -I../include -o particle_sort_example particle_sort_example.cpp ../src/particles.cpp
     
 ### Main methods in the particles_t class
 
