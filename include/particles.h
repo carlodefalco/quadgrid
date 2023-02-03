@@ -10,26 +10,42 @@
 #include <string>
 
 
+//! \brief Class to represent particles embedded in a grid.
+
+//! Offers methods for transfer of quantities from particles
+//! to grid or vice-versa (`p2g`, `g2p, p2gd`, `g2pd`).
+//! Initial positions of the particles are chosen at random
+//! unless otherwise specified.
+//! To each particle a set one can associate a set of `double`
+//! and one of `int` which are stored in the `std::map` variables
+//! `dprops` and `iprops`, respectively.
+//! Can compute a (lumped) mass matrix to be used in the transfer
+//! functions.
+//! If particles are moved, the connectivity must be updated invoking
+//! the method `init_particle_mesh ()`
 
 struct
 particles_t {
 
+  //! datatype for indexing into vectors of properties
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
-  idx_t num_particles;
-  std::vector<double> x;
-  std::vector<double> y;
+  
+  idx_t num_particles;    //!< number of particles.
+  std::vector<double> x;  //!< x coordinate of particle positions.
+  std::vector<double> y;  //!< y coordinate of particle positions.
 
-  std::map<std::string, std::vector<idx_t>> iprops;
-  std::map<std::string, std::vector<double>> dprops;
+  std::map<std::string, std::vector<idx_t>> iprops;   //!< integer type quantities associated with the particles.
+  std::map<std::string, std::vector<double>> dprops;  //!< `double` type quantities associated with the particles.
 
-  std::vector<double> M;
-  std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;
-  const quadgrid_t<std::vector<double>>& grid;
+  std::vector<double> M;                             //!< Mass matrix to be used for transfers if required.
+  std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid/particles connectivity.
+  const quadgrid_t<std::vector<double>>& grid;       //!< refernce to a grid object.
 
+  //! Enumeration of available output format
   enum class
   output_format : idx_t {
-    csv = 0,
-    octave_ascii = 1
+    csv = 0,           //!< comma separated ascii file with headers, can be read by common spreadsheet apps or by Paraview or Octave.
+    octave_ascii = 1   //!< GNU Octave ascii data format, can be loaded via the `load` command in GNU Octave.
   };
 
   double
