@@ -1,6 +1,10 @@
 # quadgrid
-simple cartesian quad grid for c++/octave
+## simple cartesian quad grid with embedded particles for c++/octave
 
+This library provides simple (template) classes that for a useful
+starting point for the implementation of <a url="https://doi.org/10.1016/bs.aams.2020.12.002">MPM/PIC</a> methods 
+
+The main 
 * `quadgrid_cpp.h`            contiene la classe (template) `quadgrid_t`
 * `particles.h`               contiene la classe `particles_t` che rappresenta un insieme di particelle distribuite nella griglia
 * `quadgrid_cpp.cpp`          è una demo di come utilizzare la classe in una applicazione c++
