@@ -1,4 +1,0 @@
-\_form#0=329x39:\[ |I_2|=\left| \int_{0}^T \psi(t) \left\{ u(a,t)- \int_{\gamma(t)}^a \frac{d\theta}{k(\theta,t)} \int_{a}^\theta c(\xi)u_t(\xi,t)\,d\xi \right\} dt \right| \]
-\_form#1=98x29:\[ u_i = \sum_p N_i(x_p) u_p \]
-\_form#2=99x29:\[ u_i = \sum_p N_i(x_p) U_p \]
-\_form#3=99x28:\[ U_p = \sum_i N_i(x_p) u_i \]
