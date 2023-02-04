@@ -1,4 +1,4 @@
---- Doxyfile	2023-02-03 16:41:06.000000000 +0100
+--- Doxyfile	2023-02-04 10:34:28.000000000 +0100
 +++ standard.txt	2023-02-03 16:31:10.000000000 +0100
 @@ -32,19 +32,19 @@ DOXYFILE_ENCODING      = UTF-8
  # title of most generated pages and in a few other places.
@@ -41,7 +41,7 @@
  
  # If the INLINE_INHERITED_MEMB tag is set to YES, doxygen will show all
  # inherited members of a class in the documentation of that class as if those
-@@ -143,7 +143,7 @@ ALWAYS_DETAILED_SEC    = YES
+@@ -143,14 +143,14 @@ ALWAYS_DETAILED_SEC    = YES
  # operators of the base classes will not be shown.
  # The default value is: NO.
  
@@ -50,6 +50,14 @@
  
  # If the FULL_PATH_NAMES tag is set to YES, doxygen will prepend the full path
  # before files name in the file list and in the header files. If set to NO the
+ # shortest path that makes the file name unique will be used
+ # The default value is: YES.
+ 
+-FULL_PATH_NAMES        = NO	
++FULL_PATH_NAMES        = YES
+ 
+ # The STRIP_FROM_PATH tag can be used to strip a user-defined part of the path.
+ # Stripping is only done if one of the specified strings matches the left-hand
 @@ -477,19 +477,19 @@ NUM_PROC_THREADS       = 1
  # normally produced when WARNINGS is set to YES.
  # The default value is: NO.
@@ -109,3 +117,30 @@
  
  #---------------------------------------------------------------------------
  # Configuration options related to source browsing
+@@ -1256,7 +1256,7 @@ HTML_STYLESHEET        =
+ # list). For an example see the documentation.
+ # This tag requires that the tag GENERATE_HTML is set to YES.
+ 
+-HTML_EXTRA_STYLESHEET  = doxygen-awesome.css
++HTML_EXTRA_STYLESHEET  =
+ 
+ # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
+ # other source files which should be copied to the HTML output directory. Note
+@@ -1566,7 +1566,7 @@ DISABLE_INDEX          = NO
+ # The default value is: NO.
+ # This tag requires that the tag GENERATE_HTML is set to YES.
+ 
+-GENERATE_TREEVIEW      = YES
++GENERATE_TREEVIEW      = NO
+ 
+ # When both GENERATE_TREEVIEW and DISABLE_INDEX are set to YES, then the
+ # FULL_SIDEBAR option determines if the side bar is limited to only the treeview
+@@ -2486,7 +2486,7 @@ INCLUDED_BY_GRAPH      = YES
+ # The default value is: NO.
+ # This tag requires that the tag HAVE_DOT is set to YES.
+ 
+-CALL_GRAPH             = YES
++CALL_GRAPH             = NO
+ 
+ # If the CALLER_GRAPH tag is set to YES then doxygen will generate a caller
+ # dependency graph for every global function or class method.

@@ -37,13 +37,10 @@ To build the examples move to the `test` directory and run
 * `particles_t::p2g` implements transfer of quantities from the
   particles to the grid according to the formula
   
-  \f[
-     u_i = \sum_p N_i(x_p) U_p
-  \f]
+\f[  u_i = \sum_p N_i(x_p) U_p \f]
+
 
 * `particles_t::g2p` implements transfer of quantities from the
   particles to the grid according to the formula
   
-  \f[
-     U_p = \sum_i N_i(x_p) u_i
-  \f]
+\f[ U_p = \sum_i N_i(x_p) u_i  \f]
