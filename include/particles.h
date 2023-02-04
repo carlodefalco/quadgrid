@@ -34,46 +34,89 @@ particles_t {
   std::vector<double> x;  //!< x coordinate of particle positions.
   std::vector<double> y;  //!< y coordinate of particle positions.
 
-  std::map<std::string, std::vector<idx_t>> iprops;   //!< integer type quantities associated with the particles.
-  std::map<std::string, std::vector<double>> dprops;  //!< `double` type quantities associated with the particles.
+  //! integer type quantities associated with the particles.
+  std::map<std::string, std::vector<idx_t>> iprops;
+  //! `double` type quantities associated with the particles.
+  std::map<std::string, std::vector<double>> dprops;  
 
-  std::vector<double> M;                             //!< Mass matrix to be used for transfers if required.
+  std::vector<double> M; //!< Mass matrix to be used for transfers if required.
   std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid/particles connectivity.
   const quadgrid_t<std::vector<double>>& grid;       //!< refernce to a grid object.
 
   //! Enumeration of available output format
   enum class
   output_format : idx_t {
-    csv = 0,           //!< comma separated ascii file with headers, can be read by common spreadsheet apps or by Paraview or Octave.
-    octave_ascii = 1   //!< GNU Octave ascii data format, can be loaded via the `load` command in GNU Octave.
+    csv = 0,           //!< comma separated ascii file with headers,
+                       //! can be read by common spreadsheet apps
+                       //! or by Paraview or Octave.
+      
+    octave_ascii = 1   //!< GNU Octave ascii data format, can be
+                       //! loaded via the `load` command in GNU Octave.
   };
 
+  //! The default generator function used to set up
+  //! x-coordinates of particle positions if none is
+  //! is specified. Generates a uniform random distribution.
   double
   default_x_generator ();
 
+  //! The default generator function used to set up
+  //! y-coordinates of particle positions if none is
+  //! is specified. Generates a uniform random distribution.
   double
   default_y_generator ();
 
-  template<output_format fmt = output_format::csv>
+  //! Template for export function. If a format is
+  //! not specified, just outputs an error message.
+  template<output_format fmt>
   void
   print (std::ostream & os) const {
     os << "output format not implementd" << std::endl;
   }
 
+  //! Simplest form of constructor.
+  //! Distributes particles randomly over the
+  //! grid.
+  //! @param n number of particles
+  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
   particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
     : num_particles(n), grid(grid_) { }
 
-
+  //! Constructor with default position generators.
+  //! Distributes particles randomly over the
+  //! grid.
+  //! @param n number of particles
+  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
+  //! @param ipropnames keys for entries in the particles_t::iprops map.
+  //! @param dpropnames keys for entries in the particles_t::dprops map.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_);
 
+  //! Constructor with custom position vectors.
+  //! Distributes particles based on the given vectors
+  //! `xv` and `yv`. The vectors are copied, and left unchangend
+  //! they can be deleted to reclaim memory if needed.
+  //! @param n number of particles
+  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
+  //! @param ipropnames keys for entries in the particles_t::iprops map.
+  //! @param dpropnames keys for entries in the particles_t::dprops map.
+  //! @param xgen generator function for the x-coordinates of new particles.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_,
 	       const std::vector<double> & xgen,
 	       const std::vector<double> & ygen);
 
+  //! Constructor with custom position generators.
+  //! Distributes particles based on the given generator functions
+  //! `xgen` and `ygen`. Each call to these functions should return
+  //! the x- and y-coordinate of a new particle.
+  //! @param n number of particles
+  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
+  //! @param ipropnames keys for entries in the particles_t::iprops map.
+  //! @param dpropnames keys for entries in the particles_t::dprops map.
+  //! @param xgen generator function for the x-coordinates of new particles.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_,
