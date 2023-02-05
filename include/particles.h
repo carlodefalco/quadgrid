@@ -13,7 +13,7 @@
 //! \brief Class to represent particles embedded in a grid.
 
 //! Offers methods for transfer of quantities from particles
-//! to grid or vice-versa (`p2g`, `g2p, p2gd`, `g2pd`).
+//! to grid or vice-versa (particles_t::p2g, `g2p, p2gd`, `g2pd`).
 //! Initial positions of the particles are chosen at random
 //! unless otherwise specified.
 //! To each particle a set one can associate a set of `double`
@@ -82,8 +82,7 @@ particles_t {
 
   //! @brief Simplest form of constructor.
   
-  //! Distributes particles randomly over the
-  //! grid.
+  //! Particle positions are not assigned, they must be set manually later.
   //! @param n number of particles
   //! @param grid_ quadgrid_t object, sizes need to have been already set up.
   particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
@@ -101,7 +100,8 @@ particles_t {
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_);
 
-  //! Constructor with custom position vectors.
+  //! @brief Constructor with custom position vectors.
+  
   //! Distributes particles based on the given vectors
   //! `xv` and `yv`. The vectors are copied, and left unchangend
   //! they can be deleted to reclaim memory if needed.
@@ -109,14 +109,16 @@ particles_t {
   //! @param grid_ quadgrid_t object, sizes need to have been already set up.
   //! @param ipropnames keys for entries in the particles_t::iprops map.
   //! @param dpropnames keys for entries in the particles_t::dprops map.
-  //! @param xgen generator function for the x-coordinates of new particles.
+  //! @param xv the x-coordinates of new particles.
+  //! @param yv the y-coordinates of new particles.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_,
-	       const std::vector<double> & xgen,
-	       const std::vector<double> & ygen);
+	       const std::vector<double> & xv,
+	       const std::vector<double> & yv);
 
-  //! Constructor with custom position generators.
+  //! @brief Constructor with custom position generators.
+  
   //! Distributes particles based on the given generator functions
   //! `xgen` and `ygen`. Each call to these functions should return
   //! the x- and y-coordinate of a new particle.
@@ -125,23 +127,43 @@ particles_t {
   //! @param ipropnames keys for entries in the particles_t::iprops map.
   //! @param dpropnames keys for entries in the particles_t::dprops map.
   //! @param xgen generator function for the x-coordinates of new particles.
+  //! @param ygen generator function for the y-coordinates of new particles.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
 	       const quadgrid_t<std::vector<double>>& grid_,
 	       std::function<double ()> xgen,
 	       std::function<double ()> ygen);
 
+  //! @brief Initialize particle properties.
+  
+  //! Allocates vectors to store particle properties, this is
+  //! is invoked automatically if the CTOR is invoked specifying
+  //! property names, must be invoked manually otherwise.
+  //! @param ipropnames keys for entries in the particles_t::iprops map.
+  //! @param dpropnames keys for entries in the particles_t::dprops map.
   void
   init_props (const std::vector<std::string>& ipropnames,
 	      const std::vector<std::string>& dpropnames);
 
+  //! @brief Build grid/particles connectivity.
+  
+  //! Builds/updates the `grd_to_ptcl` map. Must be used whenever
+  //! particles cross cell boundaries.
   void
   init_particle_mesh ();
+
+  //! @brief Initialize particle positions with generator functions.
   
+  //! Invoked automatically if the generators are passed to the CTOR,
+  //! must be invoked manually otherwise.
   void
   init_particle_positions (std::function<double ()> xgentr,
 			   std::function<double ()> ygentr);
-  
+
+  //! @brief Construct a mass matrix.
+
+  //! Must be invoked manually before invoking any of the transfer
+  //! methods with flag `use_mass` set to `true`
   void
   build_mass ();
 
