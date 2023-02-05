@@ -104,7 +104,7 @@ $(document).ready(function(){initNavTree('particles_8h_source.html',''); initRes
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="structparticles__t.html">   27</a></span><span class="keyword">struct</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><a class="code hl_struct" href="structparticles__t.html">particles_t</a> {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">   31</a></span>  <span class="keyword">using</span> <a class="code hl_typedef" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> = <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t&lt;std::vector&lt;double&gt;</a>&gt;::idx_t;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">   31</a></span>  <span class="keyword">using</span> <a class="code hl_typedef" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> = <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t&lt;std::vector&lt;double&gt;</a>&gt;<a class="code hl_typedef" href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">::idx_t</a>;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structparticles__t.html#a4805ba84b0fd692529f0647daf0d02ec">   33</a></span>  <a class="code hl_typedef" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> <a class="code hl_variable" href="structparticles__t.html#a4805ba84b0fd692529f0647daf0d02ec">num_particles</a>;    </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structparticles__t.html#ac34d8516ddc6eb69f0329ddd3ed31dcb">   34</a></span>  std::vector&lt;double&gt; <a class="code hl_variable" href="structparticles__t.html#ac34d8516ddc6eb69f0329ddd3ed31dcb">x</a>;  </div>
@@ -140,121 +140,128 @@ $(document).ready(function(){initNavTree('particles_8h_source.html',''); initRes
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  }</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">   89</a></span>  <a class="code hl_function" href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">particles_t</a> (<a class="code hl_typedef" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> n, <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    : num_particles(n), grid(grid_) { }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <a class="code hl_struct" href="structparticles__t.html">particles_t</a> (idx_t n, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>           <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames,</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>           <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <a class="code hl_struct" href="structparticles__t.html">particles_t</a> (idx_t n, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>           <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames,</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>           <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_,</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>           <span class="keyword">const</span> std::vector&lt;double&gt; &amp; xgen,</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>           <span class="keyword">const</span> std::vector&lt;double&gt; &amp; ygen);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <a class="code hl_struct" href="structparticles__t.html">particles_t</a> (idx_t n, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>           <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames,</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>           <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_,</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>           std::function&lt;<span class="keywordtype">double</span> ()&gt; xgen,</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>           std::function&lt;<span class="keywordtype">double</span> ()&gt; ygen);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  init_props (<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>          <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  init_particle_mesh ();</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  init_particle_positions (std::function&lt;<span class="keywordtype">double</span> ()&gt; xgentr,</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>               std::function&lt;<span class="keywordtype">double</span> ()&gt; ygentr);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  build_mass ();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">   88</a></span>  <a class="code hl_function" href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">particles_t</a> (<a class="code hl_typedef" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> n, <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    : num_particles(n), grid(grid_) { }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  <a class="code hl_struct" href="structparticles__t.html">particles_t</a> (<a class="code hl_typedef" href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">idx_t</a> n, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>           <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames,</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>           <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <a class="code hl_struct" href="structparticles__t.html">particles_t</a> (<a class="code hl_typedef" href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">idx_t</a> n, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>           <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames,</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>           <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>           <span class="keyword">const</span> std::vector&lt;double&gt; &amp; xv,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>           <span class="keyword">const</span> std::vector&lt;double&gt; &amp; yv);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <a class="code hl_struct" href="structparticles__t.html">particles_t</a> (<a class="code hl_typedef" href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">idx_t</a> n, <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>           <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>           <span class="keyword">const</span> <a class="code hl_class" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;&amp; grid_,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>           std::function&lt;<span class="keywordtype">double</span> ()&gt; xgen,</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>           std::function&lt;<span class="keywordtype">double</span> ()&gt; ygen);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  init_props (<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; ipropnames,</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>          <span class="keyword">const</span> std::vector&lt;std::string&gt;&amp; dpropnames);</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  <span class="keyword">const</span> std::string &amp;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">  149</a></span>  <a class="code hl_function" href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">getkey</a>(std::map&lt;std::string, std::vector&lt;double&gt;&gt; <span class="keyword">const</span> &amp;varnames,</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>     <span class="keywordtype">int</span> ivar)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordflow">return</span> std::next (varnames.begin (), ivar)-&gt;first;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  };</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  init_particle_mesh ();</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <span class="keyword">const</span> std::string &amp;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">  156</a></span>  <a class="code hl_function" href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">getkey</a>(std::vector&lt;std::string&gt; <span class="keyword">const</span> &amp;varnames,</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>     std::size_t ivar)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> varnames[ivar];</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  };</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">  162</a></span>  <a class="code hl_function" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">p2g</a> (std::map&lt;std::string, std::vector&lt;double&gt;&gt; &amp; vars,</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    p2g (vars, vars, vars, apply_mass);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>  }</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GT, <span class="keyword">typename</span> PT&gt;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  p2g (std::map&lt;std::string, std::vector&lt;double&gt;&gt; &amp; vars,</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>       PT <span class="keyword">const</span> &amp; pvarnames,</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>       GT <span class="keyword">const</span> &amp; gvarnames,</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GT, <span class="keyword">typename</span> PT&gt;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  p2gd (std::map&lt;std::string, std::vector&lt;double&gt;&gt; &amp; vars,</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    PT <span class="keyword">const</span> &amp; pxvarnames,</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    PT <span class="keyword">const</span> &amp; pyvarnames,</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    std::string <span class="keyword">const</span> &amp;area,</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    GT <span class="keyword">const</span> &amp; gvarnames,</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  init_particle_positions (std::function&lt;<span class="keywordtype">double</span> ()&gt; xgentr,</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>               std::function&lt;<span class="keywordtype">double</span> ()&gt; ygentr);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  build_mass ();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  <span class="keyword">const</span> std::string &amp;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">  171</a></span>  <a class="code hl_function" href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">getkey</a>(std::map&lt;std::string, std::vector&lt;double&gt;&gt; <span class="keyword">const</span> &amp;varnames,</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>     <span class="keywordtype">int</span> ivar)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">return</span> std::next (varnames.begin (), ivar)-&gt;first;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  };</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="keyword">const</span> std::string &amp;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">  178</a></span>  <a class="code hl_function" href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">getkey</a>(std::vector&lt;std::string&gt; <span class="keyword">const</span> &amp;varnames,</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>     std::size_t ivar)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> varnames[ivar];</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  };</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d">  184</a></span>  <a class="code hl_function" href="structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d">g2p</a> (<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;double&gt;&gt;&amp; vars,</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>) {</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    g2p (vars, vars, vars, apply_mass);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">  184</a></span>  <a class="code hl_function" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">p2g</a> (std::map&lt;std::string, std::vector&lt;double&gt;&gt; &amp; vars,</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    p2g (vars, vars, vars, apply_mass);</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  }</div>
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GT, <span class="keyword">typename</span> PT&gt;</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  g2p (<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;double&gt;&gt;&amp; vars,</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>       GT <span class="keyword">const</span> &amp; gvarnames,</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>       PT <span class="keyword">const</span> &amp; pvarnames,</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>  p2g (std::map&lt;std::string, std::vector&lt;double&gt;&gt; &amp; vars,</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>       PT <span class="keyword">const</span> &amp; pvarnames,</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>       GT <span class="keyword">const</span> &amp; gvarnames,</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GT, <span class="keyword">typename</span> PT&gt;</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>  <span class="keywordtype">void</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>  g2pd (<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;double&gt;&gt;&amp; vars,</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    GT <span class="keyword">const</span> &amp; gvarnames,</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    PT <span class="keyword">const</span> &amp; pxvarnames,</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    PT <span class="keyword">const</span> &amp; pyvarnames,</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>};</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="preprocessor">#include &quot;<a class="code" href="particles__imp_8h.html">particles_imp.h</a>&quot;</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="preprocessor">#endif </span><span class="comment">/* PARTICLES_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>  p2gd (std::map&lt;std::string, std::vector&lt;double&gt;&gt; &amp; vars,</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    PT <span class="keyword">const</span> &amp; pxvarnames,</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    PT <span class="keyword">const</span> &amp; pyvarnames,</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    std::string <span class="keyword">const</span> &amp;area,</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    GT <span class="keyword">const</span> &amp; gvarnames,</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d">  206</a></span>  <a class="code hl_function" href="structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d">g2p</a> (<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;double&gt;&gt;&amp; vars,</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    g2p (vars, vars, vars, apply_mass);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  }</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GT, <span class="keyword">typename</span> PT&gt;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>  g2p (<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;double&gt;&gt;&amp; vars,</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>       GT <span class="keyword">const</span> &amp; gvarnames,</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>       PT <span class="keyword">const</span> &amp; pvarnames,</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>       <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> GT, <span class="keyword">typename</span> PT&gt;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  g2pd (<span class="keyword">const</span> std::map&lt;std::string, std::vector&lt;double&gt;&gt;&amp; vars,</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    GT <span class="keyword">const</span> &amp; gvarnames,</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    PT <span class="keyword">const</span> &amp; pxvarnames,</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    PT <span class="keyword">const</span> &amp; pyvarnames,</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">bool</span> apply_mass = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>};</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="preprocessor">#include &quot;<a class="code" href="particles__imp_8h.html">particles_imp.h</a>&quot;</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="preprocessor">#endif </span><span class="comment">/* PARTICLES_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="acheck__shg_8cpp_html_ae35ff4114d8b4c0fab85b236209d061e"><div class="ttname"><a href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">idx_t</a></div><div class="ttdeci">quadgrid_t&lt; std::vector&lt; double &gt; &gt;::idx_t idx_t</div><div class="ttdef"><b>Definition:</b> check_shg.cpp:7</div></div>
 <div class="ttc" id="aclassquadgrid__t_html"><div class="ttname"><a href="classquadgrid__t.html">quadgrid_t</a></div><div class="ttdef"><b>Definition:</b> quadgrid_cpp.h:14</div></div>
 <div class="ttc" id="aparticles__imp_8h_html"><div class="ttname"><a href="particles__imp_8h.html">particles_imp.h</a></div></div>
 <div class="ttc" id="aquadgrid__cpp_8h_html"><div class="ttname"><a href="quadgrid__cpp_8h.html">quadgrid_cpp.h</a></div></div>
 <div class="ttc" id="astructparticles__t_html"><div class="ttname"><a href="structparticles__t.html">particles_t</a></div><div class="ttdoc">Class to represent particles embedded in a grid.</div><div class="ttdef"><b>Definition:</b> particles.h:28</div></div>
 <div class="ttc" id="astructparticles__t_html_a21d45be17b4c8493bea2368bc75c811a"><div class="ttname"><a href="structparticles__t.html#a21d45be17b4c8493bea2368bc75c811a">particles_t::grd_to_ptcl</a></div><div class="ttdeci">std::map&lt; idx_t, std::vector&lt; idx_t &gt; &gt; grd_to_ptcl</div><div class="ttdoc">grid/particles connectivity.</div><div class="ttdef"><b>Definition:</b> particles.h:43</div></div>
 <div class="ttc" id="astructparticles__t_html_a2adf734d33fc2f167678274b0b007412"><div class="ttname"><a href="structparticles__t.html#a2adf734d33fc2f167678274b0b007412">particles_t::iprops</a></div><div class="ttdeci">std::map&lt; std::string, std::vector&lt; idx_t &gt; &gt; iprops</div><div class="ttdoc">integer type quantities associated with the particles.</div><div class="ttdef"><b>Definition:</b> particles.h:38</div></div>
-<div class="ttc" id="astructparticles__t_html_a32b39694e2c803918733f31c6e1c95b8"><div class="ttname"><a href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">particles_t::particles_t</a></div><div class="ttdeci">particles_t(idx_t n, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</div><div class="ttdoc">Simplest form of constructor.</div><div class="ttdef"><b>Definition:</b> particles.h:89</div></div>
+<div class="ttc" id="astructparticles__t_html_a32b39694e2c803918733f31c6e1c95b8"><div class="ttname"><a href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">particles_t::particles_t</a></div><div class="ttdeci">particles_t(idx_t n, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</div><div class="ttdoc">Simplest form of constructor.</div><div class="ttdef"><b>Definition:</b> particles.h:88</div></div>
 <div class="ttc" id="astructparticles__t_html_a4805ba84b0fd692529f0647daf0d02ec"><div class="ttname"><a href="structparticles__t.html#a4805ba84b0fd692529f0647daf0d02ec">particles_t::num_particles</a></div><div class="ttdeci">idx_t num_particles</div><div class="ttdoc">number of particles.</div><div class="ttdef"><b>Definition:</b> particles.h:33</div></div>
-<div class="ttc" id="astructparticles__t_html_a48fed34d3ef5d847253d65a94f1c2c1d"><div class="ttname"><a href="structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d">particles_t::g2p</a></div><div class="ttdeci">void g2p(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false)</div><div class="ttdef"><b>Definition:</b> particles.h:184</div></div>
+<div class="ttc" id="astructparticles__t_html_a48fed34d3ef5d847253d65a94f1c2c1d"><div class="ttname"><a href="structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d">particles_t::g2p</a></div><div class="ttdeci">void g2p(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false)</div><div class="ttdef"><b>Definition:</b> particles.h:206</div></div>
 <div class="ttc" id="astructparticles__t_html_a68834707308f986b4a92951fb22afae3"><div class="ttname"><a href="structparticles__t.html#a68834707308f986b4a92951fb22afae3">particles_t::grid</a></div><div class="ttdeci">const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp; grid</div><div class="ttdoc">refernce to a grid object.</div><div class="ttdef"><b>Definition:</b> particles.h:44</div></div>
 <div class="ttc" id="astructparticles__t_html_a839105e0a564b6ac175f7fcf47ed6a64"><div class="ttname"><a href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64">particles_t::output_format</a></div><div class="ttdeci">output_format</div><div class="ttdoc">Enumeration of available output format.</div><div class="ttdef"><b>Definition:</b> particles.h:48</div></div>
 <div class="ttc" id="astructparticles__t_html_a84ff5e75cac554ab1024f099138efb43"><div class="ttname"><a href="structparticles__t.html#a84ff5e75cac554ab1024f099138efb43">particles_t::print</a></div><div class="ttdeci">void print(std::ostream &amp;os) const</div><div class="ttdoc">Template for export function.</div><div class="ttdef"><b>Definition:</b> particles.h:79</div></div>
 <div class="ttc" id="astructparticles__t_html_a9405175dfc59330ddb971860f0321dab"><div class="ttname"><a href="structparticles__t.html#a9405175dfc59330ddb971860f0321dab">particles_t::dprops</a></div><div class="ttdeci">std::map&lt; std::string, std::vector&lt; double &gt; &gt; dprops</div><div class="ttdoc">double type quantities associated with the particles.</div><div class="ttdef"><b>Definition:</b> particles.h:40</div></div>
 <div class="ttc" id="astructparticles__t_html_ac34d8516ddc6eb69f0329ddd3ed31dcb"><div class="ttname"><a href="structparticles__t.html#ac34d8516ddc6eb69f0329ddd3ed31dcb">particles_t::x</a></div><div class="ttdeci">std::vector&lt; double &gt; x</div><div class="ttdoc">x coordinate of particle positions.</div><div class="ttdef"><b>Definition:</b> particles.h:34</div></div>
 <div class="ttc" id="astructparticles__t_html_ac8531263eba7e9e5f80d426e7b22e369"><div class="ttname"><a href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">particles_t::idx_t</a></div><div class="ttdeci">quadgrid_t&lt; std::vector&lt; double &gt; &gt;::idx_t idx_t</div><div class="ttdoc">datatype for indexing into vectors of properties</div><div class="ttdef"><b>Definition:</b> particles.h:31</div></div>
-<div class="ttc" id="astructparticles__t_html_acd71c4bce5c3062b582bf3c65037674e"><div class="ttname"><a href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">particles_t::getkey</a></div><div class="ttdeci">const std::string &amp; getkey(std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const</div><div class="ttdef"><b>Definition:</b> particles.h:156</div></div>
+<div class="ttc" id="astructparticles__t_html_acd71c4bce5c3062b582bf3c65037674e"><div class="ttname"><a href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">particles_t::getkey</a></div><div class="ttdeci">const std::string &amp; getkey(std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const</div><div class="ttdef"><b>Definition:</b> particles.h:178</div></div>
 <div class="ttc" id="astructparticles__t_html_ad66b9250b4500c6b8f068a29bc18972b"><div class="ttname"><a href="structparticles__t.html#ad66b9250b4500c6b8f068a29bc18972b">particles_t::y</a></div><div class="ttdeci">std::vector&lt; double &gt; y</div><div class="ttdoc">y coordinate of particle positions.</div><div class="ttdef"><b>Definition:</b> particles.h:35</div></div>
-<div class="ttc" id="astructparticles__t_html_aeb8f2e4e0cea82d860ce200cde1e4b68"><div class="ttname"><a href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">particles_t::getkey</a></div><div class="ttdeci">const std::string &amp; getkey(std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, int ivar) const</div><div class="ttdef"><b>Definition:</b> particles.h:149</div></div>
+<div class="ttc" id="astructparticles__t_html_aeb8f2e4e0cea82d860ce200cde1e4b68"><div class="ttname"><a href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">particles_t::getkey</a></div><div class="ttdeci">const std::string &amp; getkey(std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, int ivar) const</div><div class="ttdef"><b>Definition:</b> particles.h:171</div></div>
 <div class="ttc" id="astructparticles__t_html_aebe3ce98a23311531e0d8be5cf71a271"><div class="ttname"><a href="structparticles__t.html#aebe3ce98a23311531e0d8be5cf71a271">particles_t::M</a></div><div class="ttdeci">std::vector&lt; double &gt; M</div><div class="ttdoc">Mass matrix to be used for transfers if required.</div><div class="ttdef"><b>Definition:</b> particles.h:42</div></div>
-<div class="ttc" id="astructparticles__t_html_afd0e7b3d2bbf9f47b798805a6a1ba270"><div class="ttname"><a href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">particles_t::p2g</a></div><div class="ttdeci">void p2g(std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false) const</div><div class="ttdef"><b>Definition:</b> particles.h:162</div></div>
+<div class="ttc" id="astructparticles__t_html_afd0e7b3d2bbf9f47b798805a6a1ba270"><div class="ttname"><a href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">particles_t::p2g</a></div><div class="ttdeci">void p2g(std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false) const</div><div class="ttdef"><b>Definition:</b> particles.h:184</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

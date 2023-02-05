@@ -7,7 +7,7 @@ var structparticles__t =
     ] ],
     [ "particles_t", "structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8", null ],
     [ "particles_t", "structparticles__t.html#ae07fa58dec580bf07828f06a100e77ee", null ],
-    [ "particles_t", "structparticles__t.html#a76e4b8e4c03f45d1d85386c9e9e30139", null ],
+    [ "particles_t", "structparticles__t.html#a27caa2f9df6ef02983ec99918efd7db4", null ],
     [ "particles_t", "structparticles__t.html#af6a50a83252c25a4c534086dc31d9325", null ],
     [ "build_mass", "structparticles__t.html#adcd0da9f3014b7be706940d3fdf4bdda", null ],
     [ "default_x_generator", "structparticles__t.html#aed22c8828daf8a352caa203df3fad8c6", null ],
