@@ -1,4 +1,4 @@
---- Doxyfile	2023-02-04 10:44:28.000000000 +0100
+--- Doxyfile	2023-02-05 10:27:54.000000000 +0100
 +++ standard.txt	2023-02-03 16:31:10.000000000 +0100
 @@ -32,19 +32,19 @@ DOXYFILE_ENCODING      = UTF-8
  # title of most generated pages and in a few other places.
@@ -108,6 +108,24 @@
  
  # This tag can be used to specify the character encoding of the source files
  # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
+@@ -1037,7 +1037,7 @@ IMAGE_PATH             =
+ # need to set EXTENSION_MAPPING for the extension otherwise the files are not
+ # properly processed by doxygen.
+ 
+-INPUT_FILTER           = 
++INPUT_FILTER           =
+ 
+ # The FILTER_PATTERNS tag can be used to specify filters on a per file pattern
+ # basis. Doxygen will compare the file name with each pattern and apply the
+@@ -1050,7 +1050,7 @@ INPUT_FILTER           = 
+ # need to set EXTENSION_MAPPING for the extension otherwise the files are not
+ # properly processed by doxygen.
+ 
+-FILTER_PATTERNS        = *.md=./mangle_formulas.sed
++FILTER_PATTERNS        =
+ 
+ # If the FILTER_SOURCE_FILES tag is set to YES, the input filter (if set using
+ # INPUT_FILTER) will also be used to filter the input files that are used for
 @@ -1072,7 +1072,7 @@ FILTER_SOURCE_PATTERNS =
  # (index.html). This can be useful if you have a project on for instance GitHub
  # and want to reuse the introduction page also for the doxygen output.

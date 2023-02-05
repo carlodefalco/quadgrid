@@ -54,19 +54,25 @@ particles_t {
                        //! loaded via the `load` command in GNU Octave.
   };
 
-  //! The default generator function used to set up
+  //! @brief The default generator function used to set up
   //! x-coordinates of particle positions if none is
-  //! is specified. Generates a uniform random distribution.
+  //! is specified.
+
+  //! Generates a uniform random distribution.
   double
   default_x_generator ();
 
-  //! The default generator function used to set up
+  //! @brief The default generator function used to set up
   //! y-coordinates of particle positions if none is
-  //! is specified. Generates a uniform random distribution.
+  //! is specified.
+
+  //! Generates a uniform random distribution.
   double
   default_y_generator ();
 
-  //! Template for export function. If a format is
+  //! @brief Template for export function.
+
+  //! If a format is
   //! not specified, just outputs an error message.
   template<output_format fmt>
   void
@@ -74,7 +80,8 @@ particles_t {
     os << "output format not implementd" << std::endl;
   }
 
-  //! Simplest form of constructor.
+  //! @brief Simplest form of constructor.
+  
   //! Distributes particles randomly over the
   //! grid.
   //! @param n number of particles
@@ -82,7 +89,8 @@ particles_t {
   particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
     : num_particles(n), grid(grid_) { }
 
-  //! Constructor with default position generators.
+  //! @brief Constructor with default position generators.
+  
   //! Distributes particles randomly over the
   //! grid.
   //! @param n number of particles
