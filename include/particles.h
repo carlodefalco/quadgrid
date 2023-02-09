@@ -36,6 +36,7 @@ particles_t {
 
   //! integer type quantities associated with the particles.
   std::map<std::string, std::vector<idx_t>> iprops;
+  
   //! `double` type quantities associated with the particles.
   std::map<std::string, std::vector<double>> dprops;  
 
@@ -166,6 +167,30 @@ particles_t {
   //! methods with flag `use_mass` set to `true`
   void
   build_mass ();
+
+  //! @brief shortcut for `dprops.at (name) [ii]`
+  double &
+  dp (const std::string & name, idx_t ii) {
+    return dprops.at (name) [ii];
+  }
+
+  //! @brief shortcut for `dprops.at (name) [ii]`
+  const double &
+  dp (const std::string & name, idx_t ii) const {
+    return dprops.at (name) [ii];
+  }
+  
+  //! @brief shortcut for `iprops.at (name) [ii]`
+  idx_t &
+  ip (const std::string & name, idx_t ii) {
+    return iprops.at (name) [ii];
+  }
+
+  //! @brief shortcut for `iprops.at (name) [ii]`
+  const idx_t &
+  ip (const std::string & name, idx_t ii) const {
+    return iprops.at (name) [ii];
+  }
 
   const std::string &
   getkey(std::map<std::string, std::vector<double>> const &varnames,
