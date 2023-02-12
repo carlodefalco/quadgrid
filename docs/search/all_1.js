@@ -1,7 +1,7 @@
 var searchData=
 [
   ['cell_5fiterator_0',['cell_iterator',['../classquadgrid__t_1_1cell__t.html#ab34122cd48ec037f3d949f0d49e3e8ea',1,'quadgrid_t::cell_t::cell_iterator()'],['../classquadgrid__t_1_1cell__iterator.html#a4735a1f6407551b9a8f734336bb59dc5',1,'quadgrid_t::cell_iterator::cell_iterator()'],['../classquadgrid__t_1_1cell__iterator.html',1,'quadgrid_t&lt; distributed_vector &gt;::cell_iterator']]],
-  ['cell_5ft_1',['cell_t',['../classquadgrid__t_1_1cell__t.html#a61018bad091d0f22ea5796d42a381f37',1,'quadgrid_t::cell_t::cell_t()'],['../classquadgrid__t_1_1cell__t.html',1,'quadgrid_t&lt; distributed_vector &gt;::cell_t']]],
+  ['cell_5ft_1',['cell_t',['../classquadgrid__t_1_1cell__t.html#a61018bad091d0f22ea5796d42a381f37',1,'quadgrid_t::cell_t::cell_t()'],['../bump__circolare_8cpp.html#a683e2b5cc5010f5a59d182edd365aacb',1,'cell_t():&#160;bump_circolare.cpp'],['../classquadgrid__t_1_1cell__t.html',1,'quadgrid_t&lt; distributed_vector &gt;::cell_t']]],
   ['centroid_2',['centroid',['../classquadgrid__t_1_1cell__t.html#ac1699f3ef434b6137be34d6898056b5d',1,'quadgrid_t::cell_t']]],
   ['check_5fshg_2ecpp_3',['check_shg.cpp',['../check__shg_8cpp.html',1,'']]],
   ['col_5fidx_4',['col_idx',['../classquadgrid__t_1_1cell__t.html#a838fb0f55262b4cd49bd463f2ff21911',1,'quadgrid_t::cell_t']]],

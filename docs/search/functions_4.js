@@ -8,5 +8,6 @@ var searchData=
   ['getkey_5',['getkey',['../structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68',1,'particles_t::getkey(std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, int ivar) const'],['../structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e',1,'particles_t::getkey(std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const']]],
   ['gind2col_6',['gind2col',['../classquadgrid__t_1_1cell__t.html#aa60a52baf2234e5d0d6aed7a46b83724',1,'quadgrid_t::cell_t::gind2col()'],['../classquadgrid__t.html#af5ed9f0fc8713ccd68e361f36f71bf83',1,'quadgrid_t::gind2col()']]],
   ['gind2row_7',['gind2row',['../classquadgrid__t_1_1cell__t.html#ab6c3e9a72d4c95e27c8662817428ff7d',1,'quadgrid_t::cell_t::gind2row()'],['../classquadgrid__t.html#a131635ca04bd59d1369f63e8ad256a74',1,'quadgrid_t::gind2row()']]],
-  ['gt_8',['gt',['../classquadgrid__t_1_1cell__t.html#a845c8ab04bc8b5e1070751c521916288',1,'quadgrid_t::cell_t']]]
+  ['grid_5fvars_5freset_8',['grid_vars_reset',['../bump__circolare_8cpp.html#a5c76daf1cdd51d07de61ad4ace9ad504',1,'bump_circolare.cpp']]],
+  ['gt_9',['gt',['../classquadgrid__t_1_1cell__t.html#a845c8ab04bc8b5e1070751c521916288',1,'quadgrid_t::cell_t']]]
 ];

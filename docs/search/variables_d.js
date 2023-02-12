@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../structparticles__t.html#ad66b9250b4500c6b8f068a29bc18972b',1,'particles_t']]]
+  ['x_0',['x',['../structparticles__t.html#ac34d8516ddc6eb69f0329ddd3ed31dcb',1,'particles_t']]],
+  ['xc_1',['xC',['../bump__circolare_8cpp.html#a9e433f09bff39ef706edf736d0e23061',1,'bump_circolare.cpp']]]
 ];
