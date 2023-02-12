@@ -146,6 +146,40 @@ particles_t {
   init_props (const std::vector<std::string>& ipropnames,
 	      const std::vector<std::string>& dpropnames);
 
+  //! @brief Erase particcles based on coordinates.
+
+  //! Given a function to decide whether a particle
+  //! lies inside a region or not, remove all particles
+  //! for which the function returns true, and also 
+  //! erase corresponding entries in dprops and iprops.
+  void
+  remove_in_region (std::function<bool (double, double)> fun) {
+    std::vector<idx_t> vin{};
+    for (idx_t i = 0; i < num_particles; ++i) {
+      if (fun (x[i], y[i])) {
+	vin.push_back (i);
+      }
+    }
+
+    for (auto &dprop : dprops) {
+      for (auto id = vin.rbegin (); id != vin.rend (); ++id) {
+	dprop.second.erase (dprop.second.begin () + (*id));
+      }
+    }
+
+    for (auto &iprop : iprops) {
+      for (auto id = vin.rbegin (); id != vin.rend (); ++id) {
+	iprop.second.erase (iprop.second.begin () + (*id));
+      }
+    }
+
+    for (auto id = vin.rbegin (); id != vin.rend (); ++id) {
+      x.erase (x.begin () + (*id));
+      y.erase (y.begin () + (*id));
+      --num_particles;
+    }
+  };
+
   //! @brief Build grid/particles connectivity.
   
   //! Builds/updates the `grd_to_ptcl` map. Must be used whenever
