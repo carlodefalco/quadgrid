@@ -173,7 +173,7 @@ particles_t::g2pd
 	  for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar) {
 	    dprops.at (getkey (pxvarnames, ivar))[idx] +=
 	      Nx * vars.at (getkey (gvarnames, ivar))[icell->gt(inode)];
-	    dprops.at (getkey (pxvarnames, ivar))[idx] +=
+	    dprops.at (getkey (pyvarnames, ivar))[idx] +=
 	      Ny * vars.at (getkey (gvarnames, ivar))[icell->gt(inode)];
 	  }
 	}
