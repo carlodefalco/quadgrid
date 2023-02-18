@@ -135,7 +135,12 @@ particles_t::build_mass () {
   }
 }
 
-
+template<>
+void
+particles_t::print<particles_t::output_format::json> (std::ostream & os) const {
+  nlohmann::json j = *this;
+  os << j;
+}
 
 template<>
 void
@@ -227,4 +232,20 @@ particles_t::print<particles_t::output_format::octave_ascii>
   os << std::endl;
 }
 
+void
+to_json (nlohmann::json &j, const particles_t &p) {
+  j = nlohmann::json{
+    {"num_particles", p.num_particles},
+    {"x", p.x},
+    {"y", p.y},
+    {"dprops", p.dprops},
+    {"iprops", p.iprops},
+    {"grid_properties",
+     {{"nx", p.grid.num_cols ()},
+      {"ny", p.grid.num_rows ()},
+      {"hx", p.grid.hx ()},
+      {"hy", p.grid.hy ()}}
+    }
+  };
+}
 
