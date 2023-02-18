@@ -22,9 +22,17 @@ main () {
   std::iota (ptcls.iprops["label"].begin (),
 	     ptcls.iprops["label"].end (), ilabel);
 
+
   {
+    std::map<std::string, std::vector<double>> vars
+    {{"m", std::vector<double>(grid.num_global_nodes (), 0.)},
+     {"vx", std::vector<double>(grid.num_global_nodes (), 0.)},
+     {"vy", std::vector<double>(grid.num_global_nodes (), 0.)}
+    };
     std::ofstream jsonfile ("esempio.json");
-    jsonfile << std::setw(2) << nlohmann::json (ptcls);
+    nlohmann::json j(ptcls);
+    j["grid_vars"] = vars;
+    jsonfile << std::setw(2) << j;
     jsonfile.close ();
   }
 
@@ -34,10 +42,14 @@ main () {
   jsonfile >> j;
   quadgrid_t<std::vector<double>> qg (j["grid_properties"]);
   particles_t p (j, qg);
+  std::map<std::string, std::vector<double>> vars =
+    j["grid_vars"].get<std::map<std::string, std::vector<double>>> ();
   
   {
     std::ofstream jf ("esempio2.json");
-    jf << std::setw(2) << nlohmann::json (p);
+    nlohmann::json j (p);
+    j["grid_vars"] = vars;
+    jf << std::setw(2) << j;
     jf.close ();
   }
   
