@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iomanip>
+#include <json.hpp>
 #include <map>
 #include <mpi.h>
 #include <vector>
@@ -31,6 +32,24 @@ public:
     idx_t             num_owned_nodes;
   };
 
+  void
+  from_json (const nlohmann::json &j, grid_properties_t &q) {
+    
+    j.at ("nx").get_to (q.numcols);
+    j.at ("ny").get_to (q.numrows);
+    j.at ("hx").get_to (q.hx);
+    j.at ("hy").get_to (q.hy);
+
+  
+    q.start_cell_row = 0;
+    q.end_cell_row = q.numrows - 1;
+    q.start_cell_col = 0;
+    q.end_cell_col = q.numcols - 1;
+    q.start_owned_nodes = 0;
+    q.num_owned_nodes = (q.numrows+1)*(q.numcols+1);
+
+  }
+  
   class
   cell_iterator
   {
@@ -251,6 +270,10 @@ public:
     grid_properties.num_owned_nodes = 0;
   };
 
+  /// Ctor that reads grid properties from a json object.
+  quadgrid_t (const nlohmann::json &j, MPI_Comm _comm = MPI_COMM_WORLD) :
+    quadgrid_t(_comm) { from_json (j, grid_properties); };
+  
   /// Delete copy constructor.
   quadgrid_t (const quadgrid_t &) = delete;
 
@@ -348,6 +371,7 @@ private :
   grid_properties_t grid_properties;
 
 };
+
 
 
 #include "quadgrid_cpp_imp.h"

@@ -5,6 +5,7 @@
 #include <functional>
 #include <iomanip>
 #include <iostream>
+#include <json.hpp>
 #include <map>
 #include <quadgrid_cpp.h>
 #include <string>
@@ -51,8 +52,11 @@ particles_t {
                        //! can be read by common spreadsheet apps
                        //! or by Paraview or Octave.
       
-    octave_ascii = 1   //!< GNU Octave ascii data format, can be
+    octave_ascii = 1,  //!< GNU Octave ascii data format, can be
                        //! loaded via the `load` command in GNU Octave.
+
+    json = 2           //! JSON ascii data format, can be reas back in
+                       //! via the ctor, useful for restart data
   };
 
   //! @brief The default generator function used to set up
@@ -80,15 +84,30 @@ particles_t {
   print (std::ostream & os) const {
     os << "output format not implementd" << std::endl;
   }
-
+  
   //! @brief Simplest form of constructor.
   
   //! Particle positions are not assigned, they must be set manually later.
   //! @param n number of particles
   //! @param grid_ quadgrid_t object, sizes need to have been already set up.
   particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
-    : num_particles(n), grid(grid_) { }
+    : num_particles(n), grid(grid_) { } 
 
+  //! @brief Ctor to import data from json.
+  
+  //! Grid data may be stored in the same `json` object but must be read
+  //! separately before invoking this constructor.
+  particles_t (const nlohmann::json &j,
+	       const quadgrid_t<std::vector<double>>& grid_)
+    :  grid(grid_)
+  {
+    j["dprops"].get_to<std::map<std::string, std::vector<double>>> (dprops);
+    j["iprops"].get_to<std::map<std::string, std::vector<int>>> (iprops);
+    j["x"].get_to<std::vector<double>> (x);
+    j["y"].get_to<std::vector<double>> (y);
+    j["num_particles"].get_to<idx_t> (num_particles);
+  }
+  
   //! @brief Constructor with default position generators.
   
   //! Distributes particles randomly over the
@@ -138,7 +157,7 @@ particles_t {
   //! @brief Initialize particle properties.
   
   //! Allocates vectors to store particle properties, this is
-  //! is invoked automatically if the CTOR is invoked specifying
+  //! invoked automatically if the CTOR is invoked specifying
   //! property names, must be invoked manually otherwise.
   //! @param ipropnames keys for entries in the particles_t::iprops map.
   //! @param dpropnames keys for entries in the particles_t::dprops map.
@@ -228,7 +247,7 @@ particles_t {
 
   const std::string &
   getkey(std::map<std::string, std::vector<double>> const &varnames,
-	 int ivar) const {
+	 std::size_t ivar) const {
     return std::next (varnames.begin (), ivar)->first;
   };
 
@@ -239,12 +258,29 @@ particles_t {
     return varnames[ivar];
   };
 
+  const std::string &
+  getkey(std::initializer_list<std::string> const &varnames,
+	 std::size_t ivar) const {
+    return *(std::next (varnames.begin (), ivar));
+  };
+
+  //! @brief Map particle variables to the grid.
+
+  //! Assume all fields of `vars` are to be mapped,
+  //! and use the same field names for particle and
+  //! grid variables.
   void
   p2g (std::map<std::string, std::vector<double>> & vars,
        bool apply_mass = false) const {
     p2g (vars, vars, vars, apply_mass);
   }
 
+  //! @brief Map particle variables to the grid.
+
+  //! Choose which quantities need to be mapped according
+  //! to the strings in `gvarnames`, which c
+  //! and use the same field names for particle and
+  //! grid variables.
   template<typename GT, typename PT>
   void
   p2g (std::map<std::string, std::vector<double>> & vars,
@@ -283,6 +319,12 @@ particles_t {
 	bool apply_mass = false);
 
 };
+
+//! @brief Adaptor to allow implicit conversion from
+//! `particles_t` to `json`.
+void
+to_json (nlohmann::json &j, const particles_t &p);
+
 
 #include "particles_imp.h"
 
