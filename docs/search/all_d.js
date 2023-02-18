@@ -1,13 +1,17 @@
 var searchData=
 [
-  ['quadgrid_0',['quadgrid',['../classquadgrid.html',1,'quadgrid'],['../classquadgrid.html#aa38089f91eca80e648edf4e925e38f02',1,'quadgrid::quadgrid()']]],
-  ['quadgrid_20_2d_20a_20simple_20c_2b_2b_20library_20for_20particles_20in_20a_20cartesian_20quad_20grid_1',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
-  ['quadgrid_2ecc_2',['quadgrid.cc',['../quadgrid_8cc.html',1,'']]],
-  ['quadgrid_2eh_3',['quadgrid.h',['../quadgrid_8h.html',1,'']]],
-  ['quadgrid_5fcpp_2ecpp_4',['quadgrid_cpp.cpp',['../quadgrid__cpp_8cpp.html',1,'']]],
-  ['quadgrid_5fcpp_2eh_5',['quadgrid_cpp.h',['../quadgrid__cpp_8h.html',1,'']]],
-  ['quadgrid_5fcpp_5fimp_2eh_6',['quadgrid_cpp_imp.h',['../quadgrid__cpp__imp_8h.html',1,'']]],
-  ['quadgrid_5ft_7',['quadgrid_t',['../classquadgrid__t.html',1,'quadgrid_t&lt; distributed_vector &gt;'],['../classquadgrid__t.html#ae85fbbf425db58129ae109339760535e',1,'quadgrid_t::quadgrid_t(MPI_Comm _comm=MPI_COMM_WORLD)'],['../classquadgrid__t.html#a736dfabcbe5660de903320e7ba7da8d4',1,'quadgrid_t::quadgrid_t(const quadgrid_t &amp;)=delete']]],
-  ['quadgrid_5ft_3c_20std_3a_3avector_3c_20double_20_3e_20_3e_8',['quadgrid_t&lt; std::vector&lt; double &gt; &gt;',['../classquadgrid__t.html',1,'']]],
-  ['quadgrid_5fvalue_9',['quadgrid_value',['../classquadgrid.html#a147bf247a3547da3b6aea436a02b7232',1,'quadgrid::quadgrid_value(bool=false) const'],['../classquadgrid.html#ad1e6bb6a10c509e42009fc2432b296dd',1,'quadgrid::quadgrid_value(bool=false)']]]
+  ['p_0',['p',['../classquadgrid__t_1_1cell__t.html#a3407d1b024ad5df59c87bd9055144855',1,'quadgrid_t::cell_t']]],
+  ['p2g_1',['p2g',['../structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270',1,'particles_t::p2g(std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false) const'],['../structparticles__t.html#a07dc3e137357921e2deeeed8be3af476',1,'particles_t::p2g(std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pvarnames, GT const &amp;gvarnames, bool apply_mass=false) const']]],
+  ['p2gd_2',['p2gd',['../structparticles__t.html#a310ce986f59ab758bf3cab369bd918d1',1,'particles_t']]],
+  ['particle_5fmass_5fexample_2ecpp_3',['particle_mass_example.cpp',['../particle__mass__example_8cpp.html',1,'']]],
+  ['particle_5fremove_5fexample_2ecpp_4',['particle_remove_example.cpp',['../particle__remove__example_8cpp.html',1,'']]],
+  ['particle_5fsort_5fexample_2ecpp_5',['particle_sort_example.cpp',['../particle__sort__example_8cpp.html',1,'']]],
+  ['particles_2ecpp_6',['particles.cpp',['../particles_8cpp.html',1,'']]],
+  ['particles_2eh_7',['particles.h',['../particles_8h.html',1,'']]],
+  ['particles_5fimp_2eh_8',['particles_imp.h',['../particles__imp_8h.html',1,'']]],
+  ['particles_5ft_9',['particles_t',['../structparticles__t.html',1,'particles_t'],['../structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8',1,'particles_t::particles_t(idx_t n, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_)'],['../structparticles__t.html#ace2a684dff95f793e184ad28c337179b',1,'particles_t::particles_t(const nlohmann::json &amp;j, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_)'],['../structparticles__t.html#ae07fa58dec580bf07828f06a100e77ee',1,'particles_t::particles_t(idx_t n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_)'],['../structparticles__t.html#a27caa2f9df6ef02983ec99918efd7db4',1,'particles_t::particles_t(idx_t n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_, const std::vector&lt; double &gt; &amp;xv, const std::vector&lt; double &gt; &amp;yv)'],['../structparticles__t.html#af6a50a83252c25a4c534086dc31d9325',1,'particles_t::particles_t(idx_t n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const quadgrid_t&lt; std::vector&lt; double &gt; &gt; &amp;grid_, std::function&lt; double()&gt; xgen, std::function&lt; double()&gt; ygen)']]],
+  ['print_10',['print',['../structparticles__t.html#a84ff5e75cac554ab1024f099138efb43',1,'particles_t::print()'],['../classquadgrid.html#ae008b66b5bdb09e5eb366674f23be256',1,'quadgrid::print()']]],
+  ['print_3c_20particles_5ft_3a_3aoutput_5fformat_3a_3acsv_20_3e_11',['print&lt; particles_t::output_format::csv &gt;',['../particles_8cpp.html#a3c5a29639a02be9a6249f027499f1988',1,'particles.cpp']]],
+  ['print_3c_20particles_5ft_3a_3aoutput_5fformat_3a_3ajson_20_3e_12',['print&lt; particles_t::output_format::json &gt;',['../particles_8cpp.html#a7a633ed27c20c0ecd883aeac97414390',1,'particles.cpp']]],
+  ['print_3c_20particles_5ft_3a_3aoutput_5fformat_3a_3aoctave_5fascii_20_3e_13',['print&lt; particles_t::output_format::octave_ascii &gt;',['../particles_8cpp.html#a0d71952c910709fadbd212b436ec65a3',1,'particles.cpp']]]
 ];

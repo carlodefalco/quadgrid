@@ -102,10 +102,11 @@ $(document).ready(function(){initNavTree('structparticles__t.html',''); initResi
 Public Types</h2></td></tr>
 <tr class="memitem:a839105e0a564b6ac175f7fcf47ed6a64"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64">output_format</a> : idx_t { <a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64a628cb5675ff524f3e719b7aa2e88fe3f">csv</a> = 0
 , <a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64acd52085ab50058eb102c62a8e64d1d99">octave_ascii</a> = 1
+, <a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64a466deec76ecdf5fca6d38571f6324d54">json</a> = 2
  }</td></tr>
 <tr class="memdesc:a839105e0a564b6ac175f7fcf47ed6a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of available output format.  <a href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64">More...</a><br /></td></tr>
 <tr class="separator:a839105e0a564b6ac175f7fcf47ed6a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8531263eba7e9e5f80d426e7b22e369"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> = <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt;<a class="el" href="bump__circolare_8cpp.html#aa32e22269dbfc8624bc5d3f1f3b8f6a4">::idx_t</a></td></tr>
+<tr class="memitem:ac8531263eba7e9e5f80d426e7b22e369"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> = <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt;<a class="el" href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">::idx_t</a></td></tr>
 <tr class="memdesc:ac8531263eba7e9e5f80d426e7b22e369"><td class="mdescLeft">&#160;</td><td class="mdescRight">datatype for indexing into vectors of properties  <a href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">More...</a><br /></td></tr>
 <tr class="separator:ac8531263eba7e9e5f80d426e7b22e369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -124,6 +125,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a32b39694e2c803918733f31c6e1c95b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">particles_t</a> (<a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> n, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</td></tr>
 <tr class="memdesc:a32b39694e2c803918733f31c6e1c95b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplest form of constructor.  <a href="structparticles__t.html#a32b39694e2c803918733f31c6e1c95b8">More...</a><br /></td></tr>
 <tr class="separator:a32b39694e2c803918733f31c6e1c95b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2a684dff95f793e184ad28c337179b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ace2a684dff95f793e184ad28c337179b">particles_t</a> (const nlohmann::json &amp;j, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</td></tr>
+<tr class="memdesc:ace2a684dff95f793e184ad28c337179b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ctor to import data from json.  <a href="structparticles__t.html#ace2a684dff95f793e184ad28c337179b">More...</a><br /></td></tr>
+<tr class="separator:ace2a684dff95f793e184ad28c337179b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae07fa58dec580bf07828f06a100e77ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ae07fa58dec580bf07828f06a100e77ee">particles_t</a> (<a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</td></tr>
 <tr class="memdesc:ae07fa58dec580bf07828f06a100e77ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with default position generators.  <a href="structparticles__t.html#ae07fa58dec580bf07828f06a100e77ee">More...</a><br /></td></tr>
 <tr class="separator:ae07fa58dec580bf07828f06a100e77ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +140,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7500d757b2199c2be82f990b3fceac94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a7500d757b2199c2be82f990b3fceac94">init_props</a> (const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames)</td></tr>
 <tr class="memdesc:a7500d757b2199c2be82f990b3fceac94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize particle properties.  <a href="structparticles__t.html#a7500d757b2199c2be82f990b3fceac94">More...</a><br /></td></tr>
 <tr class="separator:a7500d757b2199c2be82f990b3fceac94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a992770f9eab92adba7bbf674d18dcc4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a992770f9eab92adba7bbf674d18dcc4c">remove_in_region</a> (std::function&lt; bool(double, double)&gt; fun)</td></tr>
+<tr class="memdesc:a992770f9eab92adba7bbf674d18dcc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase particcles based on coordinates.  <a href="structparticles__t.html#a992770f9eab92adba7bbf674d18dcc4c">More...</a><br /></td></tr>
+<tr class="separator:a992770f9eab92adba7bbf674d18dcc4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b5bea8f17ea6a62e526c0baea96e50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a58b5bea8f17ea6a62e526c0baea96e50">init_particle_mesh</a> ()</td></tr>
 <tr class="memdesc:a58b5bea8f17ea6a62e526c0baea96e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build grid/particles connectivity.  <a href="structparticles__t.html#a58b5bea8f17ea6a62e526c0baea96e50">More...</a><br /></td></tr>
 <tr class="separator:a58b5bea8f17ea6a62e526c0baea96e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -145,14 +152,30 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adcd0da9f3014b7be706940d3fdf4bdda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#adcd0da9f3014b7be706940d3fdf4bdda">build_mass</a> ()</td></tr>
 <tr class="memdesc:adcd0da9f3014b7be706940d3fdf4bdda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a mass matrix.  <a href="structparticles__t.html#adcd0da9f3014b7be706940d3fdf4bdda">More...</a><br /></td></tr>
 <tr class="separator:adcd0da9f3014b7be706940d3fdf4bdda"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb8f2e4e0cea82d860ce200cde1e4b68"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#aeb8f2e4e0cea82d860ce200cde1e4b68">getkey</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, int ivar) const</td></tr>
-<tr class="separator:aeb8f2e4e0cea82d860ce200cde1e4b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3621354e988ebfe087659884d67d6f4f"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a3621354e988ebfe087659884d67d6f4f">dp</a> (const std::string &amp;name, <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> ii)</td></tr>
+<tr class="memdesc:a3621354e988ebfe087659884d67d6f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <code>dprops.at (name) [ii]</code>  <a href="structparticles__t.html#a3621354e988ebfe087659884d67d6f4f">More...</a><br /></td></tr>
+<tr class="separator:a3621354e988ebfe087659884d67d6f4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d763b378b755824d56711f62806ea60"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a9d763b378b755824d56711f62806ea60">dp</a> (const std::string &amp;name, <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> ii) const</td></tr>
+<tr class="memdesc:a9d763b378b755824d56711f62806ea60"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <code>dprops.at (name) [ii]</code>  <a href="structparticles__t.html#a9d763b378b755824d56711f62806ea60">More...</a><br /></td></tr>
+<tr class="separator:a9d763b378b755824d56711f62806ea60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13f909acf0b25f6a2370df5afc4fbde8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a13f909acf0b25f6a2370df5afc4fbde8">ip</a> (const std::string &amp;name, <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> ii)</td></tr>
+<tr class="memdesc:a13f909acf0b25f6a2370df5afc4fbde8"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <code>iprops.at (name) [ii]</code>  <a href="structparticles__t.html#a13f909acf0b25f6a2370df5afc4fbde8">More...</a><br /></td></tr>
+<tr class="separator:a13f909acf0b25f6a2370df5afc4fbde8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a067b0fb0d9a67124e8c12f58f4b7eab1">ip</a> (const std::string &amp;name, <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> ii) const</td></tr>
+<tr class="memdesc:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <code>iprops.at (name) [ii]</code>  <a href="structparticles__t.html#a067b0fb0d9a67124e8c12f58f4b7eab1">More...</a><br /></td></tr>
+<tr class="separator:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3423a0d2ba1cc1bda3c15ef6e45875d"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ad3423a0d2ba1cc1bda3c15ef6e45875d">getkey</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, std::size_t ivar) const</td></tr>
+<tr class="separator:ad3423a0d2ba1cc1bda3c15ef6e45875d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd71c4bce5c3062b582bf3c65037674e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">getkey</a> (std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const</td></tr>
 <tr class="separator:acd71c4bce5c3062b582bf3c65037674e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af364a872a93b62188c1232c1703d8379"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#af364a872a93b62188c1232c1703d8379">getkey</a> (std::initializer_list&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const</td></tr>
+<tr class="separator:af364a872a93b62188c1232c1703d8379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false) const</td></tr>
+<tr class="memdesc:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <a href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">More...</a><br /></td></tr>
 <tr class="separator:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07dc3e137357921e2deeeed8be3af476"><td class="memTemplParams" colspan="2">template&lt;typename GT , typename PT &gt; </td></tr>
 <tr class="memitem:a07dc3e137357921e2deeeed8be3af476"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a07dc3e137357921e2deeeed8be3af476">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pvarnames, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
+<tr class="memdesc:a07dc3e137357921e2deeeed8be3af476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <a href="structparticles__t.html#a07dc3e137357921e2deeeed8be3af476">More...</a><br /></td></tr>
 <tr class="separator:a07dc3e137357921e2deeeed8be3af476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310ce986f59ab758bf3cab369bd918d1"><td class="memTemplParams" colspan="2">template&lt;typename GT , typename PT &gt; </td></tr>
 <tr class="memitem:a310ce986f59ab758bf3cab369bd918d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a310ce986f59ab758bf3cab369bd918d1">p2gd</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pxvarnames, PT const &amp;pyvarnames, std::string const &amp;area, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
@@ -195,7 +218,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Class to represent particles embedded in a grid. </p>
-<p >Offers methods for transfer of quantities from particles to grid or vice-versa (<a class="el" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">particles_t::p2g</a>, <code>g2p, p2gd</code>, <code>g2pd</code>). Initial positions of the particles are chosen at random unless otherwise specified. To each particle a set one can associate a set of <code>double</code> and one of <code>int</code> which are stored in the <code>std::map</code> variables <code>dprops</code> and <code>iprops</code>, respectively. Can compute a (lumped) mass matrix to be used in the transfer functions. If particles are moved, the connectivity must be updated invoking the method <code>init_particle_mesh ()</code> </p>
+<p >Offers methods for transfer of quantities from particles to grid or vice-versa (<a class="el" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270" title="Map particle variables to the grid.">particles_t::p2g</a>, <code>g2p, p2gd</code>, <code>g2pd</code>). Initial positions of the particles are chosen at random unless otherwise specified. To each particle a set one can associate a set of <code>double</code> and one of <code>int</code> which are stored in the <code>std::map</code> variables <code>dprops</code> and <code>iprops</code>, respectively. Can compute a (lumped) mass matrix to be used in the transfer functions. If particles are moved, the connectivity must be updated invoking the method <code>init_particle_mesh ()</code> </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="ac8531263eba7e9e5f80d426e7b22e369" name="ac8531263eba7e9e5f80d426e7b22e369"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8531263eba7e9e5f80d426e7b22e369">&#9670;&nbsp;</a></span>idx_t</h2>
@@ -204,7 +227,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">particles_t::idx_t</a> =  <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt; &gt;<a class="el" href="bump__circolare_8cpp.html#aa32e22269dbfc8624bc5d3f1f3b8f6a4">::idx_t</a></td>
+          <td class="memname">using <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">particles_t::idx_t</a> =  <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt; &gt;<a class="el" href="check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e">::idx_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -240,13 +263,14 @@ Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a839105e0a564b6ac175f7fcf47ed6a64acd52085ab50058eb102c62a8e64d1d99" name="a839105e0a564b6ac175f7fcf47ed6a64acd52085ab50058eb102c62a8e64d1d99"></a>octave_ascii&#160;</td><td class="fielddoc"><p >GNU Octave ascii data format, can be loaded via the <code>load</code> command in GNU Octave. </p>
 </td></tr>
+<tr><td class="fieldname"><a id="a839105e0a564b6ac175f7fcf47ed6a64a466deec76ecdf5fca6d38571f6324d54" name="a839105e0a564b6ac175f7fcf47ed6a64a466deec76ecdf5fca6d38571f6324d54"></a>json&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a32b39694e2c803918733f31c6e1c95b8" name="a32b39694e2c803918733f31c6e1c95b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32b39694e2c803918733f31c6e1c95b8">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a32b39694e2c803918733f31c6e1c95b8">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -290,8 +314,47 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ace2a684dff95f793e184ad28c337179b" name="ace2a684dff95f793e184ad28c337179b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2a684dff95f793e184ad28c337179b">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">particles_t::particles_t </td>
+          <td>(</td>
+          <td class="paramtype">const nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>grid_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ctor to import data from json. </p>
+<p >Grid data may be stored in the same <code>json</code> object but must be read separately before invoking this constructor. </p>
+
+</div>
+</div>
 <a id="ae07fa58dec580bf07828f06a100e77ee" name="ae07fa58dec580bf07828f06a100e77ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae07fa58dec580bf07828f06a100e77ee">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae07fa58dec580bf07828f06a100e77ee">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +405,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a27caa2f9df6ef02983ec99918efd7db4" name="a27caa2f9df6ef02983ec99918efd7db4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27caa2f9df6ef02983ec99918efd7db4">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a27caa2f9df6ef02983ec99918efd7db4">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,7 +470,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="af6a50a83252c25a4c534086dc31d9325" name="af6a50a83252c25a4c534086dc31d9325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6a50a83252c25a4c534086dc31d9325">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a50a83252c25a4c534086dc31d9325">&#9670;&nbsp;</a></span>particles_t() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -529,6 +592,82 @@ Public Attributes</h2></td></tr>
 
 <p>The default generator function used to set up y-coordinates of particle positions if none is is specified. </p>
 <p >Generates a uniform random distribution. </p>
+
+</div>
+</div>
+<a id="a3621354e988ebfe087659884d67d6f4f" name="a3621354e988ebfe087659884d67d6f4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3621354e988ebfe087659884d67d6f4f">&#9670;&nbsp;</a></span>dp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; particles_t::dp </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a>&#160;</td>
+          <td class="paramname"><em>ii</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shortcut for <code>dprops.at (name) [ii]</code> </p>
+
+</div>
+</div>
+<a id="a9d763b378b755824d56711f62806ea60" name="a9d763b378b755824d56711f62806ea60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d763b378b755824d56711f62806ea60">&#9670;&nbsp;</a></span>dp() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; particles_t::dp </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a>&#160;</td>
+          <td class="paramname"><em>ii</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shortcut for <code>dprops.at (name) [ii]</code> </p>
 
 </div>
 </div>
@@ -658,8 +797,44 @@ template&lt;typename GT , typename PT &gt; </div>
 
 </div>
 </div>
-<a id="aeb8f2e4e0cea82d860ce200cde1e4b68" name="aeb8f2e4e0cea82d860ce200cde1e4b68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb8f2e4e0cea82d860ce200cde1e4b68">&#9670;&nbsp;</a></span>getkey() <span class="overload">[1/2]</span></h2>
+<a id="af364a872a93b62188c1232c1703d8379" name="af364a872a93b62188c1232c1703d8379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af364a872a93b62188c1232c1703d8379">&#9670;&nbsp;</a></span>getkey() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; particles_t::getkey </td>
+          <td>(</td>
+          <td class="paramtype">std::initializer_list&lt; std::string &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>varnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>ivar</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3423a0d2ba1cc1bda3c15ef6e45875d" name="ad3423a0d2ba1cc1bda3c15ef6e45875d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3423a0d2ba1cc1bda3c15ef6e45875d">&#9670;&nbsp;</a></span>getkey() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -676,7 +851,7 @@ template&lt;typename GT , typename PT &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">std::size_t&#160;</td>
           <td class="paramname"><em>ivar</em>&#160;</td>
         </tr>
         <tr>
@@ -695,7 +870,7 @@ template&lt;typename GT , typename PT &gt; </div>
 </div>
 </div>
 <a id="acd71c4bce5c3062b582bf3c65037674e" name="acd71c4bce5c3062b582bf3c65037674e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd71c4bce5c3062b582bf3c65037674e">&#9670;&nbsp;</a></span>getkey() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acd71c4bce5c3062b582bf3c65037674e">&#9670;&nbsp;</a></span>getkey() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -808,13 +983,89 @@ template&lt;typename GT , typename PT &gt; </div>
 </div><div class="memdoc">
 
 <p>Initialize particle properties. </p>
-<p >Allocates vectors to store particle properties, this is is invoked automatically if the CTOR is invoked specifying property names, must be invoked manually otherwise. </p><dl class="params"><dt>Parameters</dt><dd>
+<p >Allocates vectors to store particle properties, this is invoked automatically if the CTOR is invoked specifying property names, must be invoked manually otherwise. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="structparticles__t.html#a2adf734d33fc2f167678274b0b007412" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
     <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="structparticles__t.html#a9405175dfc59330ddb971860f0321dab" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a13f909acf0b25f6a2370df5afc4fbde8" name="a13f909acf0b25f6a2370df5afc4fbde8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13f909acf0b25f6a2370df5afc4fbde8">&#9670;&nbsp;</a></span>ip() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> &amp; particles_t::ip </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a>&#160;</td>
+          <td class="paramname"><em>ii</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shortcut for <code>iprops.at (name) [ii]</code> </p>
+
+</div>
+</div>
+<a id="a067b0fb0d9a67124e8c12f58f4b7eab1" name="a067b0fb0d9a67124e8c12f58f4b7eab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a067b0fb0d9a67124e8c12f58f4b7eab1">&#9670;&nbsp;</a></span>ip() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> &amp; particles_t::ip </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a>&#160;</td>
+          <td class="paramname"><em>ii</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>shortcut for <code>iprops.at (name) [ii]</code> </p>
 
 </div>
 </div>
@@ -851,6 +1102,9 @@ template&lt;typename GT , typename PT &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Map particle variables to the grid. </p>
+<p >Assume all fields of <code>vars</code> are to be mapped, and use the same field names for particle and grid variables. </p>
 
 </div>
 </div>
@@ -893,6 +1147,9 @@ template&lt;typename GT , typename PT &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Map particle variables to the grid. </p>
+<p >Choose which quantities need to be mapped according to the strings in <code>gvarnames</code>, which c and use the same field names for particle and grid variables. </p>
 
 </div>
 </div>
@@ -978,6 +1235,35 @@ template&lt;<a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fc
 
 <p>Template for export function. </p>
 <p >If a format is not specified, just outputs an error message. </p>
+
+</div>
+</div>
+<a id="a992770f9eab92adba7bbf674d18dcc4c" name="a992770f9eab92adba7bbf674d18dcc4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a992770f9eab92adba7bbf674d18dcc4c">&#9670;&nbsp;</a></span>remove_in_region()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::remove_in_region </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; bool(double, double)&gt;&#160;</td>
+          <td class="paramname"><em>fun</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erase particcles based on coordinates. </p>
+<p >Given a function to decide whether a particle lies inside a region or not, remove all particles for which the function returns true, and also erase corresponding entries in dprops and iprops. </p>
 
 </div>
 </div>

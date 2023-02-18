@@ -1,8 +1,6 @@
 var dir_d44c64559bbebec7f509842c48db8b23 =
 [
-    [ "particles.h", "particles_8h.html", [
-      [ "particles_t", "structparticles__t.html", "structparticles__t" ]
-    ] ],
+    [ "particles.h", "particles_8h.html", "particles_8h" ],
     [ "particles_imp.h", "particles__imp_8h.html", null ],
     [ "quadgrid.h", "quadgrid_8h.html", "quadgrid_8h" ],
     [ "quadgrid_cpp.h", "quadgrid__cpp_8h.html", [

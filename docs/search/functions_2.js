@@ -11,5 +11,6 @@ Return in @var{QG} a quadgrid object.\n\
 @deftypefn {Loadable Function} {} @var{QG} = MPI_COMM_WORLD (@var{qg}, @var{nx}, \
 @var{hx}, @var{ny}, @var{hy})\n\
 Return in @var{QG} a quadgrid object.\n\
-@end deftypefn&quot;):&#160;quadgrid.cc']]]
+@end deftypefn&quot;):&#160;quadgrid.cc']]],
+  ['dp_4',['dp',['../structparticles__t.html#a3621354e988ebfe087659884d67d6f4f',1,'particles_t::dp(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a9d763b378b755824d56711f62806ea60',1,'particles_t::dp(const std::string &amp;name, idx_t ii) const']]]
 ];

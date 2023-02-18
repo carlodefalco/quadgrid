@@ -97,12 +97,18 @@ $(document).ready(function(){initNavTree('particles_8cpp.html',''); initResizabl
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7a633ed27c20c0ecd883aeac97414390"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a7a633ed27c20c0ecd883aeac97414390"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a7a633ed27c20c0ecd883aeac97414390">particles_t::print&lt; particles_t::output_format::json &gt;</a> (std::ostream &amp;os) const</td></tr>
+<tr class="separator:a7a633ed27c20c0ecd883aeac97414390"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c5a29639a02be9a6249f027499f1988"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a3c5a29639a02be9a6249f027499f1988"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a3c5a29639a02be9a6249f027499f1988">particles_t::print&lt; particles_t::output_format::csv &gt;</a> (std::ostream &amp;os) const</td></tr>
 <tr class="separator:a3c5a29639a02be9a6249f027499f1988"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d71952c910709fadbd212b436ec65a3"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a0d71952c910709fadbd212b436ec65a3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a0d71952c910709fadbd212b436ec65a3">particles_t::print&lt; particles_t::output_format::octave_ascii &gt;</a> (std::ostream &amp;os) const</td></tr>
 <tr class="separator:a0d71952c910709fadbd212b436ec65a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b68e87009ff969d07de829b38095855"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a4b68e87009ff969d07de829b38095855">to_json</a> (nlohmann::json &amp;j, const <a class="el" href="structparticles__t.html">particles_t</a> &amp;p)</td></tr>
+<tr class="memdesc:a4b68e87009ff969d07de829b38095855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adaptor to allow implicit conversion from <code><a class="el" href="structparticles__t.html" title="Class to represent particles embedded in a grid.">particles_t</a></code> to <code>json</code>.  <a href="particles_8cpp.html#a4b68e87009ff969d07de829b38095855">More...</a><br /></td></tr>
+<tr class="separator:a4b68e87009ff969d07de829b38095855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3c5a29639a02be9a6249f027499f1988" name="a3c5a29639a02be9a6249f027499f1988"></a>
@@ -115,6 +121,26 @@ template&lt;&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void <a class="el" href="structparticles__t.html#a84ff5e75cac554ab1024f099138efb43">particles_t::print</a>&lt; <a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64a628cb5675ff524f3e719b7aa2e88fe3f">particles_t::output_format::csv</a> &gt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a633ed27c20c0ecd883aeac97414390" name="a7a633ed27c20c0ecd883aeac97414390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a633ed27c20c0ecd883aeac97414390">&#9670;&nbsp;</a></span>particles_t::print&lt; particles_t::output_format::json &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="structparticles__t.html#a84ff5e75cac554ab1024f099138efb43">particles_t::print</a>&lt; <a class="el" href="structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64a466deec76ecdf5fca6d38571f6324d54">particles_t::output_format::json</a> &gt; </td>
           <td>(</td>
           <td class="paramtype">std::ostream &amp;&#160;</td>
           <td class="paramname"><em>os</em></td><td>)</td>
@@ -142,6 +168,36 @@ template&lt;&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b68e87009ff969d07de829b38095855" name="a4b68e87009ff969d07de829b38095855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b68e87009ff969d07de829b38095855">&#9670;&nbsp;</a></span>to_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void to_json </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structparticles__t.html">particles_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adaptor to allow implicit conversion from <code><a class="el" href="structparticles__t.html" title="Class to represent particles embedded in a grid.">particles_t</a></code> to <code>json</code>. </p>
 
 </div>
 </div>

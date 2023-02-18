@@ -14,6 +14,6 @@ Return in @var{QG} a quadgrid object.\n\
 @var{hx}, @var{ny}, @var{hy})\n\
 Return in @var{QG} a quadgrid object.\n\
 @end deftypefn&quot;):&#160;quadgrid.cc']]],
-  ['dprops_6',['dprops',['../structparticles__t.html#a9405175dfc59330ddb971860f0321dab',1,'particles_t']]],
-  ['dt_7',['dt',['../bump__circolare_8cpp.html#aa6c33e3440785e1c64b9194df233d1df',1,'bump_circolare.cpp']]]
+  ['dp_6',['dp',['../structparticles__t.html#a3621354e988ebfe087659884d67d6f4f',1,'particles_t::dp(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a9d763b378b755824d56711f62806ea60',1,'particles_t::dp(const std::string &amp;name, idx_t ii) const']]],
+  ['dprops_7',['dprops',['../structparticles__t.html#a9405175dfc59330ddb971860f0321dab',1,'particles_t']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../structparticles__t.html#ad66b9250b4500c6b8f068a29bc18972b',1,'particles_t']]],
-  ['yc_1',['yC',['../bump__circolare_8cpp.html#aa8e6bee00fa82e59bca61531688a2b30',1,'bump_circolare.cpp']]]
+  ['x_0',['x',['../structparticles__t.html#ac34d8516ddc6eb69f0329ddd3ed31dcb',1,'particles_t']]],
+  ['xc_1',['xc',['../particle__remove__example_8cpp.html#a11f379fb701891c280a621b592b4d884',1,'particle_remove_example.cpp']]]
 ];

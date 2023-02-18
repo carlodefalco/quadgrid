@@ -1,16 +1,6 @@
 var searchData=
 [
-  ['neighbor_5fiterator_0',['neighbor_iterator',['../classquadgrid__t_1_1neighbor__iterator.html#a4f8fdb7f9bdc82aef231ad77f7e4fdf9',1,'quadgrid_t::neighbor_iterator::neighbor_iterator()'],['../classquadgrid__t_1_1neighbor__iterator.html',1,'quadgrid_t&lt; distributed_vector &gt;::neighbor_iterator']]],
-  ['nodes_5fper_5fcell_1',['nodes_per_cell',['../classquadgrid__t_1_1cell__t.html#ad9c6810edcf118044a71cf25fa204636',1,'quadgrid_t::cell_t']]],
-  ['not_5fon_5fboundary_2',['NOT_ON_BOUNDARY',['../classquadgrid__t_1_1cell__t.html#a130dca92588c04c3fa091efbff2a33df',1,'quadgrid_t::cell_t']]],
-  ['num_5fcols_3',['num_cols',['../classquadgrid__t_1_1cell__t.html#af314e3d51c27adaa1230b5843e16d524',1,'quadgrid_t::cell_t::num_cols()'],['../classquadgrid__t.html#a485d2fddfb3e302f27042bf6e1202496',1,'quadgrid_t::num_cols() const']]],
-  ['num_5fglobal_5fcells_4',['num_global_cells',['../classquadgrid__t.html#af8d44222b92ddc4d4fff19eb6aea13ff',1,'quadgrid_t']]],
-  ['num_5fglobal_5fnodes_5',['num_global_nodes',['../classquadgrid__t.html#a7cab86253ec4385e8e3c047ed1f5c95c',1,'quadgrid_t']]],
-  ['num_5flocal_5fcells_6',['num_local_cells',['../classquadgrid__t.html#a2253ea722e859bebd22b6349fb7f7254',1,'quadgrid_t']]],
-  ['num_5flocal_5fnodes_7',['num_local_nodes',['../classquadgrid__t.html#a76010ed94731da626d9695bea37322b1',1,'quadgrid_t']]],
-  ['num_5fowned_5fnodes_8',['num_owned_nodes',['../structquadgrid__t_1_1grid__properties__t.html#ae8ec5c5031cb930cd2388864f9daebea',1,'quadgrid_t::grid_properties_t::num_owned_nodes()'],['../classquadgrid__t.html#a41797696c262fd40640f67027d56e095',1,'quadgrid_t::num_owned_nodes()']]],
-  ['num_5fparticles_9',['num_particles',['../structparticles__t.html#a4805ba84b0fd692529f0647daf0d02ec',1,'particles_t::num_particles()'],['../bump__circolare_8cpp.html#a18372397fd4a7060af7bf9ad4147b87d',1,'num_particles():&#160;bump_circolare.cpp']]],
-  ['num_5frows_10',['num_rows',['../classquadgrid__t_1_1cell__t.html#a3a9e58b03fbe985ee455de29a12b4610',1,'quadgrid_t::cell_t::num_rows()'],['../classquadgrid__t.html#a8bb188d8bc64a47849b760a26bdd016f',1,'quadgrid_t::num_rows()']]],
-  ['numcols_11',['numcols',['../structquadgrid__t_1_1grid__properties__t.html#ab7a8d9371d6ac8fb233b3815fa9a2882',1,'quadgrid_t::grid_properties_t::numcols()'],['../bump__circolare_8cpp.html#af7ba224949746af8222f52c52157b567',1,'numcols():&#160;bump_circolare.cpp']]],
-  ['numrows_12',['numrows',['../structquadgrid__t_1_1grid__properties__t.html#abd04d2c612e9f8b8350df90d2cf21787',1,'quadgrid_t::grid_properties_t::numrows()'],['../bump__circolare_8cpp.html#afd2145ded9c234928c7af9345f210db9',1,'numrows():&#160;bump_circolare.cpp']]]
+  ['m_0',['M',['../structparticles__t.html#aebe3ce98a23311531e0d8be5cf71a271',1,'particles_t']]],
+  ['main_1',['main',['../check__shg_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;check_shg.cpp'],['../esempio__json_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;esempio_json.cpp'],['../mass__matrix__example_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;mass_matrix_example.cpp'],['../particle__mass__example_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;particle_mass_example.cpp'],['../particle__remove__example_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;particle_remove_example.cpp'],['../particle__sort__example_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;particle_sort_example.cpp'],['../quadgrid__cpp_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;quadgrid_cpp.cpp']]],
+  ['mass_5fmatrix_5fexample_2ecpp_2',['mass_matrix_example.cpp',['../mass__matrix__example_8cpp.html',1,'']]]
 ];

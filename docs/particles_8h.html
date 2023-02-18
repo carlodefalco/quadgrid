@@ -85,7 +85,8 @@ $(document).ready(function(){initNavTree('particles_8h.html',''); initResizable(
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">particles.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -93,6 +94,7 @@ $(document).ready(function(){initNavTree('particles_8h.html',''); initResizable(
 <code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;json.hpp&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;<a class="el" href="quadgrid__cpp_8h_source.html">quadgrid_cpp.h</a>&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
@@ -105,7 +107,44 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html">particles_t</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to represent particles embedded in a grid.  <a href="structparticles__t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a4b68e87009ff969d07de829b38095855"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8h.html#a4b68e87009ff969d07de829b38095855">to_json</a> (nlohmann::json &amp;j, const <a class="el" href="structparticles__t.html">particles_t</a> &amp;p)</td></tr>
+<tr class="memdesc:a4b68e87009ff969d07de829b38095855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adaptor to allow implicit conversion from <code><a class="el" href="structparticles__t.html" title="Class to represent particles embedded in a grid.">particles_t</a></code> to <code>json</code>.  <a href="particles_8h.html#a4b68e87009ff969d07de829b38095855">More...</a><br /></td></tr>
+<tr class="separator:a4b68e87009ff969d07de829b38095855"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a4b68e87009ff969d07de829b38095855" name="a4b68e87009ff969d07de829b38095855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b68e87009ff969d07de829b38095855">&#9670;&nbsp;</a></span>to_json()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void to_json </td>
+          <td>(</td>
+          <td class="paramtype">nlohmann::json &amp;&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structparticles__t.html">particles_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adaptor to allow implicit conversion from <code><a class="el" href="structparticles__t.html" title="Class to represent particles embedded in a grid.">particles_t</a></code> to <code>json</code>. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

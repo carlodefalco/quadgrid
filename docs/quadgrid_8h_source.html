@@ -117,11 +117,11 @@ $(document).ready(function(){initNavTree('quadgrid_8h_source.html',''); initResi
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">   31</a></span>  <a class="code hl_function" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">quadgrid</a> (octave_idx_type nx = 2, <span class="keywordtype">double</span> <a class="code hl_variable" href="bump__circolare_8cpp.html#ab153b869c29f3ff0ebe37b8ea6c96882">hx</a> = 1.0,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            octave_idx_type ny = 2, <span class="keywordtype">double</span> <a class="code hl_variable" href="bump__circolare_8cpp.html#af11ab9069820fb9070104ee49cdd0aa1">hy</a> = 1.0)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">   31</a></span>  <a class="code hl_function" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">quadgrid</a> (octave_idx_type nx = 2, <span class="keywordtype">double</span> hx = 1.0,</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            octave_idx_type ny = 2, <span class="keywordtype">double</span> hy = 1.0)</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    : octave_base_value () {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    rep = std::make_shared&lt;quadgrid_t&lt;ColumnVector&gt;&gt; ();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    rep-&gt;set_sizes (ny, nx, <a class="code hl_variable" href="bump__circolare_8cpp.html#ab153b869c29f3ff0ebe37b8ea6c96882">hx</a>, <a class="code hl_variable" href="bump__circolare_8cpp.html#af11ab9069820fb9070104ee49cdd0aa1">hy</a>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    rep-&gt;set_sizes (ny, nx, hx, hy);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  };</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keywordtype">void</span></div>
@@ -160,8 +160,6 @@ $(document).ready(function(){initNavTree('quadgrid_8h_source.html',''); initResi
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">bool</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><a class="code hl_function" href="quadgrid_8h.html#ad7ac965040beadd8573ad4c1ae59aeb7">is_quadgrid</a> (<span class="keyword">const</span> octave_value &amp;in);</div>
-<div class="ttc" id="abump__circolare_8cpp_html_ab153b869c29f3ff0ebe37b8ea6c96882"><div class="ttname"><a href="bump__circolare_8cpp.html#ab153b869c29f3ff0ebe37b8ea6c96882">hx</a></div><div class="ttdeci">constexpr double hx</div><div class="ttdef"><b>Definition:</b> bump_circolare.cpp:15</div></div>
-<div class="ttc" id="abump__circolare_8cpp_html_af11ab9069820fb9070104ee49cdd0aa1"><div class="ttname"><a href="bump__circolare_8cpp.html#af11ab9069820fb9070104ee49cdd0aa1">hy</a></div><div class="ttdeci">constexpr double hy</div><div class="ttdef"><b>Definition:</b> bump_circolare.cpp:16</div></div>
 <div class="ttc" id="aclassquadgrid_html"><div class="ttname"><a href="classquadgrid.html">quadgrid</a></div><div class="ttdef"><b>Definition:</b> quadgrid.h:27</div></div>
 <div class="ttc" id="aclassquadgrid_html_a147bf247a3547da3b6aea436a02b7232"><div class="ttname"><a href="classquadgrid.html#a147bf247a3547da3b6aea436a02b7232">quadgrid::quadgrid_value</a></div><div class="ttdeci">const std::shared_ptr&lt; quadgrid_t&lt; ColumnVector &gt; &gt; quadgrid_value(bool=false) const</div><div class="ttdef"><b>Definition:</b> quadgrid.h:52</div></div>
 <div class="ttc" id="aclassquadgrid_html_a20c9312546fa737ce77a0c65798cc79c"><div class="ttname"><a href="classquadgrid.html#a20c9312546fa737ce77a0c65798cc79c">quadgrid::rep</a></div><div class="ttdeci">std::shared_ptr&lt; quadgrid_t&lt; ColumnVector &gt; &gt; rep</div><div class="ttdef"><b>Definition:</b> quadgrid.h:61</div></div>
