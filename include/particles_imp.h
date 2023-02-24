@@ -25,7 +25,7 @@ particles_t::p2g
 
 	for (idx_t inode = 0; inode < 4; ++inode) {
 	  N = icell->shp(xx, yy, inode);
-	  for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar) {
+	  for (std::size_t ivar = 0; ivar < std::size(gvarnames); ++ivar) {
 	    vars[getkey(gvarnames, ivar)][icell->gt(inode)]  +=
 	      N * dprops.at (getkey(pvarnames, ivar))[idx];
 	  }
@@ -34,7 +34,7 @@ particles_t::p2g
   }
 
   if (apply_mass)
-    for (std::size_t ivar = 0; ivar < gvarnames.size (); ++ivar)
+    for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar)
       for (idx_t ii = 0; ii < M.size (); ++ii) {
 	vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
       }

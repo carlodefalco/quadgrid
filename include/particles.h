@@ -245,22 +245,24 @@ particles_t {
     return iprops.at (name) [ii];
   }
 
+  static
   const std::string &
   getkey(std::map<std::string, std::vector<double>> const &varnames,
-	 std::size_t ivar) const {
+	 std::size_t ivar)  {
     return std::next (varnames.begin (), ivar)->first;
   };
 
-
+  static
   const std::string &
   getkey(std::vector<std::string> const &varnames,
-	 std::size_t ivar) const {
+	 std::size_t ivar)  {
     return varnames[ivar];
   };
 
+  static
   const std::string &
   getkey(std::initializer_list<std::string> const &varnames,
-	 std::size_t ivar) const {
+	 std::size_t ivar)  {
     return *(std::next (varnames.begin (), ivar));
   };
 
