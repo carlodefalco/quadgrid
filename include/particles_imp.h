@@ -40,7 +40,17 @@ particles_t::p2g
       }
 }
 
-
+template<typename str>
+void
+particles_t::p2g
+(
+ std::map<std::string, std::vector<double>> & vars,
+ std::initializer_list<str> const & pvarnames,
+ std::initializer_list<str> const & gvarnames,
+ bool apply_mass
+ ) const {
+  particles_t::p2g<std::initializer_list<str> const &, std::initializer_list<str> const &> (vars, pvarnames, gvarnames, apply_mass);
+}
 
 template<typename GT, typename PT>
 void

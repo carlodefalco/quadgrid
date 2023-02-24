@@ -260,8 +260,8 @@ particles_t {
   };
 
   static
-  const std::string &
-  getkey(std::initializer_list<std::string> const &varnames,
+  const char*
+  getkey(std::initializer_list<const char *> const &varnames,
 	 std::size_t ivar)  {
     return *(std::next (varnames.begin (), ivar));
   };
@@ -290,6 +290,13 @@ particles_t {
        GT const & gvarnames,
        bool apply_mass = false) const;
 
+  template<typename str>
+  void
+  p2g (std::map<std::string, std::vector<double>> & vars,
+       std::initializer_list<str> const & pvarnames,
+       std::initializer_list<str> const & gvarnames,
+       bool apply_mass = false) const;
+  
   template<typename GT, typename PT>
   void
   p2gd (std::map<std::string, std::vector<double>> & vars,

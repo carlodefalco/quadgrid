@@ -75,8 +75,7 @@ main (int argc, char *argv[]) {
     vars{{"m", std::vector<double>(grid.num_global_nodes (), 0.)}};
   std::cerr << " 5 " << "\n";
 
-  std::vector<std::string> pvarnames{"m"};
-  ptcls.p2g (vars, pvarnames, pvarnames, true);
+  ptcls.p2g (vars, {"m"}, {"m"}, true);
   std::cerr << " 6 " << "\n";
 
   //  for (auto ii : vars["m"])
