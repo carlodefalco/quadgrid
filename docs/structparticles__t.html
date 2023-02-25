@@ -87,6 +87,7 @@ $(document).ready(function(){initNavTree('structparticles__t.html',''); initResi
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structparticles__t-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">particles_t Struct Reference</div></div>
@@ -164,12 +165,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a067b0fb0d9a67124e8c12f58f4b7eab1">ip</a> (const std::string &amp;name, <a class="el" href="structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369">idx_t</a> ii) const</td></tr>
 <tr class="memdesc:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <code>iprops.at (name) [ii]</code>  <a href="structparticles__t.html#a067b0fb0d9a67124e8c12f58f4b7eab1">More...</a><br /></td></tr>
 <tr class="separator:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3423a0d2ba1cc1bda3c15ef6e45875d"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ad3423a0d2ba1cc1bda3c15ef6e45875d">getkey</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, std::size_t ivar) const</td></tr>
-<tr class="separator:ad3423a0d2ba1cc1bda3c15ef6e45875d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd71c4bce5c3062b582bf3c65037674e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#acd71c4bce5c3062b582bf3c65037674e">getkey</a> (std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const</td></tr>
-<tr class="separator:acd71c4bce5c3062b582bf3c65037674e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af364a872a93b62188c1232c1703d8379"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#af364a872a93b62188c1232c1703d8379">getkey</a> (std::initializer_list&lt; std::string &gt; const &amp;varnames, std::size_t ivar) const</td></tr>
-<tr class="separator:af364a872a93b62188c1232c1703d8379"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false) const</td></tr>
 <tr class="memdesc:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <a href="structparticles__t.html#afd0e7b3d2bbf9f47b798805a6a1ba270">More...</a><br /></td></tr>
 <tr class="separator:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -177,6 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a07dc3e137357921e2deeeed8be3af476"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a07dc3e137357921e2deeeed8be3af476">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pvarnames, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
 <tr class="memdesc:a07dc3e137357921e2deeeed8be3af476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <a href="structparticles__t.html#a07dc3e137357921e2deeeed8be3af476">More...</a><br /></td></tr>
 <tr class="separator:a07dc3e137357921e2deeeed8be3af476"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a292241924cc9e45c88383504bf9b42cc"><td class="memTemplParams" colspan="2">template&lt;typename str &gt; </td></tr>
+<tr class="memitem:a292241924cc9e45c88383504bf9b42cc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a292241924cc9e45c88383504bf9b42cc">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; str &gt; const &amp;pvarnames, std::initializer_list&lt; str &gt; const &amp;gvarnames, bool apply_mass=false) const</td></tr>
+<tr class="separator:a292241924cc9e45c88383504bf9b42cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a310ce986f59ab758bf3cab369bd918d1"><td class="memTemplParams" colspan="2">template&lt;typename GT , typename PT &gt; </td></tr>
 <tr class="memitem:a310ce986f59ab758bf3cab369bd918d1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a310ce986f59ab758bf3cab369bd918d1">p2gd</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pxvarnames, PT const &amp;pyvarnames, std::string const &amp;area, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
 <tr class="separator:a310ce986f59ab758bf3cab369bd918d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -188,6 +186,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adb5af0b00e910077aebaec213fafedce"><td class="memTemplParams" colspan="2">template&lt;typename GT , typename PT &gt; </td></tr>
 <tr class="memitem:adb5af0b00e910077aebaec213fafedce"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#adb5af0b00e910077aebaec213fafedce">g2pd</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pxvarnames, PT const &amp;pyvarnames, bool apply_mass=false)</td></tr>
 <tr class="separator:adb5af0b00e910077aebaec213fafedce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46ed4b85202b6d6d82cba1d37d003502"><td class="memTemplParams" colspan="2">template&lt;typename str &gt; </td></tr>
+<tr class="memitem:a46ed4b85202b6d6d82cba1d37d003502"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a46ed4b85202b6d6d82cba1d37d003502">p2gd</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; str &gt; const &amp;pxvarnames, std::initializer_list&lt; str &gt; const &amp;pyvarnames, std::string const &amp;area, std::initializer_list&lt; str &gt; const &amp;gvarnames, bool apply_mass) const</td></tr>
+<tr class="separator:a46ed4b85202b6d6d82cba1d37d003502"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8f9ebc9007b45667c668099107a954"><td class="memTemplParams" colspan="2">template&lt;typename str &gt; </td></tr>
+<tr class="memitem:a3e8f9ebc9007b45667c668099107a954"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a3e8f9ebc9007b45667c668099107a954">g2p</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; str &gt; const &amp;gvarnames, std::initializer_list&lt; str &gt; const &amp;pvarnames, bool apply_mass)</td></tr>
+<tr class="separator:a3e8f9ebc9007b45667c668099107a954"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a017a7f6decfeb8b42cc0d561d5b793c2"><td class="memTemplParams" colspan="2">template&lt;typename std::initializer_list&lt; str &gt; &gt; </td></tr>
+<tr class="memitem:a017a7f6decfeb8b42cc0d561d5b793c2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a017a7f6decfeb8b42cc0d561d5b793c2">g2pd</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; str &gt; const &amp;gvarnames, std::initializer_list&lt; str &gt; const &amp;pxvarnames, std::initializer_list&lt; str &gt; const &amp;pyvarnames, bool apply_mass)</td></tr>
+<tr class="separator:a017a7f6decfeb8b42cc0d561d5b793c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a8480ad46e4c13e25595d5d926995382a"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a8480ad46e4c13e25595d5d926995382a">getkey</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, std::size_t ivar)</td></tr>
+<tr class="separator:a8480ad46e4c13e25595d5d926995382a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae89daf302e0bee2147c919d559cae195"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#ae89daf302e0bee2147c919d559cae195">getkey</a> (std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar)</td></tr>
+<tr class="separator:ae89daf302e0bee2147c919d559cae195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84674e31be49f4421ba74633732e96c5"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structparticles__t.html#a84674e31be49f4421ba74633732e96c5">getkey</a> (std::initializer_list&lt; const char * &gt; const &amp;varnames, std::size_t ivar)</td></tr>
+<tr class="separator:a84674e31be49f4421ba74633732e96c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -672,7 +688,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a48fed34d3ef5d847253d65a94f1c2c1d" name="a48fed34d3ef5d847253d65a94f1c2c1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48fed34d3ef5d847253d65a94f1c2c1d">&#9670;&nbsp;</a></span>g2p() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a48fed34d3ef5d847253d65a94f1c2c1d">&#9670;&nbsp;</a></span>g2p() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -708,7 +724,7 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a71f39ecfea690af2bbdddd30b1776c6d" name="a71f39ecfea690af2bbdddd30b1776c6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71f39ecfea690af2bbdddd30b1776c6d">&#9670;&nbsp;</a></span>g2p() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a71f39ecfea690af2bbdddd30b1776c6d">&#9670;&nbsp;</a></span>g2p() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -749,8 +765,50 @@ template&lt;typename GT , typename PT &gt; </div>
 
 </div>
 </div>
+<a id="a3e8f9ebc9007b45667c668099107a954" name="a3e8f9ebc9007b45667c668099107a954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8f9ebc9007b45667c668099107a954">&#9670;&nbsp;</a></span>g2p() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename str &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::g2p </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>gvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>pvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>apply_mass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="adb5af0b00e910077aebaec213fafedce" name="adb5af0b00e910077aebaec213fafedce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb5af0b00e910077aebaec213fafedce">&#9670;&nbsp;</a></span>g2pd()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adb5af0b00e910077aebaec213fafedce">&#9670;&nbsp;</a></span>g2pd() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -797,8 +855,56 @@ template&lt;typename GT , typename PT &gt; </div>
 
 </div>
 </div>
-<a id="af364a872a93b62188c1232c1703d8379" name="af364a872a93b62188c1232c1703d8379"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af364a872a93b62188c1232c1703d8379">&#9670;&nbsp;</a></span>getkey() <span class="overload">[1/3]</span></h2>
+<a id="a017a7f6decfeb8b42cc0d561d5b793c2" name="a017a7f6decfeb8b42cc0d561d5b793c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a017a7f6decfeb8b42cc0d561d5b793c2">&#9670;&nbsp;</a></span>g2pd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename std::initializer_list&lt; str &gt; &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::g2pd </td>
+          <td>(</td>
+          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>gvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>pxvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>pyvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>apply_mass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a84674e31be49f4421ba74633732e96c5" name="a84674e31be49f4421ba74633732e96c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84674e31be49f4421ba74633732e96c5">&#9670;&nbsp;</a></span>getkey() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -807,9 +913,9 @@ template&lt;typename GT , typename PT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string &amp; particles_t::getkey </td>
+          <td class="memname">static const char * particles_t::getkey </td>
           <td>(</td>
-          <td class="paramtype">std::initializer_list&lt; std::string &gt; const &amp;&#160;</td>
+          <td class="paramtype">std::initializer_list&lt; const char * &gt; const &amp;&#160;</td>
           <td class="paramname"><em>varnames</em>, </td>
         </tr>
         <tr>
@@ -821,20 +927,20 @@ template&lt;typename GT , typename PT &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad3423a0d2ba1cc1bda3c15ef6e45875d" name="ad3423a0d2ba1cc1bda3c15ef6e45875d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3423a0d2ba1cc1bda3c15ef6e45875d">&#9670;&nbsp;</a></span>getkey() <span class="overload">[2/3]</span></h2>
+<a id="a8480ad46e4c13e25595d5d926995382a" name="a8480ad46e4c13e25595d5d926995382a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8480ad46e4c13e25595d5d926995382a">&#9670;&nbsp;</a></span>getkey() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -843,7 +949,7 @@ template&lt;typename GT , typename PT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string &amp; particles_t::getkey </td>
+          <td class="memname">static const std::string &amp; particles_t::getkey </td>
           <td>(</td>
           <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;&#160;</td>
           <td class="paramname"><em>varnames</em>, </td>
@@ -857,20 +963,20 @@ template&lt;typename GT , typename PT &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="acd71c4bce5c3062b582bf3c65037674e" name="acd71c4bce5c3062b582bf3c65037674e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd71c4bce5c3062b582bf3c65037674e">&#9670;&nbsp;</a></span>getkey() <span class="overload">[3/3]</span></h2>
+<a id="ae89daf302e0bee2147c919d559cae195" name="ae89daf302e0bee2147c919d559cae195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89daf302e0bee2147c919d559cae195">&#9670;&nbsp;</a></span>getkey() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -879,7 +985,7 @@ template&lt;typename GT , typename PT &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::string &amp; particles_t::getkey </td>
+          <td class="memname">static const std::string &amp; particles_t::getkey </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; std::string &gt; const &amp;&#160;</td>
           <td class="paramname"><em>varnames</em>, </td>
@@ -893,12 +999,12 @@ template&lt;typename GT , typename PT &gt; </div>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td> const</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -1070,7 +1176,7 @@ template&lt;typename GT , typename PT &gt; </div>
 </div>
 </div>
 <a id="afd0e7b3d2bbf9f47b798805a6a1ba270" name="afd0e7b3d2bbf9f47b798805a6a1ba270"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd0e7b3d2bbf9f47b798805a6a1ba270">&#9670;&nbsp;</a></span>p2g() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afd0e7b3d2bbf9f47b798805a6a1ba270">&#9670;&nbsp;</a></span>p2g() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1109,7 +1215,7 @@ template&lt;typename GT , typename PT &gt; </div>
 </div>
 </div>
 <a id="a07dc3e137357921e2deeeed8be3af476" name="a07dc3e137357921e2deeeed8be3af476"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07dc3e137357921e2deeeed8be3af476">&#9670;&nbsp;</a></span>p2g() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a07dc3e137357921e2deeeed8be3af476">&#9670;&nbsp;</a></span>p2g() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1153,8 +1259,50 @@ template&lt;typename GT , typename PT &gt; </div>
 
 </div>
 </div>
+<a id="a292241924cc9e45c88383504bf9b42cc" name="a292241924cc9e45c88383504bf9b42cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a292241924cc9e45c88383504bf9b42cc">&#9670;&nbsp;</a></span>p2g() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename str &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::p2g </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>pvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>gvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>apply_mass</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a310ce986f59ab758bf3cab369bd918d1" name="a310ce986f59ab758bf3cab369bd918d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a310ce986f59ab758bf3cab369bd918d1">&#9670;&nbsp;</a></span>p2gd()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a310ce986f59ab758bf3cab369bd918d1">&#9670;&nbsp;</a></span>p2gd() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1196,6 +1344,60 @@ template&lt;typename GT , typename PT &gt; </div>
           <td></td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>apply_mass</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46ed4b85202b6d6d82cba1d37d003502" name="a46ed4b85202b6d6d82cba1d37d003502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46ed4b85202b6d6d82cba1d37d003502">&#9670;&nbsp;</a></span>p2gd() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename str &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::p2gd </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>pxvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>pyvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string const &amp;&#160;</td>
+          <td class="paramname"><em>area</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; str &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>gvarnames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>apply_mass</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
