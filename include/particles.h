@@ -306,11 +306,27 @@ particles_t {
 	GT const & gvarnames,
 	bool apply_mass = false) const;
 
+  template<typename str>
+  void
+  p2gd (std::map<std::string, std::vector<double>> & vars,
+	std::initializer_list<str> const & pxvarnames,
+	std::initializer_list<str> const & pyvarnames,
+	std::string const & area,
+	std::initializer_list<str> const & gvarnames,
+	bool apply_mass = false) const;
+
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
        bool apply_mass = false) {
     g2p (vars, vars, vars, apply_mass);
   }
+
+  template<typename str>
+  void
+  g2p (const std::map<std::string, std::vector<double>>& vars,
+       std::initializer_list<str> const & gvarnames,
+       std::initializer_list<str> const & pvarnames,
+       bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
@@ -325,6 +341,14 @@ particles_t {
 	GT const & gvarnames,
 	PT const & pxvarnames,
 	PT const & pyvarnames,
+	bool apply_mass = false);
+
+  template<typename str>
+  void
+  g2pd (const std::map<std::string, std::vector<double>>& vars,
+	std::initializer_list<str> const & gvarnames,
+	std::initializer_list<str> const &pxvarnames,
+	std::initializer_list<str> const & pyvarnames,
 	bool apply_mass = false);
 
 };

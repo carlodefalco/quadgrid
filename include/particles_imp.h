@@ -164,7 +164,7 @@ particles_t::g2p
   }
 }
 
-template<typename std::initializer_list<str>>
+template<typename str>
 void
 particles_t::g2pd
 (const std::map<std::string, std::vector<double>>& vars,
