@@ -229,8 +229,10 @@ particles_t::print<particles_t::output_format::octave_ascii>
 
 template<>
 void
-particles_t::print<particles_t::output_format::json> (std::ostream & os) const;
+particles_t::print<particles_t::output_format::json>
+(std::ostream & os) const;
 
 template<>
 void
-particles_t::print<particles_t::output_format::csv> (std::ostream & os) const;
+particles_t::print<particles_t::output_format::csv>
+(std::ostream & os) const;
