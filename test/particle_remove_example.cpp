@@ -30,13 +30,26 @@ main (int argc, char *argv[]) {
   idx_t ilabel = 0;
   std::iota (ptcls.iprops["label"].begin (), ptcls.iprops["label"].end (), ilabel);
 
-  std::ofstream o1 ("before_removal.csv", std::ios::out);
-  std::ofstream o2 ("after_removal.csv", std::ios::out);
-  ptcls.print<particles_t::output_format::csv> (o1);
+
   std::cout << "before removale np = " << ptcls.num_particles << std::endl;
+
+  std::ofstream o1 ("before_removal.csv", std::ios::out);
+  ptcls.print<particles_t::output_format::csv> (o1);
+  o1.close ();
+  o1.open  ("before_removal.octtxt", std::ios::out);
+  ptcls.print<particles_t::output_format::octave_ascii> (o1);
+  o1.close ();
+
   ptcls.remove_in_region (inside);
   std::cout << "after removale np = " << ptcls.num_particles << std::endl;
+  
+  std::ofstream o2 ("after_removal.csv", std::ios::out);
   ptcls.print<particles_t::output_format::csv> (o2);
+  o2.close ();
+  o2.open ("after_removal.octtxt", std::ios::out);
+  ptcls.print<particles_t::output_format::octave_ascii> (o2);
+  o2.close ();
+  
   return 0;
 };
 
