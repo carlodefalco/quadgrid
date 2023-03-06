@@ -249,10 +249,3 @@ to_json (nlohmann::json &j, const particles_t &p) {
   };
 }
 
-template
-void
-particles_t::p2g<std::initializer_list<std::string> const &, std::initializer_list<std::string> const &>
-(std::map<std::string, std::vector<double>> & vars,
- std::initializer_list<std::string> const &,
- std::initializer_list<std::string> const &,
- bool apply_mass) const;
