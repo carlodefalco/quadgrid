@@ -5,6 +5,12 @@
 
 #include <particles.h>
 
+namespace ASSIGNMENT_OPS {
+  assignment_t EQ = [] (double& TO, const double& FROM) -> double& { return TO = FROM; };
+  assignment_t PLUS_EQ = [] (double& TO, const double& FROM) -> double& { return TO += FROM; };
+  assignment_t TIMES_EQ = [] (double& TO, const double& FROM) -> double& { return TO *= FROM; };
+}
+
 
 double
 particles_t::default_x_generator () {

@@ -1,3 +1,6 @@
+#ifndef PARTICLES_IMP_H
+#define PARTICLES_IMP_H
+
 template<typename str>
 void
 particles_t::p2g
@@ -248,3 +251,5 @@ template<>
 void
 particles_t::print<particles_t::output_format::csv>
 (std::ostream & os) const;
+
+#endif

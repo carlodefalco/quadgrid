@@ -14,9 +14,9 @@
 using assignment_t = std::function <double& (double&, const double&)>;
 
 namespace ASSIGNMENT_OPS {
-  auto EQ = [] (double& TO, const double& FROM) -> double& { return TO = FROM; };
-  auto PLUS_EQ = [] (double& TO, const double& FROM) -> double& { return TO += FROM; };
-  auto TIMES_EQ = [] (double& TO, const double& FROM) -> double& { return TO *= FROM; };
+  extern assignment_t EQ; // = [] (double& TO, const double& FROM) -> double& { return TO = FROM; };
+  extern assignment_t PLUS_EQ; // = [] (double& TO, const double& FROM) -> double& { return TO += FROM; };
+  extern assignment_t TIMES_EQ; // = [] (double& TO, const double& FROM) -> double& { return TO *= FROM; };
 }
 
 //! \brief Class to represent particles embedded in a grid.
