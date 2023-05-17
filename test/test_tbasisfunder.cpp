@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
   double dx = 12. / double (N);
   for (int ii = 1; ii < N+1; ++ii) {
     x[ii] = dx * ii;
-    y[ii] = onebasisfun (x[ii], p, U.cbegin (), U.cend ());
+    y[ii] = onebasisfunder (x[ii], p, U.cbegin (), U.cend ());
   }
   
   for (int ii = 0; ii < N+1; ++ii) {
