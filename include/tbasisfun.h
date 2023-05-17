@@ -19,7 +19,15 @@ namespace bspline {
       return FLT(1.0);
     }
   };
- 
+
+  //! \brief function to compute the value of a BSpline basis
+  //! function at a given point. 
+
+  //! @param u point where the derivative is to be evaluated.
+  //! @param p basis function degree.
+  //! @param Ubegin iterator to the beginning of the local knot vector.
+  //! @param Uend iterator past the end of the local knot vector.
+
   template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun (FLT const u, INT const p, ITERATOR const Ubegin, ITERATOR const Uend) {
@@ -83,6 +91,12 @@ namespace bspline {
     return N;
   };
 
+  //! \brief function to compute the derivative of a BSpline basis function.
+
+  //! @param u point where the derivative is to be evaluated.
+  //! @param p basis function degree.
+  //! @param Ubegin iterator to the beginning of the local knot vector.
+  //! @param Uend iterator past the end of the local knot vector.
   template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfunder (FLT u, INT p, ITERATOR Ubegin, ITERATOR Uend)
