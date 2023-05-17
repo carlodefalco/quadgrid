@@ -1,17 +1,9 @@
 var searchData=
 [
-  ['g2p_0',['g2p',['../structparticles__t.html#a48fed34d3ef5d847253d65a94f1c2c1d',1,'particles_t::g2p(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false)'],['../structparticles__t.html#a71f39ecfea690af2bbdddd30b1776c6d',1,'particles_t::g2p(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pvarnames, bool apply_mass=false)'],['../structparticles__t.html#a3e8f9ebc9007b45667c668099107a954',1,'particles_t::g2p(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; str &gt; const &amp;gvarnames, std::initializer_list&lt; str &gt; const &amp;pvarnames, bool apply_mass)']]],
-  ['g2pd_1',['g2pd',['../structparticles__t.html#adb5af0b00e910077aebaec213fafedce',1,'particles_t::g2pd(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pxvarnames, PT const &amp;pyvarnames, bool apply_mass=false)'],['../structparticles__t.html#a017a7f6decfeb8b42cc0d561d5b793c2',1,'particles_t::g2pd(const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; str &gt; const &amp;gvarnames, std::initializer_list&lt; str &gt; const &amp;pxvarnames, std::initializer_list&lt; str &gt; const &amp;pyvarnames, bool apply_mass)']]],
-  ['get_5fface_5fidx_2',['get_face_idx',['../classquadgrid__t_1_1neighbor__iterator.html#afd8441a4781bd4467cbe8a8614ba64f4',1,'quadgrid_t::neighbor_iterator']]],
-  ['get_5fglobal_5fcell_5fidx_3',['get_global_cell_idx',['../classquadgrid__t_1_1cell__t.html#a76749ac1d9b2a7f800cc613a88da6646',1,'quadgrid_t::cell_t']]],
-  ['get_5flocal_5fcell_5fidx_4',['get_local_cell_idx',['../classquadgrid__t_1_1cell__t.html#ab243d526a39366ba9ab81e498eca25ac',1,'quadgrid_t::cell_t']]],
-  ['getkey_5',['getkey',['../structparticles__t.html#a8480ad46e4c13e25595d5d926995382a',1,'particles_t::getkey(std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, std::size_t ivar)'],['../structparticles__t.html#ae89daf302e0bee2147c919d559cae195',1,'particles_t::getkey(std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar)'],['../structparticles__t.html#a84674e31be49f4421ba74633732e96c5',1,'particles_t::getkey(std::initializer_list&lt; const char * &gt; const &amp;varnames, std::size_t ivar)']]],
-  ['gind2col_6',['gind2col',['../classquadgrid__t_1_1cell__t.html#aa60a52baf2234e5d0d6aed7a46b83724',1,'quadgrid_t::cell_t::gind2col()'],['../classquadgrid__t.html#af5ed9f0fc8713ccd68e361f36f71bf83',1,'quadgrid_t::gind2col()']]],
-  ['gind2row_7',['gind2row',['../classquadgrid__t_1_1cell__t.html#ab6c3e9a72d4c95e27c8662817428ff7d',1,'quadgrid_t::cell_t::gind2row()'],['../classquadgrid__t.html#a131635ca04bd59d1369f63e8ad256a74',1,'quadgrid_t::gind2row()']]],
-  ['global_5fcell_5fidx_8',['global_cell_idx',['../classquadgrid__t_1_1cell__t.html#a2355a4a7049f541ff3ff35d3d0761708',1,'quadgrid_t::cell_t']]],
-  ['grd_5fto_5fptcl_9',['grd_to_ptcl',['../structparticles__t.html#a21d45be17b4c8493bea2368bc75c811a',1,'particles_t']]],
-  ['grid_10',['grid',['../structparticles__t.html#a68834707308f986b4a92951fb22afae3',1,'particles_t']]],
-  ['grid_5fproperties_11',['grid_properties',['../classquadgrid__t_1_1cell__t.html#a7c2ed99311f4ce2e7e2c1ad0e816e72a',1,'quadgrid_t::cell_t::grid_properties()'],['../classquadgrid__t.html#ae849c33548dbf67fb85fd458074cf16b',1,'quadgrid_t::grid_properties()']]],
-  ['grid_5fproperties_5ft_12',['grid_properties_t',['../structquadgrid__t_1_1grid__properties__t.html',1,'quadgrid_t']]],
-  ['gt_13',['gt',['../classquadgrid__t_1_1cell__t.html#a845c8ab04bc8b5e1070751c521916288',1,'quadgrid_t::cell_t']]]
+  ['face_5fidx_0',['face_idx',['../classquadgrid__t_1_1neighbor__iterator.html#aaa252053e43f95da07bb81c7006860c4',1,'quadgrid_t::neighbor_iterator']]],
+  ['fclose_1',['fclose',['../make__input__json_8m.html#a5e769bbbabcaddc548203741c7100228',1,'make_input_json.m']]],
+  ['fid_2',['fid',['../make__input__json_8m.html#ae9011d40c6f13e68e6f07156e0da7c5d',1,'make_input_json.m']]],
+  ['findspan_3',['findspan',['../low__level__functions_8cc.html#a1fadc00fdbaaab27cf7dd369d7fe0b56',1,'findspan(int n, int p, double u, const RowVector &amp;U):&#160;low_level_functions.cc'],['../low__level__functions_8h.html#a1fadc00fdbaaab27cf7dd369d7fe0b56',1,'findspan(int n, int p, double u, const RowVector &amp;U):&#160;low_level_functions.cc']]],
+  ['from_5fjson_4',['from_json',['../classquadgrid__t.html#abb30e07d6fad9d768d1bf1c5ffde56b9',1,'quadgrid_t']]],
+  ['fwrite_5',['fwrite',['../make__input__json_8m.html#acf6b8d6672f60d5c17f2a5acf890f944',1,'make_input_json.m']]]
 ];
