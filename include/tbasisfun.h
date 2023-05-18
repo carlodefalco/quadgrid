@@ -128,6 +128,16 @@ namespace bspline {
 
     return Nder;
   };
+
+  template<typename INT, typename FLT, typename ITERATOR>
+  FLT
+  onebasisfun2d (FLT const u, FLT const v, INT const pu, INT const pv,
+		 ITERATOR const Ubegin, ITERATOR const Uend,
+		 ITERATOR const Vbegin, ITERATOR const Vend) {
+    FLT N = onebasisfun (u, pu, Ubegin, Uend);
+    N *= onebasisfun (v, pv, Vbegin, Vend);
+    return N;
+  }
   
 }
 
