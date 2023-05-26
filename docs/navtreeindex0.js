@@ -162,9 +162,10 @@ var NAVTREEINDEX0 =
 "namespace_a_s_s_i_g_n_m_e_n_t___o_p_s.html#a8ab873c3c7efc687449cbd5a6dd5d4ba":[1,0,0,0],
 "namespace_a_s_s_i_g_n_m_e_n_t___o_p_s.html#ac75aaa41b0f66e7c5de4fd29cce79d55":[1,0,0,1],
 "namespacebspline.html":[1,0,1],
-"namespacebspline.html#a7e06b13462457b088a0bc60cc0bb5520":[1,0,1,1],
+"namespacebspline.html#a72f2257fbd9a13b58242610c10b3255c":[1,0,1,1],
+"namespacebspline.html#a7e06b13462457b088a0bc60cc0bb5520":[1,0,1,2],
 "namespacebspline.html#a8869aa127fd114f77480870e3a90be44":[1,0,1,0],
-"namespacebspline.html#aa77da18568582a75999d862830573e1f":[1,0,1,2],
+"namespacebspline.html#aa77da18568582a75999d862830573e1f":[1,0,1,3],
 "namespacemembers.html":[1,1,0],
 "namespacemembers_func.html":[1,1,1],
 "namespacemembers_vars.html":[1,1,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "structparticles__t.html#a9405175dfc59330ddb971860f0321dab":[2,0,0,32],
 "structparticles__t.html#a992770f9eab92adba7bbf674d18dcc4c":[2,0,0,31],
 "structparticles__t.html#a99b1bce542df2a6896162aa720a2be88":[2,0,0,29],
-"structparticles__t.html#a9d763b378b755824d56711f62806ea60":[2,0,0,11],
-"structparticles__t.html#ab7c1cad7c83ace102e68eabe7e84c1bf":[2,0,0,9]
+"structparticles__t.html#a9d763b378b755824d56711f62806ea60":[2,0,0,11]
 };

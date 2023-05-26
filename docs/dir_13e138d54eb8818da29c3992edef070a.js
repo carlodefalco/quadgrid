@@ -8,6 +8,8 @@ var dir_13e138d54eb8818da29c3992edef070a =
     [ "particle_remove_example.cpp", "particle__remove__example_8cpp.html", "particle__remove__example_8cpp" ],
     [ "particle_sort_example.cpp", "particle__sort__example_8cpp.html", "particle__sort__example_8cpp" ],
     [ "quadgrid_cpp.cpp", "quadgrid__cpp_8cpp.html", "quadgrid__cpp_8cpp" ],
+    [ "test_h5.cc", "test__h5_8cc.html", "test__h5_8cc" ],
     [ "test_tbasisfun.cpp", "test__tbasisfun_8cpp.html", "test__tbasisfun_8cpp" ],
+    [ "test_tbasisfun2d.cpp", "test__tbasisfun2d_8cpp.html", "test__tbasisfun2d_8cpp" ],
     [ "test_tbasisfunder.cpp", "test__tbasisfunder_8cpp.html", "test__tbasisfunder_8cpp" ]
 ];
