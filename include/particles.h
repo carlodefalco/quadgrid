@@ -288,7 +288,7 @@ particles_t {
   //! @brief Map particle variables to the grid.
 
   //! Choose which quantities need to be mapped according
-  //! to the strings in `gvarnames`, which c
+  //! to the strings in `gvarnames`,
   //! and use the same field names for particle and
   //! grid variables.
   template<typename GT, typename PT>
