@@ -10,6 +10,7 @@
 #include <boost/iostreams/filtering_stream.hpp>
 
 #include <boost/iostreams/filter/gzip.hpp>
+//#include <boost/iostreams/filter/zlib.hpp>
 //#include <boost/iostreams/filter/bzip2.hpp>
 
 int
@@ -43,6 +44,7 @@ main () {
 
     boost::iostreams::filtering_ostream outbuf;
     outbuf.push (boost::iostreams::gzip_compressor());
+    //outbuf.push (boost::iostreams::zlib_compressor());
     // outbuf.push (boost::iostreams::bzip2_compressor());
     outbuf.push (boost::iostreams::file_sink (filename + fileext));
 		
@@ -58,6 +60,7 @@ main () {
   boost::iostreams::filtering_istream inbuf;
 
   inbuf.push(boost::iostreams::gzip_decompressor());
+  //inbuf.push(boost::iostreams::zlib_decompressor());
   // inbuf.push(boost::iostreams::bzip2_decompressor());
   inbuf.push (boost::iostreams::file_source (filename + fileext));
 
