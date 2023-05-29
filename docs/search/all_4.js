@@ -7,5 +7,6 @@ var searchData=
   ['end_5fcell_5fsweep_4',['end_cell_sweep',['../classquadgrid__t.html#ae8a00f836fb9726b771683f83ea8de87',1,'quadgrid_t::end_cell_sweep()'],['../classquadgrid__t.html#adc8598dada3a589f19bd324018256967',1,'quadgrid_t::end_cell_sweep() const']]],
   ['end_5fneighbor_5fsweep_5',['end_neighbor_sweep',['../classquadgrid__t_1_1cell__t.html#a900d7a86d031caa76909d57327b3ffe8',1,'quadgrid_t::cell_t::end_neighbor_sweep()'],['../classquadgrid__t_1_1cell__t.html#a5e4a6e7fc67c9b919825dafecc1f1afb',1,'quadgrid_t::cell_t::end_neighbor_sweep() const']]],
   ['eq_6',['EQ',['../namespace_a_s_s_i_g_n_m_e_n_t___o_p_s.html#a8ab873c3c7efc687449cbd5a6dd5d4ba',1,'ASSIGNMENT_OPS']]],
-  ['esempio_5fjson_2ecpp_7',['esempio_json.cpp',['../esempio__json_8cpp.html',1,'']]]
+  ['esempio_5fjson_2ecpp_7',['esempio_json.cpp',['../esempio__json_8cpp.html',1,'']]],
+  ['esempio_5fjson_5fgz_2ecpp_8',['esempio_json_gz.cpp',['../esempio__json__gz_8cpp.html',1,'']]]
 ];
