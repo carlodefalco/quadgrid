@@ -4,6 +4,12 @@ quadgrid - a simple c++ library for particles in a cartesian quad grid
 This library provides simple (template) classes that for a useful
 starting point for the implementation of [MPM/PIC](https://www.sciencedirect.com/science/article/abs/pii/S0065215620300120) methods 
 
+### License
+
+Most of the code is ditributed under a permissive BSD-2-Clause license.
+As an exception the GNU Octave interface, which links to GNU Octave libraries is under a GPL (v3 or later) copyleft license.
+
+### Contents
 
 The repository consists of the following folders :
 
