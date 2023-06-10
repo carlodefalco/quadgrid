@@ -15,7 +15,7 @@
 int
 main () {
 
-  const std::string filename = "esempio.csv";
+  const std::string filename = "esempio.octtxt";
   const std::string fileext = ".gz";
   //const std::string fileext = ".bz";
   
@@ -23,7 +23,7 @@ main () {
   quadgrid_t<std::vector<double>> grid;
   grid.set_sizes (40, 60, 1./40., 1./60.);
 
-  constexpr idx_t num_particles = 1500;
+  constexpr idx_t num_particles = 15000;
   particles_t ptcls (num_particles, {"label"}, {"m","vx","vy"}, grid);
   ptcls.dprops["m"].assign (num_particles, (1.) / num_particles );
   ptcls.dprops["vx"].assign (num_particles, 1.);
@@ -40,7 +40,7 @@ main () {
   // outbuf.push (boost::iostreams::bzip2_compressor());
   outbuf.push (boost::iostreams::file_sink (filename + fileext));
 		
-  ptcls.print<particles_t::output_format::csv> (outbuf);
+  ptcls.print<particles_t::output_format::octave_ascii> (outbuf);
 
   boost::iostreams::close (outbuf);
   return 0;
