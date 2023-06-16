@@ -2,6 +2,7 @@
 #define HAVE_TBASISFUN_H
 
 #include <algorithm>
+#include <iomanip>
 #include <iostream>
 #include <iterator>
 #include <limits>
@@ -35,6 +36,7 @@ namespace bspline {
     const FLT Umin = *(std::min_element (Ubegin, Uend));
     const FLT Umax = *(std::max_element (Ubegin, Uend));
 
+    std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
     if (u >= Umin && u <= Umax) {
 
       if (p == 0) {
@@ -53,16 +55,18 @@ namespace bspline {
       }
       
       else if (p == 2) {
+	
 	const FLT ln = u - *Ubegin;
 	const FLT dn = *std::next(Ubegin, 3) - u;
 	const FLT ld = *std::next(Ubegin, 2) - *Ubegin; 
-	const FLT dd = *std::next(Ubegin, 3) - *std::next(Ubegin, 1);
-	if (u < *std::next(Ubegin, 1)) {
-	  N = ratio (ln*ln, (ld * (*std::next(Ubegin, 1) - *Ubegin)));
+	const FLT dd = *std::next(Ubegin, 3) - *std::next(Ubegin);
+	  
+	if (u < *std::next (Ubegin)) {
+	  N = ratio (ln*ln, ld * (*std::next (Ubegin) - *Ubegin));
 	}
-	else if (u > *std::next(Ubegin, 2)) {
+	else if (u > *std::next (Ubegin, 2)) {
 	  N = ratio (dn*dn,
-		     (dd * (*std::next(Ubegin, 3) - *std::next(Ubegin, 2))));
+		     (dd * (*std::next (Ubegin, 3) - *std::next (Ubegin, 2))));
 	}
 	else {
 	  if (ld > FLT(0.0)) {
@@ -77,24 +81,36 @@ namespace bspline {
       }
 
       else {
-	const FLT ln = u - *Ubegin;
-	const FLT ld = *std::next(Uend, - 2) - *Ubegin;
+	
+	const FLT ld = *std::next (Uend, - 2) - *Ubegin;
+	const FLT dd = *std::prev (Uend) - *std::next (Ubegin);
+	
 	if (ld > FLT(0.0)) {
-	  N += ln * onebasisfun (u, p-1, Ubegin, std::next(Uend, - 1)) / ld; 
+	  const FLT ln = u - *Ubegin;
+	  N += ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) / ld; 
 	}
-  
-	const FLT dn = *std::next (Uend, - 1) - u;
-	const FLT dd = *std::next (Uend, - 1) - *std::next (Ubegin , 1);
+	
 	if (dd > FLT(0.0)) {
-	  N += dn * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend) / dd;
+	  const FLT dn = *std::prev (Uend) - u;
+	  N += dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) / dd;
 	}
+
+	std::cout << "p = " << p << std::endl;
+	std::cout << "u - *Ubegin = " << u - *Ubegin << " ld = " << ld << " ";
+
+	std::cout << " *std::next (Uend, - 1) - *std::next (Ubegin , 1) = "
+		  << *std::next (Uend, - 1) - *std::next (Ubegin , 1)
+		  << " dd = " << dd << " N = " << N << std::endl;
       }
     }
+
+    std::cout << " N = " << N << std::endl;
     return N;
   };
 
   //! \brief function to compute the derivative of a BSpline basis function.
 
+  //! @todo make shure that evaluation at the endopoints works correctly.
   //! @param u point where the derivative is to be evaluated.
   //! @param p basis function degree.
   //! @param Ubegin iterator to the beginning of the local knot vector.
@@ -145,12 +161,15 @@ namespace bspline {
   open_knot_vector (ITERATOR const bb, ITERATOR const be, INT const p, INT const r) {
 
     const INT Nb = std::distance (bb, be);
-    const INT Nk = (Nb - 2) + 2 * (p + 1);
+    const INT Nk = (p - r) * (Nb - 2) + 2 * (p + 1); // (Nb - 2 + 2) *p 
 
     std::vector<FLT> k (Nk, *bb);
 
-    auto bi = std::next (bb);
-    auto ki = std::copy (bi, be, std::next (k.begin (), p + 1));
+    
+    auto ki = std::next (k.begin (), p + 1);
+    for (auto bi = std::next (bb); bi != be; bi = std::next (bi)) {
+      ki = std::fill_n (ki, p - r, *bi);
+    }    
     std::fill (ki, k.end (), *(std::next (be, -1)));
 
     return k;
