@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
   constexpr auto N = 30;
   
   std::vector<double> b{0.0, 1.0, 2.5, 4.0, 7.0};
-  std::vector<double> k = open_knot_vector (b.begin (), b.end (), p, 0);
+  std::vector<double> k = open_knot_vector (b.begin (), b.end (), p, 1);
   //for (auto const & ii : k) std::cout << ii << std::endl;
   
   auto kb = k.begin ();

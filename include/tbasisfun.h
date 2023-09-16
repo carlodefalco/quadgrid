@@ -36,7 +36,7 @@ namespace bspline {
     const FLT Umin = *(std::min_element (Ubegin, Uend));
     const FLT Umax = *(std::max_element (Ubegin, Uend));
 
-    std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
+    //std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
     if (u >= Umin && u <= Umax) {
 
       if (p == 0) {
@@ -95,16 +95,16 @@ namespace bspline {
 	  N += dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) / dd;
 	}
 
-	std::cout << "p = " << p << std::endl;
-	std::cout << "u - *Ubegin = " << u - *Ubegin << " ld = " << ld << " ";
+	//std::cout << "p = " << p << std::endl;
+	//std::cout << "u - *Ubegin = " << u - *Ubegin << " ld = " << ld << " ";
 
-	std::cout << " *std::next (Uend, - 1) - *std::next (Ubegin , 1) = "
-		  << *std::next (Uend, - 1) - *std::next (Ubegin , 1)
-		  << " dd = " << dd << " N = " << N << std::endl;
+	//std::cout << " *std::next (Uend, - 1) - *std::next (Ubegin , 1) = "
+	//	  << *std::next (Uend, - 1) - *std::next (Ubegin , 1)
+	//	  << " dd = " << dd << " N = " << N << std::endl;
       }
     }
 
-    std::cout << " N = " << N << std::endl;
+    //std::cout << " N = " << N << std::endl;
     return N;
   };
 
