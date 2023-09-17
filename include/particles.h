@@ -214,6 +214,11 @@ particles_t {
   void
   init_particle_mesh ();
 
+  //! @brief Reorder coordinates an properties according to the ordering vvector.
+  
+  void
+  reorder (std::vector<idx_t> &);
+
   //! @brief Initialize particle positions with generator functions.
   
   //! Invoked automatically if the generators are passed to the CTOR,
