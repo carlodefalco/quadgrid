@@ -10,6 +10,83 @@
 #include <quadgrid_cpp.h>
 #include <string>
 
+//! \brief Class to represent a set of properties attached to a list of particles.
+
+//! Data is stored in a contiguous memory region, each property
+//! is a column, each particle a row. Extra space is (optionally)
+//! allocated to allow for adding new particles/properties.
+//! When a row is erased memory is not freed but kept for any subsequent
+//! addition.
+
+template <typename T>
+struct
+props_t {
+
+  std::unique_ptr<T[]> buffer;
+  using difference_type = decltype (buffer.get () - buffer.get ());
+  
+  const std::size_t max_props; /*!< maximun number of T-valued properties */
+  std::size_t num_props;       /*!< actual current number of T-valued properties */
+
+  const std::size_t max_ptcls; /*!< maximun number of particles */
+  std::size_t num_ptcls;       /*!< actual current numberof particles */
+
+  std::map<std::string, std::size_t> proplist{};
+  
+  props_t () = delete;
+  props_t (const props_t&) = delete;
+
+  void
+  init_names (const std::vector<std::string>& propnames) {
+    std::size_t ii = 0;
+    for (auto & j : propnames)
+      proplist[j] = ii++;
+  };
+  
+  props_t (std::size_t max_props_, std::size_t num_props_,
+	    std::size_t max_ptcls_, std::size_t num_ptcls_)
+    :  max_props(max_props_), num_props(num_props_),
+       max_ptcls(max_ptcls_), num_ptcls(num_ptcls_) {
+    buffer = std::make_unique<T[]> (max_ptcls * max_props);    
+  }
+  
+
+  props_t (std::size_t max_props_, const std::vector<std::string>& propnames,
+	    std::size_t max_ptcls_, std::size_t num_ptcls_)
+    : props_t(max_props_, propnames.size (), max_ptcls_, num_ptcls_) {
+    init_names (propnames);    
+  }
+
+  props_t (const std::vector<std::string>& propnames, std::size_t max_ptcls_)
+    : props_t (propnames.size (), propnames, max_ptcls_, max_ptcls_) { }
+
+  
+  auto
+  at (const std::string &name) {   
+    tcb::span retval (buffer.get () + proplist.at (name) * max_ptcls,
+		      buffer.get () + proplist.at (name) * max_ptcls + num_ptcls);
+    return retval;
+  };
+
+  void 
+  erase_ptcl (std::size_t ir) {
+    if (ir < this->num_ptcls) {
+      for (auto const &prop : proplist) {
+	auto col = this->at (prop.first);
+	std::copy (std::next (col.begin (), ir + 1), col.end (), std::next (col.begin (), ir));
+      }
+      --(this->num_ptcls);
+    } else {
+      throw std::out_of_range ("particle index too large");
+    }    
+  };
+
+};
+
+using dprops_t = props_t<double>;
+using iprops_t = props_t<int>;
+
+
 //! datatype for assignment operators
 using assignment_t = std::function <double& (double&, const double&)>;
 
@@ -37,17 +114,17 @@ struct
 particles_t {
 
   //! datatype for indexing into vectors of properties
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = std::size_t;
   
   idx_t num_particles;    //!< number of particles.
   std::vector<double> x;  //!< x coordinate of particle positions.
   std::vector<double> y;  //!< y coordinate of particle positions.
 
   //! integer type quantities associated with the particles.
-  std::map<std::string, std::vector<idx_t>> iprops;
+  iprops_t iprops;
   
   //! `double` type quantities associated with the particles.
-  std::map<std::string, std::vector<double>> dprops;  
+  dprops_t dprops;  
 
   std::vector<double> M; //!< Mass matrix to be used for transfers if required.
   std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid/particles connectivity.
@@ -109,8 +186,8 @@ particles_t {
 	       const quadgrid_t<std::vector<double>>& grid_)
     :  grid(grid_)
   {
-    j["dprops"].get_to<std::map<std::string, std::vector<double>>> (dprops);
-    j["iprops"].get_to<std::map<std::string, std::vector<int>>> (iprops);
+    j["dprops"].get_to<dprops_t> (dprops);
+    j["iprops"].get_to<iprops_t> (iprops);
     j["x"].get_to<std::vector<double>> (x);
     j["y"].get_to<std::vector<double>> (y);
     j["num_particles"].get_to<idx_t> (num_particles);
