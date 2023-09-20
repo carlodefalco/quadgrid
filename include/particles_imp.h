@@ -237,40 +237,6 @@ particles_t::g2pd
 
 }
 
-void
-particles_t::reorder (std::vector<idx_t> &ordering) {
-   
-    for (idx_t ii = 0; ii < num_particles - 1; ++ii) {
-
-      if (ii != ordering[ii]) {
-
-	for (auto &dprop : dprops) {
-	  auto &col = dprop.second;
-	  std::swap (col[ii], col[ordering[ii]]);
-	}
-
-	for (auto &iprop : iprops) {
-	  auto &col = iprop.second;
-	  std::swap (col[ii], col[ordering[ii]]);
-	}
-
-	std::swap (x[ii], x[ordering[ii]]);
-	std::swap (y[ii], y[ordering[ii]]);       
-	
-
-	for (int jj = ii; jj < ordering.size (); ++jj) {
-	  if (ordering[jj] == ii) {
-	    ordering[jj] = ordering[ii];
-	    ordering[ii] = ii;
-	    break;
-	  }
-	}
-	
-      }   
-    }
-
-}
-
 template<>
 void
 particles_t::print<particles_t::output_format::octave_ascii>

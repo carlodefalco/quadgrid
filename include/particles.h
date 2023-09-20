@@ -215,7 +215,6 @@ particles_t {
   init_particle_mesh ();
 
   //! @brief Reorder coordinates an properties according to the ordering vvector.
-  
   void
   reorder (std::vector<idx_t> &);
 

@@ -34,7 +34,7 @@ particles_t::particles_t
  const std::vector<std::string>& dpropnames,
  const quadgrid_t<std::vector<double>>& grid_
  ) :  particles_t (n, grid_) {
-  
+
   init_props (ipropnames, dpropnames);
 
   init_particle_positions
@@ -43,7 +43,7 @@ particles_t::particles_t
      [this] { return this->default_y_generator (); }
      );
 
-    init_particle_mesh ();
+  init_particle_mesh ();
 }
 
 
@@ -56,12 +56,12 @@ particles_t::particles_t
  const std::vector<double> & ygen
  ) : particles_t (n, grid_) {
 
-    x = xgen;
-    y = ygen;
+  x = xgen;
+  y = ygen;
 
-    init_props (ipropnames, dpropnames);
+  init_props (ipropnames, dpropnames);
 
-    init_particle_mesh ();
+  init_particle_mesh ();
 }
 
 particles_t::particles_t
@@ -72,11 +72,11 @@ particles_t::particles_t
  std::function<double ()> xgen,
  std::function<double ()> ygen
  ) : particles_t (n, grid_) {
-  
+
   init_props (ipropnames, dpropnames);
-  
+
   init_particle_positions (xgen, ygen);
-  
+
   init_particle_mesh ();
 }
 
@@ -91,19 +91,19 @@ particles_t::init_props
   for (idx_t ii = 0; ii < ipropnames.size (); ++ii) {
     iprops[ipropnames[ii]].assign (num_particles, 0);
   }
-  
+
   for (idx_t ii = 0; ii < dpropnames.size (); ++ii) {
     dprops[dpropnames[ii]].assign (num_particles, 0.0);
-  } 
+  }
 }
 
 
 void
 particles_t::init_particle_mesh () {
-  
+
   for (auto & igrd : grd_to_ptcl)
     std::vector<idx_t>{}. swap (igrd.second);
-  
+
   for (auto ii = 0; ii < x.size (); ++ii) {
     idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
     idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
@@ -119,11 +119,11 @@ particles_t::init_particle_positions
  std::function<double ()> xgentr,
  std::function<double ()> ygentr
  ) {
-    x.resize (num_particles);
-    y.resize (num_particles);
+  x.resize (num_particles);
+  y.resize (num_particles);
 
-    std::generate (x.begin (), x.end (), xgentr);
-    std::generate (y.begin (), y.end (), ygentr);
+  std::generate (x.begin (), x.end (), xgentr);
+  std::generate (y.begin (), y.end (), ygentr);
 }
 
 
@@ -134,8 +134,8 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-	 inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
-	 ++inode) {
+         inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+         ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }
   }
@@ -255,3 +255,34 @@ to_json (nlohmann::json &j, const particles_t &p) {
   };
 }
 
+void
+particles_t::reorder (std::vector<idx_t> &ordering) {
+
+  for (idx_t ii = 0; ii < num_particles - 1; ++ii) {
+    if (ii != ordering[ii]) {
+
+      for (auto &dprop : dprops) {
+        auto &col = dprop.second;
+        std::swap (col[ii], col[ordering[ii]]);
+      }
+
+      for (auto &iprop : iprops) {
+        auto &col = iprop.second;
+        std::swap (col[ii], col[ordering[ii]]);
+      }
+
+      std::swap (x[ii], x[ordering[ii]]);
+      std::swap (y[ii], y[ordering[ii]]);
+
+      for (int jj = ii; jj < ordering.size (); ++jj) {
+        if (ordering[jj] == ii) {
+          ordering[jj] = ordering[ii];
+          ordering[ii] = ii;
+          break;
+        }
+      }
+
+    }
+  }
+
+}
