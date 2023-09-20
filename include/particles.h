@@ -62,11 +62,11 @@ props_t {
 
   
   auto
-  at (const std::string &name) {   
+s  at (const std::string &name) {   
     tcb::span retval (buffer.get () + proplist.at (name) * max_ptcls,
 		      buffer.get () + proplist.at (name) * max_ptcls + num_ptcls);
     return retval;
-  };
+  }
 
   void 
   erase_ptcl (std::size_t ir) {
@@ -79,8 +79,31 @@ props_t {
     } else {
       throw std::out_of_range ("particle index too large");
     }    
-  };
+  }
 
+  void
+  reorder (std::vector<std::size_t> ordering) {
+    tcb::span<T> col;
+   
+    for (std::size_t ii = 0; ii < num_ptcls - 1; ++ii) {
+
+      if (ii != ordering[ii]) {
+	for (auto const &prop : proplist) {
+	  col = this->at (prop.first);
+	  std::swap (col[ii], col[ordering[ii]]);
+	}
+	for (int jj = ii; jj < col.size (); ++jj) {
+	  if (ordering[jj] == ii) {
+	    ordering[jj] = ordering[ii];
+	    ordering[ii] = ii;
+	    break;
+	  }
+	}
+      }
+      
+    }
+  }
+  
 };
 
 using dprops_t = props_t<double>;
