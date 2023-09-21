@@ -99,7 +99,7 @@ props_t {
 };
 
 using dprops_t = props_t<double>;
-using iprops_t = props_t<double>;
+using iprops_t = props_t<int>;
 
 int
 main () {
