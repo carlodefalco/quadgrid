@@ -12,8 +12,8 @@ struct grid_t {
   
   const int num_rows; /*!< number of cell rows */
   const int num_cols; /*!< number of cell columns */
-  const double hx; /*!< cell width */
-  const double hy; /*!< cell height */
+  const double hx;    /*!< cell width */
+  const double hy;    /*!< cell height */
 
   /**
    *  \brief cell class
@@ -75,6 +75,25 @@ struct grid_t {
       }
       return 0;
     }
+
+    constexpr int NOT_ON_BOUNDARY = -1;
+    int
+    e (int iedge) const {
+
+      if (row == 0 && iedge == 0)
+	return 0;
+
+      if (row == num_rows - 1 && iedge == 1)
+	return 1;
+
+      if (column == 0 && iedge == 2)
+	return 2;
+
+      if (column == num_cols - 1 && iedge == 3)
+	return 3;
+
+      return (NOT_ON_BOUNDARY);
+    }
     
     void
     print () const {
@@ -135,6 +154,7 @@ struct grid_t {
   grid_t (int num_rows_, int num_cols_, double hx_, double hy_)
     : num_rows(num_rows_), num_cols(num_cols_), hx(hx_), hy(hy_) {};
 
+  
   iterator
   begin () {
     iterator it (this);
@@ -150,8 +170,23 @@ struct grid_t {
     it.buffer.column = -1;
     return it;
   }
-  
+
+
 };
+
+
+grid_t *
+grid_from_json (const nlohmann::json &j, grid_properties_t &q) {
+
+  int numcols, numrows;
+  double hx, hy;
+  j.at ("nx").get_to (numcols);
+  j.at ("ny").get_to (numrows);
+  j.at ("hx").get_to (hx);
+  j.at ("hy").get_to (hy);
+  return new grid_t (numrows, numcols, hx, hy);
+};
+
 
 /*
 int
