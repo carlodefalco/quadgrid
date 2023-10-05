@@ -292,6 +292,71 @@ struct grid_t {
 
     ofs.close ();
   }
+
+  void
+  octave_ascii_export
+  (const char *filename,
+   std::map<std::string, std::vector<double>> const & vars) const {
+
+    std::ofstream os (filename, std::ofstream::out);
+  
+    os << "# name: p" << std::endl
+       << "# type: matrix" << std::endl
+       << "# rows: 2" << std::endl
+       << "# columns: " << (num_cols + 1)*(num_rows + 1)
+       << std::endl;
+
+    for (idx_t jj = 0; jj < num_cols + 1; ++jj) {
+      for (idx_t ii = 0; ii < num_rows + 1; ++ii) {
+	os  << std::setprecision(16) << jj*hx << " ";
+      }
+    }
+    os << std::endl;
+
+    for (idx_t jj = 0; jj < num_cols + 1; ++jj) {
+      for (idx_t ii = 0; ii < num_rows + 1; ++ii) {
+	os  << std::setprecision(16) << ii*hy << " ";
+      }
+    }
+    os << std::endl;
+  
+    os << "# name: t" << std::endl
+       << "# type: matrix" << std::endl
+       << "# rows: 4" << std::endl
+       << "# columns: " << num_cols*num_rows << std::endl;
+    for (auto inode = 0;
+	 inode < 4;
+	 ++inode) {
+      for (auto icell = this->begin ();
+	   icell != this->end (); ++icell) {
+	os  << std::setprecision(16) << icell->gt(inode) << " ";
+      }
+      os << std::endl;
+    }
+  
+
+    os << "# name: vars" << std::endl
+       << "# type: scalar struct" << std::endl
+       << "# ndims: 2" << std::endl
+       << "1 1" << std::endl
+       << "# length: " << vars.size () << std::endl;
+
+
+    for (auto const & ii : vars) {
+      os << "# name: " << ii.first << std::endl
+	 << "# type: matrix" << std::endl
+	 << "# rows: 1" << std::endl
+	 << "# columns: " << ii.second.size () << std::endl;
+      for (auto const & kk : ii.second) {
+	os << std::setprecision(16) << kk << " ";
+      }
+      os << std::endl;
+    }
+    os << std::endl;
+
+    os.close ();
+  }
+  
 };
 
 
