@@ -22,21 +22,21 @@ particles_t::p2g
  bool apply_mass,
  assignment_t OP) const {
 
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = int;
   double N = 0.0, xx = 0.0, yy = 0.0;
   idx_t idx = 0;
 
   for (std::size_t ivar = 0; ivar < std::size(gvarnames); ++ivar) {
     auto & gvar = vars[getkey(gvarnames, ivar)];
     auto const & dprop = dprops.at (getkey(pvarnames, ivar));
-    for (auto icell = grid.begin_cell_sweep ();
-	 icell != grid.end_cell_sweep (); ++icell) {
+    for (auto icell = grid.begin ();
+	 icell != grid.end (); ++icell) {
 
-      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+      if (grd_to_ptcl.count (icell->index ()) > 0)
 	for (idx_t ii = 0;
-	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+	     ii < grd_to_ptcl.at (icell->index ()).size ();
 	     ++ii) {
-	  idx = grd_to_ptcl.at (icell->get_global_cell_idx ())[ii];
+	  idx = grd_to_ptcl.at (icell->index ())[ii];
 	  xx = x[idx];
 	  yy = y[idx];
 
@@ -83,7 +83,7 @@ particles_t::p2gd
  GT const & gvarnames,
  bool apply_mass, assignment_t OP) const {
 
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = int;
   double xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
   idx_t idx = 0;
 
@@ -92,15 +92,15 @@ particles_t::p2gd
     auto const & dpropx = dprops.at (getkey(pxvarnames, ivar));
     auto const & dpropy = dprops.at (getkey(pyvarnames, ivar));
     auto const & dproparea = dprops.at (area);
-    for (auto icell = grid.begin_cell_sweep();
-	 icell != grid.end_cell_sweep(); ++icell) {
+    for (auto icell = grid.begin ();
+	 icell != grid.end (); ++icell) {
 
-      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+      if (grd_to_ptcl.count (icell->index ()) > 0)
 	for (idx_t ii = 0;
-	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+	     ii < grd_to_ptcl.at (icell->index ()).size ();
 	     ++ii) {
 
-	  idx = grd_to_ptcl.at (icell->get_global_cell_idx())[ii];
+	  idx = grd_to_ptcl.at (icell->index())[ii];
 	  xx = x[idx];
 	  yy = y[idx];
 
@@ -146,22 +146,22 @@ particles_t::g2p
  PT const & pvarnames,
  bool apply_mass, assignment_t OP) {
 
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = int;
   double N = 0.0, xx = 0.0, yy = 0.0;
   idx_t idx = 0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
     auto & dprop = dprops.at (getkey (pvarnames, ivar));
     auto const & gvar = vars.at (getkey (gvarnames, ivar));
-    for (auto icell = grid.begin_cell_sweep ();
-	 icell != grid.end_cell_sweep (); ++icell) {
+    for (auto icell = grid.begin ();
+	 icell != grid.end (); ++icell) {
 
-      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+      if (grd_to_ptcl.count (icell->index ()) > 0)
 	for (idx_t ii = 0;
-	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+	     ii < grd_to_ptcl.at (icell->index ()).size ();
 	     ++ii) {
 
-	  idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
+	  idx = grd_to_ptcl.at(icell->index ())[ii];
 	  xx = x[idx];
 	  yy = y[idx];
 
@@ -199,23 +199,23 @@ particles_t::g2pd
  PT const & pyvarnames,
  bool apply_mass, assignment_t OP) {
 
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = int;
   double Nx = 0.0, Ny = 0.0, xx = 0.0, yy = 0.0;
   idx_t idx = 0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
     
-    for (auto icell = grid.begin_cell_sweep ();
-	 icell != grid.end_cell_sweep (); ++icell) {
+    for (auto icell = grid.begin ();
+	 icell != grid.end (); ++icell) {
       auto & dpropx = dprops.at (getkey (pxvarnames, ivar));
       auto & dpropy = dprops.at (getkey (pyvarnames, ivar));
       auto const & gvar = vars.at (getkey (gvarnames, ivar));
-      if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
+      if (grd_to_ptcl.count (icell->index ()) > 0)
 	for (idx_t ii = 0;
-	     ii < grd_to_ptcl.at (icell->get_global_cell_idx ()).size ();
+	     ii < grd_to_ptcl.at (icell->index ()).size ();
 	     ++ii) {
 
-	  idx = grd_to_ptcl.at(icell->get_global_cell_idx ())[ii];
+	  idx = grd_to_ptcl.at(icell->index ())[ii];
 	  xx = x[idx];
 	  yy = y[idx];
 

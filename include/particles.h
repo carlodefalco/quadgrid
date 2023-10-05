@@ -2,12 +2,12 @@
 #define PARTICLES_H
 
 #include <algorithm>
+#include <custom_iterator_grid.h>
 #include <functional>
 #include <iomanip>
 #include <iostream>
 #include <json.hpp>
 #include <map>
-#include <quadgrid_cpp.h>
 #include <string>
 
 //! datatype for assignment operators
@@ -37,7 +37,7 @@ struct
 particles_t {
 
   //! datatype for indexing into vectors of properties
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = int;
   
   idx_t num_particles;    //!< number of particles.
   std::vector<double> x;  //!< x coordinate of particle positions.
@@ -51,7 +51,7 @@ particles_t {
 
   std::vector<double> M; //!< Mass matrix to be used for transfers if required.
   std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid/particles connectivity.
-  const quadgrid_t<std::vector<double>>& grid;       //!< refernce to a grid object.
+  const grid_t& grid;    //!< refernce to a grid object.
 
   //! Enumeration of available output format
   enum class
@@ -97,8 +97,8 @@ particles_t {
   
   //! Particle positions are not assigned, they must be set manually later.
   //! @param n number of particles
-  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
-  particles_t (idx_t n, const quadgrid_t<std::vector<double>>& grid_)
+  //! @param grid_ grid_t object, sizes need to have been already set up.
+  particles_t (idx_t n, const grid_t& grid_)
     : num_particles(n), grid(grid_) { } 
 
   //! @brief Ctor to import data from json.
@@ -106,7 +106,7 @@ particles_t {
   //! Grid data may be stored in the same `json` object but must be read
   //! separately before invoking this constructor.
   particles_t (const nlohmann::json &j,
-	       const quadgrid_t<std::vector<double>>& grid_)
+	       const grid_t& grid_)
     :  grid(grid_)
   {
     j["dprops"].get_to<std::map<std::string, std::vector<double>>> (dprops);
@@ -121,12 +121,12 @@ particles_t {
   //! Distributes particles randomly over the
   //! grid.
   //! @param n number of particles
-  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
+  //! @param grid_ grid_t object, sizes need to have been already set up.
   //! @param ipropnames keys for entries in the particles_t::iprops map.
   //! @param dpropnames keys for entries in the particles_t::dprops map.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
-	       const quadgrid_t<std::vector<double>>& grid_);
+	       const grid_t& grid_);
 
   //! @brief Constructor with custom position vectors.
   
@@ -134,14 +134,14 @@ particles_t {
   //! `xv` and `yv`. The vectors are copied, and left unchangend
   //! they can be deleted to reclaim memory if needed.
   //! @param n number of particles
-  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
+  //! @param grid_ grid_t object, sizes need to have been already set up.
   //! @param ipropnames keys for entries in the particles_t::iprops map.
   //! @param dpropnames keys for entries in the particles_t::dprops map.
   //! @param xv the x-coordinates of new particles.
   //! @param yv the y-coordinates of new particles.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
-	       const quadgrid_t<std::vector<double>>& grid_,
+	       const grid_t& grid_,
 	       const std::vector<double> & xv,
 	       const std::vector<double> & yv);
 
@@ -151,14 +151,14 @@ particles_t {
   //! `xgen` and `ygen`. Each call to these functions should return
   //! the x- and y-coordinate of a new particle.
   //! @param n number of particles
-  //! @param grid_ quadgrid_t object, sizes need to have been already set up.
+  //! @param grid_ grid_t object, sizes need to have been already set up.
   //! @param ipropnames keys for entries in the particles_t::iprops map.
   //! @param dpropnames keys for entries in the particles_t::dprops map.
   //! @param xgen generator function for the x-coordinates of new particles.
   //! @param ygen generator function for the y-coordinates of new particles.
   particles_t (idx_t n, const std::vector<std::string>& ipropnames,
 	       const std::vector<std::string>& dpropnames,
-	       const quadgrid_t<std::vector<double>>& grid_,
+	       const grid_t& grid_,
 	       std::function<double ()> xgen,
 	       std::function<double ()> ygen);
 

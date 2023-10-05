@@ -76,6 +76,79 @@ struct grid_t {
       return 0;
     }
 
+    double
+    shp (double x, double y, int inode) const {
+      switch (inode) {
+      case 3 :
+	return ((x - p(0,0))/grid->hx *
+		(y - p(1,0))/grid->hy);
+	break;
+      case 2 :
+	return ((x - p(0,0))/grid->hx *
+		(1. - (y - p(1,0))/grid->hy));
+	break;
+      case 1 :
+	return ((1. - (x - p(0,0))/grid->hx) *
+		(y - p(1,0))/grid->hy);
+	break;
+      case 0 :
+	return ((1. - (x - p(0,0))/grid->hx) *
+		(1. - (y - p(1,0))/grid->hy));
+	break;
+      default :
+	throw std::out_of_range ("inode must be in range 0..3");
+      }
+    }
+    
+    double
+    shg (double x, double y, int dir, int inode) const {
+      switch (inode) {
+      case 3 :
+	if (idir == 0) {
+	  return ((1. / grid->hx) *
+		  ((y - p(1,0)) / grid->hy));
+	}
+	else if (idir == 1) {
+	  return (((x - p(0,0)) / grid->hx) *
+		  (1. / grid->hy));
+	}
+	break;
+      case 2 :
+	if (idir == 0) {
+	  return ((1. / grid->hx) *
+		  ((1. - (y - p(1,0)) / grid->hy)));
+	}
+	else if (idir == 1) {
+	  return (((x - p(0,0)) / grid->hx) *
+		  (- 1. / grid->hy));
+	}
+	break;
+      case 1 :
+	if (idir == 0) {
+	  return ((- 1. / grid->hx) *
+		  ((y - p(1,0)) / grid->hy));
+	}
+	else if (idir == 1) {
+	  return ((1. - (x - p(0,0)) / grid->hx) *
+		  (1. / grid->hy));
+	}
+	break;
+      case 0 :
+	if (idir == 0) {
+	  return ((- 1. /grid->hx) *
+		  (1. - (y - p(1,0)) / grid->hy));
+	}
+	else if (idir == 1) {
+	  return ((1. - (x - p(0,0))/grid->hx) *
+		  (- 1. / grid->hy));
+	}
+	break;
+      default :
+	throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
+      }
+      return 0.;
+    }
+       
     constexpr int NOT_ON_BOUNDARY = -1;
     int
     e (int iedge) const {
