@@ -245,6 +245,53 @@ struct grid_t {
   }
 
 
+  void
+  vtk_export (const char *filename,
+	      const std::map<std::string, std::vector<double>> & f) const {
+
+    std::ofstream ofs (filename, std::ofstream::out);
+
+    // This is the XML format of a VTS file to write :
+
+    ofs <<
+      "<VTKFile type=\"StructuredGrid\" version=\"StructuredGrid\" byte_order=\"LittleEndian\">\n\
+ <StructuredGrid WholeExtent=\"0 " << num_rows << " 0 " << num_cols << " 0 0\">\n \
+ <Piece Extent=\"0 " << num_rows << " 0 " << num_cols << " 0 0\">\n";
+
+    ofs << "      <PointData Scalars=\"";
+    for (auto const & ii : f) {
+      ofs << ii.first << ",";
+    }
+    ofs  << "\">\n";
+
+    for (auto const & ii : f) {
+      ofs << "        <DataArray type=\"Float64\" Name=\"" << ii.first <<"\" format=\"ascii\">\n        ";
+      for (auto const & jj : ii.second) {
+	ofs << jj << " ";
+      }
+      ofs << std::endl << "        </DataArray>" << std::endl;
+    }
+
+    ofs << "      </PointData>\n";
+
+    ofs << "      <Points>\n        <DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
+    for (idx_t ii = 0; ii <= num_cols; ++ii) {
+      ofs << "          ";
+      for (idx_t jj = 0; jj <= num_rows; ++jj) {
+	ofs << std::setprecision(16) << hx*ii << " " << hy*jj << " 0 ";
+      }
+      ofs << std::endl;
+    }
+    ofs << "        </DataArray>\n      </Points>\n";
+
+
+    ofs <<
+      "    </Piece>\n\
+</StructuredGrid>\n\
+</VTKFile>\n";
+
+    ofs.close ();
+  }
 };
 
 
