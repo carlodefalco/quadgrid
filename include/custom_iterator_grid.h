@@ -1,0 +1,183 @@
+#ifndef HAVE_CUSTOM_ITERATOR_GRID_H
+#define HAVE_CUSTOM_ITERATOR_GRID_H
+
+#include <algorithm>
+#include <iostream>
+#include <cmath>
+#include <vector>
+
+struct grid_t;
+
+struct grid_t {
+  
+  const int num_rows; /*!< number of cell rows */
+  const int num_cols; /*!< number of cell columns */
+  const double hx; /*!< cell width */
+  const double hy; /*!< cell height */
+
+  /**
+   *  \brief cell class
+   */
+  struct cell_t {
+    int row, column;
+    const grid_t *grid; /*!< Pointer to the enclosing grid object */
+  
+    cell_t () = delete;
+    cell_t (const grid_t *g_)
+      : grid (g_) {};
+
+    int
+    index () const {
+      return row + grid->num_rows * column;
+    }
+
+    void
+    set_index (int idx) {
+      column = idx / grid->num_rows;
+      row = idx % grid->num_rows;
+      if (column >= grid->num_cols) {
+	column = -1;
+	row = -1;
+      }
+    }
+
+    int
+    t (int inode) const {
+      int r = row, c = column;
+      if (inode < 0 || inode > 3) throw;
+      if (inode == 1 || inode == 3) ++r;
+      if (inode == 2 || inode == 3) ++c;
+      return r + (grid->num_rows + 1) * c;
+    }
+
+    int
+    gt (int inode) const {
+      return t (inode);
+    }
+    
+    double
+    p (int dir, int inode) const {
+      switch (dir) {
+      case 0:
+	if (inode == 0 || inode == 1)
+	  return column * grid->hx;
+	else if (inode == 2 || inode == 3)
+	  return (column + 1) * grid->hx;
+	break;
+      case 1:
+	if (inode == 0 || inode == 2)
+	  return row * grid->hy;
+	else if (inode == 1 || inode == 3)
+	  return (row + 1) * grid->hy;
+	break;
+      default:
+	throw;
+      }
+      return 0;
+    }
+    
+    void
+    print () const {
+      std::cout << "cell number " << index ()
+		<< ": row " << row << " of " << grid->num_rows
+		<< ", column " << column << " of " << grid->num_cols
+		<< ", vertices: "
+		<< gt(0) << "(" << p(0, 0) << ", " << p(1, 0) << "), "
+		<< gt(1) << "(" << p(0, 1) << ", " << p(1, 1) << "), "
+		<< gt(2) << "(" << p(0, 2) << ", " << p(1, 2) << "), "
+		<< gt(3) << "(" << p(0, 3) << ", " << p(1, 3) << ") "
+		<< std::endl;
+    }
+    
+  };
+  
+  struct iterator
+  {
+    
+    using value_type = cell_t;
+    using difference_type = int;
+    using pointer = cell_t*;
+    using reference = cell_t&;
+    using iterator_category = std::input_iterator_tag;
+    
+    mutable cell_t buffer;
+    grid_t *grid;
+    
+    iterator () = delete;
+    iterator (grid_t *grid_)
+      : grid(grid_), buffer(grid_) { }
+
+    iterator&
+    operator++ () {
+      buffer.set_index (buffer.index () + 1);
+      return *this;
+    }
+
+    bool
+    operator==(const iterator& rhs) {
+      bool test = false;
+      test = (rhs.buffer.index () == buffer.index ());
+      return test;
+    }
+    
+    bool
+    operator!=(const iterator& rhs) {
+      return !(*this == rhs);
+    }
+
+    reference
+    operator*() const {
+      return buffer;
+    }
+
+  };
+  
+  grid_t (int num_rows_, int num_cols_, double hx_, double hy_)
+    : num_rows(num_rows_), num_cols(num_cols_), hx(hx_), hy(hy_) {};
+
+  iterator
+  begin () {
+    iterator it (this);
+    it.buffer.row = 0;
+    it.buffer.column = 0;
+    return it;
+  }
+
+  iterator
+  end () {
+    iterator it (this);
+    it.buffer.row = -1;
+    it.buffer.column = -1;
+    return it;
+  }
+  
+};
+
+/*
+int
+main () {
+  grid_t grid (5, 4, .1, .2);
+
+  std::cout << "iterate with begin/end \n\n";
+  for (auto i = grid.begin (); i != grid.end (); ++i) {
+    (*i).print ();
+  }
+
+  std::cout << "\n\niterate with range \n\n";
+  for (auto const &i : grid) {
+    i.print ();
+  }
+
+  std::vector<int> v(grid.num_rows*grid.num_cols, 0);
+  std::transform (grid.begin (), grid.end (), v.begin (), [] (auto ii) { return ii.index (); });
+
+  std::cout << "\n\nvector of indices \n\n";
+  for (auto const &i : v) {
+    std::cout << i << std::endl;
+  }
+  
+  return 0;
+}
+*/
+
+#endif
