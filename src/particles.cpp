@@ -17,7 +17,7 @@ particles_t::default_x_generator () {
   static std::random_device rd;
   static std::mt19937 gen (rd ());
   static std::uniform_real_distribution<> dis (0.0, 1.0);
-  return dis (gen) * grid.num_cols () * grid.hx ();
+  return dis (gen) * grid.num_cols * grid.hx;
 }
 
 double
@@ -25,22 +25,22 @@ particles_t::default_y_generator () {
   static std::random_device rd;
   static std::mt19937 gen (rd ());
   static std::uniform_real_distribution<> dis (0.0, 1.0);
-  return dis (gen) * grid.num_rows () * grid.hy ();
+  return dis (gen) * grid.num_rows * grid.hy;
 }
 
 particles_t::particles_t
 (
  idx_t n, const std::vector<std::string>& ipropnames,
  const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_
+ const grid_t& grid_
  ) :  particles_t (n, grid_) {
 
   init_props (ipropnames, dpropnames);
 
   init_particle_positions
     (
-     [this] { return this->default_x_generator (); },
-     [this] { return this->default_y_generator (); }
+     [this] { return this->default_x_generator; },
+     [this] { return this->default_y_generator; }
      );
 
   init_particle_mesh ();
@@ -51,7 +51,7 @@ particles_t::particles_t
 (
  idx_t n, const std::vector<std::string>& ipropnames,
  const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_,
+ const grid_t& grid_,
  const std::vector<double> & xgen,
  const std::vector<double> & ygen
  ) : particles_t (n, grid_) {
@@ -68,7 +68,7 @@ particles_t::particles_t
 (
  idx_t n, const std::vector<std::string>& ipropnames,
  const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_,
+ const grid_t& grid_,
  std::function<double ()> xgen,
  std::function<double ()> ygen
  ) : particles_t (n, grid_) {
@@ -134,7 +134,7 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-         inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+         inode < 4;
          ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }
@@ -247,8 +247,8 @@ to_json (nlohmann::json &j, const particles_t &p) {
     {"dprops", p.dprops},
     {"iprops", p.iprops},
     {"grid_properties",
-     {{"nx", p.grid.num_cols ()},
-      {"ny", p.grid.num_rows ()},
+     {{"nx", p.grid.num_cols},
+      {"ny", p.grid.num_rows},
       {"hx", p.grid.hx ()},
       {"hy", p.grid.hy ()}}
     }

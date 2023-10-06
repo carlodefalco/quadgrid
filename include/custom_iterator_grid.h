@@ -2,9 +2,14 @@
 #define HAVE_CUSTOM_ITERATOR_GRID_H
 
 #include <algorithm>
-#include <iostream>
 #include <cmath>
+#include <fstream>
+#include <iostream>
+#include <json>
+#include <map>
 #include <vector>
+
+constexpr int NOT_ON_BOUNDARY = -1;
 
 struct grid_t;
 
@@ -101,7 +106,7 @@ struct grid_t {
     }
     
     double
-    shg (double x, double y, int dir, int inode) const {
+    shg (double x, double y, int idir, int inode) const {
       switch (inode) {
       case 3 :
 	if (idir == 0) {
@@ -149,20 +154,19 @@ struct grid_t {
       return 0.;
     }
        
-    constexpr int NOT_ON_BOUNDARY = -1;
     int
     e (int iedge) const {
 
       if (row == 0 && iedge == 0)
 	return 0;
 
-      if (row == num_rows - 1 && iedge == 1)
+      if (row == grid->num_rows - 1 && iedge == 1)
 	return 1;
 
       if (column == 0 && iedge == 2)
 	return 2;
 
-      if (column == num_cols - 1 && iedge == 3)
+      if (column == grid->num_cols - 1 && iedge == 3)
 	return 3;
 
       return (NOT_ON_BOUNDARY);
@@ -275,9 +279,9 @@ struct grid_t {
     ofs << "      </PointData>\n";
 
     ofs << "      <Points>\n        <DataArray type=\"Float64\" NumberOfComponents=\"3\" format=\"ascii\">\n";
-    for (idx_t ii = 0; ii <= num_cols; ++ii) {
+    for (int ii = 0; ii <= num_cols; ++ii) {
       ofs << "          ";
-      for (idx_t jj = 0; jj <= num_rows; ++jj) {
+      for (int jj = 0; jj <= num_rows; ++jj) {
 	ofs << std::setprecision(16) << hx*ii << " " << hy*jj << " 0 ";
       }
       ofs << std::endl;
@@ -306,15 +310,15 @@ struct grid_t {
        << "# columns: " << (num_cols + 1)*(num_rows + 1)
        << std::endl;
 
-    for (idx_t jj = 0; jj < num_cols + 1; ++jj) {
-      for (idx_t ii = 0; ii < num_rows + 1; ++ii) {
+    for (int jj = 0; jj < num_cols + 1; ++jj) {
+      for (int ii = 0; ii < num_rows + 1; ++ii) {
 	os  << std::setprecision(16) << jj*hx << " ";
       }
     }
     os << std::endl;
 
-    for (idx_t jj = 0; jj < num_cols + 1; ++jj) {
-      for (idx_t ii = 0; ii < num_rows + 1; ++ii) {
+    for (int jj = 0; jj < num_cols + 1; ++jj) {
+      for (int ii = 0; ii < num_rows + 1; ++ii) {
 	os  << std::setprecision(16) << ii*hy << " ";
       }
     }
@@ -361,7 +365,7 @@ struct grid_t {
 
 
 grid_t *
-grid_from_json (const nlohmann::json &j, grid_properties_t &q) {
+grid_from_json (const nlohmann::json &j) {
 
   int numcols, numrows;
   double hx, hy;
