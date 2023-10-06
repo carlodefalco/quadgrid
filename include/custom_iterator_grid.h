@@ -250,12 +250,18 @@ struct grid_t {
 
   const iterator
   cbegin () const {
-    return this->begin ();
+    const iterator it (this);
+    it.buffer.row = 0;
+    it.buffer.column = 0;
+    return it;
   }
 
   const iterator
   cend () {
-    return this->end ();
+    const iterator it (this);
+    it.buffer.row = -1;
+    it.buffer.column = -1;
+    return it;
   }
   
   void
