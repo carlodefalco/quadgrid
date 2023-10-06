@@ -204,12 +204,11 @@ particles_t::g2pd
   idx_t idx = 0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
-    
+    auto & dpropx = dprops.at (getkey (pxvarnames, ivar));
+    auto & dpropy = dprops.at (getkey (pyvarnames, ivar));
+    auto const & gvar = vars.at (getkey (gvarnames, ivar));
     for (auto icell = grid.begin ();
-	 icell != grid.end (); ++icell) {
-      auto & dpropx = dprops.at (getkey (pxvarnames, ivar));
-      auto & dpropy = dprops.at (getkey (pyvarnames, ivar));
-      auto const & gvar = vars.at (getkey (gvarnames, ivar));
+	 icell != grid.end (); ++icell) {      
       if (grd_to_ptcl.count (icell->index ()) > 0)
 	for (idx_t ii = 0;
 	     ii < grd_to_ptcl.at (icell->index ()).size ();
@@ -231,6 +230,7 @@ particles_t::g2pd
 	    OP (dpropy[idx], Ny * gvar[icell->gt(inode)]);
 	  }
 	}
+      }
     }
 
   }
