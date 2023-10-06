@@ -39,8 +39,8 @@ particles_t::particles_t
 
   init_particle_positions
     (
-     [this] { return this->default_x_generator; },
-     [this] { return this->default_y_generator; }
+     [this] { return this->default_x_generator (); },
+     [this] { return this->default_y_generator (); }
      );
 
   init_particle_mesh ();

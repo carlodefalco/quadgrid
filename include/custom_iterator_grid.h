@@ -248,7 +248,16 @@ struct grid_t {
     return it;
   }
 
+  const iterator
+  cbegin () const {
+    return this->begin ();
+  }
 
+  const iterator
+  cend () {
+    return this->end ();
+  }
+  
   void
   vtk_export (const char *filename,
 	      const std::map<std::string, std::vector<double>> & f) const {
