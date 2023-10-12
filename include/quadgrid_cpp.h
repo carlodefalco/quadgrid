@@ -10,9 +10,10 @@
 #include <mpi.h>
 #else
 #define MPI_Comm int
-#define MPI_COMM_WORLD
+#define MPI_COMM_WORLD 1
 #define MPI_Initialized(x)
 #define MPI_Comm_size(x, y) { *y = 0; }
+#define MPI_Comm_rank(x, y) { *y = 0; }
 #endif
 #include <vector>
 
