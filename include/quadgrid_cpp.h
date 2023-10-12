@@ -8,6 +8,10 @@
 #include <map>
 #ifdef USE_MPI_H
 #include <mpi.h>
+#else
+#define MPI_Comm int
+#define MPI_COMM_WORLD
+#define MPI_Initialized(x) 
 #endif
 #include <vector>
 
