@@ -6,7 +6,9 @@
 #include <iomanip>
 #include <json.hpp>
 #include <map>
+#ifndef USE_MPI_H
 #include <mpi.h>
+#endif
 #include <vector>
 
 template <class distributed_vector>
