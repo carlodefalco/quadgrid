@@ -10,14 +10,6 @@
 #include <quadgrid_cpp.h>
 #include <string>
 
-//! datatype for assignment operators
-using assignment_t = std::function <double& (double&, const double&)>;
-
-namespace ASSIGNMENT_OPS {
-  extern assignment_t EQ; // = [] (double& TO, const double& FROM) -> double& { return TO = FROM; };
-  extern assignment_t PLUS_EQ; // = [] (double& TO, const double& FROM) -> double& { return TO += FROM; };
-  extern assignment_t TIMES_EQ; // = [] (double& TO, const double& FROM) -> double& { return TO *= FROM; };
-}
 
 //! \brief Class to represent particles embedded in a grid.
 
@@ -300,16 +292,14 @@ particles_t {
   p2g (std::map<std::string, std::vector<double>> & vars,
        PT const & pvarnames,
        GT const & gvarnames,
-       bool apply_mass = false,
-       assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ) const;
+       bool apply_mass = false) const;
 
   template<typename str>
   void
   p2g (std::map<std::string, std::vector<double>> & vars,
        std::initializer_list<str> const & pvarnames,
        std::initializer_list<str> const & gvarnames,
-       bool apply_mass = false,
-       assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ) const;
+       bool apply_mass = false) const;
   
   template<typename GT, typename PT>
   void
@@ -318,8 +308,7 @@ particles_t {
 	PT const & pyvarnames,
 	std::string const &area,
 	GT const & gvarnames,
-	bool apply_mass = false,
-	assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ) const;
+	bool apply_mass = false) const;
 
   template<typename str>
   void
@@ -328,12 +317,11 @@ particles_t {
 	std::initializer_list<str> const & pyvarnames,
 	std::string const & area,
 	std::initializer_list<str> const & gvarnames,
-	bool apply_mass = false,
-	assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ) const;
+	bool apply_mass = false) const;
 
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
-       bool apply_mass = false, assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ) {
+       bool apply_mass = false) {
     g2p (vars, vars, vars, apply_mass, OP);
   }
 
@@ -342,16 +330,14 @@ particles_t {
   g2p (const std::map<std::string, std::vector<double>>& vars,
        std::initializer_list<str> const & gvarnames,
        std::initializer_list<str> const & pvarnames,
-       bool apply_mass = false,
-       assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ);
+       bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
        GT const & gvarnames,
        PT const & pvarnames,
-       bool apply_mass = false,
-       assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ);
+       bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
@@ -359,8 +345,7 @@ particles_t {
 	GT const & gvarnames,
 	PT const & pxvarnames,
 	PT const & pyvarnames,
-	bool apply_mass = false,
-	assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ);
+	bool apply_mass = false);
 
   template<typename str>
   void
@@ -368,8 +353,7 @@ particles_t {
 	std::initializer_list<str> const & gvarnames,
 	std::initializer_list<str> const &pxvarnames,
 	std::initializer_list<str> const & pyvarnames,
-	bool apply_mass = false,
-	assignment_t OP = ASSIGNMENT_OPS::PLUS_EQ);
+	bool apply_mass = false);
 
 };
 

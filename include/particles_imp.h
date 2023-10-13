@@ -7,10 +7,10 @@ particles_t::p2g
 (std::map<std::string, std::vector<double>> & vars,
  std::initializer_list<str> const & pvarnames,
  std::initializer_list<str> const & gvarnames,
- bool apply_mass, assignment_t OP) const {
+ bool apply_mass) const {
   using strlist = std::initializer_list<str> const &;
   p2g<strlist, strlist>
-    (vars, pvarnames, gvarnames, apply_mass, OP);
+    (vars, pvarnames, gvarnames, apply_mass);
 }
 
 template<typename GT, typename PT>
@@ -19,8 +19,7 @@ particles_t::p2g
 (std::map<std::string, std::vector<double>> & vars,
  PT const & pvarnames,
  GT const & gvarnames,
- bool apply_mass,
- assignment_t OP) const {
+ bool apply_mass) const {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double N = 0.0, xx = 0.0, yy = 0.0;
@@ -43,8 +42,8 @@ particles_t::p2g
 	  for (idx_t inode = 0; inode < 4; ++inode) {
 	    N = icell->shp(xx, yy, inode);
 	  
-	    OP (gvar[icell->gt(inode)], 
-		N * dprop[idx]);
+	    gvar[icell->gt(inode)] +=
+	      N * dprop[idx];
 	  }
 	}
     }
@@ -66,10 +65,10 @@ particles_t::p2gd
  std::initializer_list<str> const & pyvarnames,
  std::string const &area,
  std::initializer_list<str> const & gvarnames,
- bool apply_mass, assignment_t OP) const {
+ bool apply_mass) const {
   using strlist = std::initializer_list<str> const &;
   p2gd<strlist, strlist>
-    (vars, pxvarnames, pyvarnames, area, gvarnames, apply_mass, OP);
+    (vars, pxvarnames, pyvarnames, area, gvarnames, apply_mass);
 }
 
 
@@ -81,7 +80,7 @@ particles_t::p2gd
  PT const & pyvarnames,
  std::string const &area,
  GT const & gvarnames,
- bool apply_mass, assignment_t OP) const {
+ bool apply_mass) const {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
@@ -110,8 +109,8 @@ particles_t::p2gd
 	    Ny = icell->shg (xx, yy, 1, inode);
 
 	  
-	    OP (gvar[icell->gt(inode)],
-		(Nx * dpropx[idx] + Ny * dpropy[idx]) * dproparea[idx]);
+	    gvar[icell->gt(inode)] +=
+	      (Nx * dpropx[idx] + Ny * dpropy[idx]) * dproparea[idx];
 	  }
 	}
     }
@@ -132,10 +131,10 @@ particles_t::g2p
 (const std::map<std::string, std::vector<double>> & vars,
  std::initializer_list<str> const & gvarnames,
  std::initializer_list<str> const & pvarnames,
- bool apply_mass, assignment_t OP) {
+ bool apply_mass) {
   using strlist = std::initializer_list<str> const &;
   g2p<strlist, strlist> (vars, gvarnames,
-			 pvarnames, apply_mass, OP);
+			 pvarnames, apply_mass);
 }
 
 template<typename GT, typename PT>
@@ -144,7 +143,7 @@ particles_t::g2p
 (const std::map<std::string, std::vector<double>>& vars,
  GT const & gvarnames,
  PT const & pvarnames,
- bool apply_mass, assignment_t OP) {
+ bool apply_mass) {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double N = 0.0, xx = 0.0, yy = 0.0;
@@ -170,7 +169,7 @@ particles_t::g2p
 	      icell->shp(xx, yy, inode) * M[icell->gt(inode)] :
 	      icell->shp(xx, yy, inode);
 	  
-	    OP (dprop [idx], N * gvar[icell->gt(inode)]);
+	    dprop [idx] += N * gvar[icell->gt(inode)]);
 	  }
 	}
     }
@@ -184,10 +183,10 @@ particles_t::g2pd
  std::initializer_list<str> const & gvarnames,
  std::initializer_list<str> const & pxvarnames,
  std::initializer_list<str> const & pyvarnames,
- bool apply_mass, assignment_t OP) {
+ bool apply_mass) {
   using strlist = std::initializer_list<str> const &;
   g2pd<strlist, strlist> (vars, gvarnames, pxvarnames,
-			  pyvarnames, apply_mass, OP);
+			  pyvarnames, apply_mass);
 }
 
 template<typename GT, typename PT>
@@ -197,7 +196,7 @@ particles_t::g2pd
  GT const & gvarnames,
  PT const & pxvarnames,
  PT const & pyvarnames,
- bool apply_mass, assignment_t OP) {
+ bool apply_mass) {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double Nx = 0.0, Ny = 0.0, xx = 0.0, yy = 0.0;
@@ -227,8 +226,8 @@ particles_t::g2pd
 	      icell->shg(xx, yy, 1, inode) * M[icell->gt(inode)] :
 	      icell->shg(xx, yy, 1, inode);
 
-	    OP (dpropx[idx], Nx * gvar[icell->gt(inode)]);
-	    OP (dpropy[idx], Ny * gvar[icell->gt(inode)]);
+	    dpropx[idx] += Nx * gvar[icell->gt(inode)];
+	    dpropy[idx] += Ny * gvar[icell->gt(inode)];
 	  }
 	}
       }
