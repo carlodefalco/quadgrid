@@ -169,7 +169,7 @@ particles_t::g2p
 	      icell->shp(xx, yy, inode) * M[icell->gt(inode)] :
 	      icell->shp(xx, yy, inode);
 	  
-	    dprop [idx] += N * gvar[icell->gt(inode)]);
+	    dprop [idx] += N * gvar[icell->gt(inode)];
 	  }
 	}
     }

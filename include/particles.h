@@ -323,7 +323,7 @@ particles_t {
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
        bool apply_mass = false) {
-    g2p (vars, vars, vars, apply_mass, OP);
+    g2p (vars, vars, vars, apply_mass);
   }
 
   template<typename str>
