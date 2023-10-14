@@ -93,9 +93,11 @@ particles_t::init_props
 
 void
 particles_t::init_particle_mesh () {
+  static idx_t loop = 0;
+  ++loop;
 
-  for (auto & igrd : grd_to_ptcl)
-    igrd.second.clear ();
+  for (auto & igrid : grd_to_ptcl)
+    igrid.second.clear ();
 
   ptcl_to_grd.assign (this->num_particles, 0);
 
@@ -103,9 +105,28 @@ particles_t::init_particle_mesh () {
     idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
     idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
 
+    //std::cout << r << " " << c << " " << grid.sub2gind (r, c) << std::endl;
     grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
-    ptcl_to_grd[ii]=grid.sub2gind (r, c);
+    ptcl_to_grd[ii] = grid.sub2gind (r, c);
+
   }
+
+  /*
+    std::cout << "grd_to_ptcl" << "\n";
+
+    for (auto const & ii : grd_to_ptcl) {
+    for (auto const & jj : ii.second) {
+    std::cout << ii.first << " " << jj << "\n";
+    }
+    }
+
+    std::cout << "ptcl_to_grd" << "\n";
+    for (idx_t ii = 0; ii < this->num_particles; ++ii) {
+    std::cout << ptcl_to_grd[ii] << " " << ii << "\n";
+    }
+
+    assert (false);
+  */
 }
 
 
@@ -130,8 +151,8 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-         inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
-         ++inode) {
+	 inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+	 ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }
   }
@@ -258,24 +279,24 @@ particles_t::reorder (std::vector<idx_t> &ordering) {
     if (ii != ordering[ii]) {
 
       for (auto &dprop : dprops) {
-        auto &col = dprop.second;
-        std::swap (col[ii], col[ordering[ii]]);
+	auto &col = dprop.second;
+	std::swap (col[ii], col[ordering[ii]]);
       }
 
       for (auto &iprop : iprops) {
-        auto &col = iprop.second;
-        std::swap (col[ii], col[ordering[ii]]);
+	auto &col = iprop.second;
+	std::swap (col[ii], col[ordering[ii]]);
       }
 
       std::swap (x[ii], x[ordering[ii]]);
       std::swap (y[ii], y[ordering[ii]]);
 
       for (int jj = ii; jj < ordering.size (); ++jj) {
-        if (ordering[jj] == ii) {
-          ordering[jj] = ordering[ii];
-          ordering[ii] = ii;
-          break;
-        }
+	if (ordering[jj] == ii) {
+	  ordering[jj] = ordering[ii];
+	  ordering[ii] = ii;
+	  break;
+	}
       }
 
     }

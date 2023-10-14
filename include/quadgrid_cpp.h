@@ -42,13 +42,13 @@ public:
 
   void
   from_json (const nlohmann::json &j, grid_properties_t &q) {
-    
+
     j.at ("nx").get_to (q.numcols);
     j.at ("ny").get_to (q.numrows);
     j.at ("hx").get_to (q.hx);
     j.at ("hy").get_to (q.hy);
 
-  
+
     q.start_cell_row = 0;
     q.end_cell_row = q.numrows - 1;
     q.start_cell_col = 0;
@@ -57,7 +57,7 @@ public:
     q.num_owned_nodes = (q.numrows+1)*(q.numcols+1);
 
   }
-  
+
   class
   cell_iterator
   {
@@ -109,7 +109,7 @@ public:
     operator++ ();
 
     neighbor_iterator (cell_t *_data = nullptr,
-		       int _face_idx = -1)
+                       int _face_idx = -1)
       : cell_iterator (_data), face_idx (_face_idx) { };
 
     int
@@ -128,6 +128,7 @@ public:
   {
 
     friend class cell_iterator;
+    friend class quadgrid_t;
 
   public:
 
@@ -235,8 +236,8 @@ public:
       colidx = grid_properties.start_cell_col;
       global_cell_idx = sub2gind (rowidx, colidx);
       local_cell_idx = global_cell_idx -
-	sub2gind (grid_properties.start_cell_row,
-		  grid_properties.start_cell_col);
+        sub2gind (grid_properties.start_cell_row,
+                  grid_properties.start_cell_col);
     };
 
   private:
@@ -281,7 +282,7 @@ public:
   /// Ctor that reads grid properties from a json object.
   quadgrid_t (const nlohmann::json &j, MPI_Comm _comm = MPI_COMM_WORLD) :
     quadgrid_t(_comm) { from_json (j, grid_properties); };
-  
+
   /// Delete copy constructor.
   quadgrid_t (const quadgrid_t &) = delete;
 
@@ -294,18 +295,18 @@ public:
 
   void
   set_sizes (idx_t numrows, idx_t numcols,
-	     double hx, double hy);
+             double hx, double hy);
 
   void
   vtk_export (const char *filename,
-	      const std::map<std::string,
-	      distributed_vector> & f) const;
+              const std::map<std::string,
+              distributed_vector> & f) const;
 
   void
   octave_ascii_export (const char *filename,
-		       const std::map<std::string,
-		       distributed_vector> & f) const;
-  
+                       const std::map<std::string,
+                       distributed_vector> & f) const;
+
   cell_iterator
   begin_cell_sweep ();
 
@@ -366,6 +367,9 @@ public:
   gind2col (idx_t idx) const {
     return  (idx % grid_properties.numrows);
   }
+
+  const cell_t&
+  operator[] (idx_t tmp) const;
 
   MPI_Comm          comm;
   int               rank;
