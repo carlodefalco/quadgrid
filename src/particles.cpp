@@ -5,13 +5,6 @@
 
 #include <particles.h>
 
-namespace ASSIGNMENT_OPS {
-  assignment_t EQ = [] (double& TO, const double& FROM) -> double& { return TO = FROM; };
-  assignment_t PLUS_EQ = [] (double& TO, const double& FROM) -> double& { return TO += FROM; };
-  assignment_t TIMES_EQ = [] (double& TO, const double& FROM) -> double& { return TO *= FROM; };
-}
-
-
 double
 particles_t::default_x_generator () {
   static std::random_device rd;
@@ -105,15 +98,15 @@ particles_t::init_particle_mesh () {
     igrd.second.clear ();
 
   ptcl_to_grd.fill (this->num_particles, 0);
-    
-  ptcl_to_grd
-  for (auto ii = 0; ii < this->num_particles; ++ii) {
-    idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
-    idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
 
-    grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
-    ptcl_to_grd[ii]=grid.sub2gind (r, c);
-  }
+  ptcl_to_grd
+    for (auto ii = 0; ii < this->num_particles; ++ii) {
+      idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
+      idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
+
+      grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
+      ptcl_to_grd[ii]=grid.sub2gind (r, c);
+    }
 }
 
 
