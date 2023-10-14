@@ -97,7 +97,7 @@ particles_t::init_particle_mesh () {
   for (auto & igrd : grd_to_ptcl)
     igrd.second.clear ();
 
-  ptcl_to_grd.fill (this->num_particles, 0);
+  ptcl_to_grd.assign (this->num_particles, 0);
 
   for (auto ii = 0; ii < this->num_particles; ++ii) {
     idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
