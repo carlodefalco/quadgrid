@@ -42,7 +42,8 @@ particles_t {
   std::map<std::string, std::vector<double>> dprops;
 
   std::vector<double> M; //!< Mass matrix to be used for transfers if required.
-  std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid/particles connectivity.
+  std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid->particles connectivity.
+  std::vector<idx_t> ptcl_to_grd;                    //!< particles->grid connectivity.
   const quadgrid_t<std::vector<double>>& grid;       //!< refernce to a grid object.
 
   //! Enumeration of available output format
