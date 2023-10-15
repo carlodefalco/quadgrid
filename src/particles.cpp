@@ -128,7 +128,7 @@ particles_t::init_particle_mesh () {
     assert (false);
   */
 }
-
+/*
 void
 particles_t::mark_by_cell_color () {
   ptcl_grd_color.assign (this->num_particles, particles_t::cell_color::red);
@@ -151,7 +151,7 @@ particles_t::mark_by_cell_color () {
     
   }
 }
-
+*/
 void
 particles_t::init_particle_positions
 (
