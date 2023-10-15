@@ -129,6 +129,28 @@ particles_t::init_particle_mesh () {
   */
 }
 
+void
+particles_t::mark_by_cell_color () {
+  ptcl_grd_color.assign (this->num_particles, particles_t::cell_color::red);
+  for (auto ii = 0; ii < this->num_particles; ++ii) {
+    idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
+    idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
+    if (c % 2 == 0) {
+      if (r % 2 == 0) {
+	ptcl_grd_color[ii] =  particles_t::cell_color::red;
+      } else {
+	ptcl_grd_color[ii] =  particles_t::cell_color::green;
+      }
+    } else {
+      if (r % 2 == 0) {
+	ptcl_grd_color[ii] =  particles_t::cell_color::blue;
+      } else {
+	ptcl_grd_color[ii] =  particles_t::cell_color::black;
+      }
+    }
+    
+  }
+}
 
 void
 particles_t::init_particle_positions

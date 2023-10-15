@@ -44,6 +44,7 @@ particles_t {
   std::vector<double> M; //!< Mass matrix to be used for transfers if required.
   std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid->particles connectivity.
   std::vector<idx_t> ptcl_to_grd;                    //!< particles->grid connectivity.
+  std::vector<idx_t> ptcl_grd_color;                 //!< color of particle's cell.
   const quadgrid_t<std::vector<double>>& grid;       //!< refernce to a grid object.
 
   //! Enumeration of available output format
@@ -60,6 +61,17 @@ particles_t {
                        //! via the ctor, useful for restart data
   };
 
+  //! Enumeration of cell colors
+  enum class
+  cell_color : idx_t {
+    red   = 0,
+    green = 1,
+    blue  = 2,
+    black = 3,
+    all_colors = 4
+  };
+
+  
   //! @brief The default generator function used to set up
   //! x-coordinates of particle positions if none is
   //! is specified.
@@ -206,6 +218,11 @@ particles_t {
   //! particles cross cell boundaries.
   void
   init_particle_mesh ();
+
+  //! @brief Mark particles by cell color
+
+  void
+  mark_by_cell_color ();
 
   //! @brief Reorder coordinates an properties according to the ordering vvector.
   void
