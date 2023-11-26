@@ -17,6 +17,15 @@
 #endif
 #include <vector>
 
+
+template<typename IDX_T>
+IDX_T
+SUB2GIND (IDX_T r, IDX_T c, IDX_T nr) {
+  return  (r + nr * c);
+}
+
+
+
 template <class distributed_vector>
 class
 quadgrid_t
@@ -217,7 +226,7 @@ public:
 
     idx_t
     sub2gind (idx_t r, idx_t c) const {
-      return  (r + grid_properties.numrows * c);
+      return  SUB2GIND (r, c, grid_properties.numrows);
     }
 
     idx_t
