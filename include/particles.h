@@ -214,11 +214,16 @@ particles_t {
 
   //! @brief Build grid/particles connectivity.
 
-  //! Builds/updates the `grd_to_ptcl` map. Must be used whenever
-  //! particles cross cell boundaries.
+  //! Builds/updates the `grd_to_ptcl` and `ptcl_to_grd` maps.
+  //! Must be used whenever particles cross cell boundaries.
   void
   init_particle_mesh ();
 
+  //! Updates the`ptcl_to_grd` map only, without changing
+  //  `grd_to_ptcl`, if not needed.
+  void
+  update_ptcl_to_grd ();
+  
   //! @brief Mark particles by cell color
 
   void
@@ -380,6 +385,33 @@ particles_t {
 void
 to_json (nlohmann::json &j, const particles_t &p);
 
+//! @brief Template class for the update of 
+//! `ptcl_to_grd` mapping.
+template<typename P2G_t, typename COORD_t>
+class
+ptcl_to_grd_update_t {
+
+  using idx_t=particles_t::idx_t;
+  P2G_t & ptcl_to_grd;
+  const COORD_t & x;
+  const COORD_t & y;
+  const double hx;
+  const double hy;
+  const idx_t nrows;
+  
+public :
+  ptcl_to_grd_update_t (P2G_t & ptcl_to_grd_,
+			const COORD_t & x_, const COORD_t & y_,
+			double hx_, double hy_, const idx_t nrows_)
+    : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), nrows(nrows_) { }
+
+  void operator() (particles_t::idx_t ii) {
+    ptcl_to_grd[ii] = quadgrid_t<COORD_t>::sub2gind (static_cast<particles_t::idx_t> (std::floor (y[ii] / hy)),
+						     static_cast<particles_t::idx_t> (std::floor (x[ii] / hx)),
+						     nrows);
+  }
+  
+};
 
 #include "particles_imp.h"
 

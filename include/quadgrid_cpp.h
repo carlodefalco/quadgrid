@@ -18,14 +18,6 @@
 #include <vector>
 
 
-template<typename IDX_T>
-IDX_T
-SUB2GIND (IDX_T r, IDX_T c, IDX_T nr) {
-  return  (r + nr * c);
-}
-
-
-
 template <class distributed_vector>
 class
 quadgrid_t
@@ -67,6 +59,11 @@ public:
 
   }
 
+  static idx_t
+  sub2gind (idx_t r, idx_t c, idx_t nr) {
+    return  (r + nr * c);
+  }
+  
   class
   cell_iterator
   {
@@ -223,10 +220,11 @@ public:
     idx_t
     col_idx () const
     { return colidx; };
-
+    
+    
     idx_t
     sub2gind (idx_t r, idx_t c) const {
-      return  SUB2GIND (r, c, grid_properties.numrows);
+      return  quadgrid_t::sub2gind (r, c, grid_properties.numrows);
     }
 
     idx_t

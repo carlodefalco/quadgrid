@@ -92,30 +92,13 @@ particles_t::init_props
   }
 }
 
-template<typename P2G_t, typename COORD_t>
-class
-ptcl_to_grd_update_t {
 
-  P2G_t & ptcl_to_grd;
-  const COORD_t & x;
-  const COORD_t & y;
-  const double hx;
-  const double hy;
-  std::function<particles_t::idx_t (const particles_t::idx_t, const particles_t::idx_t)> S2G;
-  
-public :
-  ptcl_to_grd_update_t (P2G_t & ptcl_to_grd_,
-			const COORD_t & x_, const COORD_t & y_,
-			double hx_, double hy_,
-			std::function<particles_t::idx_t (const particles_t::idx_t, const particles_t::idx_t)> S2G_)
-    : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), S2G(S2G_) { }
-
-  void operator() (particles_t::idx_t ii) {
-    ptcl_to_grd[ii] = S2G (static_cast<particles_t::idx_t> (std::floor (y[ii] / hy)),
-			   static_cast<particles_t::idx_t> (std::floor (x[ii] / hx)));
-  }
-  
-};
+void
+particles_t::update_ptcl_to_grd () {
+  ptcl_to_grd_update_t p2gu (ptcl_to_grd, x, y, grid.hx (), grid.hy (), grid.num_rows ());
+  range rng (0, this->num_particles);
+  std::for_each (rng.begin (), rng.end (), p2gu);
+}
 
 void
 particles_t::init_particle_mesh () {
@@ -135,11 +118,7 @@ particles_t::init_particle_mesh () {
 
   }
 
-  ptcl_to_grd_update_t p2gu (ptcl_to_grd, x, y, grid.hx (), grid.hy (),
-			     [nr = grid.num_rows ()] (idx_t r, idx_t c) { return SUB2GIND<idx_t> (r, c, nr); });
-
-  range rng (0, this->num_particles);
-  std::for_each (rng.begin (), rng.end (), p2gu);
+  update_ptcl_to_grd ();
   
   /*
     std::cout << "grd_to_ptcl" << "\n";
