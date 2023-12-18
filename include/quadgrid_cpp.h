@@ -153,6 +153,47 @@ public:
     
   }
 
+  static double
+  shg (double x, double y, idx_t idir, idx_t inode,
+       idx_t c, idx_t r, double hx, double hy) {
+    switch (inode) {
+    case 3 :
+      if (idir == 0) {
+	return ((1. / hx) * ((y - p(1,0,c,r,hx,hy)) / hy));
+      }
+      else if (idir == 1) {
+	return (((x - p(0,0,c,r,hx,hy)) / hx) * (1. / hy));
+      }
+      break;
+    case 2 :
+      if (idir == 0) {
+	return ((1. / hx) * ((1. - (y - p(1,0,c,r,hx,hy)) / hy)));
+      }
+      else if (idir == 1) {
+	return (((x - p(0,0,c,r,hx,hy)) / hx) * (- 1. / hy));
+      }
+      break;
+    case 1 :
+      if (idir == 0) {
+	return ((- 1. / hx) * ((y - p(1,0,c,r,hx,hy)) / hy));
+      }
+      else if (idir == 1) {
+	return ((1. - (x - p(0,0,c,r,hx,hy)) / hx) * (1. / hy));
+      }
+      break;
+    case 0 :
+      if (idir == 0) {
+	return ((- 1. / hx) * (1. - (y - p(1,0,c,r,hx,hy)) / hy));
+      }
+      else if (idir == 1) {
+	return ((1. - (x - p(0,0,c,r,hx,hy))/ hx) * (- 1. / hy));
+      }
+      break;
+    }
+    return 0.;
+  };
+
+  
   static idx_t
   sub2gind (idx_t r, idx_t c, idx_t nr) {
     return  (r + nr * c);

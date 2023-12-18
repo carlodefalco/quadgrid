@@ -95,7 +95,7 @@ particles_t::init_props
 
 void
 particles_t::update_ptcl_to_grd () {
-  ptcl_to_grd_update_t p2gu (ptcl_to_grd, x, y, grid.hx (), grid.hy (), grid.num_rows ());
+  ptcl_to_grd_update_t p2gu (ptcl_to_grd.begin (), x.begin (), y.begin (), grid.hx (), grid.hy (), grid.num_rows ());
   range rng (0, this->num_particles);
   std::for_each (rng.begin (), rng.end (), p2gu);
 }

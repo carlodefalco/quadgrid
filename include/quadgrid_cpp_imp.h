@@ -271,50 +271,15 @@ template <class T>
 };
 */
 
-
 template <class T>
 double
 quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
   switch (inode) {
   case 3 :
-    if (idir == 0) {
-      return ((1. / grid_properties.hx) *
-              ((y - p(1,0)) / grid_properties.hy));
-    }
-    else if (idir == 1) {
-      return (((x - p(0,0)) / grid_properties.hx) *
-              (1. / grid_properties.hy));
-    }
-    break;
   case 2 :
-    if (idir == 0) {
-      return ((1. / grid_properties.hx) *
-              ((1. - (y - p(1,0)) / grid_properties.hy)));
-    }
-    else if (idir == 1) {
-      return (((x - p(0,0)) / grid_properties.hx) *
-              (- 1. / grid_properties.hy));
-    }
-    break;
-  case 1 :
-    if (idir == 0) {
-      return ((- 1. / grid_properties.hx) *
-              ((y - p(1,0)) / grid_properties.hy));
-    }
-    else if (idir == 1) {
-      return ((1. - (x - p(0,0)) / grid_properties.hx) *
-              (1. / grid_properties.hy));
-    }
-    break;
+  case 1 :    
   case 0 :
-    if (idir == 0) {
-      return ((- 1. /grid_properties.hx) *
-              (1. - (y - p(1,0)) / grid_properties.hy));
-    }
-    else if (idir == 1) {
-      return ((1. - (x - p(0,0))/grid_properties.hx) *
-              (- 1. / grid_properties.hy));
-    }
+    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy);
     break;
   default :
     throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
@@ -322,6 +287,55 @@ quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
   return 0.;
 };
 
+// template <class T>
+// double
+// quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
+//   switch (inode) {
+//   case 3 :
+//     if (idir == 0) {
+//       return ((1. / grid_properties.hx) *
+//               ((y - p(1,0)) / grid_properties.hy));
+//     }
+//     else if (idir == 1) {
+//       return (((x - p(0,0)) / grid_properties.hx) *
+//               (1. / grid_properties.hy));
+//     }
+//     break;
+//   case 2 :
+//     if (idir == 0) {
+//       return ((1. / grid_properties.hx) *
+//               ((1. - (y - p(1,0)) / grid_properties.hy)));
+//     }
+//     else if (idir == 1) {
+//       return (((x - p(0,0)) / grid_properties.hx) *
+//               (- 1. / grid_properties.hy));
+//     }
+//     break;
+//   case 1 :
+//     if (idir == 0) {
+//       return ((- 1. / grid_properties.hx) *
+//               ((y - p(1,0)) / grid_properties.hy));
+//     }
+//     else if (idir == 1) {
+//       return ((1. - (x - p(0,0)) / grid_properties.hx) *
+//               (1. / grid_properties.hy));
+//     }
+//     break;
+//   case 0 :
+//     if (idir == 0) {
+//       return ((- 1. /grid_properties.hx) *
+//               (1. - (y - p(1,0)) / grid_properties.hy));
+//     }
+//     else if (idir == 1) {
+//       return ((1. - (x - p(0,0))/grid_properties.hx) *
+//               (- 1. / grid_properties.hy));
+//     }
+//     break;
+//   default :
+//     throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
+//   }
+//   return 0.;
+// };
 
 
 

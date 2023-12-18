@@ -193,10 +193,6 @@ particles_t::g2p
     //  }
     // }
 
-    g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
-    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
-    			 grid.num_rows (), grid.hx (), grid.hy (),
-    			 dprop.begin (), apply_mass);
     
     // for (idx_t ip = 0; ip < this->num_particles; ++ip) {
     //   xx = x[ip];
@@ -209,7 +205,12 @@ particles_t::g2p
     //     dprop[ip]      += N * gvar[icell.gt(inode)];
     //   }
     // }
-       
+
+    g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
+    			 grid.num_rows (), grid.hx (), grid.hy (),
+    			 dprop.begin (), apply_mass);
+     
     range rng (0, this->num_particles);
     std::for_each (rng.begin (), rng.end (), helper);
     
@@ -271,22 +272,29 @@ particles_t::g2pd
     // }
 
 
-    for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
-      xx = x[ip];
-      yy = y[ip];
-      auto icell = grid[ptcl_to_grd[ip]];
-      for (idx_t inode = 0; inode < 4; ++inode) {
-        Nx = apply_mass ?
-          icell.shg(xx, yy, 0, inode) * M[icell.gt(inode)] :
-          icell.shg(xx, yy, 0, inode);
-        Ny = apply_mass ?
-          icell.shg(xx, yy, 1, inode) * M[icell.gt(inode)] :
-          icell.shg(xx, yy, 1, inode);
-        dpropx[ip] += Nx * gvar[icell.gt(inode)];
-        dpropy[ip] += Ny * gvar[icell.gt(inode)];
+    // for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
+    //   xx = x[ip];
+    //   yy = y[ip];
+    //   auto icell = grid[ptcl_to_grd[ip]];
+    //   for (idx_t inode = 0; inode < 4; ++inode) {
+    //     Nx = apply_mass ?
+    //       icell.shg(xx, yy, 0, inode) * M[icell.gt(inode)] :
+    //       icell.shg(xx, yy, 0, inode);
+    //     Ny = apply_mass ?
+    //       icell.shg(xx, yy, 1, inode) * M[icell.gt(inode)] :
+    //       icell.shg(xx, yy, 1, inode);
+    //     dpropx[ip] += Nx * gvar[icell.gt(inode)];
+    //     dpropy[ip] += Ny * gvar[icell.gt(inode)];
+    //   }
+    // }
 
-      }
-    }
+    g2pd_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
+    			 grid.num_rows (), grid.hx (), grid.hy (),
+    			 dpropx.begin (), dpropy.begin (), apply_mass);
+     
+    range rng (0, this->num_particles);
+    std::for_each (rng.begin (), rng.end (), helper);
 
   }
 
