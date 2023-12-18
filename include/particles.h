@@ -392,29 +392,82 @@ class
 ptcl_to_grd_update_t {
 
   using idx_t=particles_t::idx_t;
-  P2G_t & ptcl_to_grd;
-  const COORD_t & x;
-  const COORD_t & y;
+  P2G_t ptcl_to_grd;
+  const COORD_t x;
+  const COORD_t y;
   const double hx;
   const double hy;
   const idx_t nrows;
   
 public :
-  ptcl_to_grd_update_t (P2G_t & ptcl_to_grd_,
-			const COORD_t & x_, const COORD_t & y_,
+  ptcl_to_grd_update_t (P2G_t ptcl_to_grd_,
+			const COORD_t x_, const COORD_t y_,
 			double hx_, double hy_, const idx_t nrows_)
     : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), nrows(nrows_) { }
 
   void operator() (particles_t::idx_t ii) {
-    ptcl_to_grd[ii] = quadgrid_t<COORD_t>::sub2gind (static_cast<particles_t::idx_t> (std::floor (y[ii] / hy)),
-						     static_cast<particles_t::idx_t> (std::floor (x[ii] / hx)),
+    ptcl_to_grd[ii] = quadgrid_t<COORD_t>::sub2gind (static_cast<idx_t> (std::floor (y[ii] / hy)),
+						     static_cast<idx_t> (std::floor (x[ii] / hx)),
 						     nrows);
   }
   
 };
 
 //! @brief Template class for the implementation
-//! `p2g` method.
+//! `g2pd` method.
+template<typename GVAR_t, typename PVAR_t, typename P2C_t>
+class
+g2pd_helper_t {
+
+  using idx_t = particles_t::idx_t;
+  const PVAR_t x;
+  const PVAR_t y;
+  const GVAR_t M;
+  const GVAR_t gvar;
+  const P2C_t ptcl_to_grd;
+  const idx_t nrows;
+  const double hx;
+  const double hy;
+  PVAR_t dpropx;
+  PVAR_t dpropy;
+  bool apply_mass;
+  
+public :
+
+  g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
+		 const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
+		 const double hx_, const double hy_, PVAR_t dpropx_, PVAR_t dpropy_,
+		 bool apply_mass_)
+    : x(x_), y(y_), gvar(gvar_),
+      ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
+      dpropx(dpropx_), dpropy(dpropy_), apply_mass(apply_mass_) {};
+  
+  void
+  operator() (idx_t ip) {
+    using qgt = quadgrid_t<GVAR_t>;
+    double Nx = 0.0, Ny = 0.0;
+    auto xx = x[ip];
+    auto yy = y[ip];
+    auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
+    auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
+
+    for (idx_t inode = 0; inode < 4; ++inode) {
+      Nx = apply_mass ?
+	qgt::shg (xx, yy, 0, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
+	qgt::shg (xx, yy, 0, inode, c, r, hx, hy);
+      Ny = apply_mass ?
+	qgt::shg (xx, yy, 1, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
+	qgt::shg (xx, yy, 1, inode, c, r, hx, hy);
+      dpropx[ip] += Nx * gvar[qgt::gt(inode, c, r, nrows)];
+      dpropy[ip] += Ny * gvar[qgt::gt(inode, c, r, nrows)];
+
+    }
+  }
+    
+};
+  
+//! @brief Template class for the implementation
+//! `g2p` method.
 template<typename GVAR_t, typename PVAR_t, typename P2C_t>
 class
 g2p_helper_t {
@@ -455,7 +508,6 @@ public :
     }
   }  
 };
-  
 
 #include "particles_imp.h"
 
