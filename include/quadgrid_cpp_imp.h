@@ -155,47 +155,11 @@ quadgrid_t<T>::num_global_nodes () const {
   return (grid_properties.numrows+1)*(grid_properties.numcols+1);
 }
 
-
-
-
-
 template <class T>
 typename quadgrid_t<T>::idx_t
 quadgrid_t<T>::num_local_nodes () const {
   return (grid_properties.numrows+1)*(grid_properties.numcols+1);
 }
-
-
-
-
-
-
-template <class T>
-typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::cell_t::gt (typename quadgrid_t<T>::idx_t inode) const {
-  static idx_t bottom_left = 0;
-  // should check that inode < 4 in an efficient way
-  bottom_left =  row_idx () + col_idx () * (num_rows () + 1);
-  switch (inode) {
-  case 0 :
-    return (bottom_left);
-    break;
-  case 1 :
-    return (bottom_left + 1);
-    break;
-  case 2 :
-    return (bottom_left + (num_rows () + 1));
-    break;
-  case 3 :
-    return (bottom_left + (num_rows () + 2));
-    break;
-  default :
-    return -1;
-  }
-}
-
-
-
 
 
 template <class T>
@@ -211,9 +175,6 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
   else
     return (glob - grid_properties.start_owned_nodes);
 }
-
-
-
 
 
 //-----------------------------------
@@ -239,22 +200,11 @@ template <class T>
 double
 quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
                           typename quadgrid_t<T>::idx_t inode) const {
-  static double bottom_left = 0.0;
-  // should check that inode < 4 in an efficient way
-  if (idir == 0) {
-    bottom_left = col_idx () * grid_properties.hx;
-    if (inode > 1)
-      bottom_left += grid_properties.hx;
-  } else {
-    bottom_left = row_idx () * grid_properties.hy;
-    if (inode == 1 || inode == 3)
-      bottom_left += grid_properties.hy;
-  }
-  return (bottom_left);
+
+  return quadgrid_t::p (idir, inode, col_idx (), row_idx (),
+			grid_properties.hx, grid_properties.hy);
+  
 }
-
-
-
 
 
 template <class T>
@@ -278,14 +228,28 @@ quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) const {
 }
 
 
-
-
-
 template <class T>
 double
 quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
+  
   switch (inode) {
   case 3 :
+  case 2 :
+  case 1 :
+  case 0 :
+    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy);
+    break;
+  default :
+    throw std::out_of_range ("inode must be in range 0..3");
+  }
+};
+
+/*
+template <class T>
+ double
+ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
+   switch (inode) {
+   case 3 :
     return ((x - p(0,0))/grid_properties.hx *
             (y - p(1,0))/grid_properties.hy);
     break;
@@ -300,14 +264,12 @@ quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
   case 0 :
     return ((1. - (x - p(0,0))/grid_properties.hx) *
             (1. - (y - p(1,0))/grid_properties.hy));
-    break;
-  default :
-    throw std::out_of_range ("inode must be in range 0..3");
+     break;
+   default :
+     throw std::out_of_range ("inode must be in range 0..3");
   }
 };
-
-
-
+*/
 
 
 template <class T>

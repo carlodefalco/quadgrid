@@ -413,6 +413,50 @@ public :
   
 };
 
+//! @brief Template class for the implementation
+//! `p2g` method.
+template<typename GVAR_t, typename PVAR_t, typename P2C_t>
+class
+g2p_helper_t {
+
+  using idx_t = particles_t::idx_t;
+  const PVAR_t x;
+  const PVAR_t y;
+  const GVAR_t M;
+  const GVAR_t gvar;
+  const P2C_t ptcl_to_grd;
+  const idx_t nrows;
+  const double hx;
+  const double hy;
+  PVAR_t dprop;
+  bool apply_mass;
+  
+public :
+
+  g2p_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
+		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
+		const double hx_, const double hy_, PVAR_t dprop_, bool apply_mass_)
+    : x(x_), y(y_), gvar(gvar_),
+      ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
+      dprop(dprop_), apply_mass(apply_mass_) {};
+  
+  void
+  operator() (idx_t ip) {
+    using qgt = quadgrid_t<GVAR_t>;
+    double N = 0.0;
+    auto xx = x[ip];
+    auto yy = y[ip];
+    auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
+    auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
+    for (idx_t inode = 0; inode < 4; ++inode) {  
+      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
+	qgt::shp (xx, yy, inode, c, r, hx, hy);
+      dprop[ip] += N * gvar[qgt::gt(inode, c, r, nrows)];
+    }
+  }  
+};
+  
+
 #include "particles_imp.h"
 
 #endif /* PARTICLES_H */
