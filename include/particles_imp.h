@@ -158,6 +158,7 @@ particles_t::g2p
                          pvarnames, apply_mass);
 }
 
+
 template<typename GT, typename PT>
 void
 particles_t::g2p
@@ -166,14 +167,14 @@ particles_t::g2p
  PT const & pvarnames,
  bool apply_mass) {
 
-  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  using idx_t = particles_t::idx_t;
   double N = 0.0, xx = 0.0, yy = 0.0;
   idx_t idx = 0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
     auto & dprop = dprops.at (getkey (pvarnames, ivar));
     auto const & gvar = vars.at (getkey (gvarnames, ivar));
-
+    
     // for (auto icell = grid.begin_cell_sweep ();
     //   icell != grid.end_cell_sweep (); ++icell) {
     //   if (grd_to_ptcl.count (icell->get_global_cell_idx ()) > 0)
@@ -192,18 +193,26 @@ particles_t::g2p
     //  }
     // }
 
-    for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
-      xx = x[ip];
-      yy = y[ip];
-      auto icell = grid[ptcl_to_grd[ip]];
-      for (idx_t inode = 0; inode < 4; ++inode) {
-        N = apply_mass ?
-          icell.shp(xx, yy, inode) * M[icell.gt(inode)] :
-          icell.shp(xx, yy, inode);
-        dprop[ip] += N * gvar[icell.gt(inode)];
-      }
-    }
-
+    g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
+    			 grid.num_rows (), grid.hx (), grid.hy (),
+    			 dprop.begin (), apply_mass);
+    
+    // for (idx_t ip = 0; ip < this->num_particles; ++ip) {
+    //   xx = x[ip];
+    //   yy = y[ip];
+    //   auto icell = grid[ptcl_to_grd[ip]];
+    //   for (idx_t inode = 0; inode < 4; ++inode) {
+    // 	N = apply_mass ?
+    //       icell.shp(xx, yy, inode) * M[icell.gt(inode)] :
+    //       icell.shp(xx, yy, inode);
+    //     dprop[ip]      += N * gvar[icell.gt(inode)];
+    //   }
+    // }
+       
+    range rng (0, this->num_particles);
+    std::for_each (rng.begin (), rng.end (), helper);
+    
   }
 }
 

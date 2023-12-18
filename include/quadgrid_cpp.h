@@ -60,9 +60,104 @@ public:
   }
 
   static idx_t
+  gind2col (idx_t idx, idx_t numrows) {
+    return (idx / numrows);
+  }
+
+  static idx_t
+  gind2row (idx_t idx, idx_t numrows) {
+    return  (idx % numrows);
+  }
+
+  static idx_t
+  gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t numrows) {
+    idx_t bottom_left = 0;
+    // should check that inode < 4 in an efficient way
+    bottom_left =  ridx + cidx * (numrows + 1);
+    switch (inode) {
+    case 0 :
+      return (bottom_left);
+      break;
+    case 1 :
+      return (bottom_left + 1);
+      break;
+    case 2 :
+      return (bottom_left + (numrows + 1));
+      break;
+    case 3 :
+      return (bottom_left + (numrows + 2));
+      break;
+    default :
+      return -1;
+    }
+  }
+
+
+  //-----------------------------------
+  //
+  //   Numbering of nodes and edges :
+  //
+  //              1
+  //              |
+  //              V
+  // 1 -> O---------------O <- 3
+  //      |               |
+  //      |               |
+  // 2 -> |               | <- 3
+  //      |               |
+  //      |               |
+  // 0 -> O---------------O <- 2
+  //              ^
+  //              |
+  //              0
+  //
+  //-----------------------------------
+
+  static double
+  p (idx_t idir, idx_t inode, idx_t colidx, idx_t rowidx, double hx, double hy) {
+    double bottom_left = 0.0;
+    // should check that inode < 4 in an efficient way
+    if (idir == 0) {
+      bottom_left = colidx * hx;
+      if (inode > 1)
+	bottom_left += hx;
+    } else {
+      bottom_left = rowidx * hy;
+      if (inode == 1 || inode == 3)
+	bottom_left += hy;
+    }
+    return (bottom_left);
+  }
+
+  
+  static double
+  shp (double x, double y, idx_t inode,
+       idx_t c, idx_t r, double hx, double hy) {
+
+    switch (inode) {
+    case 3 :
+      return ((x - p(0,0,c,r,hx,hy))/hx * (y - p(1,0,c,r,hx,hy))/hy);
+      break;
+    case 2 :
+      return ((x - p(0,0,c,r,hx,hy))/hx * (1. - (y - p(1,0,c,r,hx,hy))/hy));
+      break;
+    case 1 :
+      return ((1. - (x - p(0,0,c,r,hx,hy))/hx) * (y - p(1,0,c,r,hx,hy))/hy);
+      break;
+    case 0 :
+      return ((1. - (x - p(0,0,c,r,hx,hy))/hx) * (1. - (y - p(1,0,c,r,hx,hy))/hy));
+      break;
+    default :
+      return 0;
+    }
+    
+  }
+
+  static idx_t
   sub2gind (idx_t r, idx_t c, idx_t nr) {
     return  (r + nr * c);
   }
+  
   
   class
   cell_iterator
@@ -155,13 +250,28 @@ public:
     t (idx_t i) const;
 
     idx_t
-    gt (idx_t i) const;
-
+    gt (idx_t i) const {  
+      // should check that inode < 4 in an efficient way
+      switch (i) {
+      case 0 :
+      case 1 :
+      case 2 :
+      case 3 :
+	return quadgrid_t::gt (i, col_idx (), row_idx (), num_rows ());
+	break;
+      default :
+	return -1;
+      }
+    }
+  
     idx_t
     e (idx_t i) const;
 
     double
     shp (double x, double y, idx_t inode) const;
+
+    double
+    shp_new (double x, double y, idx_t inode) const;
 
     double
     shg (double x, double y, idx_t idir, idx_t inode) const;
@@ -179,7 +289,6 @@ public:
     const neighbor_iterator
     end_neighbor_sweep () const
     { return neighbor_iterator (); };
-
 
     idx_t
     get_local_cell_idx () const
@@ -229,12 +338,12 @@ public:
 
     idx_t
     gind2row (idx_t idx) const {
-      return  (idx / grid_properties.numrows);
+      return quadgrid_t:: gind2row (idx, grid_properties.numrows);
     }
 
     idx_t
     gind2col (idx_t idx) const {
-      return  (idx % grid_properties.numrows);
+      return quadgrid_t:: gind2col (idx, grid_properties.numrows);
     }
 
     void
@@ -367,12 +476,12 @@ public:
 
   idx_t
   gind2row (idx_t idx) const {
-    return  (idx / grid_properties.numrows);
+    return quadgrid_t:: gind2row (idx, grid_properties.numrows);
   }
 
   idx_t
   gind2col (idx_t idx) const {
-    return  (idx % grid_properties.numrows);
+    return quadgrid_t:: gind2col (idx, grid_properties.numrows);
   }
 
   const cell_t&
