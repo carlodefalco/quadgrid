@@ -24,7 +24,7 @@ The repository consists of the following folders :
 * `src` contains implementation of methods in the above classes that
   do not depend on template parameters
 * `test`  provides a few tests and examples
-* `octave` provides a draft of an interface for accessing qudtree
+* `octave` provides a draft of an interface for accessing quadgrid
   objects from within the [GNU Octave](http://www.octave.org)
   interpreter, which consists of 
     * `quadgrid.h`  defining the `quadgrid` class inheriting from
