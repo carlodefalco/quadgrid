@@ -1,6 +1,6 @@
 #ifndef PARTICLES_IMP_H
 #define PARTICLES_IMP_H
-
+#include "counter.h"
 template<typename str>
 void
 particles_t::p2g
