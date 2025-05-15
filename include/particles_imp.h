@@ -47,7 +47,7 @@ particles_t::p2g
     //  }
     // }
 
-
+#pragma omp parallel for
     for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
       xx = x[ip];
       yy = y[ip];
@@ -55,6 +55,7 @@ particles_t::p2g
       for (idx_t inode = 0; inode < 4; ++inode) {
         N = icell.shp(xx, yy, inode);
 
+#pragma omp atomic
         gvar[icell.gt(inode)] +=
           N * dprop[ip];
       }
@@ -64,6 +65,7 @@ particles_t::p2g
   }
 
   if (apply_mass)
+#pragma omp parallel for 
     for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar)
       for (idx_t ii = 0; ii < M.size (); ++ii) {
         vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
@@ -193,26 +195,26 @@ particles_t::g2p
     //  }
     // }
 
-    
-    // for (idx_t ip = 0; ip < this->num_particles; ++ip) {
-    //   xx = x[ip];
-    //   yy = y[ip];
-    //   auto icell = grid[ptcl_to_grd[ip]];
-    //   for (idx_t inode = 0; inode < 4; ++inode) {
-    // 	N = apply_mass ?
-    //       icell.shp(xx, yy, inode) * M[icell.gt(inode)] :
-    //       icell.shp(xx, yy, inode);
-    //     dprop[ip]      += N * gvar[icell.gt(inode)];
-    //   }
-    // }
+#pragma omp parallel for    
+    for (idx_t ip = 0; ip < this->num_particles; ++ip) {
+      xx = x[ip];
+      yy = y[ip];
+      auto icell = grid[ptcl_to_grd[ip]];
+      for (idx_t inode = 0; inode < 4; ++inode) {
+    	N = apply_mass ?
+          icell.shp(xx, yy, inode) * M[icell.gt(inode)] :
+          icell.shp(xx, yy, inode);
+        dprop[ip]      += N * gvar[icell.gt(inode)];
+      }
+    }
 
-    g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
-    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
-    			 grid.num_rows (), grid.hx (), grid.hy (),
-    			 dprop.begin (), apply_mass);
-     
-    range rng (0, this->num_particles);
-    std::for_each (rng.begin (), rng.end (), helper);
+    // g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    // 			 gvar.cbegin (), ptcl_to_grd.cbegin (),
+    // 			 grid.num_rows (), grid.hx (), grid.hy (),
+    // 			 dprop.begin (), apply_mass);
+    //
+    // range rng (0, this->num_particles);
+    // std::for_each (rng.begin (), rng.end (), helper);
     
   }
 }
