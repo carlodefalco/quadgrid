@@ -1,5 +1,6 @@
 #ifndef PARTICLES_IMP_H
 #define PARTICLES_IMP_H
+#include <atomic>
 #include "counter.h"
 template<typename str>
 void
@@ -47,26 +48,26 @@ particles_t::p2g
     //  }
     // }
 
-#pragma omp parallel for
+#pragma omp for
     for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
       xx = x[ip];
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
       for (idx_t inode = 0; inode < 4; ++inode) {
-        N = icell.shp(xx, yy, inode);
-
-#pragma omp atomic
-        gvar[icell.gt(inode)] +=
-          N * dprop[ip];
+        N = icell.shp(xx, yy, inode) * dprop[ip];
+	std::atomic_ref<double> gvar_ref(gvar[icell.gt(inode)]);
+	gvar_ref += N;
+	//	gvar[icell.gt(inode)] += N;
       }
     }
 
 
   }
 
+#pragma omp barrier 
   if (apply_mass)
-#pragma omp parallel for 
     for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar)
+#pragma omp for 
       for (idx_t ii = 0; ii < M.size (); ++ii) {
         vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
       }
@@ -195,7 +196,7 @@ particles_t::g2p
     //  }
     // }
 
-#pragma omp parallel for    
+#pragma omp for    
     for (idx_t ip = 0; ip < this->num_particles; ++ip) {
       xx = x[ip];
       yy = y[ip];
