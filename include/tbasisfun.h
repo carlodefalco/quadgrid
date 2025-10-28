@@ -24,11 +24,12 @@ namespace bspline {
   //! \brief function to compute the value of a BSpline basis
   //! function at a given point. 
 
-  //! @param u point where the derivative is to be evaluated.
+  //! @param u point where the function is to be evaluated.
   //! @param p basis function degree.
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
 
+  // NB Ubegin e Uend identificano il supporto della BSpline, dunque anche quale di esse sto valutando
   template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun (FLT const u, INT const p, ITERATOR const Ubegin, ITERATOR const Uend) {
@@ -64,35 +65,35 @@ namespace bspline {
 	if (u < *std::next (Ubegin)) {
 	  N = ratio (ln*ln, ld * (*std::next (Ubegin) - *Ubegin));
 	}
-	else if (u > *std::next (Ubegin, 2)) {
+	else if (u >= *std::next (Ubegin, 2)) {
 	  N = ratio (dn*dn,
 		     (dd * (*std::next (Ubegin, 3) - *std::next (Ubegin, 2))));
 	}
 	else {
-	  if (ld > FLT(0.0)) {
+
+	  if (u>=*std::next(Ubegin,1) && u < *std::next(Ubegin,2)) {
 	    N += ratio (ln * (*std::next(Ubegin, 2) - u),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * ld));
-	  }
-	  if (dd > FLT(0.0)) {
+	  
 	    N += ratio (dn * (u - *std::next(Ubegin, 1)),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * dd));
 	  }
 	}
       }
 
-      else {
+      else {// grado 3
 	
-	const FLT ld = *std::next (Uend, - 2) - *Ubegin;
+	const FLT ld = *std::next (Uend, - 2) - *Ubegin;// NB Uend è past the end
 	const FLT dd = *std::prev (Uend) - *std::next (Ubegin);
 	
-	if (ld > FLT(0.0)) {
+	if (u<*std::next(Ubegin,p)) {// Supporto Bspline di grado p-1
 	  const FLT ln = u - *Ubegin;
-	  N += ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) / ld; 
+	  N += ratio(ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) , ld); 
 	}
 	
-	if (dd > FLT(0.0)) {
+	if (u>=*std::next(Ubegin,1)) {
 	  const FLT dn = *std::prev (Uend) - u;
-	  N += dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) / dd;
+	  N += ratio(dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) , dd);
 	}
 
 	//std::cout << "p = " << p << std::endl;
@@ -115,6 +116,7 @@ namespace bspline {
   //! @param p basis function degree.
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
+
   template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfunder (FLT u, INT p, ITERATOR Ubegin, ITERATOR Uend)
@@ -132,12 +134,12 @@ namespace bspline {
       else {    
 
 	const FLT ld = *std::next (Uend, -2) - *Ubegin;
-	if (std::abs (ld) > FLT(0.0)) {
+	if (u<*std::next(Ubegin,p)) {//std::abs (ld) > FLT(0.0)
 	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
 	
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
-	if (std::abs (dd) > FLT(0.0)) { 
+	if (u>=*std::next(Ubegin,1) && u<*std::prev(Uend) ) { //std::abs (dd) > FLT(0.0)
 	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
 	
@@ -160,7 +162,7 @@ namespace bspline {
   std::vector<FLT>
   open_knot_vector (ITERATOR const bb, ITERATOR const be, INT const p, INT const r) {
 
-    const INT Nb = std::distance (bb, be);
+    const INT Nb = std::distance (bb, be);// Distanza in posizioni = numero di elementi, in questo caso
     const INT Nk = (p - r) * (Nb - 2) + 2 * (p + 1); // (Nb - 2 + 2) *p 
 
     std::vector<FLT> k (Nk, *bb);
@@ -168,7 +170,7 @@ namespace bspline {
     
     auto ki = std::next (k.begin (), p + 1);
     for (auto bi = std::next (bb); bi != be; bi = std::next (bi)) {
-      ki = std::fill_n (ki, p - r, *bi);
+      ki = std::fill_n (ki, p - r, *bi);// Ritorna iterator alla prima posiz libera
     }    
     std::fill (ki, k.end (), *(std::next (be, -1)));
 
