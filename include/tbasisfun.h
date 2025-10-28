@@ -64,16 +64,15 @@ namespace bspline {
 	if (u < *std::next (Ubegin)) {
 	  N = ratio (ln*ln, ld * (*std::next (Ubegin) - *Ubegin));
 	}
-	else if (u > *std::next (Ubegin, 2)) {
+	else if (u >= *std::next (Ubegin, 2)) {
 	  N = ratio (dn*dn,
 		     (dd * (*std::next (Ubegin, 3) - *std::next (Ubegin, 2))));
 	}
 	else {
-	  if (ld > FLT(0.0)) {
+	  if (u>=*std::next(Ubegin,1) && u < *std::next(Ubegin,2)){
 	    N += ratio (ln * (*std::next(Ubegin, 2) - u),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * ld));
-	  }
-	  if (dd > FLT(0.0)) {
+
 	    N += ratio (dn * (u - *std::next(Ubegin, 1)),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * dd));
 	  }
@@ -85,12 +84,12 @@ namespace bspline {
 	const FLT ld = *std::next (Uend, - 2) - *Ubegin;
 	const FLT dd = *std::prev (Uend) - *std::next (Ubegin);
 	
-	if (ld > FLT(0.0)) {
+	if (u<*std::next(Ubegin,p)) {
 	  const FLT ln = u - *Ubegin;
 	  N += ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) / ld; 
 	}
 	
-	if (dd > FLT(0.0)) {
+	if (u>=*std::next(Ubegin,1)) {
 	  const FLT dn = *std::prev (Uend) - u;
 	  N += dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) / dd;
 	}
