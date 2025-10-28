@@ -24,12 +24,12 @@ namespace bspline {
   //! \brief function to compute the value of a BSpline basis
   //! function at a given point. 
 
-  //! @param u point where the derivative is to be evaluated.
+  //! @param u point where the function is to be evaluated.
   //! @param p basis function degree.
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
 
-  template<typename INT, typename FLT, typename ITERATOR>
+ template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun (FLT const u, INT const p, ITERATOR const Ubegin, ITERATOR const Uend) {
     FLT N{0.0};
@@ -69,10 +69,11 @@ namespace bspline {
 		     (dd * (*std::next (Ubegin, 3) - *std::next (Ubegin, 2))));
 	}
 	else {
-	  if (u>=*std::next(Ubegin,1) && u < *std::next(Ubegin,2)){
+
+	  if (u>=*std::next(Ubegin,1) && u < *std::next(Ubegin,2)) {
 	    N += ratio (ln * (*std::next(Ubegin, 2) - u),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * ld));
-
+	  
 	    N += ratio (dn * (u - *std::next(Ubegin, 1)),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * dd));
 	  }
@@ -86,12 +87,12 @@ namespace bspline {
 	
 	if (u<*std::next(Ubegin,p)) {
 	  const FLT ln = u - *Ubegin;
-	  N += ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) / ld; 
+	  N += ratio(ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) , ld); 
 	}
 	
 	if (u>=*std::next(Ubegin,1)) {
 	  const FLT dn = *std::prev (Uend) - u;
-	  N += dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) / dd;
+	  N += ratio(dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) , dd);
 	}
 
 	//std::cout << "p = " << p << std::endl;
@@ -106,6 +107,7 @@ namespace bspline {
     //std::cout << " N = " << N << std::endl;
     return N;
   };
+
 
   //! \brief function to compute the derivative of a BSpline basis function.
 
