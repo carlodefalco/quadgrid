@@ -139,7 +139,7 @@ namespace bspline {
         
     else if (p == 1) {
       if (u < U[i+1]) {
-        N = ratio ((u - *U[i]),
+        N = ratio ((u - U[i]),
             (U[i+1] - U[i]));
       }
       else {
@@ -220,12 +220,12 @@ namespace bspline {
       
       if (u<U[i+P]) {
         const FLT ln = u - U[i];
-        N += ratio(ln * onebasisfun<P-1> (u, U , i ) , ld); 
+        N += ratio(ln * onebasisfun<INT,FLT,P-1> (u, U , i ) , ld); 
       }
       
       if (u>=U[i+1]) {
         const FLT dn = U[i+P+1] - u;
-        N += ratio(dn * onebasisfun<P-1> (u, U, i+1 ) , dd);
+        N += ratio(dn * onebasisfun<INT,FLT,P-1> (u, U, i+1 ) , dd);
       }
     }
     }
@@ -264,18 +264,76 @@ namespace bspline {
 	if (std::abs (ld) > FLT(0.0)) {
 	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
-	std::cout<<"primo pezzo deriv in u: "<<u<<"è "<<Nder<<std::endl;
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
 	if (std::abs (dd) > FLT(0.0)) { 
 	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
-  std::cout<<  onebasisfun (u, p-1, std::next (Ubegin, 1), Uend)<<std::endl;
-		std::cout<<"deriv in u: "<<u<<"è "<<Nder<<std::endl;
+  // std::cout<<  onebasisfun (u, p-1, std::next (Ubegin, 1), Uend)<<std::endl;
+	// 	std::cout<<"deriv in u: "<<u<<"è "<<Nder<<std::endl;
       }
     }
 
     return Nder;
   };
+
+
+// New version
+
+ //! \brief function to compute the value of the derivative of a BSpline basis
+  //! function at a given point. 
+
+  //! @param u point where the derivative has to be evaluated.
+  //! @param p basis function degree.
+  //! @param U knot-vector
+  //! @param i index of the BSpline basis funct to be derived
+
+  template<typename INT, typename FLT>
+  FLT
+  onebasisfunder (FLT u, INT p, std::vector<FLT> const & U, INT i)
+  {
+
+    FLT Nder{0.0};
+
+    if (u==U[i+p+1] && i==(static_cast<INT>(U.size())-p-2)){
+        double tol=1e-10;
+         u=u-tol;
+    }
+  
+    if ((u >=U[i] ) && ( u < U[i+p+1])) {
+   
+      if (p == 0) {
+	Nder = FLT(0.0);
+      }
+      else {    
+
+	const FLT ld = U[i+p] - U[i];
+	if (u<U[i+p]) {
+	  Nder += ratio (p * onebasisfun (u, p-1, U, i), ld);
+	}
+	const FLT dd = U[i+p+1] - U[i+1];
+	if (u>=U[i+1]) { 
+	  Nder -= ratio (p * onebasisfun (u, p-1, U, i+1), dd);
+	}
+      }
+    }
+
+
+    return Nder;
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    //! \brief create an uniform open knot vector given the list
   //! of breaks, a (scalar) degree p and a (scalar) regularity r.
@@ -315,6 +373,16 @@ namespace bspline {
     N *= onebasisfun (v, pv, Vbegin, Vend);
     return N;
   }
+
+  template<typename INT, typename FLT>
+  FLT
+  onebasisfun2d (FLT const u, FLT const v, INT const pu, INT const pv,
+           std::vector<FLT> const & U, INT iu,
+           std::vector<FLT> const & V, INT iv) {
+    FLT Nu = onebasisfun<INT, FLT>(u, pu, U, iu);
+    FLT Nv = onebasisfun<INT, FLT>(v, pv, V, iv);
+    return Nu * Nv;
+  };
   
 }
 
