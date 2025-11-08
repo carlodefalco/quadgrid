@@ -17,7 +17,7 @@ namespace bspline {
     } else if (num != FLT(0.0)) {
       throw ("division by zero!");
     } else {
-      return FLT(1.0);
+      return FLT(0.0);
     }
   };
 
@@ -29,7 +29,7 @@ namespace bspline {
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
 
- template<typename INT, typename FLT, typename ITERATOR>
+  template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun (FLT const u, INT const p, ITERATOR const Ubegin, ITERATOR const Uend) {
     FLT N{0.0};
@@ -37,7 +37,7 @@ namespace bspline {
     const FLT Umax = *(std::max_element (Ubegin, Uend));
 
     //std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
-    if (u >= Umin && u <= Umax) {
+    if (u >= Umin && u < Umax) {
 
       if (p == 0) {
 	N = 1.0;
@@ -109,6 +109,134 @@ namespace bspline {
   };
 
 
+ //! \brief function to compute the value of a BSpline basis
+  //! function at a given point. 
+
+  //! @param u point where the function is to be evaluated.
+  //! @param p basis function degree.
+  //! @param U knot-vector
+  //! @param i index of the BSpline basis funct
+
+
+  template<typename INT, typename FLT>
+  FLT
+  onebasisfun (FLT const u, INT const p, std::vector<FLT> const & U, INT i) {
+    FLT N{0.0};
+  
+  if((u==U.back() && i==(static_cast<INT>(U.size())-p-2)) || // added static_cast on size 
+  (u==U[0] && i==0)){// 2nd case not needed
+
+  return FLT{1.0};
+  }
+
+  //std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
+  if (u >= U[i] && u < U[i+p+1]) {
+
+
+    if (p == 0) {
+        N = 1.0;
+        }
+        
+    else if (p == 1) {
+      if (u < U[i+1]) {
+        N = ratio ((u - *U[i]),
+            (U[i+1] - U[i]));
+      }
+      else {
+        N = ratio ((U[i+2] - u),
+            (U[i+2] - U[i+1]));
+      }
+        }
+        
+    else if (p == 2) {
+    
+      const FLT ln = u - U[i];
+      const FLT dn = U[i+3] - u;
+      const FLT ld = U[i+2] - U[i]; 
+      const FLT dd = U[i+3] - U[i+1];
+        
+      if (u <U[i+1]) {
+        N = ratio (ln*ln, ld * (U[i+1] - U[i]));
+      }
+      else if (u >= U[i+2]) {
+        N = ratio (dn*dn,
+            (dd * (U[i+3] - U[i+2])));
+      }
+      else {
+
+        if (u>=U[i+1] && u <U[i+2]) {
+          N += ratio (ln * (U[i+2] - u),
+          ((U[i+2] - U[i+1]) * ld));
+        
+          N += ratio (dn * (u - U[i+1]),
+          ((U[i+2] - U[i+1]) * dd));
+        }
+      }
+    }
+
+    else {
+    
+      const FLT ld = U[i+p] - U[i];
+      const FLT dd = U[i+p+1] - U[i+1];
+      
+      if (u<U[i+p]) {
+        const FLT ln = u - U[i];
+        N += ratio(ln * onebasisfun (u, p-1, U , i ) , ld); 
+      }
+      
+      if (u>=U[i+1]) {
+        const FLT dn = U[i+p+1] - u;
+        N += ratio(dn * onebasisfun (u, p-1, U, i+1 ) , dd);
+      }
+
+    }
+}
+
+  return N;
+};
+
+// Recursive version
+
+
+  template<typename INT, typename FLT, int P>
+  FLT onebasisfun (FLT const u, std::vector<FLT> const & U, INT i) {
+    FLT N{0.0};
+  
+    if((u==U.back() && i==(static_cast<INT>(U.size())-P-2)) || // added static_cast on size 
+      (u==U[0] && i==0)){// 2nd case not needed
+
+      return FLT{1.0};
+    }
+
+    if (u >= U[i] && u < U[i+P+1]) {
+
+      if constexpr (P == 0) {
+        return FLT{1.0};
+        }
+
+      else{
+      const FLT ld = U[i+P] - U[i];
+      const FLT dd = U[i+P+1] - U[i+1];
+      
+      if (u<U[i+P]) {
+        const FLT ln = u - U[i];
+        N += ratio(ln * onebasisfun<P-1> (u, U , i ) , ld); 
+      }
+      
+      if (u>=U[i+1]) {
+        const FLT dn = U[i+P+1] - u;
+        N += ratio(dn * onebasisfun<P-1> (u, U, i+1 ) , dd);
+      }
+    }
+    }
+      return N;
+
+    }
+
+
+
+
+
   //! \brief function to compute the derivative of a BSpline basis function.
 
   //! @todo make shure that evaluation at the endopoints works correctly.
@@ -136,12 +264,13 @@ namespace bspline {
 	if (std::abs (ld) > FLT(0.0)) {
 	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
-	
+	std::cout<<"primo pezzo deriv in u: "<<u<<"è "<<Nder<<std::endl;
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
 	if (std::abs (dd) > FLT(0.0)) { 
 	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
-	
+  std::cout<<  onebasisfun (u, p-1, std::next (Ubegin, 1), Uend)<<std::endl;
+		std::cout<<"deriv in u: "<<u<<"è "<<Nder<<std::endl;
       }
     }
 
