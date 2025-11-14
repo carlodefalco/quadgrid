@@ -19,17 +19,18 @@ for (double const & ii : k)
  std::cout << ii << " ";
 
 std::cout << std::endl;
+
 std::vector<double> x(N+1, 0.0);
 double dx=(breakpts.back()-breakpts.front())/double(N);
 for (int j=0;j<x.size();j++){
     x[j]=breakpts.front()+j*dx;
 }
-std::cout<<dx<<std::endl;
+std::cout<<"dx: "<<dx<<std::endl;
 std::vector<double> y1(N+1, 0.0);
 std::vector<double> y2(N+1, 0.0);
 std::vector<double> y3(N+1, 0.0);
-std::cout<<static_cast<int>(k.size())-(p+1)<<std::endl;
-std::cout<<" Starting evaluation"<<std::endl;
+std::cout<<"Number of BSplines: "<<static_cast<int>(k.size())-(p+1)<<std::endl;
+std::cout<<"\nStarting evaluation"<<std::endl;
 
 for (int i=0; i< static_cast<int>(k.size())-(p+1);i++){
 
@@ -44,5 +45,17 @@ for (int i=0; i< static_cast<int>(k.size())-(p+1);i++){
     }    
 std::cout<<"-----------------------"<<i<<"--------------------"<<std::endl;
 }
+
+
+std::cout<<"Test 2D basis function"<<std::endl;
+double u=2.0;
+
+ std::cout<< "(x,y) = ("<<u<<","<<u<<"), indexes of the BS(3,3),  B= "<<onebasisfun2d (u, u, p, p, k, 3, k, 3)<<"  (should be 1.0)"<<std::endl;
+
+
+
+
+
+
 return 0;
 }

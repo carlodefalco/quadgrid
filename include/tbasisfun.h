@@ -261,11 +261,11 @@ namespace bspline {
       else {    
 
 	const FLT ld = *std::next (Uend, -2) - *Ubegin;
-	if (std::abs (ld) > FLT(0.0)) {
+	if (u<*std::next(Ubegin,p)) {
 	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
-	if (std::abs (dd) > FLT(0.0)) { 
+	if (u>=*std::next(Ubegin,1) && u<*std::prev(Uend) ) { 
 	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
   // std::cout<<  onebasisfun (u, p-1, std::next (Ubegin, 1), Uend)<<std::endl;
@@ -327,14 +327,6 @@ namespace bspline {
 
 
 
-
-
-
-
-
-
-
-
    //! \brief create an uniform open knot vector given the list
   //! of breaks, a (scalar) degree p and a (scalar) regularity r.
 
@@ -363,7 +355,7 @@ namespace bspline {
     return k;
   };
 
-  
+  /*
   template<typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun2d (FLT const u, FLT const v, INT const pu, INT const pv,
@@ -373,7 +365,7 @@ namespace bspline {
     N *= onebasisfun (v, pv, Vbegin, Vend);
     return N;
   }
-
+*/
   template<typename INT, typename FLT>
   FLT
   onebasisfun2d (FLT const u, FLT const v, INT const pu, INT const pv,
