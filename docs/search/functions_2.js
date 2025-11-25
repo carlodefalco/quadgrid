@@ -1,16 +1,9 @@
 var searchData=
 [
-  ['default_5fx_5fgenerator_0',['default_x_generator',['../structparticles__t.html#aed22c8828daf8a352caa203df3fad8c6',1,'particles_t']]],
-  ['default_5fy_5fgenerator_1',['default_y_generator',['../structparticles__t.html#ab7c1cad7c83ace102e68eabe7e84c1bf',1,'particles_t']]],
-  ['define_5fov_5ftypeid_5ffunctions_5fand_5fdata_2',['DEFINE_OV_TYPEID_FUNCTIONS_AND_DATA',['../quadgrid_8cc.html#a575af7564fade5d06575e370015fbc55',1,'quadgrid.cc']]],
-  ['defmethod_5fdld_3',['DEFMETHOD_DLD',['../quadgrid_8cc.html#a0ae2472da9bdff6ac4d96d9d0f6c8e3e',1,'DEFMETHOD_DLD(quadgrid, interp, args,,&quot;-*- texinfo -*-\n\
-@deftypefn {Loadable Function} {} @var{QG} = quadgrid (@var{nx}, \
-@var{hx}, @var{ny}, @var{hy})\n\
-Return in @var{QG} a quadgrid object.\n\
-@end deftypefn&quot;):&#160;quadgrid.cc'],['../quadgrid_8cc.html#a66039b2ef20c6edd001680e4846e9f23',1,'DEFMETHOD_DLD(quadgrid_loop, interp, args,,&quot;-*- texinfo -*-\n\
-@deftypefn {Loadable Function} {} @var{QG} = MPI_COMM_WORLD (@var{qg}, @var{nx}, \
-@var{hx}, @var{ny}, @var{hy})\n\
-Return in @var{QG} a quadgrid object.\n\
-@end deftypefn&quot;):&#160;quadgrid.cc']]],
-  ['dp_4',['dp',['../structparticles__t.html#a3621354e988ebfe087659884d67d6f4f',1,'particles_t::dp(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a9d763b378b755824d56711f62806ea60',1,'particles_t::dp(const std::string &amp;name, idx_t ii) const']]]
+  ['cell_5fiterator_0',['cell_iterator',['../classhexgrid__t_1_1cell__iterator.html#a9f453b26f0c84d505829a2afceb364fc',1,'hexgrid_t::cell_iterator::cell_iterator()'],['../classquadgrid__t_1_1cell__iterator.html#a4735a1f6407551b9a8f734336bb59dc5',1,'quadgrid_t::cell_iterator::cell_iterator()']]],
+  ['cell_5ft_1',['cell_t',['../classhexgrid__t_1_1cell__t.html#a3c093a1a3a6286a5579cf01bddccd364',1,'hexgrid_t::cell_t::cell_t()'],['../classquadgrid__t_1_1cell__t.html#a61018bad091d0f22ea5796d42a381f37',1,'quadgrid_t::cell_t::cell_t()']]],
+  ['centroid_2',['centroid',['../classhexgrid__t_1_1cell__t.html#af5b64ec72b122d4f533eff3cab603ad3',1,'hexgrid_t::cell_t::centroid()'],['../classquadgrid__t_1_1cell__t.html#ac1699f3ef434b6137be34d6898056b5d',1,'quadgrid_t::cell_t::centroid()']]],
+  ['col_5fidx_3',['col_idx',['../classhexgrid__t_1_1cell__t.html#a19588f33f2c38e3c788cbbb3c31f6c1c',1,'hexgrid_t::cell_t::col_idx()'],['../classquadgrid__t_1_1cell__t.html#a838fb0f55262b4cd49bd463f2ff21911',1,'quadgrid_t::cell_t::col_idx()']]],
+  ['compare_4',['compare',['../structcompare.html#a5f92afd9e624a82418a1d8eb8770ed07',1,'compare']]],
+  ['coord_5f2_5fmorton_5',['coord_2_morton',['../mmorton_8cc.html#a51d329e1d10aa3c9c76dd9764de1199c',1,'coord_2_morton(coord_t _x, coord_t _y):&#160;mmorton.cc'],['../mmorton_8h.html#a51d329e1d10aa3c9c76dd9764de1199c',1,'coord_2_morton(coord_t _x, coord_t _y):&#160;mmorton.cc']]]
 ];

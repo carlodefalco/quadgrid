@@ -1,2 +1,6 @@
 \_form#0=99x29:\[ u_i = \sum_p N_i(x_p) U_p \]
 \_form#1=99x28:\[ U_p = \sum_i N_i(x_p) u_i \]
+\_form#2=99x29:\[  u_i = \sum_p N_i(x_p) U_p 
+\]
+\_form#3=99x28:\[ U_p = \sum_i N_i(x_p) u_i  
+\]

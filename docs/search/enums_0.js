@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['output_5fformat_0',['output_format',['../structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64',1,'particles_t']]]
+  ['cell_5fcolor_0',['cell_color',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5',1,'particles_t']]]
 ];

@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['set_5fsizes_0',['set_sizes',['../classquadgrid__t.html#a64e2e448850c5cc1a8ae5945019f4f54',1,'quadgrid_t']]],
-  ['shg_1',['shg',['../classquadgrid__t_1_1cell__t.html#ac364718c90a04d99fa11eba6cc6a685d',1,'quadgrid_t::cell_t']]],
-  ['shp_2',['shp',['../classquadgrid__t_1_1cell__t.html#ab39743759822a0816f44da1f59aa82a1',1,'quadgrid_t::cell_t']]],
-  ['start_5fcell_5fcol_3',['start_cell_col',['../classquadgrid__t_1_1cell__t.html#afe34d70ba36d24f75a0d16b263df8fb7',1,'quadgrid_t::cell_t']]],
-  ['start_5fcell_5frow_4',['start_cell_row',['../classquadgrid__t_1_1cell__t.html#a03fdbdc56bea9296ae6f7fdd1bd6b6b7',1,'quadgrid_t::cell_t']]],
-  ['sub2gind_5',['sub2gind',['../classquadgrid__t_1_1cell__t.html#a0e1049d79821d80f0312a73087cd70a3',1,'quadgrid_t::cell_t::sub2gind()'],['../classquadgrid__t.html#a1043e6701c9462ebd498a770677833c5',1,'quadgrid_t::sub2gind()']]],
-  ['surfderivcpts_6',['surfderivcpts',['../low__level__functions_8cc.html#a596c287de358fd4a8e4e3c9f90d827cc',1,'surfderivcpts(octave_idx_type n, octave_idx_type p, const RowVector &amp;U, octave_idx_type m, octave_idx_type q, const RowVector &amp;V, const Matrix &amp;P, octave_idx_type d, octave_idx_type r1, octave_idx_type r2, octave_idx_type s1, octave_idx_type s2, NDArray &amp;pkl):&#160;low_level_functions.cc'],['../low__level__functions_8h.html#a596c287de358fd4a8e4e3c9f90d827cc',1,'surfderivcpts(octave_idx_type n, octave_idx_type p, const RowVector &amp;U, octave_idx_type m, octave_idx_type q, const RowVector &amp;V, const Matrix &amp;P, octave_idx_type d, octave_idx_type r1, octave_idx_type r2, octave_idx_type s1, octave_idx_type s2, NDArray &amp;pkl):&#160;low_level_functions.cc']]],
-  ['surfderiveval_7',['surfderiveval',['../low__level__functions_8cc.html#a76415b17d1de75a05de9053a1bad6fc9',1,'surfderiveval(octave_idx_type n, octave_idx_type p, const RowVector &amp;U, octave_idx_type m, octave_idx_type q, const RowVector &amp;V, const Matrix &amp;P, double u, double v, octave_idx_type d, Matrix &amp;skl):&#160;low_level_functions.cc'],['../low__level__functions_8h.html#a76415b17d1de75a05de9053a1bad6fc9',1,'surfderiveval(octave_idx_type n, octave_idx_type p, const RowVector &amp;U, octave_idx_type m, octave_idx_type q, const RowVector &amp;V, const Matrix &amp;P, double u, double v, octave_idx_type d, Matrix &amp;skl):&#160;low_level_functions.cc']]]
+  ['range_0',['range',['../structrange.html#a1e5db4b6a8bd1fd42eebdf972a8a6a05',1,'range']]],
+  ['ratio_1',['ratio',['../namespacebspline.html#aa77da18568582a75999d862830573e1f',1,'bspline']]],
+  ['remove_5fin_5fregion_2',['remove_in_region',['../structparticles__t.html#a992770f9eab92adba7bbf674d18dcc4c',1,'particles_t']]],
+  ['reorder_3',['reorder',['../structparticles__t.html#aefa81ed3811e09a92b7b0fdb4a9ea4f0',1,'particles_t::reorder()'],['../structprops__t.html#a5efabe72d0bbbb8ffa2623a64faf3f3e',1,'props_t::reorder()']]],
+  ['reset_4',['reset',['../classhexgrid__t_1_1cell__t.html#a4003de26712ca26bb0d5fcbbda5741e3',1,'hexgrid_t::cell_t::reset()'],['../classquadgrid__t_1_1cell__t.html#a74b2545b0847c06fef48ea54d13aa272',1,'quadgrid_t::cell_t::reset()']]],
+  ['row_5fidx_5',['row_idx',['../classhexgrid__t_1_1cell__t.html#a104c47f16a5fed3a5ffe7702753042be',1,'hexgrid_t::cell_t::row_idx()'],['../classquadgrid__t_1_1cell__t.html#a25ed6e5b74c97aca65bdb6e43d7a4fe3',1,'quadgrid_t::cell_t::row_idx()']]]
 ];

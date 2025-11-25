@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['global_5fcell_5fidx_0',['global_cell_idx',['../classquadgrid__t_1_1cell__t.html#a2355a4a7049f541ff3ff35d3d0761708',1,'quadgrid_t::cell_t']]],
-  ['grd_5fto_5fptcl_1',['grd_to_ptcl',['../structparticles__t.html#a21d45be17b4c8493bea2368bc75c811a',1,'particles_t']]],
-  ['grid_2',['grid',['../structparticles__t.html#a68834707308f986b4a92951fb22afae3',1,'particles_t']]],
-  ['grid_5fproperties_3',['grid_properties',['../classquadgrid__t_1_1cell__t.html#a7c2ed99311f4ce2e7e2c1ad0e816e72a',1,'quadgrid_t::cell_t::grid_properties()'],['../classquadgrid__t.html#ae849c33548dbf67fb85fd458074cf16b',1,'quadgrid_t::grid_properties()'],['../make__input__json_8m.html#ad94db8e4ea0a817eed60c21194220b46',1,'grid_properties():&#160;make_input_json.m']]],
-  ['grid_5fvars_4',['grid_vars',['../make__input__json_8m.html#ae927d1295bb85f0a2dbb68c81329cd88',1,'make_input_json.m']]]
+  ['edges_5fper_5fcell_0',['edges_per_cell',['../classhexgrid__t_1_1cell__t.html#ad0fc105d84a4695ec442a8901a375430',1,'hexgrid_t::cell_t::edges_per_cell'],['../classquadgrid__t_1_1cell__t.html#a54292d0b32b9384efe48ad656442f750',1,'quadgrid_t::cell_t::edges_per_cell']]],
+  ['end_5f_1',['end_',['../structrange.html#a3eada2a23942dc0b35aec4ede4e05024',1,'range']]],
+  ['end_5fcell_5fcol_2',['end_cell_col',['../structhexgrid__t_1_1grid__properties__t.html#a45a4053d8f6d7a0924579d621c9f49c5',1,'hexgrid_t::grid_properties_t::end_cell_col'],['../structquadgrid__t_1_1grid__properties__t.html#a64455c8461f8e677ca57d4e60ef1d664',1,'quadgrid_t::grid_properties_t::end_cell_col']]],
+  ['end_5fcell_5frow_3',['end_cell_row',['../structhexgrid__t_1_1grid__properties__t.html#af554f05237fe995e9e841d0720894298',1,'hexgrid_t::grid_properties_t::end_cell_row'],['../structquadgrid__t_1_1grid__properties__t.html#a52425f0ac83b2ee1abf512423dfdfd31',1,'quadgrid_t::grid_properties_t::end_cell_row']]],
+  ['end_5fcell_5fslice_4',['end_cell_slice',['../structhexgrid__t_1_1grid__properties__t.html#a2f1388ecf4a5e3ea99e1f85c66c2a29f',1,'hexgrid_t::grid_properties_t']]]
 ];

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['ratio_0',['ratio',['../namespacebspline.html#aa77da18568582a75999d862830573e1f',1,'bspline']]],
-  ['remove_5fin_5fregion_1',['remove_in_region',['../structparticles__t.html#a992770f9eab92adba7bbf674d18dcc4c',1,'particles_t']]],
-  ['reset_2',['reset',['../classquadgrid__t_1_1cell__t.html#a74b2545b0847c06fef48ea54d13aa272',1,'quadgrid_t::cell_t']]],
-  ['row_5fidx_3',['row_idx',['../classquadgrid__t_1_1cell__t.html#a25ed6e5b74c97aca65bdb6e43d7a4fe3',1,'quadgrid_t::cell_t']]]
+  ['quadgrid_0',['quadgrid',['../classquadgrid.html#aa38089f91eca80e648edf4e925e38f02',1,'quadgrid']]],
+  ['quadgrid_5ft_1',['quadgrid_t',['../classquadgrid__t.html#ae85fbbf425db58129ae109339760535e',1,'quadgrid_t::quadgrid_t(MPI_Comm _comm=MPI_COMM_WORLD)'],['../classquadgrid__t.html#ac667a29469520226fc66bab4708a0295',1,'quadgrid_t::quadgrid_t(const nlohmann::json &amp;j, MPI_Comm _comm=MPI_COMM_WORLD)'],['../classquadgrid__t.html#a736dfabcbe5660de903320e7ba7da8d4',1,'quadgrid_t::quadgrid_t(const quadgrid_t &amp;)=delete']]],
+  ['quadgrid_5fvalue_2',['quadgrid_value',['../classquadgrid.html#a147bf247a3547da3b6aea436a02b7232',1,'quadgrid::quadgrid_value(bool=false) const'],['../classquadgrid.html#ad1e6bb6a10c509e42009fc2432b296dd',1,'quadgrid::quadgrid_value(bool=false)']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['idx_5ft_0',['idx_t',['../structparticles__t.html#ac8531263eba7e9e5f80d426e7b22e369',1,'particles_t::idx_t()'],['../classquadgrid__t.html#a9485b4396682d1582c8e2e7c34351476',1,'quadgrid_t::idx_t()'],['../check__shg_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e',1,'idx_t():&#160;check_shg.cpp'],['../particle__mass__example_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e',1,'idx_t():&#160;particle_mass_example.cpp'],['../particle__remove__example_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e',1,'idx_t():&#160;particle_remove_example.cpp'],['../particle__sort__example_8cpp.html#ae35ff4114d8b4c0fab85b236209d061e',1,'idx_t():&#160;particle_sort_example.cpp']]]
+  ['difference_5ftype_0',['difference_type',['../structrange_1_1iterator.html#ab9c56949cb2b5595176fb0b27c5e943f',1,'range::iterator::difference_type'],['../structprops__t.html#a7f0a0015ce5ced134e6c3938b53843ce',1,'props_t::difference_type']]],
+  ['dprops_5ft_1',['dprops_t',['../contiguous__memory__particles_8cpp.html#acc5474399a760a88a888b924a0dd5e4d',1,'contiguous_memory_particles.cpp']]]
 ];

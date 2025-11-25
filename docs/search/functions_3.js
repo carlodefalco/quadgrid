@@ -1,8 +1,16 @@
 var searchData=
 [
-  ['e_0',['e',['../classquadgrid__t_1_1cell__t.html#aa5dab2261e3956c19db37336b2568342',1,'quadgrid_t::cell_t']]],
-  ['end_5fcell_5fcol_1',['end_cell_col',['../classquadgrid__t_1_1cell__t.html#a067f5f685244cec69d4402142bdd1bc9',1,'quadgrid_t::cell_t']]],
-  ['end_5fcell_5frow_2',['end_cell_row',['../classquadgrid__t_1_1cell__t.html#a6dd476ff070a787f12ee358af62e00c9',1,'quadgrid_t::cell_t']]],
-  ['end_5fcell_5fsweep_3',['end_cell_sweep',['../classquadgrid__t.html#ae8a00f836fb9726b771683f83ea8de87',1,'quadgrid_t::end_cell_sweep()'],['../classquadgrid__t.html#adc8598dada3a589f19bd324018256967',1,'quadgrid_t::end_cell_sweep() const']]],
-  ['end_5fneighbor_5fsweep_4',['end_neighbor_sweep',['../classquadgrid__t_1_1cell__t.html#a900d7a86d031caa76909d57327b3ffe8',1,'quadgrid_t::cell_t::end_neighbor_sweep()'],['../classquadgrid__t_1_1cell__t.html#a5e4a6e7fc67c9b919825dafecc1f1afb',1,'quadgrid_t::cell_t::end_neighbor_sweep() const']]]
+  ['default_5fx_5fgenerator_0',['default_x_generator',['../structparticles__t.html#aed22c8828daf8a352caa203df3fad8c6',1,'particles_t']]],
+  ['default_5fy_5fgenerator_1',['default_y_generator',['../structparticles__t.html#ab7c1cad7c83ace102e68eabe7e84c1bf',1,'particles_t']]],
+  ['define_5fov_5ftypeid_5ffunctions_5fand_5fdata_2',['DEFINE_OV_TYPEID_FUNCTIONS_AND_DATA',['../quadgrid_8cc.html#a575af7564fade5d06575e370015fbc55',1,'quadgrid.cc']]],
+  ['defmethod_5fdld_3',['DEFMETHOD_DLD',['../quadgrid_8cc.html#a0ae2472da9bdff6ac4d96d9d0f6c8e3e',1,'DEFMETHOD_DLD(quadgrid, interp, args,,&quot;-*- texinfo -*-\n\
+@deftypefn {Loadable Function} {} @var{QG} = quadgrid (@var{nx}, \
+@var{hx}, @var{ny}, @var{hy})\n\
+Return in @var{QG} a quadgrid object.\n\
+@end deftypefn&quot;):&#160;quadgrid.cc'],['../quadgrid_8cc.html#a66039b2ef20c6edd001680e4846e9f23',1,'DEFMETHOD_DLD(quadgrid_loop, interp, args,,&quot;-*- texinfo -*-\n\
+@deftypefn {Loadable Function} {} @var{QG} = MPI_COMM_WORLD (@var{qg}, @var{nx}, \
+@var{hx}, @var{ny}, @var{hy})\n\
+Return in @var{QG} a quadgrid object.\n\
+@end deftypefn&quot;):&#160;quadgrid.cc']]],
+  ['dp_4',['dp',['../structparticles__t.html#a3621354e988ebfe087659884d67d6f4f',1,'particles_t::dp(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a9d763b378b755824d56711f62806ea60',1,'particles_t::dp(const std::string &amp;name, idx_t ii) const']]]
 ];
