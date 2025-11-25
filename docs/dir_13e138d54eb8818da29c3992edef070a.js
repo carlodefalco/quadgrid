@@ -11,13 +11,9 @@ var dir_13e138d54eb8818da29c3992edef070a =
     [ "particle_mass_example.cpp", "particle__mass__example_8cpp.html", "particle__mass__example_8cpp" ],
     [ "particle_remove_example.cpp", "particle__remove__example_8cpp.html", "particle__remove__example_8cpp" ],
     [ "particle_sort_example.cpp", "particle__sort__example_8cpp.html", "particle__sort__example_8cpp" ],
-    [ "prova_openmp.cpp", "prova__openmp_8cpp.html", "prova__openmp_8cpp" ],
-    [ "prova_pstl.cpp", "prova__pstl_8cpp.html", "prova__pstl_8cpp" ],
     [ "quadgrid_cpp.cpp", "quadgrid__cpp_8cpp.html", "quadgrid__cpp_8cpp" ],
-    [ "read_velocity_field.cpp", "read__velocity__field_8cpp.html", "read__velocity__field_8cpp" ],
     [ "test_mmorton.cc", "test__mmorton_8cc.html", "test__mmorton_8cc" ],
     [ "test_tbasisfun.cpp", "test__tbasisfun_8cpp.html", "test__tbasisfun_8cpp" ],
     [ "test_tbasisfun_bug.cpp", "test__tbasisfun__bug_8cpp.html", "test__tbasisfun__bug_8cpp" ],
-    [ "test_tbasisfunder.cpp", "test__tbasisfunder_8cpp.html", "test__tbasisfunder_8cpp" ],
-    [ "write_velocity_field_json.m", "write__velocity__field__json_8m.html", "write__velocity__field__json_8m" ]
+    [ "test_tbasisfunder.cpp", "test__tbasisfunder_8cpp.html", "test__tbasisfunder_8cpp" ]
 ];

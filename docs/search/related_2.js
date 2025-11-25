@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quadgrid_5ft_0',['quadgrid_t',['../classquadgrid__t_1_1cell__t.html#aca1abdedd79eb4c86863b73db4a48390',1,'quadgrid_t::cell_t']]]
+  ['range_0',['range',['../structrange_1_1iterator.html#a982e754214d3a01b73c8a27323b791c0',1,'range::iterator']]]
 ];

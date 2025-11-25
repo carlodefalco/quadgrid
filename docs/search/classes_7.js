@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['range_0',['range',['../structrange.html',1,'']]]
+  ['swap_0',['swap',['../structswap.html',1,'']]]
 ];
