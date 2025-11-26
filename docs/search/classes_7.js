@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['swap_0',['swap',['../structswap.html',1,'']]]
+  ['stepper_0',['stepper',['../classstepper.html',1,'']]],
+  ['swap_1',['swap',['../structswap.html',1,'']]]
 ];

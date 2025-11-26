@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../structparticles__t.html#ad66b9250b4500c6b8f068a29bc18972b',1,'particles_t::y'],['../classptcl__to__grd__update__t.html#ad919fae4f5b95c64c8814ff646072071',1,'ptcl_to_grd_update_t::y'],['../classg2p__helper__t.html#ae2001d5fb3f015d0c0a572815827eb2f',1,'g2p_helper_t::y'],['../classg2pd__helper__t.html#af7f48c3b37ce39e47d6e1c6389a56cec',1,'g2pd_helper_t::y'],['../make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517',1,'y:&#160;make_input_json.m']]],
-  ['yc_1',['yc',['../particle__remove__example_8cpp.html#a550e3ebe21ae9b8d11fcfef1b6fe959a',1,'particle_remove_example.cpp']]]
+  ['x_0',['x',['../structparticles__t.html#ac34d8516ddc6eb69f0329ddd3ed31dcb',1,'particles_t::x'],['../classptcl__to__grd__update__t.html#ac30f6eb3b9dd2e1fcb6378dfc6b3e7ee',1,'ptcl_to_grd_update_t::x'],['../classg2p__helper__t.html#a75a7f40004e15b65b99dc4c50ea2d3fc',1,'g2p_helper_t::x'],['../classg2pd__helper__t.html#aefa669bdb411cef8fd946fc5e0a30d6c',1,'g2pd_helper_t::x'],['../classstepper.html#af33b3c073dca017e72692b05001f999a',1,'stepper::x'],['../make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df',1,'x:&#160;make_input_json.m'],['../write__velocity__field__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df',1,'x:&#160;write_velocity_field_json.m']]],
+  ['xc_1',['xc',['../particle__remove__example_8cpp.html#a11f379fb701891c280a621b592b4d884',1,'particle_remove_example.cpp']]]
 ];

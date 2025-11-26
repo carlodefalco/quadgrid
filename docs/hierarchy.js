@@ -17,5 +17,6 @@ var hierarchy =
     [ "ptcl_to_grd_update_t< P2G_t, COORD_t >", "classptcl__to__grd__update__t.html", null ],
     [ "quadgrid_t< distributed_vector >", "classquadgrid__t.html", null ],
     [ "range< N >", "structrange.html", null ],
+    [ "stepper", "classstepper.html", null ],
     [ "swap", "structswap.html", null ]
 ];

@@ -125,11 +125,11 @@ $(function(){initNavTree('quadgrid_8h_source.html','',''); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">   31</a></span>  <a class="code hl_function" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">quadgrid</a> (octave_idx_type nx = 2, <span class="keywordtype">double</span> hx = 1.0,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">   31</a></span>  <a class="code hl_function" href="classquadgrid.html#aa38089f91eca80e648edf4e925e38f02">quadgrid</a> (octave_idx_type <a class="code hl_variable" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">nx</a> = 2, <span class="keywordtype">double</span> <a class="code hl_variable" href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">hx</a> = 1.0,</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            octave_idx_type ny = 2, <span class="keywordtype">double</span> hy = 1.0)</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    : octave_base_value () {</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_variable" href="classquadgrid.html#a20c9312546fa737ce77a0c65798cc79c">rep</a> = std::make_shared&lt;quadgrid_t&lt;ColumnVector&gt;&gt; ();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_variable" href="classquadgrid.html#a20c9312546fa737ce77a0c65798cc79c">rep</a>-&gt;set_sizes (ny, nx, hx, hy);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_variable" href="classquadgrid.html#a20c9312546fa737ce77a0c65798cc79c">rep</a>-&gt;set_sizes (ny, <a class="code hl_variable" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">nx</a>, <a class="code hl_variable" href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">hx</a>, hy);</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  };</div>
 </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  </div>
@@ -189,6 +189,8 @@ $(function(){initNavTree('quadgrid_8h_source.html','',''); });
 <div class="ttc" id="aquadgrid_8h_html_a2c273cc75d6840810034c39deaae9160"><div class="ttname"><a href="quadgrid_8h.html#a2c273cc75d6840810034c39deaae9160">ov_quadgrid</a></div><div class="ttdeci">const std::shared_ptr&lt; quadgrid_t&lt; ColumnVector &gt; &gt; ov_quadgrid(const octave_value &amp;in)</div><div class="ttdef"><b>Definition</b> quadgrid.cc:24</div></div>
 <div class="ttc" id="aquadgrid_8h_html_ad7ac965040beadd8573ad4c1ae59aeb7"><div class="ttname"><a href="quadgrid_8h.html#ad7ac965040beadd8573ad4c1ae59aeb7">is_quadgrid</a></div><div class="ttdeci">bool is_quadgrid(const octave_value &amp;in)</div><div class="ttdef"><b>Definition</b> quadgrid.cc:36</div></div>
 <div class="ttc" id="aquadgrid__cpp_8h_html"><div class="ttname"><a href="quadgrid__cpp_8h.html">quadgrid_cpp.h</a></div></div>
+<div class="ttc" id="awrite__velocity__field__json_8m_html_a84e4236f07668a770c27567f1f9615ff"><div class="ttname"><a href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">nx</a></div><div class="ttdeci">nx</div><div class="ttdef"><b>Definition</b> write_velocity_field_json.m:8</div></div>
+<div class="ttc" id="awrite__velocity__field__json_8m_html_a97dade1086b89f973edf3532216882d9"><div class="ttname"><a href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">hx</a></div><div class="ttdeci">Create input files in JSON format for use with the quadgrid library properties of the grid hx</div><div class="ttdef"><b>Definition</b> write_velocity_field_json.m:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

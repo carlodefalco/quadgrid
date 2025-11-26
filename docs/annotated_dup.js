@@ -9,5 +9,6 @@ var annotated_dup =
     [ "quadgrid", "classquadgrid.html", "classquadgrid" ],
     [ "quadgrid_t", "classquadgrid__t.html", "classquadgrid__t" ],
     [ "range", "structrange.html", "structrange" ],
+    [ "stepper", "classstepper.html", "classstepper" ],
     [ "swap", "structswap.html", "structswap" ]
 ];

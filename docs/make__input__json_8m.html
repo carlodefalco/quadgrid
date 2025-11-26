@@ -101,10 +101,10 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ad94db8e4ea0a817eed60c21194220b46" id="r_ad94db8e4ea0a817eed60c21194220b46"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94db8e4ea0a817eed60c21194220b46">grid_properties</a> = struct ('hx', .1, 'hy', .1, 'nx', 100, 'ny', 100)</td></tr>
-<tr class="memitem:aafbebd2d1fc58dd53135e7950c084533" id="r_aafbebd2d1fc58dd53135e7950c084533"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a> = (in.grid_properties.nx+1)*(in.grid_properties.ny+1)</td></tr>
+<tr class="memitem:ad94db8e4ea0a817eed60c21194220b46" id="r_ad94db8e4ea0a817eed60c21194220b46"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94db8e4ea0a817eed60c21194220b46">grid_properties</a> = struct ('<a class="el" href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">hx</a>', .1, 'hy', .1, '<a class="el" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">nx</a>', 100, 'ny', 100)</td></tr>
+<tr class="memitem:aafbebd2d1fc58dd53135e7950c084533" id="r_aafbebd2d1fc58dd53135e7950c084533"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a> = (<a class="el" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">in.grid_properties.nx</a>+1)*(in.grid_properties.ny+1)</td></tr>
 <tr class="memitem:adc18d83abfd9f87d396e8fd6b6ac0fe1" id="r_adc18d83abfd9f87d396e8fd6b6ac0fe1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc18d83abfd9f87d396e8fd6b6ac0fe1">Z</a> = zeros (<a class="el" href="#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a>, 1)</td></tr>
-<tr class="memitem:a2f4ed7189f7ea0b549d50863249cf7df" id="r_a2f4ed7189f7ea0b549d50863249cf7df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4ed7189f7ea0b549d50863249cf7df">x</a> = linspace (0, in.grid_properties.hx*in.grid_properties.nx, 100)</td></tr>
+<tr class="memitem:a2f4ed7189f7ea0b549d50863249cf7df" id="r_a2f4ed7189f7ea0b549d50863249cf7df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4ed7189f7ea0b549d50863249cf7df">x</a> = linspace (0, <a class="el" href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">in.grid_properties.hx</a>*<a class="el" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">in.grid_properties.nx</a>, 100)</td></tr>
 <tr class="memitem:ab07c21934cff3c45a6327df02597f517" id="r_ab07c21934cff3c45a6327df02597f517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab07c21934cff3c45a6327df02597f517">y</a> = linspace (0, in.grid_properties.hy*in.grid_properties.ny, 100)</td></tr>
 <tr class="memitem:a179aeb2b88545273cbe7225a27e84627" id="r_a179aeb2b88545273cbe7225a27e84627"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a179aeb2b88545273cbe7225a27e84627">num_particles</a> = numel (<a class="el" href="#a2f4ed7189f7ea0b549d50863249cf7df">in.x</a>)</td></tr>
 <tr class="memitem:a04ccd3680f9d50ab5ad98d7c2e6ae517" id="r_a04ccd3680f9d50ab5ad98d7c2e6ae517"><td class="memItemLeft" align="right" valign="top">in iprops&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04ccd3680f9d50ab5ad98d7c2e6ae517">label</a> = [0:numel(<a class="el" href="#a2f4ed7189f7ea0b549d50863249cf7df">in.x</a>)](:)</td></tr>
@@ -210,7 +210,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in grid_properties = struct ('hx', .1, 'hy', .1, 'nx', 100, 'ny', 100)</td>
+          <td class="memname">in grid_properties = struct ('<a class="el" href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">hx</a>', .1, 'hy', .1, '<a class="el" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">nx</a>', 100, 'ny', 100)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -256,7 +256,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">num_global_nodes = (in.grid_properties.nx+1)*(in.grid_properties.ny+1)</td>
+          <td class="memname">num_global_nodes = (<a class="el" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">in.grid_properties.nx</a>+1)*(in.grid_properties.ny+1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -298,7 +298,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in x = linspace (0, in.grid_properties.hx*in.grid_properties.nx, 100)</td>
+          <td class="memname">in x = linspace (0, <a class="el" href="write__velocity__field__json_8m.html#a97dade1086b89f973edf3532216882d9">in.grid_properties.hx</a>*<a class="el" href="write__velocity__field__json_8m.html#a84e4236f07668a770c27567f1f9615ff">in.grid_properties.nx</a>, 100)</td>
         </tr>
       </table>
 </div><div class="memdoc">

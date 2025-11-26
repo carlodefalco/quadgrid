@@ -101,19 +101,22 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a08b5eddfd7c1e9cf8bca05061b8a1d14" id="r_a08b5eddfd7c1e9cf8bca05061b8a1d14"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a> = hy = 0.02</td></tr>
-<tr class="memitem:a84e4236f07668a770c27567f1f9615ff" id="r_a84e4236f07668a770c27567f1f9615ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a> = ny = 2/<a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a></td></tr>
-<tr class="memitem:ad94db8e4ea0a817eed60c21194220b46" id="r_ad94db8e4ea0a817eed60c21194220b46"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94db8e4ea0a817eed60c21194220b46">grid_properties</a> = struct ('<a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a>', <a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a>, 'hy', hy, '<a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>', <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>, 'ny', ny)</td></tr>
+<tr class="memitem:a97dade1086b89f973edf3532216882d9" id="r_a97dade1086b89f973edf3532216882d9"><td class="memItemLeft" align="right" valign="top">Create input files in JSON format for use with the <a class="el" href="classquadgrid.html">quadgrid</a> library properties of the grid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a> = hy = 0.025</td></tr>
+<tr class="memitem:a84e4236f07668a770c27567f1f9615ff" id="r_a84e4236f07668a770c27567f1f9615ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a> = ny = 2/<a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a></td></tr>
+<tr class="memitem:ad94db8e4ea0a817eed60c21194220b46" id="r_ad94db8e4ea0a817eed60c21194220b46"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad94db8e4ea0a817eed60c21194220b46">grid_properties</a> = struct ('<a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a>', <a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a>, 'hy', hy, '<a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>', <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>, 'ny', ny)</td></tr>
 <tr class="memitem:aafbebd2d1fc58dd53135e7950c084533" id="r_aafbebd2d1fc58dd53135e7950c084533"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a> = (<a class="el" href="#a84e4236f07668a770c27567f1f9615ff">in.grid_properties.nx</a>+1)*(in.grid_properties.ny+1)</td></tr>
-<tr class="memitem:a2f4ed7189f7ea0b549d50863249cf7df" id="r_a2f4ed7189f7ea0b549d50863249cf7df"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4ed7189f7ea0b549d50863249cf7df">x</a> = 0 : <a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a> : <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>*<a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a></td></tr>
-<tr class="memitem:ab07c21934cff3c45a6327df02597f517" id="r_ab07c21934cff3c45a6327df02597f517"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab07c21934cff3c45a6327df02597f517">y</a> = 0 : hy : ny*hy</td></tr>
-<tr class="memitem:a0aebaf50935d207f1f54e5b674a76915" id="r_a0aebaf50935d207f1f54e5b674a76915"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aebaf50935d207f1f54e5b674a76915">vx</a> = 1e-3*(2*pi*(1-<a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>))(:)</td></tr>
-<tr class="memitem:a78c769af4f33666631c54c49b8996244" id="r_a78c769af4f33666631c54c49b8996244"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78c769af4f33666631c54c49b8996244">vy</a> = 1e-3*(2*pi*(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>-1))(:)</td></tr>
-<tr class="memitem:a179aeb2b88545273cbe7225a27e84627" id="r_a179aeb2b88545273cbe7225a27e84627"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a179aeb2b88545273cbe7225a27e84627">num_particles</a> = 10000</td></tr>
+<tr class="memitem:a2f4ed7189f7ea0b549d50863249cf7df" id="r_a2f4ed7189f7ea0b549d50863249cf7df"><td class="memItemLeft" align="right" valign="top">compute arrays to be used to define fields on the grid&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f4ed7189f7ea0b549d50863249cf7df">x</a> = 0 : <a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a> : <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>*<a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a></td></tr>
+<tr class="memitem:ab07c21934cff3c45a6327df02597f517" id="r_ab07c21934cff3c45a6327df02597f517"><td class="memItemLeft" align="right" valign="top">as we want to compute the velocity field&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab07c21934cff3c45a6327df02597f517">y</a> = 0 : hy : ny*hy</td></tr>
+<tr class="memitem:a401b75c7f529b3f7d9b138415f2aee09" id="r_a401b75c7f529b3f7d9b138415f2aee09"><td class="memItemLeft" align="right" valign="top">as a function of the&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a401b75c7f529b3f7d9b138415f2aee09">coordinates</a></td></tr>
+<tr class="memitem:af429d6083366466e651d146b64fdba8f" id="r_af429d6083366466e651d146b64fdba8f"><td class="memItemLeft" align="right" valign="top">as a function of the we need to compute the <a class="el" href="#a401b75c7f529b3f7d9b138415f2aee09">coordinates</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af429d6083366466e651d146b64fdba8f">here</a></td></tr>
+<tr class="memitem:af610ed7585130aba64119381db07121b" id="r_af610ed7585130aba64119381db07121b"><td class="memItemLeft" align="right" valign="top">as a function of the we need to compute the <a class="el" href="#a401b75c7f529b3f7d9b138415f2aee09">coordinates</a> they need not be saved in the JSON file&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af610ed7585130aba64119381db07121b">though</a> [<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>] = meshgrid (<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>)</td></tr>
+<tr class="memitem:a90c312db247214db54fb39dc89f05611" id="r_a90c312db247214db54fb39dc89f05611"><td class="memItemLeft" align="right" valign="top">the ordering in <a class="el" href="classquadgrid.html">quadgrid</a> is explicitely intended to be compatible to that in Matlab Octave&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90c312db247214db54fb39dc89f05611">vx</a> = 1e-3*(2*pi*(1-<a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>))(:)</td></tr>
+<tr class="memitem:a82c3fada52dd76c415f4e1bcf4fa0a76" id="r_a82c3fada52dd76c415f4e1bcf4fa0a76"><td class="memItemLeft" align="right" valign="top">grid arrays must be flattened&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82c3fada52dd76c415f4e1bcf4fa0a76">vy</a> = 1e-3*(2*pi*(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>-1))(:)</td></tr>
+<tr class="memitem:ae927d1295bb85f0a2dbb68c81329cd88" id="r_ae927d1295bb85f0a2dbb68c81329cd88"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae927d1295bb85f0a2dbb68c81329cd88">grid_vars</a> = struct ('<a class="el" href="#a90c312db247214db54fb39dc89f05611">vx</a>', <a class="el" href="#a90c312db247214db54fb39dc89f05611">vx</a>, '<a class="el" href="#a82c3fada52dd76c415f4e1bcf4fa0a76">vy</a>', <a class="el" href="#a82c3fada52dd76c415f4e1bcf4fa0a76">vy</a>, 'rho', zeros(<a class="el" href="make__input__json_8m.html#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a>, 1))</td></tr>
+<tr class="memitem:a35359a728879976197157e8bf94b9a62" id="r_a35359a728879976197157e8bf94b9a62"><td class="memItemLeft" align="right" valign="top">generate particles and assign position and properties in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35359a728879976197157e8bf94b9a62">num_particles</a> = 2.e5</td></tr>
 <tr class="memitem:a04ccd3680f9d50ab5ad98d7c2e6ae517" id="r_a04ccd3680f9d50ab5ad98d7c2e6ae517"><td class="memItemLeft" align="right" valign="top">in iprops&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04ccd3680f9d50ab5ad98d7c2e6ae517">label</a> = [0:numel(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">in.x</a>)](:)</td></tr>
-<tr class="memitem:a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6" id="r_a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6">dprops</a> = struct ('<a class="el" href="mmorton_8cc.html#aa918da7d207652d606a0fd4ba80a4017">M</a>', 2*pi*(.4/6)^2*ones(<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 1)/<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 'VX', zeros(<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 1), 'VY', zeros(<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 1))</td></tr>
-<tr class="memitem:ae927d1295bb85f0a2dbb68c81329cd88" id="r_ae927d1295bb85f0a2dbb68c81329cd88"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae927d1295bb85f0a2dbb68c81329cd88">grid_vars</a> = struct ('<a class="el" href="#a0aebaf50935d207f1f54e5b674a76915">vx</a>', <a class="el" href="#a0aebaf50935d207f1f54e5b674a76915">vx</a>, '<a class="el" href="#a78c769af4f33666631c54c49b8996244">vy</a>', <a class="el" href="#a78c769af4f33666631c54c49b8996244">vy</a>, 'rho', zeros(<a class="el" href="make__input__json_8m.html#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a>, 1))</td></tr>
-<tr class="memitem:a4b99ff73a8a869319570237b5c57ab03" id="r_a4b99ff73a8a869319570237b5c57ab03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b99ff73a8a869319570237b5c57ab03">str</a> = jsonencode (in)</td></tr>
+<tr class="memitem:a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6" id="r_a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6"><td class="memItemLeft" align="right" valign="top">in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6">dprops</a></td></tr>
+<tr class="memitem:a3519b2fa70565f8cb94a71473b52bc83" id="r_a3519b2fa70565f8cb94a71473b52bc83"><td class="memItemLeft" align="right" valign="top">grid and particles are read separately but can be stored in the same file&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3519b2fa70565f8cb94a71473b52bc83">str</a> = jsonencode (in)</td></tr>
 <tr class="memitem:ae9011d40c6f13e68e6f07156e0da7c5d" id="r_ae9011d40c6f13e68e6f07156e0da7c5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9011d40c6f13e68e6f07156e0da7c5d">fid</a> = fopen ('velocity.json', 'w')</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
@@ -161,6 +164,20 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a401b75c7f529b3f7d9b138415f2aee09" name="a401b75c7f529b3f7d9b138415f2aee09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a401b75c7f529b3f7d9b138415f2aee09">&#9670;&#160;</a></span>coordinates</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">as a function of the coordinates</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6" name="a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6">&#9670;&#160;</a></span>dprops</h2>
 
@@ -168,11 +185,13 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in dprops = struct ('<a class="el" href="mmorton_8cc.html#aa918da7d207652d606a0fd4ba80a4017">M</a>', 2*pi*(.4/6)^2*ones(<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 1)/<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 'VX', zeros(<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 1), 'VY', zeros(<a class="el" href="make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627">in.num_particles</a>, 1))</td>
+          <td class="memname">in dprops</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">= <span class="keyword">struct</span> (<span class="charliteral">&#39;M&#39;</span>,  2*pi*(.2/6)^2*ones(in.num_particles, 1)/in.num_particles,</div>
+<div class="line">            <span class="stringliteral">&#39;VX&#39;</span>, zeros(in.num_particles, 1), <span class="stringliteral">&#39;VY&#39;</span>, zeros(in.num_particles, 1))</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ae9011d40c6f13e68e6f07156e0da7c5d" name="ae9011d40c6f13e68e6f07156e0da7c5d"></a>
@@ -196,7 +215,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in grid_properties = struct ('<a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a>', <a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a>, 'hy', hy, '<a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>', <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>, 'ny', ny)</td>
+          <td class="memname">in grid_properties = struct ('<a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a>', <a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a>, 'hy', hy, '<a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>', <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>, 'ny', ny)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -210,21 +229,35 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in grid_vars = struct ('<a class="el" href="#a0aebaf50935d207f1f54e5b674a76915">vx</a>', <a class="el" href="#a0aebaf50935d207f1f54e5b674a76915">vx</a>, '<a class="el" href="#a78c769af4f33666631c54c49b8996244">vy</a>', <a class="el" href="#a78c769af4f33666631c54c49b8996244">vy</a>, 'rho', zeros(<a class="el" href="make__input__json_8m.html#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a>, 1))</td>
+          <td class="memname">in grid_vars = struct ('<a class="el" href="#a90c312db247214db54fb39dc89f05611">vx</a>', <a class="el" href="#a90c312db247214db54fb39dc89f05611">vx</a>, '<a class="el" href="#a82c3fada52dd76c415f4e1bcf4fa0a76">vy</a>', <a class="el" href="#a82c3fada52dd76c415f4e1bcf4fa0a76">vy</a>, 'rho', zeros(<a class="el" href="make__input__json_8m.html#aafbebd2d1fc58dd53135e7950c084533">num_global_nodes</a>, 1))</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a08b5eddfd7c1e9cf8bca05061b8a1d14" name="a08b5eddfd7c1e9cf8bca05061b8a1d14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">&#9670;&#160;</a></span>hx</h2>
+<a id="af429d6083366466e651d146b64fdba8f" name="af429d6083366466e651d146b64fdba8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af429d6083366466e651d146b64fdba8f">&#9670;&#160;</a></span>here</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">hx = hy = 0.02</td>
+          <td class="memname">as a function of the we need to compute the <a class="el" href="#a401b75c7f529b3f7d9b138415f2aee09">coordinates</a> here</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97dade1086b89f973edf3532216882d9" name="a97dade1086b89f973edf3532216882d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97dade1086b89f973edf3532216882d9">&#9670;&#160;</a></span>hx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Create input files in JSON format for use with the <a class="el" href="classquadgrid.html">quadgrid</a> library properties of the grid hx = hy = 0.025</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -259,14 +292,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a179aeb2b88545273cbe7225a27e84627" name="a179aeb2b88545273cbe7225a27e84627"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a179aeb2b88545273cbe7225a27e84627">&#9670;&#160;</a></span>num_particles</h2>
+<a id="a35359a728879976197157e8bf94b9a62" name="a35359a728879976197157e8bf94b9a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35359a728879976197157e8bf94b9a62">&#9670;&#160;</a></span>num_particles</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in num_particles = 10000</td>
+          <td class="memname">generate particles and assign position and properties in num_particles = 2.e5</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -280,49 +313,63 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">nx = ny = 2/<a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a></td>
+          <td class="memname">nx = ny = 2/<a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a4b99ff73a8a869319570237b5c57ab03" name="a4b99ff73a8a869319570237b5c57ab03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b99ff73a8a869319570237b5c57ab03">&#9670;&#160;</a></span>str</h2>
+<a id="a3519b2fa70565f8cb94a71473b52bc83" name="a3519b2fa70565f8cb94a71473b52bc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3519b2fa70565f8cb94a71473b52bc83">&#9670;&#160;</a></span>str</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">str = jsonencode (in)</td>
+          <td class="memname">grid and particles are read separately but can be stored in the same file str = jsonencode (in)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a0aebaf50935d207f1f54e5b674a76915" name="a0aebaf50935d207f1f54e5b674a76915"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aebaf50935d207f1f54e5b674a76915">&#9670;&#160;</a></span>vx</h2>
+<a id="af610ed7585130aba64119381db07121b" name="af610ed7585130aba64119381db07121b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af610ed7585130aba64119381db07121b">&#9670;&#160;</a></span>though</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vx = 1e-3*(2*pi*(1-<a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>))(:)</td>
+          <td class="memname">as a function of the we need to compute the <a class="el" href="#a401b75c7f529b3f7d9b138415f2aee09">coordinates</a> they need not be saved in the JSON file though[<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>] = meshgrid (<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a78c769af4f33666631c54c49b8996244" name="a78c769af4f33666631c54c49b8996244"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78c769af4f33666631c54c49b8996244">&#9670;&#160;</a></span>vy</h2>
+<a id="a90c312db247214db54fb39dc89f05611" name="a90c312db247214db54fb39dc89f05611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c312db247214db54fb39dc89f05611">&#9670;&#160;</a></span>vx</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vy = 1e-3*(2*pi*(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>-1))(:)</td>
+          <td class="memname">the ordering in <a class="el" href="classquadgrid.html">quadgrid</a> is explicitely intended to be compatible to that in Matlab Octave vx = 1e-3*(2*pi*(1-<a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>))(:)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82c3fada52dd76c415f4e1bcf4fa0a76" name="a82c3fada52dd76c415f4e1bcf4fa0a76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c3fada52dd76c415f4e1bcf4fa0a76">&#9670;&#160;</a></span>vy</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">grid arrays must be flattened vy = 1e-3*(2*pi*(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>-1))(:)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -336,7 +383,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">in x = 0 : <a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a> : <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>*<a class="el" href="#a08b5eddfd7c1e9cf8bca05061b8a1d14">hx</a></td>
+          <td class="memname">in x = 0 : <a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a> : <a class="el" href="#a84e4236f07668a770c27567f1f9615ff">nx</a>*<a class="el" href="#a97dade1086b89f973edf3532216882d9">hx</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -370,7 +417,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_13e138d54eb8818da29c3992edef070a.html">test</a></li><li class="navelem"><a href="write__velocity__field__json_8m.html">write_velocity_field_json.m</a></li>
+    <li class="navelem"><a href="dir_07c2df013bb20677b8e65a9f18968d2c.html">tutorial</a></li><li class="navelem"><a href="write__velocity__field__json_8m.html">write_velocity_field_json.m</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>
