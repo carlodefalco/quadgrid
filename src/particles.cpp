@@ -137,6 +137,76 @@ particles_t::init_particle_mesh () {
     assert (false);
   */
 }
+
+/*
+void
+particles_t::mark_by_cell_color () {
+  ptcl_grd_color.assign (this->num_particles, particles_t::cell_color::red);
+  for (auto ii = 0; ii < this->num_particles; ++ii) {
+    idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
+    idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
+    if (c % 2 == 0) {
+      if (r % 2 == 0) {
+	ptcl_grd_color[ii] =  particles_t::cell_color::red;
+      } else {
+	ptcl_grd_color[ii] =  particles_t::cell_color::green;
+      }
+    } else {
+      if (r % 2 == 0) {
+	ptcl_grd_color[ii] =  particles_t::cell_color::blue;
+      } else {
+	ptcl_grd_color[ii] =  particles_t::cell_color::black;
+      }
+    }
+    
+  }
+}
+*/
+
+void
+particles_t::update_ptcl_to_grd () {
+  ptcl_to_grd_update_t p2gu (ptcl_to_grd.begin (), x.begin (), y.begin (), grid.hx (), grid.hy (), grid.num_rows ());
+  range rng (0, this->num_particles);
+  std::for_each (rng.begin (), rng.end (), p2gu);
+}
+
+void
+particles_t::init_particle_mesh () {
+  static idx_t loop = 0;
+  ++loop;
+
+  for (auto & igrid : grd_to_ptcl)
+    igrid.second.clear ();
+
+  ptcl_to_grd.assign (this->num_particles, 0);
+
+  for (auto ii = 0; ii < this->num_particles; ++ii) {
+    idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
+    idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
+
+    grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
+
+  }
+
+  update_ptcl_to_grd ();
+  
+  /*
+    std::cout << "grd_to_ptcl" << "\n";
+
+    for (auto const & ii : grd_to_ptcl) {
+    for (auto const & jj : ii.second) {
+    std::cout << ii.first << " " << jj << "\n";
+    }
+    }
+
+    std::cout << "ptcl_to_grd" << "\n";
+    for (idx_t ii = 0; ii < this->num_particles; ++ii) {
+    std::cout << ptcl_to_grd[ii] << " " << ii << "\n";
+    }
+
+    assert (false);
+  */
+}
 /*
 void
 particles_t::mark_by_cell_color () {
@@ -173,7 +243,6 @@ particles_t::init_particle_positions
   std::generate (x.begin (), x.end (), xgentr);
   std::generate (y.begin (), y.end (), ygentr);
 }
-
 
 
 void
