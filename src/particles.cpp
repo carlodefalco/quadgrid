@@ -137,6 +137,7 @@ particles_t::init_particle_mesh () {
     assert (false);
   */
 }
+
 /*
 void
 particles_t::mark_by_cell_color () {
@@ -161,6 +162,7 @@ particles_t::mark_by_cell_color () {
   }
 }
 */
+
 void
 particles_t::init_particle_positions
 (
@@ -173,7 +175,6 @@ particles_t::init_particle_positions
   std::generate (x.begin (), x.end (), xgentr);
   std::generate (y.begin (), y.end (), ygentr);
 }
-
 
 
 void
