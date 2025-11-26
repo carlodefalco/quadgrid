@@ -18,5 +18,5 @@ var searchData=
   ['grid_5fproperties_5ft_15',['grid_properties_t',['../structquadgrid__t_1_1grid__properties__t.html',1,'quadgrid_t']]],
   ['grid_5fvars_16',['grid_vars',['../make__input__json_8m.html#ae927d1295bb85f0a2dbb68c81329cd88',1,'make_input_json.m']]],
   ['gt_17',['gt',['../classquadgrid__t.html#a3a7c27069ac07e971f0029ac9d0d990c',1,'quadgrid_t::gt()'],['../classquadgrid__t_1_1cell__t.html#a87f3204721d693d05f4cbd28977ba2bf',1,'quadgrid_t::cell_t::gt()']]],
-  ['gvar_18',['gvar',['../classg2pd__helper__t.html#a1f66ff700189fe194e5bfff67efa5c6c',1,'g2pd_helper_t::gvar'],['../classg2p__helper__t.html#a91e84c89ac0aa1aa7312302df6312137',1,'g2p_helper_t::gvar']]]
+  ['gvar_18',['gvar',['../classg2p__helper__t.html#a91e84c89ac0aa1aa7312302df6312137',1,'g2p_helper_t::gvar'],['../classg2pd__helper__t.html#a1f66ff700189fe194e5bfff67efa5c6c',1,'g2pd_helper_t::gvar']]]
 ];
