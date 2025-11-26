@@ -15,6 +15,8 @@
 /// This is a tutorial, see the annotated source 
 /// source at .grid_velocity_field.cpp
 
+//! @brief Functor class for moving particles.
+
 /// This class captures references to particle
 /// positions and velocities and overloads the
 /// call operator to allow use in STL algorithms
@@ -37,8 +39,13 @@ public :
 	   double dt_, double D_, std::function<double (void)> &noise_)
     : x(x_), y(y_), vx(vx_), vy(vy_), dt{dt_}, D{D_}, normal(noise_) { }
 
+  //! @brief call operator applying motion to the n-th particle.
+  
   /// overload of the call operator
   /// to apply motion to the n-th particle
+  /// use velocity field for deterministic
+  /// motion component plus gaussian noise
+  /// to represent diffusion/Brownian motion
   void operator() (int n) {
     double dxb, dyb;
   
@@ -57,6 +64,8 @@ public :
 
 };
 
+
+//! @brief main implementing the time loop.
 
 int
 main () {
