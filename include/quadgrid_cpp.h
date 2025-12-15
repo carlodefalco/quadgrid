@@ -534,10 +534,11 @@ public:
 
 private :
 
+  grid_properties_t grid_properties;
+
   mutable cell_t   current_cell;
   mutable cell_t   current_neighbor;
 
-  grid_properties_t grid_properties;
 
 };
 

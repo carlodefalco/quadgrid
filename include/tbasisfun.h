@@ -17,14 +17,14 @@ namespace bspline {
     } else if (num != FLT(0.0)) {
       throw ("division by zero!");
     } else {
-      return FLT(1.0);
+      return FLT(0.0);
     }
   };
 
   //! \brief function to compute the value of a BSpline basis
   //! function at a given point. 
 
-  //! @param u point where the derivative is to be evaluated.
+  //! @param u point where the function is to be evaluated.
   //! @param p basis function degree.
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
@@ -37,7 +37,7 @@ namespace bspline {
     const FLT Umax = *(std::max_element (Ubegin, Uend));
 
     //std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
-    if (u >= Umin && u <= Umax) {
+    if (u >= Umin && u < Umax) {
 
       if (p == 0) {
 	N = 1.0;
@@ -64,16 +64,16 @@ namespace bspline {
 	if (u < *std::next (Ubegin)) {
 	  N = ratio (ln*ln, ld * (*std::next (Ubegin) - *Ubegin));
 	}
-	else if (u > *std::next (Ubegin, 2)) {
+	else if (u >= *std::next (Ubegin, 2)) {
 	  N = ratio (dn*dn,
 		     (dd * (*std::next (Ubegin, 3) - *std::next (Ubegin, 2))));
 	}
 	else {
-	  if (ld > FLT(0.0)) {
+
+	  if (u>=*std::next(Ubegin,1) && u < *std::next(Ubegin,2)) {
 	    N += ratio (ln * (*std::next(Ubegin, 2) - u),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * ld));
-	  }
-	  if (dd > FLT(0.0)) {
+	  
 	    N += ratio (dn * (u - *std::next(Ubegin, 1)),
 			((*std::next(Ubegin, 2) - *std::next(Ubegin, 1)) * dd));
 	  }
@@ -85,28 +85,30 @@ namespace bspline {
 	const FLT ld = *std::next (Uend, - 2) - *Ubegin;
 	const FLT dd = *std::prev (Uend) - *std::next (Ubegin);
 	
-	if (ld > FLT(0.0)) {
+	if (u<*std::next(Ubegin,p)) {
 	  const FLT ln = u - *Ubegin;
-	  N += ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) / ld; 
+	  N += ratio(ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) , ld); 
 	}
 	
-	if (dd > FLT(0.0)) {
+	if (u>=*std::next(Ubegin,1)) {
 	  const FLT dn = *std::prev (Uend) - u;
-	  N += dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) / dd;
+	  N += ratio(dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) , dd);
 	}
 
-	//std::cout << "p = " << p << std::endl;
+//std::cout << "p = " << p << std::endl;
 	//std::cout << "u - *Ubegin = " << u - *Ubegin << " ld = " << ld << " ";
 
 	//std::cout << " *std::next (Uend, - 1) - *std::next (Ubegin , 1) = "
 	//	  << *std::next (Uend, - 1) - *std::next (Ubegin , 1)
 	//	  << " dd = " << dd << " N = " << N << std::endl;
-      }
+
+    }
     }
 
     //std::cout << " N = " << N << std::endl;
     return N;
   };
+
 
   //! \brief function to compute the derivative of a BSpline basis function.
 
@@ -132,12 +134,12 @@ namespace bspline {
       else {    
 
 	const FLT ld = *std::next (Uend, -2) - *Ubegin;
-	if (std::abs (ld) > FLT(0.0)) {
+	if (u<*std::next(Ubegin,p)) {
 	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
-	
+  
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
-	if (std::abs (dd) > FLT(0.0)) { 
+	if (u>=*std::next(Ubegin,1) && u<*std::prev(Uend) ) { 
 	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
 	
