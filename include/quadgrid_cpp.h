@@ -16,13 +16,16 @@
 #define MPI_Comm_rank(x, y) { *y = 0; }
 #endif
 #include <vector>
+#include "tbasisfun.h"
 
 
+
+/// @brief 
+/// @tparam distributed_vector 
 template <class distributed_vector>
 class
 quadgrid_t
 {
-
 public:
 
   using idx_t = int;
@@ -40,6 +43,28 @@ public:
     idx_t             start_owned_nodes;
     idx_t             num_owned_nodes;
   };
+
+  MPI_Comm          comm;
+  int               rank;
+  int               size;
+
+// Degree
+  static constexpr idx_t px=3;
+  static constexpr idx_t py=3;
+  // Regularity
+  static constexpr idx_t rx=2;
+  static constexpr idx_t ry=2;
+
+
+private:
+
+  grid_properties_t grid_properties;
+
+  mutable cell_t   current_cell;
+  mutable cell_t   current_neighbor;
+  
+
+public:
 
   void
   from_json (const nlohmann::json &j, grid_properties_t &q) {
@@ -68,7 +93,7 @@ public:
   gind2row (idx_t idx, idx_t numrows) {
     return  (idx % numrows);
   }
-
+/*
   static idx_t
   gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t numrows) {
     idx_t bottom_left = 0;
@@ -90,8 +115,36 @@ public:
     default :
       return -1;
     }
-  }
+  }*/
 
+/*
+// Return global index of the BSpline coefficient 
+// This version takes span indexes
+  static idx_t gt (idx_t inode, idx_t row_span_idx, idx_t col_span_idx, idx_t num_rows) {
+    if (inode <0 || inode >= (px+1)*(py+1))
+    return -1;// or std::assert
+
+    idx_t r1=inode%(py+1);
+    idx_t c1=inode/(py+1);
+    return global_BS_idx(row_span_idx-py+r1,col_span_idx-px+c1,num_rows);
+
+  }
+*/
+
+// Return global index of the BSpline coefficient 
+//This version takes the row and col indexes of the cell
+  static idx_t gt (idx_t inode, idx_t ridx, idx_t cidx, idx_t num_rows,idx_t num_cols) const {
+    if (inode <0 || inode >= (px+1)*(py+1))
+    return -1;// or std::assert
+
+    idx_t ii=cell2span(ridx,py,ry,num_rows);
+    idx_t jj=cell2span(cidx,px,rx,num_cols);
+
+    idx_t r1=inode%(py+1);
+    idx_t c1=inode/(py+1);
+    return global_BS_idx(ii-py+r1,jj-px+c1);
+
+  }
 
   //-----------------------------------
   //
@@ -129,7 +182,80 @@ public:
     return (bottom_left);
   }
 
+// Bsplines
+
+// Restituisce l'indice della funzione di base dato l'indice di cella
+// N è il numero di celle in quella direz=num breakpts-1 (numrows/numcols)
+// p degree
+// r regolarità
+
+static idx_t cell2span( idx_t index, idx_t p, idx_t r, idx_t N){// index è indice di riga/col
+std::assert(index>=0 && index<=N-1);
+
+return p + (p-r)*index;
+}
+
+static idx_t knot2gind( idx_t k_ind, idx_t p, idx_t r, idx_t N){// N=nrows+1 o ncols+1
+m=(N-2)*(p-r)+2*(p+1)-1;// max index of knot
+std::assert(k_ind>=0 && k_ind<=m);
+
+if(k_ind<=p){
+  return 0;
+}
+if(k_ind>=m-p){//controllare coerenza con onebasisfun, m-p-1 ritorna N-2 senza pb
+return N-1;
+}
+else{ 
+  if ((k_ind-p)%(p-r)==0){
+    return (k_ind-p)/(p-r);
+  }
+  else{ 
+    return (k_ind-p)/(p-r)+1;
+  } 
+}
+}
+
+// Convert from 2d-basisfun indexes to global BSpline index
+// NB Number of basis functions is less than number of knots
+
+static idx_t global_BS_idx(idx_t ii, idx_t jj, idx_t num_rows){// num_rows è il numero di celle, a me serve il numero di breakpts-> +1
+return ii+jj*((num_rows-1)*(px-rx)+(px+1)*2-px-1);
+}
+
+struct
+  Span_iterator {
+    using difference_type = typename std::make_signed_t<idx_t>;
+    using iterator_category = std::random_access_iterator_tag;
+    using value_type = idx_t;
+    using reference = idx_t;
+    using pointer = const idx_t*;
+    iterator &operator ++() { ++i_; return *this; }
+    iterator operator ++(int) { iterator copy(*this); ++i_; return copy; }
+    iterator &operator --() { --i_; return *this; }
+    iterator operator --(int) { iterator copy(*this); --i_; return copy; }
+    iterator& operator +=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) + n); return *this; }
+    iterator& operator -=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) - n); return *this; }
+
+
+    double operator *() const {
+      return quadgird_t::knot2gind(i_,px,rx,grid_properties.numcols+1)*grid_properties.hx;
+ }
+    bool operator ==(const iterator &other) const { return i_ == *other; }
+    bool operator !=(const iterator &other) const { return i_ != *other; }
+
+    bool operator <(const iterator &other) const { return i_ < *other; }
+    difference_type operator -(const iterator &other) const { return static_cast<difference_type>(i_) - static_cast<difference_type>(*other); }
+    iterator operator -(const difference_type other) const { return iterator (static_cast<value_type> (static_cast<difference_type>(i_) - other)); }
+    iterator operator +(const difference_type other) const { return iterator (static_cast<value_type> (static_cast<difference_type>(i_) + other)); }
+    value_type operator[] (const value_type& idx) { return i_ + idx; }
+    protected: explicit iterator(difference_type start) : i_ (start) {};
+  private:
+    idx_t i_;
+  };
   
+
+
+
   static double
   shp (double x, double y, idx_t inode,
        idx_t c, idx_t r, double hx, double hy) {
@@ -152,6 +278,31 @@ public:
     }
     
   }
+
+
+ static double
+  shp (double x, double y, idx_t inode,
+       idx_t c, idx_t r, double hx, double hy) {
+
+    if (inode <0 || inode >= (px+1)*(py+1))
+      return -1;// or std::assert
+
+    idx_t ii=cell2span(r,py,ry,num_rows);
+    idx_t jj=cell2span(c,px,rx,num_cols);
+
+    idx_t r1=inode%(py+1);
+    idx_t c1=inode/(py+1);
+    
+
+    return onebasisfun2d (x, y, px, py, Ubegin, Uend, Vbegin, Vend);
+  }
+
+
+
+
+
+
+
 
   static double
   shg (double x, double y, idx_t idir, idx_t inode,
@@ -274,7 +425,7 @@ public:
 
   public:
 
-    static constexpr idx_t nodes_per_cell = 4;
+    static constexpr idx_t nodes_per_cell = 16;
     static constexpr idx_t edges_per_cell = 4;
     static constexpr idx_t NOT_ON_BOUNDARY = -1;
 
@@ -290,19 +441,9 @@ public:
     idx_t
     t (idx_t i) const;
 
-    idx_t
+   idx_t
     gt (idx_t i) const {  
-      // should check that inode < 4 in an efficient way
-      switch (i) {
-      case 0 :
-      case 1 :
-      case 2 :
-      case 3 :
-	return quadgrid_t::gt (i, col_idx (), row_idx (), num_rows ());
-	break;
-      default :
-	return -1;
-      }
+	    return quadgrid_t::gt (i, row_idx (), col_idx (), num_rows (), num_cols());
     }
   
     idx_t
@@ -528,16 +669,6 @@ public:
   const cell_t&
   operator[] (idx_t tmp) const;
 
-  MPI_Comm          comm;
-  int               rank;
-  int               size;
-
-private :
-
-  grid_properties_t grid_properties;
-
-  mutable cell_t   current_cell;
-  mutable cell_t   current_neighbor;
 
 
 };

@@ -201,7 +201,7 @@ double
 quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
                           typename quadgrid_t<T>::idx_t inode) const {
 
-  return quadgrid_t::p (idir, inode, col_idx (), row_idx (),
+  return quadgrid_t::p (idir, inode, this->col_idx (), this->row_idx (),
 			grid_properties.hx, grid_properties.hy);
   
 }

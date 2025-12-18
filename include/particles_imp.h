@@ -1,6 +1,7 @@
 #ifndef PARTICLES_IMP_H
 #define PARTICLES_IMP_H
 #include "counter.h"
+#include "particles.h"
 
 template<typename str>
 void
@@ -35,7 +36,7 @@ particles_t::p2g
       xx = x[ip];
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
-      for (idx_t inode = 0; inode < 4; ++inode) {
+      for (idx_t inode = 0; inode < particles_t::nodes_per_cell; ++inode) {
         N = icell.shp(xx, yy, inode) * dprop[ip];
 	gvar[icell.gt(inode)] += N;
       }
@@ -88,7 +89,7 @@ particles_t::p2gd
       xx = x[ip];
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
-      for (idx_t inode = 0; inode < 4; ++inode) {
+      for (idx_t inode = 0; inode < particles_t::nodes_per_cell; ++inode) {
         Nx = icell.shg (xx, yy, 0, inode);
         Ny = icell.shg (xx, yy, 1, inode);
         gvar[icell.gt(inode)] += (Nx * dpropx[ip] + Ny * dpropy[ip]) * dproparea[ip];

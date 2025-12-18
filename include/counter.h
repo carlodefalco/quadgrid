@@ -16,6 +16,12 @@ struct range {
     using pointer = const N*;
     iterator &operator ++() { ++i_; return *this; }
     iterator operator ++(int) { iterator copy(*this); ++i_; return copy; }
+    iterator &operator --() { --i_; return *this; }
+    iterator operator --(int) { iterator copy(*this); --i_; return copy; }
+    iterator& operator +=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) + n); return *this; }
+    iterator& operator -=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) - n); return *this; }
+
+
     reference operator *() const { return i_; }
     bool operator ==(const iterator &other) const { return i_ == *other; }
     bool operator !=(const iterator &other) const { return i_ != *other; }
