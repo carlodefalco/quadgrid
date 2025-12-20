@@ -1,4 +1,4 @@
-
+#include "quadgrid_cpp.h"
 template <class T>
 typename quadgrid_t<T>::cell_iterator
 quadgrid_t<T>::begin_cell_sweep () {
@@ -231,17 +231,8 @@ quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) const {
 template <class T>
 double
 quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
-  
-  switch (inode) {
-  case 3 :
-  case 2 :
-  case 1 :
-  case 0 :
-    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy);
-    break;
-  default :
-    throw std::out_of_range ("inode must be in range 0..3");
-  }
+
+    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy,num_cols(),num_rows());
 };
 
 /*
@@ -274,17 +265,9 @@ template <class T>
 template <class T>
 double
 quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
-  switch (inode) {
-  case 3 :
-  case 2 :
-  case 1 :    
-  case 0 :
-    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy);
-    break;
-  default :
-    throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
-  }
-  return 0.;
+  
+    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows());
+  
 };
 
 // template <class T>

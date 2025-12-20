@@ -125,12 +125,14 @@ class
 g2p_helper_t {
 
   using idx_t = particles_t::idx_t;
+  static constexpr idx_t nodes_per_cell=particles_t::nodes_per_cell;
   const PVAR_t x;
   const PVAR_t y;
   const GVAR_t M;
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
+  const idx_t ncols;
   const double hx;
   const double hy;
   PVAR_t dprop;
@@ -139,10 +141,10 @@ g2p_helper_t {
 public :
 
   g2p_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
-		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
+		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_, const idx_t ncols_,
 		const double hx_, const double hy_, PVAR_t dprop_, bool apply_mass_)
     : x(x_), y(y_), gvar(gvar_),
-      ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
+      ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), ncols(ncols_), hx(hx_), hy(hy_),
       dprop(dprop_), apply_mass(apply_mass_) {};
   
   void
@@ -153,10 +155,10 @@ public :
     auto yy = y[ip];
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
-    for (idx_t inode = 0; inode < 4; ++inode) {  
-      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
-	qgt::shp (xx, yy, inode, c, r, hx, hy);
-      dprop[ip] += N * gvar[qgt::gt(inode, c, r, nrows)];
+    for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {  
+      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, ncols, nrows)] :
+	qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows);
+      dprop[ip] += N * gvar[qgt::gt(inode, c, r, ncols, nrows)];
     }
   }  
 };
@@ -192,7 +194,7 @@ particles_t::g2p
 
     g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
     			 gvar.cbegin (), ptcl_to_grd.cbegin (),
-    			 grid.num_rows (), grid.hx (), grid.hy (),
+    			 grid.num_rows (),grid.num_cols(), grid.hx (), grid.hy (),
     			 dprop.begin (), apply_mass);
     
     range rng (0, this->num_particles);
@@ -221,12 +223,14 @@ class
 g2pd_helper_t {
 
   using idx_t = particles_t::idx_t;
+  static constexpr idx_t nodes_per_cell=particles_t::nodes_per_cell;
   const PVAR_t x;
   const PVAR_t y;
   const GVAR_t M;
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
+  const idx_t ncols;
   const double hx;
   const double hy;
   PVAR_t dpropx;
@@ -236,11 +240,11 @@ g2pd_helper_t {
 public :
 
   g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
-		 const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
+		 const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_, const idx_t ncols_,
 		 const double hx_, const double hy_, PVAR_t dpropx_, PVAR_t dpropy_,
 		 bool apply_mass_)
     : x(x_), y(y_), gvar(gvar_),
-      ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
+      ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), ncols(ncols_), hx(hx_), hy(hy_),
       dpropx(dpropx_), dpropy(dpropy_), apply_mass(apply_mass_) {};
   
   void
@@ -252,15 +256,15 @@ public :
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
 
-    for (idx_t inode = 0; inode < 4; ++inode) {
+    for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {
       Nx = apply_mass ?
-	qgt::shg (xx, yy, 0, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
-	qgt::shg (xx, yy, 0, inode, c, r, hx, hy);
+	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, ncols, nrows)] :
+	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows);
       Ny = apply_mass ?
-	qgt::shg (xx, yy, 1, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
-	qgt::shg (xx, yy, 1, inode, c, r, hx, hy);
-      dpropx[ip] += Nx * gvar[qgt::gt(inode, c, r, nrows)];
-      dpropy[ip] += Ny * gvar[qgt::gt(inode, c, r, nrows)];
+	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, ncols, nrows)] :
+	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows);
+      dpropx[ip] += Nx * gvar[qgt::gt(inode, c, r, ncols, nrows)];
+      dpropy[ip] += Ny * gvar[qgt::gt(inode, c, r, ncols, nrows)];
 
     }
   } 
@@ -301,7 +305,7 @@ particles_t::g2pd
 
     g2pd_helper_t helper (x.begin (), y.begin (), M.cbegin (),
     			 gvar.cbegin (), ptcl_to_grd.cbegin (),
-    			 grid.num_rows (), grid.hx (), grid.hy (),
+    			 grid.num_rows (), grid.num_cols(), grid.hx (), grid.hy (),
     			 dpropx.begin (), dpropy.begin (), apply_mass);
      
     range rng (0, this->num_particles);

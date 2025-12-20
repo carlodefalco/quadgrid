@@ -120,7 +120,7 @@ public:
 /*
 // Return global index of the BSpline coefficient 
 // This version takes span indexes
-  static idx_t gt (idx_t inode, idx_t row_span_idx, idx_t col_span_idx, idx_t num_rows) {
+  static idx_t gt (idx_t inode, idx_t col_span_idx, idx_t row_span_idx, idx_t num_rows) {
     if (inode <0 || inode >= (px+1)*(py+1))
     return -1;// or std::assert
 
@@ -133,7 +133,7 @@ public:
 
 // Return global index of the BSpline coefficient 
 //This version takes the row and col indexes of the cell
-  static idx_t gt (idx_t inode, idx_t ridx, idx_t cidx, idx_t num_rows,idx_t num_cols) const {
+  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t num_cols, idx_t num_rows) const {
     if (inode <0 || inode >= (px+1)*(py+1))
     return -1;// or std::assert
 
@@ -238,8 +238,7 @@ struct
 
 
     double operator *() const {
-      return quadgird_t::knot2gind(i_,px,rx,grid_properties.numcols+1)*grid_properties.hx;
- }
+      return quadgrid_t::knot2gind(i_,degree,regularity,num_intervals+1)*h_;}
     bool operator ==(const iterator &other) const { return i_ == *other; }
     bool operator !=(const iterator &other) const { return i_ != *other; }
 
@@ -248,14 +247,20 @@ struct
     iterator operator -(const difference_type other) const { return iterator (static_cast<value_type> (static_cast<difference_type>(i_) - other)); }
     iterator operator +(const difference_type other) const { return iterator (static_cast<value_type> (static_cast<difference_type>(i_) + other)); }
     value_type operator[] (const value_type& idx) { return i_ + idx; }
-    protected: explicit iterator(difference_type start) : i_ (start) {};
+    Span_iterator(difference_type start,idx_t num_int, idx_t deg,
+       idx_t reg, double h) : i_ (start), num_intervals(num_int),
+       h_(h), degree(deg), regularity(reg) {}
   private:
     idx_t i_;
+    idx_t num_intervals; // Real intervals,not knot spans
+    double h_;
+    idx_t degree;
+    idx_t regularity;
+    
   };
   
 
-
-
+/*
   static double
   shp (double x, double y, idx_t inode,
        idx_t c, idx_t r, double hx, double hy) {
@@ -277,13 +282,13 @@ struct
       return 0;
     }
     
-  }
+  }*/
 
 
  static double
   shp (double x, double y, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy) {
-
+       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows) {
+        using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
 
@@ -293,18 +298,81 @@ struct
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
     
+    idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
+    idx_t max_ind_col= (num_cols-1)*(px-rx)+2(px+1)-1;
 
-    return onebasisfun2d (x, y, px, py, Ubegin, Uend, Vbegin, Vend);
-  }
-
-
-
-
-
-
+    Span_iterator Span_y_begin{ii-py+r1,num_rows,py,ry,hy};
+    Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// Gli end sono past the end of the support
+    Span_iterator Span_x_begin(jj-px+c1,num_cols,px,rx,hx);
+    Span_iterator Span_x_end(jj+c1+2,num_cols,px,rx,hx);
+      // (Ottimo che assert ferma se provo a dereferenziare Uend quando è al bordo)
+      
+    if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
+      if (jj+c1+1==max_ind_col)
+        return onebasisfun2d<Position::Border,Position::Border>
+         (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+      else
+        return onebasisfun2d<Position::Internal,Position::Border> (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+    }
+    if (jj+c1+1==max_ind_col)
+      return onebasisfun2d<Position::Border,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+    return onebasisfun2d<Position::Internal,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+       }
 
 
   static double
+  shg (double x, double y, idx_t idir, idx_t inode,
+       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows) {
+   using namespace bspline;
+    if (inode <0 || inode >= (px+1)*(py+1))
+      return -1;// or std::assert
+
+
+    idx_t ii=cell2span(r,py,ry,num_rows);
+    idx_t jj=cell2span(c,px,rx,num_cols);
+        
+    idx_t r1=inode%(py+1);
+    idx_t c1=inode/(py+1);
+    
+    idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
+    idx_t max_ind_col= (num_cols-1)*(px-rx)+2(px+1)-1;
+
+    Span_iterator Span_y_begin{ii-py+r1,num_rows,py,ry,hy};
+    Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// Gli end sono past the end of the support
+    Span_iterator Span_x_begin(jj-px+c1,num_cols,px,rx,hx);
+    Span_iterator Span_x_end(jj+c1+2,num_cols,px,rx,hx);
+
+
+ onebasisfun<Pos_y> (v, pv, Vbegin, Vend);
+
+if (idir==0){//x-deriv
+if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
+      if (jj+c1+1==max_ind_col)
+        return onebasisfun<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Border>(x,px,Span_x_begin, Span_x_end);
+      else
+        return onebasisfun<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+    }
+if (jj+c1+1==max_ind_col)
+      return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Border>(x,px,Span_x_begin, Span_x_end);
+return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+}
+else if(idir==1){//y-deriv
+  if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
+      if (jj+c1+1==max_ind_col)
+        return onebasisfunder<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Border>(x,px,Span_x_begin, Span_x_end);
+      else
+        return onebasisfunder<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+    }
+if (jj+c1+1==max_ind_col)
+      return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Border>(x,px,Span_x_begin, Span_x_end);
+return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+
+}
+}
+
+
+
+  /*static double
   shg (double x, double y, idx_t idir, idx_t inode,
        idx_t c, idx_t r, double hx, double hy) {
     switch (inode) {
@@ -342,7 +410,7 @@ struct
       break;
     }
     return 0.;
-  };
+  };*/
 
   
   static idx_t
@@ -443,7 +511,7 @@ struct
 
    idx_t
     gt (idx_t i) const {  
-	    return quadgrid_t::gt (i, row_idx (), col_idx (), num_rows (), num_cols());
+	    return quadgrid_t::gt (i, col_idx (), row_idx (), num_cols(), num_rows ());
     }
   
     idx_t
