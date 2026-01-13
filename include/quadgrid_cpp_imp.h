@@ -232,7 +232,7 @@ template <class T>
 double
 quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
 
-    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy,num_cols(),num_rows());
+    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows());
 };
 
 /*

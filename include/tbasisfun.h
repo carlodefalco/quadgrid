@@ -11,7 +11,7 @@ namespace bspline {
 // Position of the cell
   enum class Position{
     Internal,
-    Border
+    Boundary
   };
   
   template<typename FLT>
@@ -39,7 +39,7 @@ namespace bspline {
   onebasisfun (FLT const u, INT const p, ITERATOR const Ubegin, ITERATOR const Uend) {
     
     
-  if constexpr( Pos==Position::Border){
+  if constexpr( Pos==Position::Boundary){
     if(u==*std::prev(Uend) && u==*std::next(Ubegin)){
       return FLT{1.0};}
   }
@@ -135,7 +135,7 @@ namespace bspline {
   FLT
   onebasisfunder (FLT u, INT p, ITERATOR Ubegin, ITERATOR Uend)
   {
-    if constexpr( Pos==Position::Border){
+    if constexpr( Pos==Position::Boundary){
     if(u==*std::prev(Uend) && u==*std::next(Ubegin)){
       FLT tol=1e-10;
          u=u-tol;

@@ -31,6 +31,7 @@ public:
   using idx_t = int;
 
   class  cell_t;
+  class Span_iterator;
 
   struct grid_properties_t {
     idx_t             numrows;
@@ -54,7 +55,9 @@ public:
   // Regularity
   static constexpr idx_t rx=2;
   static constexpr idx_t ry=2;
-
+ 
+  // static Span_iterator Span_it_x{0,};
+  // static Span_iterator Span_it_y{0};
 
 private:
 
@@ -73,6 +76,12 @@ public:
     j.at ("ny").get_to (q.numrows);
     j.at ("hx").get_to (q.hx);
     j.at ("hy").get_to (q.hy);
+    // q.px=j.value("px",1);
+    // q.py=j.value("py",1);
+    // q.rx=j.value("rx",0);
+    // q.ry=j.value("ry",0);
+    // q.Ndofs_y=((q.numrows-1)*(q.py-q.ry)+(q.py+1)*2-q.py-1);
+    // //q.Ndofs_x=((q.numcols-1)*(q.px-q.rx)+(q.px+1)*2-q.px-1);
 
 
     q.start_cell_row = 0;
@@ -126,23 +135,23 @@ public:
 
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
-    return global_BS_idx(row_span_idx-py+r1,col_span_idx-px+c1,num_rows);
+    return sub2gind(row_span_idx-py+r1,col_span_idx-px+c1,((num_rows-1)*(py-ry)+(py+1)*2-py-1);
 
   }
 */
 
 // Return global index of the BSpline coefficient 
 //This version takes the row and col indexes of the cell
-  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t num_cols, idx_t num_rows) const {
+  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t num_rows) const {
     if (inode <0 || inode >= (px+1)*(py+1))
     return -1;// or std::assert
 
-    idx_t ii=cell2span(ridx,py,ry,num_rows);
-    idx_t jj=cell2span(cidx,px,rx,num_cols);
+    idx_t ii=cell2span(ridx,py,ry);
+    idx_t jj=cell2span(cidx,px,rx);
 
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
-    return global_BS_idx(ii-py+r1,jj-px+c1);
+    return sub2gind(ii-py+r1,jj-px+c1,((num_rows-1)*(py-ry)+(py+1)*2-py-1));// Third param is N_dof_y 
 
   }
 
@@ -185,12 +194,11 @@ public:
 // Bsplines
 
 // Restituisce l'indice della funzione di base dato l'indice di cella
-// N è il numero di celle in quella direz=num breakpts-1 (numrows/numcols)
 // p degree
 // r regolarità
 
-static idx_t cell2span( idx_t index, idx_t p, idx_t r, idx_t N){// index è indice di riga/col
-std::assert(index>=0 && index<=N-1);
+static idx_t cell2span( idx_t index, idx_t p, idx_t r){// index è indice di riga/col
+// std::assert(index>=0 && index<=N-1);
 
 return p + (p-r)*index;
 }
@@ -218,9 +226,9 @@ else{
 // Convert from 2d-basisfun indexes to global BSpline index
 // NB Number of basis functions is less than number of knots
 
-static idx_t global_BS_idx(idx_t ii, idx_t jj, idx_t num_rows){// num_rows è il numero di celle, a me serve il numero di breakpts-> +1
-return ii+jj*((num_rows-1)*(px-rx)+(px+1)*2-px-1);
-}
+// static idx_t global_Spline_idx(idx_t ii, idx_t jj, idx_t num_rows){// num_rows è il numero di celle, a me serve il numero di breakpts-> +1
+// return ii+jj*((num_rows-1)*(py-ry)+(py+1)*2-py-1);
+// }
 
 struct
   Span_iterator {
@@ -229,24 +237,24 @@ struct
     using value_type = idx_t;
     using reference = idx_t;
     using pointer = const idx_t*;
-    iterator &operator ++() { ++i_; return *this; }
-    iterator operator ++(int) { iterator copy(*this); ++i_; return copy; }
-    iterator &operator --() { --i_; return *this; }
-    iterator operator --(int) { iterator copy(*this); --i_; return copy; }
-    iterator& operator +=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) + n); return *this; }
-    iterator& operator -=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) - n); return *this; }
+    Span_iterator &operator ++() { ++i_; return *this; }
+    Span_iterator operator ++(int) { iterator copy(*this); ++i_; return copy; }
+    Span_iterator &operator --() { --i_; return *this; }
+    Span_iterator operator --(int) { iterator copy(*this); --i_; return copy; }
+    Span_iterator& operator +=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) + n); return *this; }
+    Span_iterator& operator -=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) - n); return *this; }
 
 
     double operator *() const {
       return quadgrid_t::knot2gind(i_,degree,regularity,num_intervals+1)*h_;}
-    bool operator ==(const iterator &other) const { return i_ == *other; }
-    bool operator !=(const iterator &other) const { return i_ != *other; }
+    bool operator ==(const Span_iterator &other) const { return i_ == *other; }
+    bool operator !=(const Span_iterator &other) const { return i_ != *other; }
 
-    bool operator <(const iterator &other) const { return i_ < *other; }
-    difference_type operator -(const iterator &other) const { return static_cast<difference_type>(i_) - static_cast<difference_type>(*other); }
-    iterator operator -(const difference_type other) const { return iterator (static_cast<value_type> (static_cast<difference_type>(i_) - other)); }
-    iterator operator +(const difference_type other) const { return iterator (static_cast<value_type> (static_cast<difference_type>(i_) + other)); }
-    value_type operator[] (const value_type& idx) { return i_ + idx; }
+    bool operator <(const Span_iterator &other) const { return i_ < *other; }
+    difference_type operator -(const Span_iterator &other) const { return static_cast<difference_type>(i_) - static_cast<difference_type>(*other); }
+    Span_iterator operator -(const difference_type other) const { return Span_iterator{static_cast<value_type> (static_cast<difference_type>(i_) - other),num_intervals,degree,regularity,h_}; }
+    Span_iterator operator +(const difference_type other) const { return Span_iterator{static_cast<value_type> (static_cast<difference_type>(i_) + other),num_intervals,degree,regularity,h_}; }
+    double operator[] (const value_type& idx) { return (i_ + idx)*h_; }
     Span_iterator(difference_type start,idx_t num_int, idx_t deg,
        idx_t reg, double h) : i_ (start), num_intervals(num_int),
        h_(h), degree(deg), regularity(reg) {}
@@ -292,30 +300,32 @@ struct
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
 
-    idx_t ii=cell2span(r,py,ry,num_rows);
-    idx_t jj=cell2span(c,px,rx,num_cols);
+    idx_t ii=cell2span(r,py,ry);
+    idx_t jj=cell2span(c,px,rx);
 
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
     
+    // posso crearlo in grid properties e passarglielo in input
     idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
     idx_t max_ind_col= (num_cols-1)*(px-rx)+2(px+1)-1;
 
+    // Posso crearne 2 fissi per ogni direzione della griglia e sommare ogni volta l'indice da cui partire
+    // Risparmierei qualcosa, tuttavia la somma crea sempre un nuovo iterator
     Span_iterator Span_y_begin{ii-py+r1,num_rows,py,ry,hy};
-    Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// Gli end sono past the end of the support
+    Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// This is past the end of the support
     Span_iterator Span_x_begin(jj-px+c1,num_cols,px,rx,hx);
     Span_iterator Span_x_end(jj+c1+2,num_cols,px,rx,hx);
-      // (Ottimo che assert ferma se provo a dereferenziare Uend quando è al bordo)
       
     if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
       if (jj+c1+1==max_ind_col)
-        return onebasisfun2d<Position::Border,Position::Border>
+        return onebasisfun2d<Position::Boundary,Position::Boundary>
          (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
       else
-        return onebasisfun2d<Position::Internal,Position::Border> (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+        return onebasisfun2d<Position::Internal,Position::Boundary> (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
     }
     if (jj+c1+1==max_ind_col)
-      return onebasisfun2d<Position::Border,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+      return onebasisfun2d<Position::Boundary,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
     return onebasisfun2d<Position::Internal,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
        }
 
@@ -328,8 +338,8 @@ struct
       return -1;// or std::assert
 
 
-    idx_t ii=cell2span(r,py,ry,num_rows);
-    idx_t jj=cell2span(c,px,rx,num_cols);
+    idx_t ii=cell2span(r,py,ry);
+    idx_t jj=cell2span(c,px,rx);
         
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
@@ -348,23 +358,23 @@ struct
 if (idir==0){//x-deriv
 if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
       if (jj+c1+1==max_ind_col)
-        return onebasisfun<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Border>(x,px,Span_x_begin, Span_x_end);
+        return onebasisfun<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
       else
-        return onebasisfun<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+        return onebasisfun<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
     }
 if (jj+c1+1==max_ind_col)
-      return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Border>(x,px,Span_x_begin, Span_x_end);
+      return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
 return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
 }
 else if(idir==1){//y-deriv
   if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
       if (jj+c1+1==max_ind_col)
-        return onebasisfunder<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Border>(x,px,Span_x_begin, Span_x_end);
+        return onebasisfunder<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
       else
-        return onebasisfunder<Position::Border>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+        return onebasisfunder<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
     }
 if (jj+c1+1==max_ind_col)
-      return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Border>(x,px,Span_x_begin, Span_x_end);
+      return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
 return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
 
 }
@@ -484,6 +494,14 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     cell_t *data;
   };
 
+
+
+
+
+
+
+
+
   class
   cell_t
   {
@@ -511,7 +529,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
 
    idx_t
     gt (idx_t i) const {  
-	    return quadgrid_t::gt (i, col_idx (), row_idx (), num_cols(), num_rows ());
+	    return quadgrid_t::gt (i, col_idx (), row_idx (), num_rows ());
     }
   
     idx_t
@@ -647,7 +665,9 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
 
   /// Ctor that reads grid properties from a json object.
   quadgrid_t (const nlohmann::json &j, MPI_Comm _comm = MPI_COMM_WORLD) :
-    quadgrid_t(_comm) { from_json (j, grid_properties); };
+    quadgrid_t(_comm) { from_json (j, grid_properties); };    
+
+
 
   /// Delete copy constructor.
   quadgrid_t (const quadgrid_t &) = delete;

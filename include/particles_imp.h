@@ -156,9 +156,9 @@ public :
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
     for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {  
-      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, ncols, nrows)] :
+      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, nrows)] :
 	qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows);
-      dprop[ip] += N * gvar[qgt::gt(inode, c, r, ncols, nrows)];
+      dprop[ip] += N * gvar[qgt::gt(inode, c, r, nrows)];
     }
   }  
 };
@@ -258,13 +258,13 @@ public :
 
     for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {
       Nx = apply_mass ?
-	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, ncols, nrows)] :
+	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, nrows)] :
 	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows);
       Ny = apply_mass ?
-	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, ncols, nrows)] :
+	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, nrows)] :
 	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows);
-      dpropx[ip] += Nx * gvar[qgt::gt(inode, c, r, ncols, nrows)];
-      dpropy[ip] += Ny * gvar[qgt::gt(inode, c, r, ncols, nrows)];
+      dpropx[ip] += Nx * gvar[qgt::gt(inode, c, r, nrows)];
+      dpropy[ip] += Ny * gvar[qgt::gt(inode, c, r, nrows)];
 
     }
   } 
