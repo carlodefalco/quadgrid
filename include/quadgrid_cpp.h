@@ -37,6 +37,9 @@ public:
     idx_t             numrows;
     idx_t             numcols;
     double            hx, hy;
+    idx_t             px, py;  // Degree
+    idx_t             rx, ry;  // Regularity
+    idx_t             nodes_per_cell;  // (px+1)*(py+1)
     idx_t             start_cell_row;
     idx_t             end_cell_row;
     idx_t             start_cell_col;
@@ -45,30 +48,6 @@ public:
     idx_t             num_owned_nodes;
   };
 
-  MPI_Comm          comm;
-  int               rank;
-  int               size;
-
-// Degree
-  static constexpr idx_t px=3;
-  static constexpr idx_t py=3;
-  // Regularity
-  static constexpr idx_t rx=2;
-  static constexpr idx_t ry=2;
- 
-  // static Span_iterator Span_it_x{0,};
-  // static Span_iterator Span_it_y{0};
-
-private:
-
-  grid_properties_t grid_properties;
-
-  mutable cell_t   current_cell;
-  mutable cell_t   current_neighbor;
-  
-
-public:
-
   void
   from_json (const nlohmann::json &j, grid_properties_t &q) {
 
@@ -76,14 +55,12 @@ public:
     j.at ("ny").get_to (q.numrows);
     j.at ("hx").get_to (q.hx);
     j.at ("hy").get_to (q.hy);
-    // q.px=j.value("px",1);
-    // q.py=j.value("py",1);
-    // q.rx=j.value("rx",0);
-    // q.ry=j.value("ry",0);
-    // q.Ndofs_y=((q.numrows-1)*(q.py-q.ry)+(q.py+1)*2-q.py-1);
-    // //q.Ndofs_x=((q.numcols-1)*(q.px-q.rx)+(q.px+1)*2-q.px-1);
+    q.px = j.value("px", 3);  
+    q.py = j.value("py", 3);  
+    q.rx = j.value("rx", 2);  
+    q.ry = j.value("ry", 2);  
 
-
+    q.nodes_per_cell = (q.px + 1) * (q.py + 1);
     q.start_cell_row = 0;
     q.end_cell_row = q.numrows - 1;
     q.start_cell_col = 0;
@@ -142,7 +119,7 @@ public:
 
 // Return global index of the BSpline coefficient 
 //This version takes the row and col indexes of the cell
-  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t num_rows) const {
+  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t num_rows, idx_t px, idx_t py, idx_t rx, idx_t ry) const {
     if (inode <0 || inode >= (px+1)*(py+1))
     return -1;// or std::assert
 
@@ -295,7 +272,7 @@ struct
 
  static double
   shp (double x, double y, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows) {
+       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows, idx_t px, idx_t py, idx_t rx, idx_t ry) {
         using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
@@ -308,7 +285,7 @@ struct
     
     // posso crearlo in grid properties e passarglielo in input
     idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
-    idx_t max_ind_col= (num_cols-1)*(px-rx)+2(px+1)-1;
+    idx_t max_ind_col= (num_cols-1)*(px-rx)+2*(px+1)-1;
 
     // Posso crearne 2 fissi per ogni direzione della griglia e sommare ogni volta l'indice da cui partire
     // Risparmierei qualcosa, tuttavia la somma crea sempre un nuovo iterator
@@ -332,7 +309,7 @@ struct
 
   static double
   shg (double x, double y, idx_t idir, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows) {
+       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows, idx_t px, idx_t py, idx_t rx, idx_t ry) {
    using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
@@ -345,7 +322,7 @@ struct
     idx_t c1=inode/(py+1);
     
     idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
-    idx_t max_ind_col= (num_cols-1)*(px-rx)+2(px+1)-1;
+    idx_t max_ind_col= (num_cols-1)*(px-rx)+2*(px+1)-1;
 
     Span_iterator Span_y_begin{ii-py+r1,num_rows,py,ry,hy};
     Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// Gli end sono past the end of the support
@@ -511,7 +488,6 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
 
   public:
 
-    static constexpr idx_t nodes_per_cell = 16;
     static constexpr idx_t edges_per_cell = 4;
     static constexpr idx_t NOT_ON_BOUNDARY = -1;
 
@@ -529,7 +505,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
 
    idx_t
     gt (idx_t i) const {  
-	    return quadgrid_t::gt (i, col_idx (), row_idx (), num_rows ());
+	    return quadgrid_t::gt (i, col_idx (), row_idx (), num_rows (), grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry);
     }
   
     idx_t
@@ -589,6 +565,10 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     idx_t
     num_cols () const
     { return grid_properties.numcols; };
+
+    idx_t
+    nodes_per_cell () const
+    { return grid_properties.nodes_per_cell; };
 
     idx_t
     row_idx () const
@@ -655,6 +635,11 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     grid_properties.numcols = 0;
     grid_properties.hx = 0.;
     grid_properties.hy = 0.;
+    grid_properties.px = 3;  
+    grid_properties.py = 3;  
+    grid_properties.rx = 2; 
+    grid_properties.ry = 2;  
+    grid_properties.nodes_per_cell = (grid_properties.px + 1) * (grid_properties.py + 1); 
     grid_properties.start_cell_row = 0;
     grid_properties.end_cell_row = 0;
     grid_properties.start_cell_col = 0;
@@ -740,6 +725,10 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
   { return grid_properties.hy; };
 
   idx_t
+  nodes_per_cell () const
+  { return grid_properties.nodes_per_cell; };
+
+  idx_t
   sub2gind (idx_t r, idx_t c) const {
     return  (r + grid_properties.numrows * c);
   }
@@ -758,6 +747,18 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
   operator[] (idx_t tmp) const;
 
 
+
+
+  MPI_Comm          comm;
+  int               rank;
+  int               size;
+
+private:
+
+  grid_properties_t grid_properties;
+
+  mutable cell_t   current_cell;
+  mutable cell_t   current_neighbor;
 
 };
 

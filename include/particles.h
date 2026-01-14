@@ -30,7 +30,6 @@ particles_t {
 
   //! datatype for indexing into vectors of properties
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
-  static constexpr idx_t nodes_per_cell = quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
 
   idx_t num_particles;    //!< number of particles.
   std::vector<double> x;  //!< x coordinate of particle positions.

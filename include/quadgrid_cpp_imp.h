@@ -232,7 +232,7 @@ template <class T>
 double
 quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
 
-    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows());
+    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows(), grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry);
 };
 
 /*
@@ -266,7 +266,7 @@ template <class T>
 double
 quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
   
-    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows());
+    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows(), grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry);
   
 };
 
