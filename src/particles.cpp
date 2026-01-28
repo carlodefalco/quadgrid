@@ -176,6 +176,7 @@ particles_t::init_particle_positions
   std::generate (y.begin (), y.end (), ygentr);
 }
 
+// Da cambiare
 
 void
 particles_t::build_mass () {
@@ -183,7 +184,7 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-	 inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+	 inode < grid.nodes_per_cell();
 	 ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }

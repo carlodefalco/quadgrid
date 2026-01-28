@@ -148,17 +148,18 @@ quadgrid_t<T>::num_global_cells () const {
 
 
 
-
 template <class T>
 typename quadgrid_t<T>::idx_t
 quadgrid_t<T>::num_global_nodes () const {
-  return (grid_properties.numrows+1)*(grid_properties.numcols+1);
+  return ((grid_properties.numrows-1)*(grid_properties.py-grid_properties.ry)
+  +(grid_properties.py+1)*2-grid_properties.py-1)*((grid_properties.numcols-1)*(grid_properties.px
+    -grid_properties.rx)+(grid_properties.px+1)*2-grid_properties.px-1);
 }
 
 template <class T>
 typename quadgrid_t<T>::idx_t
 quadgrid_t<T>::num_local_nodes () const {
-  return (grid_properties.numrows+1)*(grid_properties.numcols+1);
+  return num_global_nodes();
 }
 
 

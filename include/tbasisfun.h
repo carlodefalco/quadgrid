@@ -99,12 +99,12 @@ namespace bspline {
 	
 	if (u<*std::next(Ubegin,p)) {
 	  const FLT ln = u - *Ubegin;
-	  N += ratio(ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) , ld); 
+	  N += ratio(ln * onebasisfun<Pos> (u, p-1, Ubegin, std::prev (Uend)) , ld); 
 	}
 	
 	if (u>=*std::next(Ubegin,1)) {
 	  const FLT dn = *std::prev (Uend) - u;
-	  N += ratio(dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) , dd);
+	  N += ratio(dn * onebasisfun<Pos> (u, p-1, std::next (Ubegin), Uend) , dd);
 	}
 
 //std::cout << "p = " << p << std::endl;
@@ -157,12 +157,12 @@ namespace bspline {
 
 	const FLT ld = *std::next (Uend, -2) - *Ubegin;
 	if (u<*std::next(Ubegin,p)) {
-	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
+	  Nder += ratio (p * onebasisfun<Pos> (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
   
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
 	if (u>=*std::next(Ubegin,1) && u<*std::prev(Uend) ) { 
-	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
+	  Nder -= ratio (p * onebasisfun<Pos> (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
 	
       }

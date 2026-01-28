@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   
   std::vector<double> b{0.0, 1.0, 2.5, 4.0, 7.0};
   std::vector<double> k = open_knot_vector (b.begin (), b.end (), p, 1);
-  //for (auto const & ii : k) std::cout << ii << std::endl;
+  for (auto const & ii : k) std::cout << ii << std::endl;
   
   auto kb = k.begin ();
   auto ke = std::next (kb, p + 2);
@@ -23,13 +23,13 @@ int main(int argc, char *argv[]) {
     std::vector<double> y(N+1, 0.0);
 
     x[0] = *kb;
-    y[0] = onebasisfun (x[0], p, kb, ke);
+    y[0] = onebasisfun<Position::Boundary> (x[0], p, kb, ke);
     double dx = (*(std::prev (ke)) - *kb) / double (N);
     for (int ii = 1; ii < N+1; ++ii) {
       x[ii] = x[ii-1] + dx; 
       if (x[ii] >= (*(std::prev (ke)) - *(std::prev (ke)) * 4.0 * std::numeric_limits<double>::epsilon ()))
 	x[ii] = *(std::prev (ke));
-      y[ii] = onebasisfun (x[ii], p, kb, ke);
+      y[ii] = onebasisfun<Position::Boundary> (x[ii], p, kb, ke);
     }
 
     for (int ii = 0; ii < N+1; ++ii) {
@@ -44,6 +44,10 @@ int main(int argc, char *argv[]) {
     }
   }
   
+  //std::cout  << std::setprecision (19) << *std::prev(ke) << "   " << onebasisfun<Position::Boundary> (*std::prev(ke) , p, kb, ke) << std::endl;
+
+
+
   return 0;  
 }
 

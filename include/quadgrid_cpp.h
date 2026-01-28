@@ -68,6 +68,7 @@ public:
     q.start_owned_nodes = 0;
     q.num_owned_nodes = (q.numrows+1)*(q.numcols+1);
 
+
   }
 
   static idx_t
@@ -329,8 +330,6 @@ struct
     Span_iterator Span_x_begin(jj-px+c1,num_cols,px,rx,hx);
     Span_iterator Span_x_end(jj+c1+2,num_cols,px,rx,hx);
 
-
- onebasisfun<Pos_y> (v, pv, Vbegin, Vend);
 
 if (idir==0){//x-deriv
 if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
