@@ -191,7 +191,7 @@ particles_t::p2gd
     auto const & dpropy = dprops.at (getkey(pyvarnames, ivar));
     auto const & dproparea = dprops.at (area);
 
-    p2gd_helper_t helper(x.cbegin(), y.cbegin(), M.cbegin(), gvar.begin(), ptcl_to_grd.cbegin(), Grid.num_rows(), Grid.hx(), Grid.hy(), 
+    p2gd_helper_t helper(x.cbegin(), y.cbegin(), M.cbegin(), gvar.begin(), ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(), grid.hy(), 
     dpropx.begin(). dpropy.begin(), dproparea.begin(), apply_mass);
 
     #ifdef USE_THRUST
