@@ -9,7 +9,7 @@
 
 #include "counter.h"
 #include <timer.h>
-
+#include <quadgrid_config.h>
 
 /// \page tutorial Tutorial
 /// This is a tutorial, see the annotated source 
@@ -24,18 +24,18 @@
 class
 stepper {
 private :
-  std::vector<double> &x;
-  std::vector<double> &y;
-  std::vector<double> &vx;
-  std::vector<double> &vy;
+  vector_t<double> &x;
+  vector_t<double> &y;
+  vector_t<double> &vx;
+  vector_t<double> &vy;
 
   double dt, D; 
   std::function<double (void)> normal;
   
 public :
   
-  stepper (std::vector<double> &x_, std::vector<double> &y_,
-	   std::vector<double> &vx_, std::vector<double> &vy_,
+  stepper (vector_t<double> &x_, vector_t<double> &y_,
+	   vector_t<double> &vx_, vector_t<double> &vy_,
 	   double dt_, double D_, std::function<double (void)> &noise_)
     : x(x_), y(y_), vx(vx_), vy(vy_), dt{dt_}, D{D_}, normal(noise_) { }
 
@@ -80,7 +80,7 @@ main () {
   inbuf >> j;
 
   // create grid from fields in a json object
-  quadgrid_t<std::vector<double>> qg (j["grid_properties"]);
+  quadgrid_t<vector_t<double>> qg (j["grid_properties"]);
 
   // create particles from properties in the json object
   // and the above created grid
@@ -90,8 +90,8 @@ main () {
   p.build_mass ();
 
   // the variables defined on the grid are not class members
-  std::map<std::string, std::vector<double>> vars= 
-    j["grid_vars"].get<std::map<std::string, std::vector<double>>> ();
+  std::map<std::string, vector_t<double>> vars= 
+    j["grid_vars"].get<std::map<std::string, vector_t<double>>> ();
     
   inbuf.close ();
 

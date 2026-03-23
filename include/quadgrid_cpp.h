@@ -16,7 +16,7 @@
 #define MPI_Comm_rank(x, y) { *y = 0; }
 #endif
 #include <vector>
-
+#include <quadgrid_config.h>
 
 template <class distributed_vector>
 class
@@ -59,16 +59,19 @@ public:
 
   }
 
+  HOST DEVICE
   static idx_t
   gind2col (idx_t idx, idx_t numrows) {
     return (idx / numrows);
   }
 
+  HOST DEVICE 
   static idx_t
   gind2row (idx_t idx, idx_t numrows) {
     return  (idx % numrows);
   }
-
+  
+  HOST DEVICE
   static idx_t
   gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t numrows) {
     idx_t bottom_left = 0;
@@ -112,7 +115,7 @@ public:
   //              0
   //
   //-----------------------------------
-
+  HOST DEVICE
   static double
   p (idx_t idir, idx_t inode, idx_t colidx, idx_t rowidx, double hx, double hy) {
     double bottom_left = 0.0;
@@ -129,7 +132,7 @@ public:
     return (bottom_left);
   }
 
-  
+  HOST DEVICE
   static double
   shp (double x, double y, idx_t inode,
        idx_t c, idx_t r, double hx, double hy) {
@@ -152,7 +155,8 @@ public:
     }
     
   }
-
+  
+  HOST DEVICE
   static double
   shg (double x, double y, idx_t idir, idx_t inode,
        idx_t c, idx_t r, double hx, double hy) {
@@ -193,7 +197,7 @@ public:
     return 0.;
   };
 
-  
+  HOST DEVICE
   static idx_t
   sub2gind (idx_t r, idx_t c, idx_t nr) {
     return  (r + nr * c);

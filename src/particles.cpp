@@ -6,6 +6,7 @@
 #include <counter.h>
 #include <quadgrid_cpp.h>
 #include <particles.h>
+#include <quadgrid_config.h>
 
 double
 particles_t::default_x_generator () {
@@ -25,9 +26,9 @@ particles_t::default_y_generator () {
 
 particles_t::particles_t
 (
- idx_t n, const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_
+ idx_t n, const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames,
+ const quadgrid_t<vector_t<double>>& grid_
  ) :  particles_t (n, grid_) {
 
   init_props (ipropnames, dpropnames);
@@ -44,11 +45,11 @@ particles_t::particles_t
 
 particles_t::particles_t
 (
- idx_t n, const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_,
- const std::vector<double> & xgen,
- const std::vector<double> & ygen
+ idx_t n, const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames,
+ const quadgrid_t<vector_t<double>>& grid_,
+ const vector_t<double> & xgen,
+ const vector_t<double> & ygen
  ) : particles_t (n, grid_) {
 
   x = xgen;
@@ -61,9 +62,9 @@ particles_t::particles_t
 
 particles_t::particles_t
 (
- idx_t n, const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_,
+ idx_t n, const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames,
+ const quadgrid_t<vector_t<double>>& grid_,
  std::function<double ()> xgen,
  std::function<double ()> ygen
  ) : particles_t (n, grid_) {
@@ -79,8 +80,8 @@ particles_t::particles_t
 void
 particles_t::init_props
 (
- const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames
+ const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames
  ) {
 
   for (idx_t ii = 0; ii < ipropnames.size (); ++ii) {
@@ -183,7 +184,7 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-	 inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+	 inode < quadgrid_t<vector_t<double>>::cell_t::nodes_per_cell;
 	 ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }
@@ -305,7 +306,7 @@ to_json (nlohmann::json &j, const particles_t &p) {
 }
 
 void
-particles_t::reorder (std::vector<idx_t> &ordering) {
+particles_t::reorder (vector_t<idx_t> &ordering) {
 
   for (idx_t ii = 0; ii < num_particles - 1; ++ii) {
     if (ii != ordering[ii]) {

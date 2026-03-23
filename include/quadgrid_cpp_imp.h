@@ -422,7 +422,7 @@ quadgrid_t<T>::octave_ascii_export
      << "# rows: 4" << std::endl
      << "# columns: " << num_local_cells () << std::endl;
   for (auto inode = 0;
-       inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+       inode < quadgrid_t<vector_t<double>>::cell_t::nodes_per_cell;
        ++inode) {
     for (auto icell = begin_cell_sweep ();
          icell != end_cell_sweep (); ++icell) {
