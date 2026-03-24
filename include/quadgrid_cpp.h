@@ -6,15 +6,6 @@
 #include <iomanip>
 #include <json.hpp>
 #include <map>
-#ifdef USE_MPI_H
-#include <mpi.h>
-#else
-#define MPI_Comm int
-#define MPI_COMM_WORLD 1
-#define MPI_Initialized(x)
-#define MPI_Comm_size(x, y) { *y = 0; }
-#define MPI_Comm_rank(x, y) { *y = 0; }
-#endif
 #include <vector>
 #include <quadgrid_config.h>
 
@@ -32,7 +23,7 @@ public:
   struct grid_properties_t {
     idx_t             numrows;
     idx_t             numcols;
-    double            hx, hy;
+    real_t            hx, hy;
     idx_t             start_cell_row;
     idx_t             end_cell_row;
     idx_t             start_cell_col;
@@ -116,9 +107,9 @@ public:
   //
   //-----------------------------------
   HOST DEVICE
-  static double
-  p (idx_t idir, idx_t inode, idx_t colidx, idx_t rowidx, double hx, double hy) {
-    double bottom_left = 0.0;
+  static real_t
+  p (idx_t idir, idx_t inode, idx_t colidx, idx_t rowidx, real_t hx, real_t hy) {
+    real_t bottom_left = 0.0;
     // should check that inode < 4 in an efficient way
     if (idir == 0) {
       bottom_left = colidx * hx;
@@ -133,9 +124,9 @@ public:
   }
 
   HOST DEVICE
-  static double
-  shp (double x, double y, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy) {
+  static real_t
+  shp (real_t x, real_t y, idx_t inode,
+       idx_t c, idx_t r, real_t hx, real_t hy) {
 
     switch (inode) {
     case 3 :
@@ -157,9 +148,9 @@ public:
   }
   
   HOST DEVICE
-  static double
-  shg (double x, double y, idx_t idir, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy) {
+  static real_t
+  shg (real_t x, real_t y, idx_t idir, idx_t inode,
+       idx_t c, idx_t r, real_t hx, real_t hy) {
     switch (inode) {
     case 3 :
       if (idir == 0) {
@@ -285,10 +276,10 @@ public:
     cell_t (const grid_properties_t& _gp)
       : grid_properties (_gp), rowidx (0), colidx (0), is_ghost (false) { };
 
-    double
+    real_t
     p (idx_t i, idx_t j) const;
 
-    double
+    real_t
     centroid (idx_t i);
 
     idx_t
@@ -312,14 +303,14 @@ public:
     idx_t
     e (idx_t i) const;
 
-    double
-    shp (double x, double y, idx_t inode) const;
+    real_t
+    shp (real_t x, real_t y, idx_t inode) const;
 
-    double
-    shp_new (double x, double y, idx_t inode) const;
+    real_t
+    shp_new (real_t x, real_t y, idx_t inode) const;
 
-    double
-    shg (double x, double y, idx_t idir, idx_t inode) const;
+    real_t
+    shg (real_t x, real_t y, idx_t idir, idx_t inode) const;
 
     neighbor_iterator
     begin_neighbor_sweep ();
@@ -456,7 +447,7 @@ public:
 
   void
   set_sizes (idx_t numrows, idx_t numcols,
-             double hx, double hy);
+             real_t hx, real_t hy);
 
   void
   vtk_export (const char *filename,
@@ -506,11 +497,11 @@ public:
   num_cols () const
   { return grid_properties.numcols; };
 
-  double
+  real_t
   hx () const
   { return grid_properties.hx; };
 
-  double
+  real_t
   hy () const
   { return grid_properties.hy; };
 

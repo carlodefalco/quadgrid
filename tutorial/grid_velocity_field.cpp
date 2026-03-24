@@ -24,19 +24,19 @@
 class
 stepper {
 private :
-  vector_t<double> &x;
-  vector_t<double> &y;
-  vector_t<double> &vx;
-  vector_t<double> &vy;
+  vector_t<real_t> &x;
+  vector_t<real_t> &y;
+  vector_t<real_t> &vx;
+  vector_t<real_t> &vy;
 
-  double dt, D; 
-  std::function<double (void)> normal;
+  real_t dt, D; 
+  std::function<real_t (void)> normal;
   
 public :
   
-  stepper (vector_t<double> &x_, vector_t<double> &y_,
-	   vector_t<double> &vx_, vector_t<double> &vy_,
-	   double dt_, double D_, std::function<double (void)> &noise_)
+  stepper (vector_t<real_t> &x_, vector_t<real_t> &y_,
+	   vector_t<real_t> &vx_, vector_t<real_t> &vy_,
+	   real_t dt_, real_t D_, std::function<real_t (void)> &noise_)
     : x(x_), y(y_), vx(vx_), vy(vy_), dt{dt_}, D{D_}, normal(noise_) { }
 
   //! @brief call operator applying motion to the n-th particle.
@@ -47,7 +47,7 @@ public :
   /// motion component plus gaussian noise
   /// to represent diffusion/Brownian motion
   void operator() (int n) {
-    double dxb, dyb;
+    real_t dxb, dyb;
   
     //Brownian motion displacements
     dxb=std::sqrt (2*D*dt) * normal();
@@ -80,7 +80,7 @@ main () {
   inbuf >> j;
 
   // create grid from fields in a json object
-  quadgrid_t<vector_t<double>> qg (j["grid_properties"]);
+  quadgrid_t<vector_t<real_t>> qg (j["grid_properties"]);
 
   // create particles from properties in the json object
   // and the above created grid
@@ -90,8 +90,8 @@ main () {
   p.build_mass ();
 
   // the variables defined on the grid are not class members
-  std::map<std::string, vector_t<double>> vars= 
-    j["grid_vars"].get<std::map<std::string, vector_t<double>>> ();
+  std::map<std::string, vector_t<real_t>> vars= 
+    j["grid_vars"].get<std::map<std::string, vector_t<real_t>>> ();
     
   inbuf.close ();
 
@@ -99,7 +99,7 @@ main () {
   std::random_device rd2;  // Will be used to obtain a seed for the random number engine
   std::mt19937 gen2;
   std::normal_distribution<> normal;
-  std::function<double ()> noise = [&gen2, &rd2, &normal] () { return normal(gen2); };
+  std::function<real_t ()> noise = [&gen2, &rd2, &normal] () { return normal(gen2); };
 
   // Create the callable object to be used for moving the particles
   // capture references to the particle positions and velocities

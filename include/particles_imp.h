@@ -5,7 +5,7 @@
 template<typename str>
 void
 particles_t::p2g
-(std::map<std::string, vector_t<double>> & vars,
+(std::map<std::string, vector_t<real_t>> & vars,
  std::initializer_list<str> const & pvarnames,
  std::initializer_list<str> const & gvarnames,
  bool apply_mass)  {
@@ -24,8 +24,8 @@ p2g_helper_t{
   const PVAR_t dprop;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
-  const double hx;
-  const double hy;
+  const real_t hx;
+  const real_t hy;
   GVAR_t M;
   GVAR_t gvar;
 
@@ -35,7 +35,7 @@ public :
 
   p2g_helper_t (const PVAR_t x_, const PVAR_t y_,  GVAR_t M_,
 		GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
-		const double hx_, const double hy_, const PVAR_t dprop_, bool apply_mass_)
+		const real_t hx_, const real_t hy_, const PVAR_t dprop_, bool apply_mass_)
     : x(x_), y(y_), M(M_), gvar(gvar_), 
       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
       dprop(dprop_), apply_mass(apply_mass_) {};
@@ -44,7 +44,7 @@ public :
   void
   operator() (idx_t ip) {
     using qgt = quadgrid_t<GVAR_t>;
-    double N = 0.0;
+    real_t N = 0.0;
     auto xx = x[ip];
     auto yy = y[ip];
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
@@ -63,13 +63,13 @@ public :
 template<typename GT, typename PT>
 void
 particles_t::p2g
-(std::map<std::string, vector_t<double>> & vars,
+(std::map<std::string, vector_t<real_t>> & vars,
  PT const & pvarnames,
  GT const & gvarnames,
  bool apply_mass)  {
 
-  using idx_t = quadgrid_t<vector_t<double>>::idx_t;
-  double N = 0.0, xx = 0.0, yy = 0.0;
+  using idx_t = quadgrid_t<vector_t<real_t>>::idx_t;
+  real_t N = 0.0, xx = 0.0, yy = 0.0;
   idx_t idx = 0;
 
 
@@ -110,7 +110,7 @@ particles_t::p2g
 template<typename str>
 void
 particles_t::p2gd
-(std::map<std::string, vector_t<double>> & vars,
+(std::map<std::string, vector_t<real_t>> & vars,
  std::initializer_list<str> const & pxvarnames,
  std::initializer_list<str> const & pyvarnames,
  std::string const &area,
@@ -133,8 +133,8 @@ p2gd_helper_t{
   const PVAR_t dproparea;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
-  const double hx;
-  const double hy;
+  const real_t hx;
+  const real_t hy;
   const GVAR_t M;
   GVAR_t gvar;
 
@@ -144,7 +144,7 @@ public :
 
   p2gd_helper_t (const PVAR_t x_, const PVAR_t y_,  const GVAR_t M_,
 		GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
-		const double hx_, const double hy_, const PVAR_t dpropx_, const PVAR_t dpropy_, const PVAR_t dproparea_, bool apply_mass_)
+		const real_t hx_, const real_t hy_, const PVAR_t dpropx_, const PVAR_t dpropy_, const PVAR_t dproparea_, bool apply_mass_)
     : x(x_), y(y_), M(M_), gvar(gvar_), 
       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
       dpropx(dpropx_), dpropy(dpropy_), dproparea(dproparea_), apply_mass(apply_mass_) {};
@@ -153,7 +153,7 @@ public :
   void
   operator() (idx_t ip) {
     using qgt = quadgrid_t<GVAR_t>;
-    double Nx = 0.0, Ny = 0.0;
+    real_t Nx = 0.0, Ny = 0.0;
     auto xx = x[ip];
     auto yy = y[ip];
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
@@ -175,15 +175,15 @@ public :
 template<typename GT, typename PT>
 void
 particles_t::p2gd
-(std::map<std::string, vector_t<double>> & vars,
+(std::map<std::string, vector_t<real_t>> & vars,
  PT const & pxvarnames,
  PT const & pyvarnames,
  std::string const &area,
  GT const & gvarnames,
  bool apply_mass)  {
 
-  using idx_t = quadgrid_t<vector_t<double>>::idx_t;
-  double xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
+  using idx_t = quadgrid_t<vector_t<real_t>>::idx_t;
+  real_t xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
     auto & gvar = vars[getkey(gvarnames, ivar)];
@@ -227,7 +227,7 @@ particles_t::p2gd
 template<typename str>
 void
 particles_t::g2p
-(const std::map<std::string, vector_t<double>> & vars,
+(const std::map<std::string, vector_t<real_t>> & vars,
  std::initializer_list<str> const & gvarnames,
  std::initializer_list<str> const & pvarnames,
  bool apply_mass) {
@@ -249,8 +249,8 @@ g2p_helper_t {
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
-  const double hx;
-  const double hy;
+  const real_t hx;
+  const real_t hy;
   PVAR_t dprop;
   bool apply_mass;
   
@@ -258,7 +258,7 @@ public :
 
   g2p_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
 		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
-		const double hx_, const double hy_, PVAR_t dprop_, bool apply_mass_)
+		const real_t hx_, const real_t hy_, PVAR_t dprop_, bool apply_mass_)
     : x(x_), y(y_), gvar(gvar_),
       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
       dprop(dprop_), apply_mass(apply_mass_) {};
@@ -267,7 +267,7 @@ public :
   void
   operator() (idx_t ip) {
     using qgt = quadgrid_t<GVAR_t>;
-    double N = 0.0;
+    real_t N = 0.0;
     auto xx = x[ip];
     auto yy = y[ip];
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
@@ -284,13 +284,13 @@ public :
 template<typename GT, typename PT>
 void
 particles_t::g2p
-(const std::map<std::string, vector_t<double>>& vars,
+(const std::map<std::string, vector_t<real_t>>& vars,
  GT const & gvarnames,
  PT const & pvarnames,
  bool apply_mass) {
 
   using idx_t = particles_t::idx_t;
-  double N = 0.0, xx = 0.0, yy = 0.0;
+  real_t N = 0.0, xx = 0.0, yy = 0.0;
   idx_t idx = 0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
@@ -329,7 +329,7 @@ particles_t::g2p
 template<typename str>
 void
 particles_t::g2pd
-(const std::map<std::string, vector_t<double>>& vars,
+(const std::map<std::string, vector_t<real_t>>& vars,
  std::initializer_list<str> const & gvarnames,
  std::initializer_list<str> const & pxvarnames,
  std::initializer_list<str> const & pyvarnames,
@@ -352,8 +352,8 @@ g2pd_helper_t {
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
-  const double hx;
-  const double hy;
+  const real_t hx;
+  const real_t hy;
   PVAR_t dpropx;
   PVAR_t dpropy;
   bool apply_mass;
@@ -362,7 +362,7 @@ public :
 
   g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
 		 const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
-		 const double hx_, const double hy_, PVAR_t dpropx_, PVAR_t dpropy_,
+		 const real_t hx_, const real_t hy_, PVAR_t dpropx_, PVAR_t dpropy_,
 		 bool apply_mass_)
     : x(x_), y(y_), gvar(gvar_),
       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
@@ -372,7 +372,7 @@ public :
   void
   operator() (idx_t ip) {
     using qgt = quadgrid_t<GVAR_t>;
-    double Nx = 0.0, Ny = 0.0;
+    real_t Nx = 0.0, Ny = 0.0;
     auto xx = x[ip];
     auto yy = y[ip];
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
@@ -395,14 +395,14 @@ public :
 template<typename GT, typename PT>
 void
 particles_t::g2pd
-(const std::map<std::string, vector_t<double>>& vars,
+(const std::map<std::string, vector_t<real_t>>& vars,
  GT const & gvarnames,
  PT const & pxvarnames,
  PT const & pyvarnames,
  bool apply_mass) {
 
-  using idx_t = quadgrid_t<vector_t<double>>::idx_t;
-  double Nx = 0.0, Ny = 0.0, xx = 0.0, yy = 0.0;
+  using idx_t = quadgrid_t<vector_t<real_t>>::idx_t;
+  real_t Nx = 0.0, Ny = 0.0, xx = 0.0, yy = 0.0;
 
   for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar) {
     auto const & gvar = vars.at (getkey (gvarnames, ivar));

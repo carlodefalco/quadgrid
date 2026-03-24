@@ -29,23 +29,23 @@ struct
 particles_t {
 
   //! datatype for indexing into vectors of properties
-  using idx_t = quadgrid_t<vector_t<double>>::idx_t;
+  using idx_t = quadgrid_t<vector_t<real_t>>::idx_t;
 
   idx_t num_particles;    //!< number of particles.
-  vector_t<double> x;  //!< x coordinate of particle positions.
-  vector_t<double> y;  //!< y coordinate of particle positions.
+  vector_t<real_t> x;  //!< x coordinate of particle positions.
+  vector_t<real_t> y;  //!< y coordinate of particle positions.
 
   //! integer type quantities associated with the particles.
   std::map<std::string, vector_t<idx_t>> iprops;
 
   //! `double` type quantities associated with the particles.
-  std::map<std::string, vector_t<double>> dprops;
+  std::map<std::string, vector_t<real_t>> dprops;
 
-  vector_t<double> M; //!< Mass matrix to be used for transfers if required.
+  vector_t<real_t> M; //!< Mass matrix to be used for transfers if required.
   std::map<idx_t, vector_t<idx_t>> grd_to_ptcl;   //!< grid->particles connectivity.
   vector_t<idx_t> ptcl_to_grd;                    //!< particles->grid connectivity.
   vector_t<idx_t> ptcl_grd_color;                 //!< color of particle's cell.
-  const quadgrid_t<vector_t<double>>& grid;       //!< refernce to a grid object.
+  const quadgrid_t<vector_t<real_t>>& grid;       //!< refernce to a grid object.
 
   //! Enumeration of available output format
   enum class
@@ -77,7 +77,7 @@ particles_t {
   //! is specified.
 
   //! Generates a uniform random distribution.
-  double
+  real_t
   default_x_generator ();
 
   //! @brief The default generator function used to set up
@@ -85,7 +85,7 @@ particles_t {
   //! is specified.
 
   //! Generates a uniform random distribution.
-  double
+  real_t
   default_y_generator ();
 
   //! @brief Template for export function.
@@ -103,7 +103,7 @@ particles_t {
   //! Particle positions are not assigned, they must be set manually later.
   //! @param n number of particles
   //! @param grid_ quadgrid_t object, sizes need to have been already set up.
-  particles_t (idx_t n, const quadgrid_t<vector_t<double>>& grid_)
+  particles_t (idx_t n, const quadgrid_t<vector_t<real_t>>& grid_)
     : num_particles(n), grid(grid_) { }
 
   //! @brief Ctor to import data from json.
@@ -111,13 +111,13 @@ particles_t {
   //! Grid data may be stored in the same `json` object but must be read
   //! separately before invoking this constructor.
   particles_t (const nlohmann::json &j,
-               const quadgrid_t<vector_t<double>>& grid_)
+               const quadgrid_t<vector_t<real_t>>& grid_)
     :  grid(grid_)
   {
-    j["dprops"].get_to<std::map<std::string, vector_t<double>>> (dprops);
+    j["dprops"].get_to<std::map<std::string, vector_t<real_t>>> (dprops);
     j["iprops"].get_to<std::map<std::string, vector_t<int>>> (iprops);
-    j["x"].get_to<vector_t<double>> (x);
-    j["y"].get_to<vector_t<double>> (y);
+    j["x"].get_to<vector_t<real_t>> (x);
+    j["y"].get_to<vector_t<real_t>> (y);
     j["num_particles"].get_to<idx_t> (num_particles);
   }
 
@@ -131,7 +131,7 @@ particles_t {
   //! @param dpropnames keys for entries in the particles_t::dprops map.
   particles_t (idx_t n, const vector_t<std::string>& ipropnames,
                const vector_t<std::string>& dpropnames,
-               const quadgrid_t<vector_t<double>>& grid_);
+               const quadgrid_t<vector_t<real_t>>& grid_);
 
   //! @brief Constructor with custom position vectors.
 
@@ -146,9 +146,9 @@ particles_t {
   //! @param yv the y-coordinates of new particles.
   particles_t (idx_t n, const vector_t<std::string>& ipropnames,
                const vector_t<std::string>& dpropnames,
-               const quadgrid_t<vector_t<double>>& grid_,
-               const vector_t<double> & xv,
-               const vector_t<double> & yv);
+               const quadgrid_t<vector_t<real_t>>& grid_,
+               const vector_t<real_t> & xv,
+               const vector_t<real_t> & yv);
 
   //! @brief Constructor with custom position generators.
 
@@ -163,9 +163,9 @@ particles_t {
   //! @param ygen generator function for the y-coordinates of new particles.
   particles_t (idx_t n, const vector_t<std::string>& ipropnames,
                const vector_t<std::string>& dpropnames,
-               const quadgrid_t<vector_t<double>>& grid_,
-               std::function<double ()> xgen,
-               std::function<double ()> ygen);
+               const quadgrid_t<vector_t<real_t>>& grid_,
+               std::function<real_t ()> xgen,
+               std::function<real_t ()> ygen);
 
   //! @brief Initialize particle properties.
 
@@ -185,7 +185,7 @@ particles_t {
   //! for which the function returns true, and also
   //! erase corresponding entries in dprops and iprops.
   void
-  remove_in_region (std::function<bool (double, double)> fun) {
+  remove_in_region (std::function<bool (real_t, real_t)> fun) {
     vector_t<idx_t> vin{};
     for (idx_t i = 0; i < num_particles; ++i) {
       if (fun (x[i], y[i])) {
@@ -238,8 +238,8 @@ particles_t {
   //! Invoked automatically if the generators are passed to the CTOR,
   //! must be invoked manually otherwise.
   void
-  init_particle_positions (std::function<double ()> xgentr,
-                           std::function<double ()> ygentr);
+  init_particle_positions (std::function<real_t ()> xgentr,
+                           std::function<real_t ()> ygentr);
 
   //! @brief Construct a mass matrix.
 
@@ -249,13 +249,13 @@ particles_t {
   build_mass ();
 
   //! @brief shortcut for `dprops.at (name) [ii]`
-  double &
+  real_t &
   dp (const std::string & name, idx_t ii) {
     return dprops.at (name) [ii];
   }
 
   //! @brief shortcut for `dprops.at (name) [ii]`
-  const double &
+  const real_t &
   dp (const std::string & name, idx_t ii) const {
     return dprops.at (name) [ii];
   }
@@ -274,7 +274,7 @@ particles_t {
 
   static
   const std::string &
-  getkey(std::map<std::string, vector_t<double>> const &varnames,
+  getkey(std::map<std::string, vector_t<real_t>> const &varnames,
          std::size_t ivar)  {
     return std::next (varnames.begin (), ivar)->first;
   };
@@ -299,7 +299,7 @@ particles_t {
   //! and use the same field names for particle and
   //! grid variables.
   void
-  p2g (std::map<std::string, vector_t<double>> & vars,
+  p2g (std::map<std::string, vector_t<real_t>> & vars,
        bool apply_mass = false)  {
     p2g (vars, vars, vars, apply_mass);
   }
@@ -312,21 +312,21 @@ particles_t {
   //! grid variables.
   template<typename GT, typename PT>
   void
-  p2g (std::map<std::string, vector_t<double>> & vars,
+  p2g (std::map<std::string, vector_t<real_t>> & vars,
        PT const & pvarnames,
        GT const & gvarnames,
        bool apply_mass = false) ;
 
   template<typename str>
   void
-  p2g (std::map<std::string, vector_t<double>> & vars,
+  p2g (std::map<std::string, vector_t<real_t>> & vars,
        std::initializer_list<str> const & pvarnames,
        std::initializer_list<str> const & gvarnames,
        bool apply_mass = false) ;
 
   template<typename GT, typename PT>
   void
-  p2gd (std::map<std::string, vector_t<double>> & vars,
+  p2gd (std::map<std::string, vector_t<real_t>> & vars,
         PT const & pxvarnames,
         PT const & pyvarnames,
         std::string const &area,
@@ -335,7 +335,7 @@ particles_t {
 
   template<typename str>
   void
-  p2gd (std::map<std::string, vector_t<double>> & vars,
+  p2gd (std::map<std::string, vector_t<real_t>> & vars,
         std::initializer_list<str> const & pxvarnames,
         std::initializer_list<str> const & pyvarnames,
         std::string const & area,
@@ -343,28 +343,28 @@ particles_t {
         bool apply_mass = false);
 
   void
-  g2p (const std::map<std::string, vector_t<double>>& vars,
+  g2p (const std::map<std::string, vector_t<real_t>>& vars,
        bool apply_mass = false) {
     g2p (vars, vars, vars, apply_mass);
   }
 
   template<typename str>
   void
-  g2p (const std::map<std::string, vector_t<double>>& vars,
+  g2p (const std::map<std::string, vector_t<real_t>>& vars,
        std::initializer_list<str> const & gvarnames,
        std::initializer_list<str> const & pvarnames,
        bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
-  g2p (const std::map<std::string, vector_t<double>>& vars,
+  g2p (const std::map<std::string, vector_t<real_t>>& vars,
        GT const & gvarnames,
        PT const & pvarnames,
        bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
-  g2pd (const std::map<std::string, vector_t<double>>& vars,
+  g2pd (const std::map<std::string, vector_t<real_t>>& vars,
         GT const & gvarnames,
         PT const & pxvarnames,
         PT const & pyvarnames,
@@ -372,7 +372,7 @@ particles_t {
 
   template<typename str>
   void
-  g2pd (const std::map<std::string, vector_t<double>>& vars,
+  g2pd (const std::map<std::string, vector_t<real_t>>& vars,
         std::initializer_list<str> const & gvarnames,
         std::initializer_list<str> const &pxvarnames,
         std::initializer_list<str> const & pyvarnames,
@@ -395,14 +395,14 @@ ptcl_to_grd_update_t {
   P2G_t ptcl_to_grd;
   const COORD_t x;
   const COORD_t y;
-  const double hx;
-  const double hy;
+  const real_t hx;
+  const real_t hy;
   const idx_t nrows;
   
 public :
   ptcl_to_grd_update_t (P2G_t ptcl_to_grd_,
 			const COORD_t x_, const COORD_t y_,
-			double hx_, double hy_, const idx_t nrows_)
+			real_t hx_, real_t hy_, const idx_t nrows_)
     : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), nrows(nrows_) { }
 
   void operator() (particles_t::idx_t ii) {

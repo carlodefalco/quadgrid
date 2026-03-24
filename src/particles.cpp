@@ -8,7 +8,7 @@
 #include <particles.h>
 #include <quadgrid_config.h>
 
-double
+real_t
 particles_t::default_x_generator () {
   static std::random_device rd;
   static std::mt19937 gen (rd ());
@@ -16,7 +16,7 @@ particles_t::default_x_generator () {
   return dis (gen) * grid.num_cols () * grid.hx ();
 }
 
-double
+real_t
 particles_t::default_y_generator () {
   static std::random_device rd;
   static std::mt19937 gen (rd ());
@@ -28,7 +28,7 @@ particles_t::particles_t
 (
  idx_t n, const vector_t<std::string>& ipropnames,
  const vector_t<std::string>& dpropnames,
- const quadgrid_t<vector_t<double>>& grid_
+ const quadgrid_t<vector_t<real_t>>& grid_
  ) :  particles_t (n, grid_) {
 
   init_props (ipropnames, dpropnames);
@@ -47,9 +47,9 @@ particles_t::particles_t
 (
  idx_t n, const vector_t<std::string>& ipropnames,
  const vector_t<std::string>& dpropnames,
- const quadgrid_t<vector_t<double>>& grid_,
- const vector_t<double> & xgen,
- const vector_t<double> & ygen
+ const quadgrid_t<vector_t<real_t>>& grid_,
+ const vector_t<real_t> & xgen,
+ const vector_t<real_t> & ygen
  ) : particles_t (n, grid_) {
 
   x = xgen;
@@ -64,9 +64,9 @@ particles_t::particles_t
 (
  idx_t n, const vector_t<std::string>& ipropnames,
  const vector_t<std::string>& dpropnames,
- const quadgrid_t<vector_t<double>>& grid_,
- std::function<double ()> xgen,
- std::function<double ()> ygen
+ const quadgrid_t<vector_t<real_t>>& grid_,
+ std::function<real_t ()> xgen,
+ std::function<real_t ()> ygen
  ) : particles_t (n, grid_) {
 
   init_props (ipropnames, dpropnames);
@@ -167,8 +167,8 @@ particles_t::mark_by_cell_color () {
 void
 particles_t::init_particle_positions
 (
- std::function<double ()> xgentr,
- std::function<double ()> ygentr
+ std::function<real_t ()> xgentr,
+ std::function<real_t ()> ygentr
  ) {
   x.resize (num_particles);
   y.resize (num_particles);
@@ -184,7 +184,7 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-	 inode < quadgrid_t<vector_t<double>>::cell_t::nodes_per_cell;
+	 inode < quadgrid_t<vector_t<real_t>>::cell_t::nodes_per_cell;
 	 ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }
