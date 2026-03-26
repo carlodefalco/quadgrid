@@ -23,7 +23,7 @@ grid_velocity_field : grid_velocity_field.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(QUADGRIDSRC) $(TIMERSRC) grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
 
 thrust : grid_velocity_field.cpp
-	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -cuda -DUSE_THRUST $(QUADGRIDSRC) $(TIMERSRC) grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
+	nvcc -std=c++17 -O3 $(CPPFLAGS) -arch=sm_80 -DUSE_THRUST -x cu $(QUADGRIDSRC) $(TIMERSRC)  grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
 
 ## clone dependencies via git
 loaddeps :

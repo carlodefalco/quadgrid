@@ -33,7 +33,7 @@ p2g_helper_t{
 
 public :
 
-  p2g_helper_t (const PVAR_t x_, const PVAR_t y_,  GVAR_t M_,
+  p2g_helper_t (const PVAR_t x_, const PVAR_t y_, GVAR_t M_, 
 		GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
 		const real_t hx_, const real_t hy_, const PVAR_t dprop_, bool apply_mass_)
     : x(x_), y(y_), M(M_), gvar(gvar_), 
@@ -192,7 +192,7 @@ particles_t::p2gd
     auto const & dproparea = dprops.at (area);
 
     p2gd_helper_t helper(x.cbegin(), y.cbegin(), M.cbegin(), gvar.begin(), ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(), grid.hy(), 
-    dpropx.begin(). dpropy.begin(), dproparea.begin(), apply_mass);
+    dpropx.begin(), dpropy.begin(), dproparea.begin(), apply_mass);
 
     #ifdef USE_THRUST
     thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
@@ -245,7 +245,7 @@ g2p_helper_t {
   using idx_t = particles_t::idx_t;
   const PVAR_t x;
   const PVAR_t y;
-  const GVAR_t M;
+  GVAR_t M;
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
@@ -256,7 +256,7 @@ g2p_helper_t {
   
 public :
 
-  g2p_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
+  g2p_helper_t (const PVAR_t x_, const PVAR_t y_,
 		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
 		const real_t hx_, const real_t hy_, PVAR_t dprop_, bool apply_mass_)
     : x(x_), y(y_), gvar(gvar_),
@@ -309,7 +309,7 @@ particles_t::g2p
     //   }
     // }
 
-    g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    g2p_helper_t helper (x.begin (), y.begin (),
     			 gvar.cbegin (), ptcl_to_grd.cbegin (),
     			 grid.num_rows (), grid.hx (), grid.hy (),
     			 dprop.begin (), apply_mass);
