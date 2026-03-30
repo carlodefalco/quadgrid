@@ -23,8 +23,10 @@ grid_velocity_field : grid_velocity_field.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(QUADGRIDSRC) $(TIMERSRC) grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
 
 thrust : grid_velocity_field.cpp
-	nvcc -std=c++17 -O3 $(CPPFLAGS) -arch=sm_80 -DUSE_THRUST -x cu $(QUADGRIDSRC) $(TIMERSRC)  grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
+	nvcc -std=c++17 -O3 $(CPPFLAGS) -arch=sm_80 --expt-relaxed-constexpr -DUSE_THRUST -x cu $(QUADGRIDSRC) $(TIMERSRC)  grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
 
+thrust_cpu : grid_velocity_field.cpp
+	nvcc -std=c++20 -O3 $(CPPFLAGS) --expt-relaxed-constexpr -DTHRUST_DEVICE_SYSTEM=THRUST_DEVICE_SYSTEM_CPP -DUSE_THRUST  $(QUADGRIDSRC) $(TIMERSRC)  grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
 ## clone dependencies via git
 loaddeps :
 	git clone --depth 1 git@github.com:carlodefalco/cdf_timer.git
