@@ -4,10 +4,10 @@
 #include <algorithm>
 #include <fstream>
 #include <iomanip>
+#include <quadgrid_config.h>
 #include <json.hpp>
 #include <map>
 #include <vector>
-#include <quadgrid_config.h>
 
 template <class distributed_vector>
 class

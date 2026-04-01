@@ -5,11 +5,11 @@
 #include <functional>
 #include <iomanip>
 #include <iostream>
+#include <quadgrid_config.h>
 #include <json.hpp>
 #include <map>
 #include <quadgrid_cpp.h>
 #include <string>
-#include <quadgrid_config.h>
 
 //! \brief Class to represent particles embedded in a grid.
 

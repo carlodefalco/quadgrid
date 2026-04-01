@@ -11,6 +11,10 @@
 #define MPI_Comm_rank(x, y) { *y = 0; }
 #endif
 #ifdef USE_THRUST
+#ifdef THRUST_CPU
+#include<atomicAdd.h>
+#endif
+#define JSON_HAS_RANGES 0   //fixes conflict between json and nvcc/gcc 
 #include<thrust/device_vector.h>
 #include<thrust/execution_policy.h>
 #include<thrust/host_vector.h>

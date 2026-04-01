@@ -188,7 +188,7 @@ main () {
     timer.toc("g2p");
 
     // Move particles
-    timer.tic("move particles");
+    timer.tic("move partcles");
 
     // You can use a loop
     // for (int ip = 0; ip < p.num_particles; ++ip) {
