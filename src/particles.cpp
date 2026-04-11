@@ -98,7 +98,12 @@ void
 particles_t::update_ptcl_to_grd () {
   ptcl_to_grd_update_t p2gu (ptcl_to_grd.begin (), x.begin (), y.begin (), grid.hx (), grid.hy (), grid.num_rows ());
   range rng (0, this->num_particles);
+  #ifdef USE_THRUST
+  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+  thrust::for_each(thrust::device, first_p, last_p, p2gu);
+  #else
   std::for_each (rng.begin (), rng.end (), p2gu);
+  #endif
 }
 
 void

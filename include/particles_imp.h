@@ -50,7 +50,7 @@ public :
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
     for (idx_t inode = 0; inode < 4; ++inode) {  
-      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
+      N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy)/M[qgt::gt(inode, c, r, nrows)] :
 	    qgt::shp (xx, yy, inode, c, r, hx, hy);
       atomicAdd(&(gvar[qgt::gt(inode, c, r, nrows)]), N*dprop[ip]);
     }
@@ -159,9 +159,9 @@ public :
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
     for (idx_t inode = 0; inode < 4; ++inode) {  
-      Nx = apply_mass ? qgt::shg (xx, yy, 0, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
+      Nx = apply_mass ? qgt::shg (xx, yy, 0, inode, c, r, hx, hy) / M[qgt::gt(inode, c, r, nrows)] :
 	    qgt::shg (xx, yy, 0, inode, c, r, hx, hy);
-      Ny = apply_mass ? qgt::shg (xx, yy, 1, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
+      Ny = apply_mass ? qgt::shg (xx, yy, 1, inode, c, r, hx, hy) / M[qgt::gt(inode, c, r, nrows)] :
       qgt::shg (xx, yy, 1, inode, c, r, hx, hy);
 
       atomicAdd(&(gvar[qgt::gt(inode, c, r, nrows)]), (Nx*dpropx[ip] + Ny*dpropy[ip])*dproparea[ip]);

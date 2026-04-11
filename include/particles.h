@@ -401,11 +401,12 @@ ptcl_to_grd_update_t {
   
 public :
   ptcl_to_grd_update_t (P2G_t ptcl_to_grd_,
-			const COORD_t x_, const COORD_t y_,
-			real_t hx_, real_t hy_, const idx_t nrows_)
-    : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), nrows(nrows_) { }
+			 const COORD_t x_, const COORD_t y_,
+			 const real_t hx_, const real_t hy_, const idx_t nrows_)
+    : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), nrows(nrows_) {};
 
-  void operator() (particles_t::idx_t ii) {
+    DEVICE 
+    void operator() (particles_t::idx_t ii) {
     ptcl_to_grd[ii] = quadgrid_t<COORD_t>::sub2gind (static_cast<idx_t> (std::floor (y[ii] / hy)),
 						     static_cast<idx_t> (std::floor (x[ii] / hx)),
 						     nrows);

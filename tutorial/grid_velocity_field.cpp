@@ -80,12 +80,13 @@ main () {
   nlohmann::json j;
   std::ifstream inbuf (filename);
 
+// Declaration of host and device variables (only if thrust is used)
   #ifdef USE_THRUST
   inbuf >> j;
   using idx_t = particles_t::idx_t;
   device_vector_t<idx_t> device_ptcl_to_grd;
   device_vector_t<real_t> device_M, device_VX, device_VY, device_x, device_y;
-  device_vector_t<real_t> device_rho, device_vx, device_vy;
+  device_vector_t<real_t> device_rho, device_vx, device_vy, device_grid_M;
   std::map<std::string, device_vector_t<real_t>> device_grid_vars;
   std::unique_ptr<quadgrid_t<vector_t<real_t>>> qg;
   std::unique_ptr<particles_t> p;
@@ -104,6 +105,7 @@ main () {
   device_M = p->dprops.at("M");
   device_VX = p->dprops.at("VX");
   device_VY = p->dprops.at("VY");
+  device_grid_M = p->M;
   device_x = p->x;
   device_y = p->y;
   device_ptcl_to_grd = p->ptcl_to_grd;
@@ -118,15 +120,22 @@ main () {
   // capture references to the particle positions and velocities
   stepper state (thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), thrust::raw_pointer_cast(device_VX.data()), thrust::raw_pointer_cast(device_VY.data()), 1., 1.e-5);
 
-  p2g_helper_t p2gm(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), thrust::raw_pointer_cast(device_M.data()), thrust::raw_pointer_cast(device_rho.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_M.data()), true);
+// Create p2g functor 
+  p2g_helper_t p2gm(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), thrust::raw_pointer_cast(device_grid_M.data()), thrust::raw_pointer_cast(device_rho.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_M.data()), true);
 
-  thrust::counting_iterator<idx_t> first_p(0), last_p(p -> num_particles);
+// Create functor for particle to grid update 
+ ptcl_to_grd_update_t uptg(thrust::raw_pointer_cast(device_ptcl_to_grd.data()), thrust::raw_pointer_cast(device_x.data()), 
+ thrust::raw_pointer_cast(device_y.data()), qg->hx(), qg->hy(), qg->num_rows());
 
+// Create functor for g2p 
   g2p_helper_t g2p_VX(thrust::raw_pointer_cast(device_x.data()),thrust::raw_pointer_cast(device_y.data()),thrust::raw_pointer_cast(device_vx.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_VX.data()), false);
+
   g2p_helper_t g2p_VY(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()),thrust::raw_pointer_cast(device_vy.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_VY.data()), false);
 
+// Create iterator for thrust::for_each   
+  thrust::counting_iterator<idx_t> first_p(0), last_p(p -> num_particles);
 
-  #else
+  #else  
   inbuf >> j;
 
   // create grid from fields in a json object
@@ -211,7 +220,7 @@ main () {
     // must be updated explicitely
     timer.tic("init_particle_mesh");
     #ifdef USE_THRUST
-    p->init_particle_mesh();
+    thrust::for_each(thrust::device, first_p, last_p, uptg);
     #else
     p.init_particle_mesh ();
     #endif
@@ -237,12 +246,9 @@ main () {
       thrust::copy (device_VX.cbegin (), device_VX.cend (), p -> dprops.at("VX").begin ());
       thrust::copy (device_VY.cbegin (), device_VY.cend (), p -> dprops.at("VY").begin ());
       thrust::copy (device_M.cbegin (), device_M.cend (), p -> dprops.at("M").begin ());
+      thrust::copy (device_ptcl_to_grd.cbegin(), device_ptcl_to_grd.cend(), p->ptcl_to_grd.begin());  
+      thrust::copy (device_rho.cbegin(), device_rho.cend(), vars.at("rho").begin());
 
-      std::map<std::string, vector_t<real_t>> print_vars
-      {
-         { "rho", vector_t<real_t> (qg->num_global_nodes (), 0.0) }
-      };
-      p->p2g (print_vars, {"M"}, {"rho"}, true);
 
       // write particle data to file
       const std::string ofilename = "particle";
@@ -256,7 +262,7 @@ main () {
 
       // write grid data to file
       const std::string gfilename = std::string("grid.") + std::to_string(it) + std::string(".vts");
-      qg->vtk_export (gfilename.c_str(), print_vars);
+      qg->vtk_export (gfilename.c_str(), vars);
 
       #else      
       // write particle data to file
