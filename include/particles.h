@@ -47,6 +47,18 @@ particles_t {
   vector_t<idx_t> ptcl_grd_color;                 //!< color of particle's cell.
   const quadgrid_t<vector_t<real_t>>& grid;       //!< refernce to a grid object.
 
+  #ifdef USE_THRUST
+  device_vector_t<idx_t> device_ptcl_to_grd;
+  device_vector_t<real_t> device_x, device_y;
+
+  std::map<std::string, device_vector_t<real_t>> device_dprops;
+  std::map<std::string, device_vector_t<idx_t>> device_iprops;
+
+  device_vector_t<real_t> device_grid_M; //mass matrix
+  std::map<std::string, device_vector_t<real_t>> device_grid_vars;
+
+  #endif
+
   //! Enumeration of available output format
   enum class
   output_format : idx_t {
@@ -212,6 +224,14 @@ particles_t {
     }
   };
 
+  //! @brief Copy Host To Device
+  void
+  memcpy_host_to_device ();
+
+  //! @brief Copy Device To Host
+  void
+  memcpy_device_to_host ();
+
   //! @brief Build grid/particles connectivity.
 
   //! Builds/updates the `grd_to_ptcl` and `ptcl_to_grd` maps.
@@ -274,7 +294,7 @@ particles_t {
 
   static
   const std::string &
-  getkey(std::map<std::string, vector_t<real_t>> const &varnames,
+  getkey(std::map<std::string, device_vector_t<real_t>> const &varnames,
          std::size_t ivar)  {
     return std::next (varnames.begin (), ivar)->first;
   };
@@ -299,7 +319,7 @@ particles_t {
   //! and use the same field names for particle and
   //! grid variables.
   void
-  p2g (std::map<std::string, vector_t<real_t>> & vars,
+  p2g (std::map<std::string, device_vector_t<real_t>> & vars,
        bool apply_mass = false)  {
     p2g (vars, vars, vars, apply_mass);
   }
@@ -312,21 +332,21 @@ particles_t {
   //! grid variables.
   template<typename GT, typename PT>
   void
-  p2g (std::map<std::string, vector_t<real_t>> & vars,
+  p2g (std::map<std::string, device_vector_t<real_t>> & vars,
        PT const & pvarnames,
        GT const & gvarnames,
        bool apply_mass = false) ;
 
   template<typename str>
   void
-  p2g (std::map<std::string, vector_t<real_t>> & vars,
+  p2g (std::map<std::string, device_vector_t<real_t>> & vars,
        std::initializer_list<str> const & pvarnames,
        std::initializer_list<str> const & gvarnames,
        bool apply_mass = false) ;
 
   template<typename GT, typename PT>
   void
-  p2gd (std::map<std::string, vector_t<real_t>> & vars,
+  p2gd (std::map<std::string, device_vector_t<real_t>> & vars,
         PT const & pxvarnames,
         PT const & pyvarnames,
         std::string const &area,
@@ -335,7 +355,7 @@ particles_t {
 
   template<typename str>
   void
-  p2gd (std::map<std::string, vector_t<real_t>> & vars,
+  p2gd (std::map<std::string, device_vector_t<real_t>> & vars,
         std::initializer_list<str> const & pxvarnames,
         std::initializer_list<str> const & pyvarnames,
         std::string const & area,
@@ -343,28 +363,28 @@ particles_t {
         bool apply_mass = false);
 
   void
-  g2p (const std::map<std::string, vector_t<real_t>>& vars,
+  g2p (const std::map<std::string, device_vector_t<real_t>>& vars,
        bool apply_mass = false) {
     g2p (vars, vars, vars, apply_mass);
   }
 
   template<typename str>
   void
-  g2p (const std::map<std::string, vector_t<real_t>>& vars,
+  g2p (const std::map<std::string, device_vector_t<real_t>>& vars,
        std::initializer_list<str> const & gvarnames,
        std::initializer_list<str> const & pvarnames,
        bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
-  g2p (const std::map<std::string, vector_t<real_t>>& vars,
+  g2p (const std::map<std::string, device_vector_t<real_t>>& vars,
        GT const & gvarnames,
        PT const & pvarnames,
        bool apply_mass = false);
 
   template<typename GT, typename PT>
   void
-  g2pd (const std::map<std::string, vector_t<real_t>>& vars,
+  g2pd (const std::map<std::string, device_vector_t<real_t>>& vars,
         GT const & gvarnames,
         PT const & pxvarnames,
         PT const & pyvarnames,
@@ -372,7 +392,7 @@ particles_t {
 
   template<typename str>
   void
-  g2pd (const std::map<std::string, vector_t<real_t>>& vars,
+  g2pd (const std::map<std::string, device_vector_t<real_t>>& vars,
         std::initializer_list<str> const & gvarnames,
         std::initializer_list<str> const &pxvarnames,
         std::initializer_list<str> const & pyvarnames,

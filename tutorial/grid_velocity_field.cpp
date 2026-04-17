@@ -84,10 +84,6 @@ main () {
   #ifdef USE_THRUST
   inbuf >> j;
   using idx_t = particles_t::idx_t;
-  device_vector_t<idx_t> device_ptcl_to_grd;
-  device_vector_t<real_t> device_M, device_VX, device_VY, device_x, device_y;
-  device_vector_t<real_t> device_rho, device_vx, device_vy, device_grid_M;
-  std::map<std::string, device_vector_t<real_t>> device_grid_vars;
   std::unique_ptr<quadgrid_t<vector_t<real_t>>> qg;
   std::unique_ptr<particles_t> p;
   qg = std::make_unique<quadgrid_t<vector_t<real_t>>> (j["grid_properties"]);
@@ -99,38 +95,17 @@ main () {
   std::map<std::string, vector_t<real_t>> vars=
     j["grid_vars"].get<std::map<std::string, vector_t<real_t>>> ();
 
-  for (const auto & p : vars)
-    device_grid_vars[p.first] = p.second;
+  //Copy from host to device
+  p->memcpy_host_to_device();
 
-  device_M = p->dprops.at("M");
-  device_VX = p->dprops.at("VX");
-  device_VY = p->dprops.at("VY");
-  device_grid_M = p->M;
-  device_x = p->x;
-  device_y = p->y;
-  device_ptcl_to_grd = p->ptcl_to_grd;
-
-  device_rho = device_grid_vars.at("rho");
-  device_vx = device_grid_vars.at("vx");
-  device_vy = device_grid_vars.at("vy");
+  for (const auto & g : vars)
+    p->device_grid_vars[g.first] = g.second;
 
   inbuf.close ();
-
+  
   // Create the callable object to be used for moving the particles
   // capture references to the particle positions and velocities
-  stepper state (thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), thrust::raw_pointer_cast(device_VX.data()), thrust::raw_pointer_cast(device_VY.data()), 1., 1.e-5);
-
-// Create p2g functor 
-  p2g_helper_t p2gm(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), thrust::raw_pointer_cast(device_grid_M.data()), thrust::raw_pointer_cast(device_rho.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_M.data()), true);
-
-// Create functor for particle to grid update 
- ptcl_to_grd_update_t uptg(thrust::raw_pointer_cast(device_ptcl_to_grd.data()), thrust::raw_pointer_cast(device_x.data()), 
- thrust::raw_pointer_cast(device_y.data()), qg->hx(), qg->hy(), qg->num_rows());
-
-// Create functor for g2p 
-  g2p_helper_t g2p_VX(thrust::raw_pointer_cast(device_x.data()),thrust::raw_pointer_cast(device_y.data()),thrust::raw_pointer_cast(device_vx.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_VX.data()), false);
-
-  g2p_helper_t g2p_VY(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()),thrust::raw_pointer_cast(device_vy.data()), thrust::raw_pointer_cast(device_ptcl_to_grd.data()), qg->num_rows(), qg->hx(), qg->hy(), thrust::raw_pointer_cast(device_VY.data()), false);
+  stepper state (thrust::raw_pointer_cast(p->device_x.data()), thrust::raw_pointer_cast(p->device_y.data()), thrust::raw_pointer_cast(p->device_dprops["VX"].data()), thrust::raw_pointer_cast(p->device_dprops["VY"].data()), 1., 1.e-5);
 
 // Create iterator for thrust::for_each   
   thrust::counting_iterator<idx_t> first_p(0), last_p(p -> num_particles);
@@ -155,10 +130,10 @@ main () {
   inbuf.close ();
 
   // Diffusion is modelled as a Gaussian process
-  std::random_device rd2;  // Will be used to obtain a seed for the random number engine
+  /*std::random_device rd2;  // Will be used to obtain a seed for the random number engine
   std::mt19937 gen2;
   std::normal_distribution<> normal;
-  std::function<real_t ()> noise = [&gen2, &rd2, &normal] () { return normal(gen2); };
+  std::function<real_t ()> noise = [&gen2, &rd2, &normal] () { return normal(gen2); };*/
 
   // Create the callable object to be used for moving the particles
   // capture references to the particle positions and velocities
@@ -175,9 +150,9 @@ main () {
   for (int it = 0; it < 1000; ++it) {
 
     #ifdef USE_THRUST
-    thrust::fill(device_VX.begin (), device_VY.end (), 0.0);
-    thrust::fill(device_VY.begin (), device_VY.end (), 0.0);
-    thrust::fill(device_rho.begin (), device_rho.end (), 0.0);
+    thrust::fill(p->device_dprops["VX"].begin (), p->device_dprops["VX"].end (), 0.0);
+    thrust::fill(p->device_dprops["VX"].begin (), p->device_dprops["VY"].end (), 0.0);
+    thrust::fill(p->device_grid_vars["rho"].begin (), p->device_grid_vars["rho"].end (), 0.0);
     #else
     // Clean up grid variables at each step!
     std::fill(p.dprops["VX"].begin (), p.dprops["VX"].end (), 0.0);
@@ -188,8 +163,7 @@ main () {
     // G2P : interpolate velocity at particle positions
     timer.tic("g2p");
     #ifdef USE_THRUST
-    thrust::for_each(device_exec_policy, first_p, last_p, g2p_VX);
-    thrust::for_each(device_exec_policy, first_p, last_p, g2p_VY);
+    p->g2p(p->device_grid_vars, {"vx", "vy"}, {"VX", "VY"});
     #else
     p.g2p (vars, {"vx", "vy"}, {"VX", "VY"});
     #endif
@@ -220,9 +194,9 @@ main () {
     // must be updated explicitely
     timer.tic("init_particle_mesh");
     #ifdef USE_THRUST
-    thrust::for_each(thrust::device, first_p, last_p, uptg);
+    p->update_ptcl_to_grd();
     #else
-    p.init_particle_mesh ();
+    p.update_ptcl_to_grd();
     #endif
 
     timer.toc("init_particle_mesh");
@@ -231,7 +205,7 @@ main () {
     // build a density field, only used for output
     timer.tic("p2g");
     #ifdef USE_THRUST
-    thrust::for_each(thrust::device, first_p, last_p, p2gm);
+    p->p2g (p->device_grid_vars, {"M"}, {"rho"}, true);
     #else
     p.p2g (vars, {"M"}, {"rho"}, true);
     #endif
@@ -240,30 +214,24 @@ main () {
 
     // Don't save at every timestep
     if (it % 50 == 0) {
-      #ifdef USE_THRUST 
-      thrust::copy (device_x.cbegin (), device_x.cend (), p -> x.begin ());
-      thrust::copy (device_y.cbegin (), device_y.cend (), p -> y.begin ());
-      thrust::copy (device_VX.cbegin (), device_VX.cend (), p -> dprops.at("VX").begin ());
-      thrust::copy (device_VY.cbegin (), device_VY.cend (), p -> dprops.at("VY").begin ());
-      thrust::copy (device_M.cbegin (), device_M.cend (), p -> dprops.at("M").begin ());
-      thrust::copy (device_ptcl_to_grd.cbegin(), device_ptcl_to_grd.cend(), p->ptcl_to_grd.begin());  
-      thrust::copy (device_rho.cbegin(), device_rho.cend(), vars.at("rho").begin());
-
+      #ifdef USE_THRUST  
+      p->memcpy_device_to_host();
+      //The following copy cannot be included in the memcpy function since vars is not defined in particles.h
+      thrust::copy (p->device_grid_vars["rho"].cbegin(), p->device_grid_vars["rho"].cend(), vars.at("rho").begin());
 
       // write particle data to file
       const std::string ofilename = "particle";
       const std::string ofileext = ".csv";
       const std::string numfile = std::string(".") + std::to_string(it);
-
-      std::ofstream outbuf (ofilename + numfile + ofileext);
+	
+      std::ofstream outbuf (ofilename + numfile + ofileext);  
       p->print<particles_t::output_format::csv> (outbuf);
-
+	
       outbuf.close ();
-
+	
       // write grid data to file
       const std::string gfilename = std::string("grid.") + std::to_string(it) + std::string(".vts");
       qg->vtk_export (gfilename.c_str(), vars);
-
       #else      
       // write particle data to file
       const std::string ofilename = "particle";
