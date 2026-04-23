@@ -6,8 +6,9 @@
 #include <counter.h>
 #include <quadgrid_cpp.h>
 #include <particles.h>
+#include <quadgrid_config.h>
 
-double
+real_t
 particles_t::default_x_generator () {
   static std::random_device rd;
   static std::mt19937 gen (rd ());
@@ -15,7 +16,7 @@ particles_t::default_x_generator () {
   return dis (gen) * grid.num_cols () * grid.hx ();
 }
 
-double
+real_t
 particles_t::default_y_generator () {
   static std::random_device rd;
   static std::mt19937 gen (rd ());
@@ -25,9 +26,9 @@ particles_t::default_y_generator () {
 
 particles_t::particles_t
 (
- idx_t n, const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_
+ idx_t n, const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames,
+ const quadgrid_t<vector_t<real_t>>& grid_
  ) :  particles_t (n, grid_) {
 
   init_props (ipropnames, dpropnames);
@@ -44,11 +45,11 @@ particles_t::particles_t
 
 particles_t::particles_t
 (
- idx_t n, const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_,
- const std::vector<double> & xgen,
- const std::vector<double> & ygen
+ idx_t n, const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames,
+ const quadgrid_t<vector_t<real_t>>& grid_,
+ const vector_t<real_t> & xgen,
+ const vector_t<real_t> & ygen
  ) : particles_t (n, grid_) {
 
   x = xgen;
@@ -61,11 +62,11 @@ particles_t::particles_t
 
 particles_t::particles_t
 (
- idx_t n, const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames,
- const quadgrid_t<std::vector<double>>& grid_,
- std::function<double ()> xgen,
- std::function<double ()> ygen
+ idx_t n, const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames,
+ const quadgrid_t<vector_t<real_t>>& grid_,
+ std::function<real_t ()> xgen,
+ std::function<real_t ()> ygen
  ) : particles_t (n, grid_) {
 
   init_props (ipropnames, dpropnames);
@@ -79,8 +80,8 @@ particles_t::particles_t
 void
 particles_t::init_props
 (
- const std::vector<std::string>& ipropnames,
- const std::vector<std::string>& dpropnames
+ const vector_t<std::string>& ipropnames,
+ const vector_t<std::string>& dpropnames
  ) {
 
   for (idx_t ii = 0; ii < ipropnames.size (); ++ii) {
@@ -91,13 +92,48 @@ particles_t::init_props
     dprops[dpropnames[ii]].assign (num_particles, 0.0);
   }
 }
+#ifdef USE_THRUST
+void
+particles_t::memcpy_host_to_device () {
+  device_ptcl_to_grd = ptcl_to_grd;
+  device_grid_M = M;
+  device_x = x; 
+  device_y = y;
+
+  for (const auto & p : dprops)
+    device_dprops[p.first] = p.second;
+  
+  for (const auto & p : iprops)
+    device_iprops[p.first] = p.second;
+}
+
+void
+particles_t::memcpy_device_to_host () 
+{
+    thrust::copy (device_x.cbegin (), device_x.cend (), x.begin ());
+    thrust::copy (device_y.cbegin (), device_y.cend (), y.begin ());
+    thrust::copy (device_dprops["VX"].cbegin (), device_dprops["VX"].cend (), dprops.at("VX").begin ());
+    thrust::copy (device_dprops["VY"].cbegin (), device_dprops["VY"].cend (), dprops.at("VY").begin ());
+    thrust::copy (device_dprops["M"].cbegin (), device_dprops["M"].cend (), dprops.at("M").begin ());
+    thrust::copy (device_grid_M.cbegin (), device_grid_M.cend (), M.begin ());
+    thrust::copy (device_ptcl_to_grd.cbegin(), device_ptcl_to_grd.cend(), ptcl_to_grd.begin());  
+}
+#endif
+
 
 
 void
 particles_t::update_ptcl_to_grd () {
+ 
+  #ifdef USE_THRUST
+  ptcl_to_grd_update_t p2gu (thrust::raw_pointer_cast(device_ptcl_to_grd.data ()), thrust::raw_pointer_cast(device_x.data ()), thrust::raw_pointer_cast(device_y.data ()), grid.hx (), grid.hy (), grid.num_rows ());
+  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+  thrust::for_each(device_exec_policy, first_p, last_p, p2gu);
+  #else
   ptcl_to_grd_update_t p2gu (ptcl_to_grd.begin (), x.begin (), y.begin (), grid.hx (), grid.hy (), grid.num_rows ());
   range rng (0, this->num_particles);
   std::for_each (rng.begin (), rng.end (), p2gu);
+  #endif
 }
 
 void
@@ -118,7 +154,7 @@ particles_t::init_particle_mesh () {
 
   }
 
-  update_ptcl_to_grd ();
+  //update_ptcl_to_grd ();
   
   /*
     std::cout << "grd_to_ptcl" << "\n";
@@ -166,8 +202,8 @@ particles_t::mark_by_cell_color () {
 void
 particles_t::init_particle_positions
 (
- std::function<double ()> xgentr,
- std::function<double ()> ygentr
+ std::function<real_t ()> xgentr,
+ std::function<real_t ()> ygentr
  ) {
   x.resize (num_particles);
   y.resize (num_particles);
@@ -183,7 +219,7 @@ particles_t::build_mass () {
   for (auto icell = grid.begin_cell_sweep ();
        icell != grid.end_cell_sweep (); ++icell) {
     for (auto inode = 0;
-	 inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+	 inode < quadgrid_t<vector_t<real_t>>::cell_t::nodes_per_cell;
 	 ++inode) {
       M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
     }
@@ -305,7 +341,7 @@ to_json (nlohmann::json &j, const particles_t &p) {
 }
 
 void
-particles_t::reorder (std::vector<idx_t> &ordering) {
+particles_t::reorder (vector_t<idx_t> &ordering) {
 
   for (idx_t ii = 0; ii < num_particles - 1; ++ii) {
     if (ii != ordering[ii]) {

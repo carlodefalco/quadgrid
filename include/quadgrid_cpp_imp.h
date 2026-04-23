@@ -20,7 +20,7 @@ quadgrid_t<T>::begin_cell_sweep () const {
 template <class T>
 void
 quadgrid_t<T>::set_sizes (idx_t numrows, idx_t numcols,
-                          double hx, double hy) {
+                          real_t hx, real_t hy) {
   grid_properties.numrows = numrows;
   grid_properties.numcols = numcols;
   grid_properties.hx = hx;
@@ -197,7 +197,7 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
 //
 //-----------------------------------
 template <class T>
-double
+real_t
 quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
                           typename quadgrid_t<T>::idx_t inode) const {
 
@@ -229,8 +229,8 @@ quadgrid_t<T>::cell_t::e (typename quadgrid_t<T>::idx_t iedge) const {
 
 
 template <class T>
-double
-quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
+real_t
+quadgrid_t<T>::cell_t::shp (real_t x, real_t y, idx_t inode) const {
   
   switch (inode) {
   case 3 :
@@ -272,8 +272,8 @@ template <class T>
 */
 
 template <class T>
-double
-quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
+real_t
+quadgrid_t<T>::cell_t::shg (real_t x, real_t y, idx_t idir, idx_t inode) const {
   switch (inode) {
   case 3 :
   case 2 :
@@ -422,7 +422,7 @@ quadgrid_t<T>::octave_ascii_export
      << "# rows: 4" << std::endl
      << "# columns: " << num_local_cells () << std::endl;
   for (auto inode = 0;
-       inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+       inode < quadgrid_t<vector_t<real_t>>::cell_t::nodes_per_cell;
        ++inode) {
     for (auto icell = begin_cell_sweep ();
          icell != end_cell_sweep (); ++icell) {
