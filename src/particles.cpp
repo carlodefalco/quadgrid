@@ -114,11 +114,13 @@ particles_t::init_particle_mesh () {
     idx_t c = static_cast<idx_t> (std::floor (x[ii] / grid.hx ()));
     idx_t r = static_cast<idx_t> (std::floor (y[ii] / grid.hy ()));
 
-    grd_to_ptcl[grid.sub2gind (r, c)].push_back (ii);
+    idx_t global_cell_idx= grid.sub2gind (r, c);
+    grd_to_ptcl[global_cell_idx].push_back (ii);
+    ptcl_to_grd[ii]=global_cell_idx;
 
   }
 
-  update_ptcl_to_grd ();
+  //update_ptcl_to_grd ();
   
   /*
     std::cout << "grd_to_ptcl" << "\n";
@@ -176,20 +178,6 @@ particles_t::init_particle_positions
   std::generate (y.begin (), y.end (), ygentr);
 }
 
-// Da cambiare
-
-void
-particles_t::build_mass () {
-  M.assign (grid.num_global_nodes (), 0.0);
-  for (auto icell = grid.begin_cell_sweep ();
-       icell != grid.end_cell_sweep (); ++icell) {
-    for (auto inode = 0;
-	 inode < grid.nodes_per_cell();
-	 ++inode) {
-      M[icell->gt (inode)] += (grid.hx () / 2.) * (grid.hy () / 2.);
-    }
-  }
-}
 
 template<>
 void
@@ -288,6 +276,8 @@ particles_t::print<particles_t::output_format::octave_ascii>
   os << std::endl;
 }
 
+
+// Da cambiare
 void
 to_json (nlohmann::json &j, const particles_t &p) {
   j = nlohmann::json{

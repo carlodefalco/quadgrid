@@ -31,7 +31,6 @@ public:
   using idx_t = int;
 
   class  cell_t;
-  class Span_iterator;
 
   struct grid_properties_t {
     idx_t             numrows;
@@ -40,13 +39,29 @@ public:
     idx_t             px, py;  // Degree
     idx_t             rx, ry;  // Regularity
     idx_t             nodes_per_cell;  // (px+1)*(py+1)
+    idx_t             num_dof_x;
+    idx_t             num_dof_y;
+    std::vector<double> knot_vect_x;
+    std::vector<double> knot_vect_y;
+
     idx_t             start_cell_row;
     idx_t             end_cell_row;
     idx_t             start_cell_col;
     idx_t             end_cell_col;
     idx_t             start_owned_nodes;
     idx_t             num_owned_nodes;
+    
   };
+
+  std::vector<double> Init_knot_vector(double h, idx_t n, idx_t p, idx_t r) const{
+  std::vector<double> grid_nodes(n+1);
+
+  for(idx_t i=0; i<=n;++i)
+  grid_nodes[i]=i*h;
+
+  return bspline::open_knot_vector(grid_nodes.cbegin(),grid_nodes.cend(),p,r);
+ }
+
 
   void
   from_json (const nlohmann::json &j, grid_properties_t &q) {
@@ -61,15 +76,22 @@ public:
     q.ry = j.value("ry", 2);  
 
     q.nodes_per_cell = (q.px + 1) * (q.py + 1);
+    q.num_dof_x = (q.numcols - 1) * (q.px - q.rx) + 2 * (q.px + 1) - q.px - 1;
+    q.num_dof_y = (q.numrows - 1) * (q.py - q.ry) + 2 * (q.py + 1) - q.py - 1;
     q.start_cell_row = 0;
     q.end_cell_row = q.numrows - 1;
     q.start_cell_col = 0;
     q.end_cell_col = q.numcols - 1;
     q.start_owned_nodes = 0;
-    q.num_owned_nodes = (q.numrows+1)*(q.numcols+1);
+    q.num_owned_nodes = q.num_dof_y * q.num_dof_x; //forse meglio cambiare nodes con dof
 
-
+    q.knot_vect_y = Init_knot_vector(q.hy,q.numrows,q.py,q.ry);
+    q.knot_vect_x = Init_knot_vector(q.hx,q.numcols,q.px,q.rx);
   }
+
+ 
+
+
 
   static idx_t
   gind2col (idx_t idx, idx_t numrows) {
@@ -117,10 +139,10 @@ public:
 
   }
 */
-
+// Posso sostituirci N_dof_y migliorandola, ma viene usato dai g2p_helper_t che potrei rimuovere
 // Return global index of the BSpline coefficient 
 //This version takes the row and col indexes of the cell
-  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t num_rows, idx_t px, idx_t py, idx_t rx, idx_t ry) const {
+  static idx_t gt (idx_t inode, idx_t cidx, idx_t ridx, idx_t N_dof_y, idx_t px, idx_t py, idx_t rx, idx_t ry) {
     if (inode <0 || inode >= (px+1)*(py+1))
     return -1;// or std::assert
 
@@ -129,7 +151,7 @@ public:
 
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
-    return sub2gind(ii-py+r1,jj-px+c1,((num_rows-1)*(py-ry)+(py+1)*2-py-1));// Third param is N_dof_y 
+    return sub2gind(ii-py+r1,jj-px+c1,N_dof_y);// Third param is N_dof_y 
 
   }
 
@@ -152,7 +174,7 @@ public:
   //              0
   //
   //-----------------------------------
-
+/*
   static double
   p (idx_t idir, idx_t inode, idx_t colidx, idx_t rowidx, double hx, double hy) {
     double bottom_left = 0.0;
@@ -167,20 +189,20 @@ public:
 	bottom_left += hy;
     }
     return (bottom_left);
-  }
+  }*/
 
 // Bsplines
 
-// Restituisce l'indice della funzione di base dato l'indice di cella
+// Restituisce l'indice della funzione di base dato l'indice di cella (riga o col)
 // p degree
 // r regolarità
-
-static idx_t cell2span( idx_t index, idx_t p, idx_t r){// index è indice di riga/col
+static idx_t cell2span( idx_t index, idx_t p, idx_t r){ 
 // std::assert(index>=0 && index<=N-1);
 
 return p + (p-r)*index;
 }
 
+/*
 static idx_t knot2gind( idx_t k_ind, idx_t p, idx_t r, idx_t N){// N=nrows+1 o ncols+1
 m=(N-2)*(p-r)+2*(p+1)-1;// max index of knot
 std::assert(k_ind>=0 && k_ind<=m);
@@ -200,51 +222,13 @@ else{
   } 
 }
 }
-
+*/
 // Convert from 2d-basisfun indexes to global BSpline index
 // NB Number of basis functions is less than number of knots
 
 // static idx_t global_Spline_idx(idx_t ii, idx_t jj, idx_t num_rows){// num_rows è il numero di celle, a me serve il numero di breakpts-> +1
 // return ii+jj*((num_rows-1)*(py-ry)+(py+1)*2-py-1);
 // }
-
-struct
-  Span_iterator {
-    using difference_type = typename std::make_signed_t<idx_t>;
-    using iterator_category = std::random_access_iterator_tag;
-    using value_type = idx_t;
-    using reference = idx_t;
-    using pointer = const idx_t*;
-    Span_iterator &operator ++() { ++i_; return *this; }
-    Span_iterator operator ++(int) { iterator copy(*this); ++i_; return copy; }
-    Span_iterator &operator --() { --i_; return *this; }
-    Span_iterator operator --(int) { iterator copy(*this); --i_; return copy; }
-    Span_iterator& operator +=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) + n); return *this; }
-    Span_iterator& operator -=(difference_type n) { i_ = static_cast<value_type>(static_cast<difference_type>(i_) - n); return *this; }
-
-
-    double operator *() const {
-      return quadgrid_t::knot2gind(i_,degree,regularity,num_intervals+1)*h_;}
-    bool operator ==(const Span_iterator &other) const { return i_ == *other; }
-    bool operator !=(const Span_iterator &other) const { return i_ != *other; }
-
-    bool operator <(const Span_iterator &other) const { return i_ < *other; }
-    difference_type operator -(const Span_iterator &other) const { return static_cast<difference_type>(i_) - static_cast<difference_type>(*other); }
-    Span_iterator operator -(const difference_type other) const { return Span_iterator{static_cast<value_type> (static_cast<difference_type>(i_) - other),num_intervals,degree,regularity,h_}; }
-    Span_iterator operator +(const difference_type other) const { return Span_iterator{static_cast<value_type> (static_cast<difference_type>(i_) + other),num_intervals,degree,regularity,h_}; }
-    double operator[] (const value_type& idx) { return (i_ + idx)*h_; }
-    Span_iterator(difference_type start,idx_t num_int, idx_t deg,
-       idx_t reg, double h) : i_ (start), num_intervals(num_int),
-       h_(h), degree(deg), regularity(reg) {}
-  private:
-    idx_t i_;
-    idx_t num_intervals; // Real intervals,not knot spans
-    double h_;
-    idx_t degree;
-    idx_t regularity;
-    
-  };
-  
 
 /*
   static double
@@ -270,10 +254,10 @@ struct
     
   }*/
 
-
  static double
   shp (double x, double y, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows, idx_t px, idx_t py, idx_t rx, idx_t ry) {
+       idx_t c, idx_t r, idx_t px, idx_t py, 
+       idx_t rx, idx_t ry, idx_t num_dof_x, idx_t num_dof_y, std::vector<double> const  & knot_vect_x, std::vector<double> const & knot_vect_y) {
         using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
@@ -284,37 +268,35 @@ struct
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
     
-    // posso crearlo in grid properties e passarglielo in input
-    idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
-    idx_t max_ind_col= (num_cols-1)*(px-rx)+2*(px+1)-1;
 
-    // Posso crearne 2 fissi per ogni direzione della griglia e sommare ogni volta l'indice da cui partire
-    // Risparmierei qualcosa, tuttavia la somma crea sempre un nuovo iterator
-    Span_iterator Span_y_begin{ii-py+r1,num_rows,py,ry,hy};
-    Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// This is past the end of the support
-    Span_iterator Span_x_begin(jj-px+c1,num_cols,px,rx,hx);
-    Span_iterator Span_x_end(jj+c1+2,num_cols,px,rx,hx);
-      
-    if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
-      if (jj+c1+1==max_ind_col)
+    std::vector<double>::const_iterator Span_x_begin = knot_vect_x.begin() + jj-px+c1;
+    std::vector<double>::const_iterator Span_x_end = knot_vect_x.begin() + jj+c1+2;
+    std::vector<double>::const_iterator Span_y_begin = knot_vect_y.begin() + ii-py+r1;
+    std::vector<double>::const_iterator Span_y_end = knot_vect_y.begin() + ii+r1+2;
+
+    if (ii-py+r1==num_dof_y-1){// check if the bspline index is the last index possible, i.e. we are on the boundary
+      if (jj-px+c1==num_dof_x-1)
         return onebasisfun2d<Position::Boundary,Position::Boundary>
          (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
       else
         return onebasisfun2d<Position::Internal,Position::Boundary> (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
     }
-    if (jj+c1+1==max_ind_col)
-      return onebasisfun2d<Position::Boundary,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
-    return onebasisfun2d<Position::Internal,Position::Internal> (x, y, px, py,Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+    if (jj-px+c1==num_dof_x-1)
+      return onebasisfun2d<Position::Boundary,Position::Internal> (x, y, px, py,
+         Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+    return onebasisfun2d<Position::Internal,Position::Internal> (x, y, px, py,
+       Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
        }
 
 
   static double
   shg (double x, double y, idx_t idir, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy, idx_t num_cols, idx_t num_rows, idx_t px, idx_t py, idx_t rx, idx_t ry) {
+       idx_t c, idx_t r, idx_t px, idx_t py, idx_t rx, idx_t ry,
+      idx_t num_dof_x, idx_t num_dof_y, std::vector<double> const  & knot_vect_x, std::vector<double> const & knot_vect_y) {
    using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
-
+    //std::assert(idir==0 || idir==1)
 
     idx_t ii=cell2span(r,py,ry);
     idx_t jj=cell2span(c,px,rx);
@@ -322,83 +304,78 @@ struct
     idx_t r1=inode%(py+1);
     idx_t c1=inode/(py+1);
     
-    idx_t max_ind_row=(num_rows-1)*(py-ry)+2*(py+1)-1;
-    idx_t max_ind_col= (num_cols-1)*(px-rx)+2*(px+1)-1;
-
-    Span_iterator Span_y_begin{ii-py+r1,num_rows,py,ry,hy};
-    Span_iterator Span_y_end(ii+r1+2,num_rows,py,ry,hy);// Gli end sono past the end of the support
-    Span_iterator Span_x_begin(jj-px+c1,num_cols,px,rx,hx);
-    Span_iterator Span_x_end(jj+c1+2,num_cols,px,rx,hx);
+  
+    std::vector<double>::const_iterator Span_x_begin = knot_vect_x.begin() + jj-px+c1;
+    std::vector<double>::const_iterator Span_x_end = knot_vect_x.begin() + jj+c1+2;
+    std::vector<double>::const_iterator Span_y_begin = knot_vect_y.begin() + ii-py+r1;
+    std::vector<double>::const_iterator Span_y_end = knot_vect_y.begin() + ii+r1+2;
 
 
 if (idir==0){//x-deriv
-if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
-      if (jj+c1+1==max_ind_col)
+if (ii-py+r1==num_dof_y-1){// check if the bspline index is the last index possible, i.e. we are on the boundary
+      if (jj-px+c1==num_dof_x-1)
         return onebasisfun<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
       else
         return onebasisfun<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
     }
-if (jj+c1+1==max_ind_col)
+if (jj-px+c1==num_dof_x-1)
       return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
 return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
 }
 else if(idir==1){//y-deriv
-  if (ii+r1+1==max_ind_row){// check if the last point of support is on the boundary
-      if (jj+c1+1==max_ind_col)
+  if (ii-py+r1==num_dof_y-1){// check if the bspline index is the last index possible, i.e. we are on the boundary
+      if (jj-px+c1==num_dof_x-1)
         return onebasisfunder<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
       else
         return onebasisfunder<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
     }
-if (jj+c1+1==max_ind_col)
+if (jj-px+c1==num_dof_x-1)
       return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
+
 return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
 
+
 }
+return -1;
 }
 
 
+std::vector<double> build_mass() const {// Non corretta per nodi a bordo dx
+using namespace bspline;
 
-  /*static double
-  shg (double x, double y, idx_t idir, idx_t inode,
-       idx_t c, idx_t r, double hx, double hy) {
-    switch (inode) {
-    case 3 :
-      if (idir == 0) {
-	return ((1. / hx) * ((y - p(1,0,c,r,hx,hy)) / hy));
-      }
-      else if (idir == 1) {
-	return (((x - p(0,0,c,r,hx,hy)) / hx) * (1. / hy));
-      }
-      break;
-    case 2 :
-      if (idir == 0) {
-	return ((1. / hx) * ((1. - (y - p(1,0,c,r,hx,hy)) / hy)));
-      }
-      else if (idir == 1) {
-	return (((x - p(0,0,c,r,hx,hy)) / hx) * (- 1. / hy));
-      }
-      break;
-    case 1 :
-      if (idir == 0) {
-	return ((- 1. / hx) * ((y - p(1,0,c,r,hx,hy)) / hy));
-      }
-      else if (idir == 1) {
-	return ((1. - (x - p(0,0,c,r,hx,hy)) / hx) * (1. / hy));
-      }
-      break;
-    case 0 :
-      if (idir == 0) {
-	return ((- 1. / hx) * (1. - (y - p(1,0,c,r,hx,hy)) / hy));
-      }
-      else if (idir == 1) {
-	return ((1. - (x - p(0,0,c,r,hx,hy))/ hx) * (- 1. / hy));
-      }
-      break;
+idx_t px = grid_properties.px;
+idx_t py = grid_properties.py;
+
+std::vector<double> M(num_global_nodes() ,0.0);
+std::vector<double> const & knot_vect_x = grid_properties.knot_vect_x;
+std::vector<double> const & knot_vect_y = grid_properties.knot_vect_y;
+
+for( idx_t j=0; j<N_dof_x(); ++j){
+  for(idx_t i=0; i<N_dof_y(); ++i){
+
+    double Nx=0, Ny=0;
+    for (idx_t k=i; k<=i+py; ++k){
+      std::vector<double>::const_iterator Span_y_begin = knot_vect_y.begin() + k;
+      std::vector<double>::const_iterator Span_y_end = knot_vect_y.begin() + k+py+2;
+      Ny+=onebasisfun<Position::Internal>(knot_vect_y[i+py+1],py+1,Span_y_begin, Span_y_end)
+       - onebasisfun<Position::Internal>(knot_vect_y[i],py+1,Span_y_begin, Span_y_end);
     }
-    return 0.;
-  };*/
+    for (idx_t k=j; k<=j+px; ++k){
+      std::vector<double>::const_iterator Span_x_begin = knot_vect_x.begin() + k;
+      std::vector<double>::const_iterator Span_x_end = knot_vect_x.begin() + k+px+2;
+      Nx+=onebasisfun<Position::Internal>(knot_vect_x[j+px+1],px+1,Span_x_begin, Span_x_end)
+       - onebasisfun<Position::Internal>(knot_vect_x[j],px+1,Span_x_begin, Span_x_end);
+    }
 
-  
+    M[sub2gind(i,j,N_dof_y())]=((knot_vect_y[i+py+1]-knot_vect_y[i])/(py+1)*Ny)*
+      ((knot_vect_x[j+px+1]-knot_vect_x[j])/(px+1)*Nx);
+  }
+}
+return M;
+}
+
+
+
   static idx_t
   sub2gind (idx_t r, idx_t c, idx_t nr) {
     return  (r + nr * c);
@@ -442,7 +419,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     { return ! ((*this) == other); }
 
 
-  private :
+  protected :
     cell_t *data;
   };
 
@@ -466,14 +443,9 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
   private:
     idx_t face_idx; /// Face index in 0...3 (-1 if not defined).
 
-  private :
-    cell_t *data;
+  // private :
+  //   cell_t *data;// Ci sarebbero 2 data così
   };
-
-
-
-
-
 
 
 
@@ -491,20 +463,21 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     static constexpr idx_t NOT_ON_BOUNDARY = -1;
 
     cell_t (const grid_properties_t& _gp)
-      : grid_properties (_gp), rowidx (0), colidx (0), is_ghost (false) { };
+      : is_ghost (false), rowidx (0), colidx (0), grid_properties (_gp) { };
 
-    double
-    p (idx_t i, idx_t j) const;
+    //double
+    //p (idx_t i, idx_t j) const;
 
-    double
-    centroid (idx_t i);
+    // double
+    // centroid (idx_t i);
 
-    idx_t
-    t (idx_t i) const;
+    // idx_t
+    // t (idx_t i) const;
 
    idx_t
     gt (idx_t i) const {  
-	    return quadgrid_t::gt (i, col_idx (), row_idx (), num_rows (), grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry);
+	    return quadgrid_t::gt (i, col_idx (), row_idx (), grid_properties.num_dof_y , grid_properties.px,
+       grid_properties.py, grid_properties.rx, grid_properties.ry);
     }
   
     idx_t
@@ -513,17 +486,17 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     double
     shp (double x, double y, idx_t inode) const;
 
-    double
-    shp_new (double x, double y, idx_t inode) const;
+    // double
+    // shp_new (double x, double y, idx_t inode) const;
 
     double
     shg (double x, double y, idx_t idir, idx_t inode) const;
 
-    neighbor_iterator
-    begin_neighbor_sweep ();
+    // neighbor_iterator
+    // begin_neighbor_sweep ();
 
-    const neighbor_iterator
-    begin_neighbor_sweep () const;
+    // const neighbor_iterator
+    // begin_neighbor_sweep () const;
 
     neighbor_iterator
     end_neighbor_sweep ()
@@ -577,7 +550,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     col_idx () const
     { return colidx; };
     
-    
+    // Potrebbero essere fuorvianti, capire dove serve indice totale cella
     idx_t
     sub2gind (idx_t r, idx_t c) const {
       return  quadgrid_t::sub2gind (r, c, grid_properties.numrows);
@@ -638,6 +611,8 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
     grid_properties.py = 3;  
     grid_properties.rx = 2; 
     grid_properties.ry = 2;  
+    grid_properties.num_dof_x = 0;
+    grid_properties.num_dof_y = 0;
     grid_properties.nodes_per_cell = (grid_properties.px + 1) * (grid_properties.py + 1); 
     grid_properties.start_cell_row = 0;
     grid_properties.end_cell_row = 0;
@@ -665,7 +640,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
 
   void
   set_sizes (idx_t numrows, idx_t numcols,
-             double hx, double hy);
+             double hx, double hy);// Poi devo riaggiornare il knot_vector (fatto)
 
   void
   vtk_export (const char *filename,
@@ -692,7 +667,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
   { return cell_iterator (); };
 
   idx_t
-  num_owned_nodes ()
+  num_owned_nodes () const
   { return grid_properties.num_owned_nodes; };
 
   idx_t
@@ -706,6 +681,22 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
 
   idx_t
   num_global_cells () const;
+
+  idx_t N_dof_x() const
+  {return grid_properties.num_dof_x;};
+
+  idx_t N_dof_y() const
+  {return grid_properties.num_dof_y;};
+
+
+  std::vector<double> const & knot_vector_x() const {
+    return grid_properties.knot_vect_x;
+  };
+
+  std::vector<double> const & knot_vector_y() const {
+    return grid_properties.knot_vect_y;
+  };
+
 
   idx_t
   num_rows () const
@@ -727,7 +718,7 @@ return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasi
   nodes_per_cell () const
   { return grid_properties.nodes_per_cell; };
 
-  idx_t
+  idx_t 
   sub2gind (idx_t r, idx_t c) const {
     return  (r + grid_properties.numrows * c);
   }

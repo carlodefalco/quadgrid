@@ -1,4 +1,5 @@
-#include "quadgrid_cpp.h"
+//#include "quadgrid_cpp.h"// Da rimuovere
+
 template <class T>
 typename quadgrid_t<T>::cell_iterator
 quadgrid_t<T>::begin_cell_sweep () {
@@ -16,6 +17,7 @@ quadgrid_t<T>::begin_cell_sweep () const {
 }
 
 
+// Non so se sia utile, inoltre p e r sono fissati dall'inizio
 
 template <class T>
 void
@@ -30,9 +32,16 @@ quadgrid_t<T>::set_sizes (idx_t numrows, idx_t numcols,
   grid_properties.start_cell_col = 0;
   grid_properties.end_cell_col = numcols - 1;
   grid_properties.start_owned_nodes = 0;
-  grid_properties.num_owned_nodes = (numrows+1)*(numcols+1);
-}
 
+  grid_properties.num_dof_x = (grid_properties.numcols - 1) * (grid_properties.px - grid_properties.rx) + grid_properties.px + 1;
+  grid_properties.num_dof_y = (grid_properties.numrows - 1) * (grid_properties.py - grid_properties.ry) + grid_properties.py + 1;
+  grid_properties.num_owned_nodes = grid_properties.num_dof_x * grid_properties.num_dof_y;
+
+  grid_properties.knot_vect_x = Init_knot_vector(hx,numcols,grid_properties.px,grid_properties.rx);
+  grid_properties.knot_vect_y = Init_knot_vector(hy,numrows,grid_properties.py,grid_properties.ry);
+
+
+}
 
 
 template <class T>
@@ -70,73 +79,81 @@ quadgrid_t<T>::operator[] (idx_t tmp) const {
 };
 
 
-
+// To be reviewed if actually to use (LS)
 template <class T>
 void
 quadgrid_t<T>::neighbor_iterator::operator++ () {
   static idx_t tmp = 0;
-  if (data != nullptr) {
+  if (this->data != nullptr) {
     tmp = ++face_idx;
     if (tmp >= quadgrid_t<T>::cell_t::edges_per_cell) {
-      data = nullptr;
+      this->data = nullptr;
       face_idx = -1;
     }
     else {
       switch (face_idx) {
       case 0 :
-        if (data->rowidx == 0)
+        if (this->data->rowidx == 0)
           face_idx++;
         else {
-          data->rowidx = tmp % data->num_rows ();
-          data->colidx = tmp / data->num_rows ();
-          data->global_cell_idx = tmp;
-          data->local_cell_idx = tmp -
-            (data->start_cell_row () +
-             data->num_rows () * data->start_cell_col ());
+          this->data->rowidx = tmp % this->data->num_rows ();
+          this->data->colidx = tmp / this->data->num_rows ();
+          this->data->global_cell_idx = tmp;
+          this->data->local_cell_idx = tmp -
+            (this->data->start_cell_row () +
+             this->data->num_rows () * this->data->start_cell_col ());
         }
+        break;
       case 1 :
-        if (data->rowidx == data->num_rows () - 1)
+        if (this->data->rowidx == this->data->num_rows () - 1)
           face_idx++;
         else {
 
 
         }
+        break;
       case 2 :
-        if (data->colidx == 1)
+        if (this->data->colidx == 0)// changed from 1 to 0
           face_idx++;
         else {
 
 
         }
+        break;
       case 3 :
-        if (data->colidx == data->num_cols () - 1) {
+        if (this->data->colidx == this->data->num_cols () - 1) {
           face_idx = -1;
-          data = nullptr;
+          this->data = nullptr;
         }
         else {
 
 
         }
+        break;
       }
-      data->rowidx = tmp % data->num_rows ();
-      data->colidx = tmp / data->num_rows ();
-      data->global_cell_idx = tmp;
-      data->local_cell_idx = tmp -x
-        (data->start_cell_row () +
-         data->num_rows () * data->start_cell_col ());
+      this->data->rowidx = tmp % this->data->num_rows ();
+      this->data->colidx = tmp / this->data->num_rows ();
+      this->data->global_cell_idx = tmp;
+      this->data->local_cell_idx = tmp -
+        (this->data->start_cell_row () +
+         this->data->num_rows () * this->data->start_cell_col ());
     }
   }
 };
 
 
 
-
+// To change for parallel implementation
 template <class T>
 typename quadgrid_t<T>::idx_t
 quadgrid_t<T>::num_local_cells () const {
   return grid_properties.numrows*grid_properties.numcols;
 }
-
+/* should be:
+rows_local = end_cell_row - start_cell_row + 1
+cols_local = end_cell_col - start_cell_col + 1
+num_local_cells = rows_local * cols_local
+*/
 
 
 
@@ -151,11 +168,12 @@ quadgrid_t<T>::num_global_cells () const {
 template <class T>
 typename quadgrid_t<T>::idx_t
 quadgrid_t<T>::num_global_nodes () const {
-  return ((grid_properties.numrows-1)*(grid_properties.py-grid_properties.ry)
-  +(grid_properties.py+1)*2-grid_properties.py-1)*((grid_properties.numcols-1)*(grid_properties.px
-    -grid_properties.rx)+(grid_properties.px+1)*2-grid_properties.px-1);
+
+  return grid_properties.num_dof_x*grid_properties.num_dof_y;
+
 }
 
+// To change for parallel implementation
 template <class T>
 typename quadgrid_t<T>::idx_t
 quadgrid_t<T>::num_local_nodes () const {
@@ -163,19 +181,19 @@ quadgrid_t<T>::num_local_nodes () const {
 }
 
 
-template <class T>
-typename quadgrid_t<T>::idx_t
-quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
-  static idx_t glob = 0;
-  glob = gt (inode);
-  // should check that inode < 4 in an efficient way
-  if (glob < grid_properties.start_owned_nodes
-      || glob >= (grid_properties.start_owned_nodes
-                  + grid_properties.num_owned_nodes))
-    return (glob);
-  else
-    return (glob - grid_properties.start_owned_nodes);
-}
+// template <class T>
+// typename quadgrid_t<T>::idx_t
+// quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
+//   static idx_t glob = 0;
+//   glob = gt (inode);
+//   // should check that inode < 4 in an efficient way
+//   if (glob < grid_properties.start_owned_nodes
+//       || glob >= (grid_properties.start_owned_nodes
+//                   + grid_properties.num_owned_nodes))
+//     return (glob);
+//   else
+//     return (glob - grid_properties.start_owned_nodes);
+// }
 
 
 //-----------------------------------
@@ -197,15 +215,16 @@ quadgrid_t<T>::cell_t::t (typename quadgrid_t<T>::idx_t inode) const {
 //              0
 //
 //-----------------------------------
-template <class T>
-double
-quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
-                          typename quadgrid_t<T>::idx_t inode) const {
 
-  return quadgrid_t::p (idir, inode, this->col_idx (), this->row_idx (),
-			grid_properties.hx, grid_properties.hy);
+// template <class T>
+// double
+// quadgrid_t<T>::cell_t::p (typename quadgrid_t<T>::idx_t idir,
+//                           typename quadgrid_t<T>::idx_t inode) const {
+
+//   return quadgrid_t::p (idir, inode, this->col_idx (), this->row_idx (),
+// 			grid_properties.hx, grid_properties.hy);
   
-}
+// }
 
 
 template <class T>
@@ -233,93 +252,22 @@ template <class T>
 double
 quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
 
-    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows(), grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry);
+    return quadgrid_t::shp (x, y, inode, col_idx (), row_idx (), grid_properties.px, grid_properties.py, 
+     grid_properties.rx, grid_properties.ry, grid_properties.num_dof_x, grid_properties.num_dof_y,
+     grid_properties.knot_vect_x, grid_properties.knot_vect_y);
 };
 
-/*
-template <class T>
- double
- quadgrid_t<T>::cell_t::shp (double x, double y, idx_t inode) const {
-   switch (inode) {
-   case 3 :
-    return ((x - p(0,0))/grid_properties.hx *
-            (y - p(1,0))/grid_properties.hy);
-    break;
-  case 2 :
-    return ((x - p(0,0))/grid_properties.hx *
-            (1. - (y - p(1,0))/grid_properties.hy));
-    break;
-  case 1 :
-    return ((1. - (x - p(0,0))/grid_properties.hx) *
-            (y - p(1,0))/grid_properties.hy);
-    break;
-  case 0 :
-    return ((1. - (x - p(0,0))/grid_properties.hx) *
-            (1. - (y - p(1,0))/grid_properties.hy));
-     break;
-   default :
-     throw std::out_of_range ("inode must be in range 0..3");
-  }
-};
-*/
 
 template <class T>
 double
 quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
   
-    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (), grid_properties.hx, grid_properties.hy, num_cols(), num_rows(), grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry);
+    return quadgrid_t::shg (x, y, idir, inode, col_idx (), row_idx (),
+    grid_properties.px, grid_properties.py, grid_properties.rx, grid_properties.ry, 
+    grid_properties.num_dof_x, grid_properties.num_dof_y,
+    grid_properties.knot_vect_x, grid_properties.knot_vect_y);
   
 };
-
-// template <class T>
-// double
-// quadgrid_t<T>::cell_t::shg (double x, double y, idx_t idir, idx_t inode) const {
-//   switch (inode) {
-//   case 3 :
-//     if (idir == 0) {
-//       return ((1. / grid_properties.hx) *
-//               ((y - p(1,0)) / grid_properties.hy));
-//     }
-//     else if (idir == 1) {
-//       return (((x - p(0,0)) / grid_properties.hx) *
-//               (1. / grid_properties.hy));
-//     }
-//     break;
-//   case 2 :
-//     if (idir == 0) {
-//       return ((1. / grid_properties.hx) *
-//               ((1. - (y - p(1,0)) / grid_properties.hy)));
-//     }
-//     else if (idir == 1) {
-//       return (((x - p(0,0)) / grid_properties.hx) *
-//               (- 1. / grid_properties.hy));
-//     }
-//     break;
-//   case 1 :
-//     if (idir == 0) {
-//       return ((- 1. / grid_properties.hx) *
-//               ((y - p(1,0)) / grid_properties.hy));
-//     }
-//     else if (idir == 1) {
-//       return ((1. - (x - p(0,0)) / grid_properties.hx) *
-//               (1. / grid_properties.hy));
-//     }
-//     break;
-//   case 0 :
-//     if (idir == 0) {
-//       return ((- 1. /grid_properties.hx) *
-//               (1. - (y - p(1,0)) / grid_properties.hy));
-//     }
-//     else if (idir == 1) {
-//       return ((1. - (x - p(0,0))/grid_properties.hx) *
-//               (- 1. / grid_properties.hy));
-//     }
-//     break;
-//   default :
-//     throw std::out_of_range ("inode must be in range 0..3, idir must be either 0 or 1");
-//   }
-//   return 0.;
-// };
 
 
 
@@ -406,7 +354,7 @@ quadgrid_t<T>::octave_ascii_export
      << "# rows: 4" << std::endl
      << "# columns: " << num_local_cells () << std::endl;
   for (auto inode = 0;
-       inode < quadgrid_t<std::vector<double>>::cell_t::nodes_per_cell;
+       inode < this->nodes_per_cell();
        ++inode) {
     for (auto icell = begin_cell_sweep ();
          icell != end_cell_sweep (); ++icell) {

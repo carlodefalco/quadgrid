@@ -178,7 +178,7 @@ particles_t {
   init_props (const std::vector<std::string>& ipropnames,
               const std::vector<std::string>& dpropnames);
 
-  //! @brief Erase particcles based on coordinates.
+  //! @brief Erase particles based on coordinates.
 
   //! Given a function to decide whether a particle
   //! lies inside a region or not, remove all particles
@@ -246,7 +246,9 @@ particles_t {
   //! Must be invoked manually before invoking any of the transfer
   //! methods with flag `use_mass` set to `true`
   void
-  build_mass ();
+  build_mass () {
+    M=grid.build_mass();
+  }
 
   //! @brief shortcut for `dprops.at (name) [ii]`
   double &
