@@ -87,7 +87,7 @@ main () {
   particles_t p (j, qg);
   
   // as we will use the mass matrix we must initialize it manually
-  p.build_mass ();
+  //p.build_mass ();
 
   // the variables defined on the grid are not class members
   std::map<std::string, std::vector<double>> vars= 
@@ -116,7 +116,7 @@ main () {
     // Clean up grid variables at each step!
     std::fill(p.dprops["VX"].begin (), p.dprops["VX"].end (), 0.0);
     std::fill(p.dprops["VY"].begin (), p.dprops["VY"].end (), 0.0);
-    std::fill(vars["rho"].begin (), vars["rho"].end (), 0.0);
+    //std::fill(vars["rho"].begin (), vars["rho"].end (), 0.0);
 
     // G2P : interpolate velocity at particle positions
     timer.tic("g2p");
@@ -145,9 +145,10 @@ main () {
     
     // Project particle masses onto the greed and
     // build a density field, only used for output
-    timer.tic("p2g");
-    p.p2g (vars, {"M"}, {"rho"}, true);
-    timer.toc("p2g");
+    
+    // timer.tic("p2g");
+    // p.p2g (vars, {"M"}, {"rho"}, true);
+    // timer.toc("p2g");
 
     // Don't save at every timestep
     if (it % 50 == 0) {
