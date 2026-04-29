@@ -154,7 +154,7 @@ particles_t::init_particle_mesh () {
 
   }
 
-  //update_ptcl_to_grd ();
+  update_ptcl_to_grd ();
   
   /*
     std::cout << "grd_to_ptcl" << "\n";
