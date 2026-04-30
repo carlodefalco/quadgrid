@@ -89,14 +89,14 @@ main () {
   qg = std::make_unique<quadgrid_t<vector_t<real_t>>> (j["grid_properties"]);
   p = std::make_unique<particles_t> (j, *qg);
 
-  p->build_mass();
-  p->init_particle_mesh();
 
   std::map<std::string, vector_t<real_t>> vars=
     j["grid_vars"].get<std::map<std::string, vector_t<real_t>>> ();
 
   //Copy from host to device
   p->memcpy_host_to_device();
+  p->build_mass();
+  p->init_particle_mesh();
 
   for (const auto & g : vars)
     p->device_grid_vars[g.first] = g.second;
