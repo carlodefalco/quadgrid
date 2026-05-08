@@ -241,10 +241,19 @@ particles_t {
 
   //! Updates the`ptcl_to_grd` map only, without changing
   //  `grd_to_ptcl`, if not needed.
+  // backend is the policy
+  template<class backend>
   void
   update_ptcl_to_grd ();
   
-  //! @brief Mark particles by cell color
+  //policies for update_ptcl_to_grd()
+  class 
+  update_ptcl_to_grd_host;
+  
+  class
+  update_ptcl_to_grd_device;
+  
+//! @brief Mark particles by cell color
 
   void
   mark_by_cell_color ();
@@ -425,7 +434,7 @@ public :
 			 const real_t hx_, const real_t hy_, const idx_t nrows_)
     : ptcl_to_grd(ptcl_to_grd_), x(x_), y(y_), hx(hx_), hy(hy_), nrows(nrows_) {};
 
-    DEVICE 
+    HOST DEVICE 
     void operator() (particles_t::idx_t ii) {
     ptcl_to_grd[ii] = quadgrid_t<COORD_t>::sub2gind (static_cast<idx_t> (std::floor (y[ii] / hy)),
 						     static_cast<idx_t> (std::floor (x[ii] / hx)),

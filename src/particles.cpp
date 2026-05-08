@@ -92,6 +92,7 @@ particles_t::init_props
     dprops[dpropnames[ii]].assign (num_particles, 0.0);
   }
 }
+
 #ifdef USE_THRUST
 void
 particles_t::memcpy_host_to_device () {
@@ -118,23 +119,11 @@ particles_t::memcpy_device_to_host ()
     thrust::copy (device_grid_M.cbegin (), device_grid_M.cend (), M.begin ());
     thrust::copy (device_ptcl_to_grd.cbegin(), device_ptcl_to_grd.cend(), ptcl_to_grd.begin());  
 }
+
+
+
 #endif
 
-
-
-void
-particles_t::update_ptcl_to_grd () {
- 
-  #ifdef USE_THRUST
-  ptcl_to_grd_update_t p2gu (thrust::raw_pointer_cast(device_ptcl_to_grd.data ()), thrust::raw_pointer_cast(device_x.data ()), thrust::raw_pointer_cast(device_y.data ()), grid.hx (), grid.hy (), grid.num_rows ());
-  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
-  thrust::for_each(device_exec_policy, first_p, last_p, p2gu);
-  #else
-  ptcl_to_grd_update_t p2gu (ptcl_to_grd.begin (), x.begin (), y.begin (), grid.hx (), grid.hy (), grid.num_rows ());
-  range rng (0, this->num_particles);
-  std::for_each (rng.begin (), rng.end (), p2gu);
-  #endif
-}
 
 void
 particles_t::init_particle_mesh () {
@@ -154,7 +143,7 @@ particles_t::init_particle_mesh () {
 
   }
 
-  //update_ptcl_to_grd ();
+  update_ptcl_to_grd<update_ptcl_to_grd_host> ();
   
   /*
     std::cout << "grd_to_ptcl" << "\n";

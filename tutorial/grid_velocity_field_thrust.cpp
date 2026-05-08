@@ -194,9 +194,9 @@ main () {
     // must be updated explicitely
     timer.tic("init_particle_mesh");
     #ifdef USE_THRUST
-    p->update_ptcl_to_grd();
+    p->update_ptcl_to_grd<particles_t::update_ptcl_to_grd_device>();
     #else
-    p.update_ptcl_to_grd();
+    p.update_ptcl_to_grd<particles_t::update_ptcl_to_grd_host>();
     #endif
 
     timer.toc("init_particle_mesh");
