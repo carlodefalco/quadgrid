@@ -113,11 +113,12 @@ particles_t::memcpy_device_to_host ()
 {
     thrust::copy (device_x.cbegin (), device_x.cend (), x.begin ());
     thrust::copy (device_y.cbegin (), device_y.cend (), y.begin ());
-    thrust::copy (device_dprops["VX"].cbegin (), device_dprops["VX"].cend (), dprops.at("VX").begin ());
-    thrust::copy (device_dprops["VY"].cbegin (), device_dprops["VY"].cend (), dprops.at("VY").begin ());
-    thrust::copy (device_dprops["M"].cbegin (), device_dprops["M"].cend (), dprops.at("M").begin ());
     thrust::copy (device_grid_M.cbegin (), device_grid_M.cend (), M.begin ());
     thrust::copy (device_ptcl_to_grd.cbegin(), device_ptcl_to_grd.cend(), ptcl_to_grd.begin());  
+
+    for (const auto & p : device_dprops)
+       dprops[p.first] = p.second;
+   
 }
 
 
