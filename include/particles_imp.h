@@ -96,6 +96,24 @@ particles_t::p2g
 
 }
 
+//p2g with custom helper
+template<typename UnaryFunction>
+void
+particles_t::p2g
+(std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+
+ #ifdef USE_THRUST
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ #else
+ range<idx_t> rng (0, this->num_particles);
+ range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ #endif
+
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper); 
+
+};
+
 
 template<typename str>
 void
@@ -224,6 +242,25 @@ particles_t::p2gd
 
 }
 
+//P2GD with custom helper
+template<typename UnaryFunction>
+void
+particles_t::p2gd
+(std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+ 
+ #ifdef USE_THRUST
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ #else
+ range<idx_t> rng (0, this->num_particles);
+ range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ #endif
+ 
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ 
+ };
+
+
 template<typename str>
 void
 particles_t::g2p
@@ -316,6 +353,26 @@ particles_t::g2p
     
   }
 }
+
+//g2p with custom helper
+template<typename UnaryFunction>
+void
+particles_t::g2p
+ (std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+ 
+  #ifdef USE_THRUST
+  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+  #else
+  range<idx_t> rng (0, this->num_particles);
+  range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+  #endif
+ 
+  algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ 
+};
+
+
 
 template<typename str>
 void
@@ -442,6 +499,27 @@ particles_t::g2pd
 
   }
 }
+
+
+//g2pd with custom helper
+template<typename UnaryFunction>
+void
+particles_t::g2pd
+ (std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+ 
+ #ifdef USE_THRUST
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ #else
+ range<idx_t> rng (0, this->num_particles);
+ range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ #endif
+ 
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ };
+
+
+
 
 #ifdef USE_THRUST
 // Updates 'device_ptcl_to_grd'

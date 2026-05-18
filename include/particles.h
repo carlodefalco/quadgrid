@@ -353,6 +353,13 @@ particles_t {
        std::initializer_list<str> const & gvarnames,
        bool apply_mass = false) ;
 
+  //p2g with custom helper
+  template<typename UnaryFunction>
+  void
+  p2g (std::map<std::string, device_vector_t<real_t>> & vars,
+       UnaryFunction helper);
+
+
   template<typename GT, typename PT>
   void
   p2gd (std::map<std::string, device_vector_t<real_t>> & vars,
@@ -370,7 +377,13 @@ particles_t {
         std::string const & area,
         std::initializer_list<str> const & gvarnames,
         bool apply_mass = false);
-
+ 
+  //p2gd with custom helper
+  template<typename UnaryFunction>
+  void 
+  p2gd (std::map<std::string, device_vector_t<real_t>> & vars,
+        UnaryFunction helper);
+ 
   void
   g2p (const std::map<std::string, device_vector_t<real_t>>& vars,
        bool apply_mass = false) {
@@ -391,6 +404,12 @@ particles_t {
        PT const & pvarnames,
        bool apply_mass = false);
 
+  //g2p with custom helper
+  template<typename UnaryFunction>
+  void 
+  g2p (std::map<std::string, device_vector_t<real_t>> & vars,
+       UnaryFunction helper);
+
   template<typename GT, typename PT>
   void
   g2pd (const std::map<std::string, device_vector_t<real_t>>& vars,
@@ -406,6 +425,12 @@ particles_t {
         std::initializer_list<str> const &pxvarnames,
         std::initializer_list<str> const & pyvarnames,
         bool apply_mass = false);
+
+  //g2pd with custom helper
+  template<typename UnaryFunction>
+  void 
+  g2pd (std::map<std::string, device_vector_t<real_t>> & vars,
+        UnaryFunction helper);
 
 };
 
