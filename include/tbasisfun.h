@@ -36,8 +36,9 @@ namespace bspline {
     
 
     FLT N{0.0};
-    const FLT Umin = *(std::min_element (Ubegin, Uend));
-    const FLT Umax = *(std::max_element (Ubegin, Uend));
+    // The span index is supposed to be sorted increasingly.
+    const FLT Umin = *Ubegin;
+    const FLT Umax = *std::prev(Uend);
 
     //std::cout << std::setprecision (16) <<"Umin = " << Umin << " u = " << u << " Umax = " << Umax << std::endl;
     if (u >= Umin && u < Umax) {
@@ -128,8 +129,9 @@ namespace bspline {
   {
   
     FLT Nder{0.0};
-    const FLT Umin = *(std::min_element (Ubegin, Uend));
-    const FLT Umax = *(std::max_element (Ubegin, Uend));
+    // The span index is supposed to be sorted increasingly.
+    const FLT Umin = *Ubegin;
+    const FLT Umax = *std::prev(Uend);
     
     if ((u >= Umin) && ( u <= Umax)) {
    
