@@ -31,7 +31,7 @@ particles_t::p2g
     auto & gvar = vars[getkey(gvarnames, ivar)];
     auto const & dprop = dprops.at (getkey(pvarnames, ivar));
 
-    for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
+    for (idx_t ip = 0; ip < this->num_particles; ++ip) {
       xx = x[ip];
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
@@ -84,7 +84,7 @@ particles_t::p2gd
     auto const & dpropy = dprops.at (getkey(pyvarnames, ivar));
     auto const & dproparea = dprops.at (area);
 
-    for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
+    for (idx_t ip = 0; ip < this->num_particles; ++ip) {
       xx = x[ip];
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
@@ -292,7 +292,7 @@ particles_t::g2pd
 
 
     idx_t nodes_per_cell = grid.nodes_per_cell();
-    for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
+    for (idx_t ip = 0; ip < this->num_particles; ++ip) {
       xx = x[ip];
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];

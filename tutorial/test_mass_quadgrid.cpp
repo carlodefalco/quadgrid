@@ -21,6 +21,8 @@ int main(){
   cdf::timer::timer_t timer;
 
   constexpr auto filename = "mass.json";
+  std::cout << std::setprecision(16);            // cifre significative
+
 
   nlohmann::json j;
   std::ifstream inbuf (filename);
@@ -67,6 +69,19 @@ for( size_t in=0; in< mdof.size();++in){
 std::cout<<"mass_dof_tot: "<<mass_dof<<std::endl;
 
 
+std::cout<<"Test 2"<<std::endl;
+double Mi=0.5;
+// Test2 quantity conservation in g2p, only for constant fields
+vars.at("Mn").assign(mdof.size(),Mi);
+
+mass_dof=0;
+for( size_t in=0; in< mdof.size();++in){
+
+    mass_dof+=mdof[in];
+
+}
+std::cout<<"mass_dof_tot: "<<mass_dof<<std::endl;
+
 
 mp.assign(p.num_particles,0.);
 timer.tic("g2p");
@@ -77,9 +92,12 @@ timer.toc("g2p");
   for (size_t ip=0; ip<p.num_particles;++ip){
     mass_part+=mp[ip];
   }
-std::cout<<"mass_part_tot:"<<mass_part<<std::endl;
 
+std::cout<<"mass_part_tot:"<<mass_part<<", expected: "<<Mi*p.num_particles<<std::endl;
 std::cout<<"mdof size: "<<mdof.size()<<" num of dof: "<<qg.num_global_nodes()<<std::endl;
+std::cout<<"Num particles: "<<p.num_particles<<std::endl;
+
+
 
 mdof.assign(mdof.size(),0.);
 timer.tic("p2g");

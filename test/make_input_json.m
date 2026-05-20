@@ -8,7 +8,7 @@ y = linspace (0, in.grid_properties.hy*in.grid_properties.ny, 100);
 in.x = in.x(:);
 in.y = in.y(:);
 in.num_particles = numel (in.x);
-in.iprops.label = [0:numel(in.x)](:);
+in.iprops.label = [0:numel(in.x)-1](:);
 
 in.dprops = struct ('M',  ones(in.num_particles, 1), ...
 		    'Vx', ones(in.num_particles, 1), ...
