@@ -8,11 +8,7 @@
 #include <limits>
 
 namespace bspline {
-// Position of the cell
-  enum class Position{
-    Internal,
-    Boundary
-  };
+
   
   template<typename FLT>
   FLT
@@ -34,15 +30,10 @@ namespace bspline {
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
 
-  template<Position Pos, typename INT, typename FLT, typename ITERATOR>
+  template< typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun (FLT const u, INT const p, ITERATOR const Ubegin, ITERATOR const Uend) {
     
-    
-  if constexpr( Pos==Position::Boundary){
-    if(u==*std::prev(Uend) && u==*std::next(Ubegin)){
-      return FLT{1.0};}
-  }
 
     FLT N{0.0};
     const FLT Umin = *(std::min_element (Ubegin, Uend));
@@ -99,12 +90,12 @@ namespace bspline {
 	
 	if (u<*std::next(Ubegin,p)) {
 	  const FLT ln = u - *Ubegin;
-	  N += ratio(ln * onebasisfun<Pos> (u, p-1, Ubegin, std::prev (Uend)) , ld); 
+	  N += ratio(ln * onebasisfun (u, p-1, Ubegin, std::prev (Uend)) , ld); 
 	}
 	
 	if (u>=*std::next(Ubegin,1)) {
 	  const FLT dn = *std::prev (Uend) - u;
-	  N += ratio(dn * onebasisfun<Pos> (u, p-1, std::next (Ubegin), Uend) , dd);
+	  N += ratio(dn * onebasisfun (u, p-1, std::next (Ubegin), Uend) , dd);
 	}
 
 //std::cout << "p = " << p << std::endl;
@@ -131,19 +122,11 @@ namespace bspline {
   //! @param p basis function degree.
   //! @param Ubegin iterator to the beginning of the local knot vector.
   //! @param Uend iterator past the end of the local knot vector.
-  template<Position Pos,typename INT, typename FLT, typename ITERATOR>
+  template< typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfunder (FLT u, INT p, ITERATOR Ubegin, ITERATOR Uend)
   {
-    if constexpr( Pos==Position::Boundary){
-    if(u==*std::prev(Uend) && u==*std::next(Ubegin)){
-      FLT tol=1e-10;
-         u=u-tol;
-    }
-    }  
-      
   
-
     FLT Nder{0.0};
     const FLT Umin = *(std::min_element (Ubegin, Uend));
     const FLT Umax = *(std::max_element (Ubegin, Uend));
@@ -157,12 +140,12 @@ namespace bspline {
 
 	const FLT ld = *std::next (Uend, -2) - *Ubegin;
 	if (u<*std::next(Ubegin,p)) {
-	  Nder += ratio (p * onebasisfun<Pos> (u, p-1, Ubegin, std::next (Uend, -1)), ld);
+	  Nder += ratio (p * onebasisfun (u, p-1, Ubegin, std::next (Uend, -1)), ld);
 	}
   
 	const FLT dd = *std::next (Uend, -1) - *std::next (Ubegin, 1);
 	if (u>=*std::next(Ubegin,1) && u<*std::prev(Uend) ) { 
-	  Nder -= ratio (p * onebasisfun<Pos> (u, p-1, std::next (Ubegin, 1), Uend), dd);
+	  Nder -= ratio (p * onebasisfun (u, p-1, std::next (Ubegin, 1), Uend), dd);
 	}
 	
       }
@@ -200,13 +183,13 @@ namespace bspline {
   };
 
   // I can specify the first two and let the compiler deduce the types
-  template<Position Pos_x, Position Pos_y, typename INT, typename FLT, typename ITERATOR>
+  template< typename INT, typename FLT, typename ITERATOR>
   FLT
   onebasisfun2d (FLT const u, FLT const v, INT const pu, INT const pv,
 		 ITERATOR const Ubegin, ITERATOR const Uend,
 		 ITERATOR const Vbegin, ITERATOR const Vend) {
-    FLT N = onebasisfun<Pos_x> (u, pu, Ubegin, Uend);
-    N *= onebasisfun<Pos_y> (v, pv, Vbegin, Vend);
+    FLT N = onebasisfun( u, pu, Ubegin, Uend);
+    N *= onebasisfun( v, pv, Vbegin, Vend);
     return N;
   }
   

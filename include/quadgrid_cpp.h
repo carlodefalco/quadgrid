@@ -257,8 +257,10 @@ else{
  static double
   shp (double x, double y, idx_t inode,
        idx_t c, idx_t r, idx_t px, idx_t py, 
-       idx_t rx, idx_t ry, idx_t num_dof_x, idx_t num_dof_y, std::vector<double> const  & knot_vect_x, std::vector<double> const & knot_vect_y) {
-        using namespace bspline;
+       idx_t rx, idx_t ry,  std::vector<double> const  & knot_vect_x, std::vector<double> const & knot_vect_y) 
+    {
+    
+    using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
 
@@ -274,25 +276,16 @@ else{
     std::vector<double>::const_iterator Span_y_begin = knot_vect_y.begin() + ii-py+r1;
     std::vector<double>::const_iterator Span_y_end = knot_vect_y.begin() + ii+r1+2;
 
-    if (ii-py+r1==num_dof_y-1){// check if the bspline index is the last index possible, i.e. we are on the boundary
-      if (jj-px+c1==num_dof_x-1)
-        return onebasisfun2d<Position::Boundary,Position::Boundary>
-         (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
-      else
-        return onebasisfun2d<Position::Internal,Position::Boundary> (x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+  
+    return onebasisfun2d(x, y, px, py, Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
+    
     }
-    if (jj-px+c1==num_dof_x-1)
-      return onebasisfun2d<Position::Boundary,Position::Internal> (x, y, px, py,
-         Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
-    return onebasisfun2d<Position::Internal,Position::Internal> (x, y, px, py,
-       Span_x_begin, Span_x_end, Span_y_begin, Span_y_end);
-       }
 
 
   static double
   shg (double x, double y, idx_t idir, idx_t inode,
        idx_t c, idx_t r, idx_t px, idx_t py, idx_t rx, idx_t ry,
-      idx_t num_dof_x, idx_t num_dof_y, std::vector<double> const  & knot_vect_x, std::vector<double> const & knot_vect_y) {
+      std::vector<double> const  & knot_vect_x, std::vector<double> const & knot_vect_y) {
    using namespace bspline;
     if (inode <0 || inode >= (px+1)*(py+1))
       return -1;// or std::assert
@@ -312,28 +305,12 @@ else{
 
 
 if (idir==0){//x-deriv
-if (ii-py+r1==num_dof_y-1){// check if the bspline index is the last index possible, i.e. we are on the boundary
-      if (jj-px+c1==num_dof_x-1)
-        return onebasisfun<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
-      else
-        return onebasisfun<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
-    }
-if (jj-px+c1==num_dof_x-1)
-      return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
-return onebasisfun<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfunder<Position::Internal>(x,px,Span_x_begin, Span_x_end);
+
+return onebasisfun(y,py,Span_y_begin, Span_y_end)*onebasisfunder(x,px,Span_x_begin, Span_x_end);
 }
 else if(idir==1){//y-deriv
-  if (ii-py+r1==num_dof_y-1){// check if the bspline index is the last index possible, i.e. we are on the boundary
-      if (jj-px+c1==num_dof_x-1)
-        return onebasisfunder<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
-      else
-        return onebasisfunder<Position::Boundary>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
-    }
-if (jj-px+c1==num_dof_x-1)
-      return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Boundary>(x,px,Span_x_begin, Span_x_end);
 
-return onebasisfunder<Position::Internal>(y,py,Span_y_begin, Span_y_end)*onebasisfun<Position::Internal>(x,px,Span_x_begin, Span_x_end);
-
+return onebasisfunder(y,py,Span_y_begin, Span_y_end)*onebasisfun(x,px,Span_x_begin, Span_x_end);
 
 }
 return -1;
