@@ -340,41 +340,6 @@ return -1;
 }
 
 
-std::vector<double> build_mass() const {// Non corretta per nodi a bordo dx
-using namespace bspline;
-
-idx_t px = grid_properties.px;
-idx_t py = grid_properties.py;
-
-std::vector<double> M(num_global_nodes() ,0.0);
-std::vector<double> const & knot_vect_x = grid_properties.knot_vect_x;
-std::vector<double> const & knot_vect_y = grid_properties.knot_vect_y;
-
-for( idx_t j=0; j<N_dof_x(); ++j){
-  for(idx_t i=0; i<N_dof_y(); ++i){
-
-    double Nx=0, Ny=0;
-    for (idx_t k=i; k<=i+py; ++k){
-      std::vector<double>::const_iterator Span_y_begin = knot_vect_y.begin() + k;
-      std::vector<double>::const_iterator Span_y_end = knot_vect_y.begin() + k+py+2;
-      Ny+=onebasisfun<Position::Internal>(knot_vect_y[i+py+1],py+1,Span_y_begin, Span_y_end)
-       - onebasisfun<Position::Internal>(knot_vect_y[i],py+1,Span_y_begin, Span_y_end);
-    }
-    for (idx_t k=j; k<=j+px; ++k){
-      std::vector<double>::const_iterator Span_x_begin = knot_vect_x.begin() + k;
-      std::vector<double>::const_iterator Span_x_end = knot_vect_x.begin() + k+px+2;
-      Nx+=onebasisfun<Position::Internal>(knot_vect_x[j+px+1],px+1,Span_x_begin, Span_x_end)
-       - onebasisfun<Position::Internal>(knot_vect_x[j],px+1,Span_x_begin, Span_x_end);
-    }
-
-    M[sub2gind(i,j,N_dof_y())]=((knot_vect_y[i+py+1]-knot_vect_y[i])/(py+1)*Ny)*
-      ((knot_vect_x[j+px+1]-knot_vect_x[j])/(px+1)*Nx);
-  }
-}
-return M;
-}
-
-
 
   static idx_t
   sub2gind (idx_t r, idx_t c, idx_t nr) {

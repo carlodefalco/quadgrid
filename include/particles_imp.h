@@ -8,11 +8,10 @@ void
 particles_t::p2g
 (std::map<std::string, std::vector<double>> & vars,
  std::initializer_list<str> const & pvarnames,
- std::initializer_list<str> const & gvarnames,
- bool apply_mass) const {
+ std::initializer_list<str> const & gvarnames) const {
   using strlist = std::initializer_list<str> const &;
   p2g<strlist, strlist>
-    (vars, pvarnames, gvarnames, apply_mass);
+    (vars, pvarnames, gvarnames);
 }
 
 template<typename GT, typename PT>
@@ -20,8 +19,7 @@ void
 particles_t::p2g
 (std::map<std::string, std::vector<double>> & vars,
  PT const & pvarnames,
- GT const & gvarnames,
- bool apply_mass) const {
+ GT const & gvarnames) const {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double N = 0.0, xx = 0.0, yy = 0.0;
@@ -42,11 +40,6 @@ particles_t::p2g
     }
   }
 
-  if (apply_mass)
-    for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar)
-      for (std::size_t ii = 0; ii < M.size (); ++ii) {
-        vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
-      }
 }
 
 
@@ -57,11 +50,10 @@ particles_t::p2gd
  std::initializer_list<str> const & pxvarnames,
  std::initializer_list<str> const & pyvarnames,
  std::string const &area,
- std::initializer_list<str> const & gvarnames,
- bool apply_mass) const {
+ std::initializer_list<str> const & gvarnames) const {
   using strlist = std::initializer_list<str> const &;
   p2gd<strlist, strlist>
-    (vars, pxvarnames, pyvarnames, area, gvarnames, apply_mass);
+    (vars, pxvarnames, pyvarnames, area, gvarnames);
 }
 
 
@@ -72,8 +64,7 @@ particles_t::p2gd
  PT const & pxvarnames,
  PT const & pyvarnames,
  std::string const &area,
- GT const & gvarnames,
- bool apply_mass) const {
+ GT const & gvarnames) const {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double xx = 0.0, yy = 0.0, Nx = 0.0, Ny = 0.0;
@@ -97,11 +88,6 @@ particles_t::p2gd
 
   }
 
-  if (apply_mass)
-    for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar)
-      for (idx_t ii = 0; ii < M.size (); ++ii) {
-        vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
-      }
 
 }
 
@@ -110,11 +96,9 @@ void
 particles_t::g2p
 (const std::map<std::string, std::vector<double>> & vars,
  std::initializer_list<str> const & gvarnames,
- std::initializer_list<str> const & pvarnames,
- bool apply_mass) {
+ std::initializer_list<str> const & pvarnames) {
   using strlist = std::initializer_list<str> const &;
-  g2p<strlist, strlist> (vars, gvarnames,
-                         pvarnames, apply_mass);
+  g2p<strlist, strlist> (vars, gvarnames, pvarnames);
 }
 
 
@@ -130,7 +114,6 @@ particles_t::g2p
 //   const idx_t nodes_per_cell;
 //   const PVAR_t x;
 //   const PVAR_t y;
-//   const GVAR_t M;
 //   const GVAR_t gvar;
 //   const P2C_t ptcl_to_grd;
 //   const idx_t nrows;
@@ -138,16 +121,16 @@ particles_t::g2p
 //   const double hx;
 //   const double hy;
 //   PVAR_t dprop;
-//   bool apply_mass;
+
   
 // public :
 
-//   g2p_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
+//   g2p_helper_t (const PVAR_t x_, const PVAR_t y_,
 // 		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_, const idx_t ncols_,
-// 		const double hx_, const double hy_, PVAR_t dprop_, bool apply_mass_, const idx_t nodes_per_cell_)
-//     : x(x_), y(y_), M(M_), gvar(gvar_),
+// 		const double hx_, const double hy_, PVAR_t dprop_, const idx_t nodes_per_cell_)
+//     : x(x_), y(y_), gvar(gvar_),
 //       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), ncols(ncols_), hx(hx_), hy(hy_),
-//       dprop(dprop_), apply_mass(apply_mass_), nodes_per_cell(nodes_per_cell_) {};
+//       dprop(dprop_), nodes_per_cell(nodes_per_cell_) {};
   
 //   void
 //   operator() (idx_t ip) {
@@ -158,8 +141,7 @@ particles_t::g2p
 //     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
 //     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
 //     for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {  
-//       N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, nrows)] :
-// 	qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows);
+//       N = qgt::shp (xx, yy, inode, c, r, hx, hy, ncols, nrows);
 //       dprop[ip] += N * gvar[qgt::gt(inode, c, r, nrows)];
 //     }
 //   }  
@@ -171,8 +153,7 @@ void
 particles_t::g2p
 (const std::map<std::string, std::vector<double>>& vars,
  GT const & gvarnames,
- PT const & pvarnames,
- bool apply_mass) {
+ PT const & pvarnames) {
 
   using idx_t = particles_t::idx_t;
   double N = 0.0, xx = 0.0, yy = 0.0;
@@ -187,18 +168,16 @@ particles_t::g2p
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
       for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {
-    	N = apply_mass ?
-          icell.shp(xx, yy, inode) * M[icell.gt(inode)] :
-          icell.shp(xx, yy, inode);
+    	N = icell.shp(xx, yy, inode);
         dprop[ip]      += N * gvar[icell.gt(inode)];
       }
     }
 
     // To use it one should add more input fields for BSplines
-    // g2p_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    // g2p_helper_t helper (x.begin (), y.begin (),
     // 			 gvar.cbegin (), ptcl_to_grd.cbegin (),
     // 			 grid.num_rows (),grid.num_cols(), grid.hx (), grid.hy (),
-    // 			 dprop.begin (), apply_mass, grid.nodes_per_cell());
+    // 			 dprop.begin (), grid.nodes_per_cell());
     
     // range rng (0, this->num_particles);
     // std::for_each (rng.begin (), rng.end (), helper);
@@ -212,11 +191,10 @@ particles_t::g2pd
 (const std::map<std::string, std::vector<double>>& vars,
  std::initializer_list<str> const & gvarnames,
  std::initializer_list<str> const & pxvarnames,
- std::initializer_list<str> const & pyvarnames,
- bool apply_mass) {
+ std::initializer_list<str> const & pyvarnames) {
   using strlist = std::initializer_list<str> const &;
   g2pd<strlist, strlist> (vars, gvarnames, pxvarnames,
-                          pyvarnames, apply_mass);
+                          pyvarnames);
 }
 
 // //! @brief Template class for the implementation
@@ -229,7 +207,6 @@ particles_t::g2pd
 //   const idx_t nodes_per_cell;
 //   const PVAR_t x;
 //   const PVAR_t y;
-//   const GVAR_t M;
 //   const GVAR_t gvar;
 //   const P2C_t ptcl_to_grd;
 //   const idx_t nrows;
@@ -238,17 +215,15 @@ particles_t::g2pd
 //   const double hy;
 //   PVAR_t dpropx;
 //   PVAR_t dpropy;
-//   bool apply_mass;
   
 // public :
 
-//   g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
+//   g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, 
 // 		 const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_, const idx_t ncols_,
-// 		 const double hx_, const double hy_, PVAR_t dpropx_, PVAR_t dpropy_,
-// 		 bool apply_mass_, const idx_t nodes_per_cell_)
-//     : x(x_), y(y_), M(M_), gvar(gvar_),
+// 		 const double hx_, const double hy_, PVAR_t dpropx_, PVAR_t dpropy_, const idx_t nodes_per_cell_)
+//     : x(x_), y(y_),gvar(gvar_),
 //       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), ncols(ncols_), hx(hx_), hy(hy_),
-//       dpropx(dpropx_), dpropy(dpropy_), apply_mass(apply_mass_), nodes_per_cell(nodes_per_cell_) {};
+//       dpropx(dpropx_), dpropy(dpropy_), nodes_per_cell(nodes_per_cell_) {};
   
 //   void
 //   operator() (idx_t ip) {
@@ -260,12 +235,8 @@ particles_t::g2pd
 //     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
 
 //     for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {
-//       Nx = apply_mass ?
-// 	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, nrows)] :
-// 	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows);
-//       Ny = apply_mass ?
-// 	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows) * M[qgt::gt(inode, c, r, nrows)] :
-// 	qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows);
+//       Nx =	qgt::shg (xx, yy, 0, inode, c, r, hx, hy, ncols, nrows);
+//       Ny = qgt::shg (xx, yy, 1, inode, c, r, hx, hy, ncols, nrows);
 //       dpropx[ip] += Nx * gvar[qgt::gt(inode, c, r, nrows)];
 //       dpropy[ip] += Ny * gvar[qgt::gt(inode, c, r, nrows)];
 
@@ -279,8 +250,7 @@ particles_t::g2pd
 (const std::map<std::string, std::vector<double>>& vars,
  GT const & gvarnames,
  PT const & pxvarnames,
- PT const & pyvarnames,
- bool apply_mass) {
+ PT const & pyvarnames) {
 
   using idx_t = quadgrid_t<std::vector<double>>::idx_t;
   double Nx = 0.0, Ny = 0.0, xx = 0.0, yy = 0.0;
@@ -297,21 +267,17 @@ particles_t::g2pd
       yy = y[ip];
       auto icell = grid[ptcl_to_grd[ip]];
       for (idx_t inode = 0; inode < nodes_per_cell; ++inode) {
-        Nx = apply_mass ?
-          icell.shg(xx, yy, 0, inode) * M[icell.gt(inode)] :
-          icell.shg(xx, yy, 0, inode);
-        Ny = apply_mass ?
-          icell.shg(xx, yy, 1, inode) * M[icell.gt(inode)] :
-          icell.shg(xx, yy, 1, inode);
+        Nx = icell.shg(xx, yy, 0, inode);
+        Ny = icell.shg(xx, yy, 1, inode);
         dpropx[ip] += Nx * gvar[icell.gt(inode)];
         dpropy[ip] += Ny * gvar[icell.gt(inode)];
       }
     }
 
-    // g2pd_helper_t helper (x.begin (), y.begin (), M.cbegin (),
+    // g2pd_helper_t helper (x.begin (), y.begin (),
     // 			 gvar.cbegin (), ptcl_to_grd.cbegin (),
     // 			 grid.num_rows (), grid.num_cols(), grid.hx (), grid.hy (),
-    // 			 dpropx.begin (), dpropy.begin (), apply_mass, grid.nodes_per_cell());
+    // 			 dpropx.begin (), dpropy.begin (), grid.nodes_per_cell());
      
     // range rng (0, this->num_particles);
     // std::for_each (rng.begin (), rng.end (), helper);

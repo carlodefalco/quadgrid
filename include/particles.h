@@ -20,8 +20,6 @@
 //! To each particle a set one can associate a set of `double`
 //! and one of `int` which are stored in the `std::map` variables
 //! `dprops` and `iprops`, respectively.
-//! Can compute a (lumped) mass matrix to be used in the transfer
-//! functions.
 //! If particles are moved, the connectivity must be updated invoking
 //! the method `init_particle_mesh ()`
 
@@ -41,7 +39,6 @@ particles_t {
   //! `double` type quantities associated with the particles.
   std::map<std::string, std::vector<double>> dprops;
 
-  std::vector<double> M; //!< Mass matrix to be used for transfers if required.
   std::map<idx_t, std::vector<idx_t>> grd_to_ptcl;   //!< grid->particles connectivity.
   std::vector<idx_t> ptcl_to_grd;                    //!< particles->grid connectivity.
   std::vector<idx_t> ptcl_grd_color;                 //!< color of particle's cell.
@@ -241,14 +238,6 @@ particles_t {
   init_particle_positions (std::function<double ()> xgentr,
                            std::function<double ()> ygentr);
 
-  //! @brief Construct a mass matrix.
-
-  //! Must be invoked manually before invoking any of the transfer
-  //! methods with flag `use_mass` set to `true`
-  void
-  build_mass () {
-    M=grid.build_mass();
-  }
 
   //! @brief shortcut for `dprops.at (name) [ii]`
   double &
@@ -301,9 +290,8 @@ particles_t {
   //! and use the same field names for particle and
   //! grid variables.
   void
-  p2g (std::map<std::string, std::vector<double>> & vars,
-       bool apply_mass = false) const {
-    p2g (vars, vars, vars, apply_mass);
+  p2g (std::map<std::string, std::vector<double>> & vars ) const {
+    p2g (vars, vars, vars);
   }
 
   //! @brief Map particle variables to the grid.
@@ -316,15 +304,13 @@ particles_t {
   void
   p2g (std::map<std::string, std::vector<double>> & vars,
        PT const & pvarnames,
-       GT const & gvarnames,
-       bool apply_mass = false) const;
+       GT const & gvarnames) const;
 
   template<typename str>
   void
   p2g (std::map<std::string, std::vector<double>> & vars,
        std::initializer_list<str> const & pvarnames,
-       std::initializer_list<str> const & gvarnames,
-       bool apply_mass = false) const;
+       std::initializer_list<str> const & gvarnames) const;
 
   template<typename GT, typename PT>
   void
@@ -332,8 +318,7 @@ particles_t {
         PT const & pxvarnames,
         PT const & pyvarnames,
         std::string const &area,
-        GT const & gvarnames,
-        bool apply_mass = false) const;
+        GT const & gvarnames) const;
 
   template<typename str>
   void
@@ -341,44 +326,38 @@ particles_t {
         std::initializer_list<str> const & pxvarnames,
         std::initializer_list<str> const & pyvarnames,
         std::string const & area,
-        std::initializer_list<str> const & gvarnames,
-        bool apply_mass = false) const;
+        std::initializer_list<str> const & gvarnames) const;
 
   void
-  g2p (const std::map<std::string, std::vector<double>>& vars,
-       bool apply_mass = false) {
-    g2p (vars, vars, vars, apply_mass);
+  g2p (const std::map<std::string, std::vector<double>>& vars) {
+    g2p (vars, vars, vars);
   }
 
   template<typename str>
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
        std::initializer_list<str> const & gvarnames,
-       std::initializer_list<str> const & pvarnames,
-       bool apply_mass = false);
+       std::initializer_list<str> const & pvarnames);
 
   template<typename GT, typename PT>
   void
   g2p (const std::map<std::string, std::vector<double>>& vars,
        GT const & gvarnames,
-       PT const & pvarnames,
-       bool apply_mass = false);
+       PT const & pvarnames);
 
   template<typename GT, typename PT>
   void
   g2pd (const std::map<std::string, std::vector<double>>& vars,
         GT const & gvarnames,
         PT const & pxvarnames,
-        PT const & pyvarnames,
-        bool apply_mass = false);
+        PT const & pyvarnames);
 
   template<typename str>
   void
   g2pd (const std::map<std::string, std::vector<double>>& vars,
         std::initializer_list<str> const & gvarnames,
         std::initializer_list<str> const &pxvarnames,
-        std::initializer_list<str> const & pyvarnames,
-        bool apply_mass = false);
+        std::initializer_list<str> const & pyvarnames );
 
 };
 
