@@ -1,12 +1,19 @@
 
-%% Create input files in JSON format for use
-%% with the quadgrid library
+%% Great code for initialization of velocity field for tutorial grid_velocity_field.cpp
+
+% But it works only with degree 3 and regualrity 2 of the BSplines
+% (constraint given by the function spline)
+
+clear;
+close all;
+
 
 %% properties of the grid
 hy = 0.025;
 hx = 0.025;
 nx = 2/hx;
 ny = 2/hx;
+% Not to change degrees and regularity
 px=3;
 py=3;
 rx=2;
@@ -28,7 +35,7 @@ y = 0 : hy : ny*hy; %% as a function of the coordinates, we need
 fy = @(x) 1e-3*(2*pi*(x-1));
 
 z1= fy(x);
-pp=spline(x,z1);
+pp=spline(x,z1);% interpolates fy with a cubic spline
 sconds=3*ones(size(pp.breaks,2)-2,1);% uguale al numero di interior breakpts, è il numero di condizioni di regolarità in ogni nodo.
 sp_y=fn2fm(pp,'B-',sconds);
 
@@ -38,7 +45,7 @@ sp_y=fn2fm(pp,'B-',sconds);
 
 fx= @(y) 1e-3*(2*pi*(1-y));
 z2=fx(y);
-pp=spline(y,z2);
+pp=spline(y,z2);% interpolates fx with a cubic spline
 sconds=3*ones(size(pp.breaks,2)-2,1);
 sp_x=fn2fm(pp,'B-',sconds);
 
@@ -76,5 +83,3 @@ fwrite (fid, str, 'char');
 fclose (fid);
 
 
-
-% capire cosa fa per input in codice mpm

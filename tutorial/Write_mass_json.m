@@ -6,10 +6,12 @@ hy = 0.025;
 hx = 0.025;
 nx = 2/hx;
 ny = 2/hx;
-px=3;
-py=3;
-rx=2;
-ry=2;
+% Degree
+px=1;
+py=1;
+% Regularity
+rx=0;
+ry=0;
 
 
 in.grid_properties = struct ('hx', hx, 'hy', hy, 'nx', nx, 'ny', ny,'rx',rx,'ry',ry,'px',px,'py',py);
@@ -25,7 +27,11 @@ in.y             = randn(in.num_particles, 1) * .2/6 + 1.5;
 tmp  = [0:numel(in.x)-1];
 in.iprops.label  = tmp(:);
 
-in.dprops = struct ('mp',  2*pi*(.2/6)^2*ones(in.num_particles, 1)/in.num_particles);
+
+
+masses=randn(in.num_particles, 1)*0.2+1;
+masses(masses<0)=0.5;
+in.dprops = struct ('mp', masses);
 
 
 str = jsonencode (in);
