@@ -96,7 +96,7 @@ timer.toc("g2p");
 std::cout<<"mass_part_tot:"<<mass_part<<", expected: "<<Mi*p.num_particles<<std::endl;
 std::cout<<"mdof size: "<<mdof.size()<<" num of dof: "<<qg.num_global_nodes()<<std::endl;
 std::cout<<"Num particles: "<<p.num_particles<<std::endl;
-
+std::cout<< "px: "<<qg.px()<<" py: "<<qg.py()<<" rx:  "<<qg.rx()<<" ry: "<<qg.ry()<<std::endl;
 
 
 mdof.assign(mdof.size(),0.);

@@ -630,6 +630,12 @@ return -1;
   idx_t N_dof_y() const
   {return grid_properties.num_dof_y;};
 
+  idx_t px() const {return grid_properties.px;}
+  idx_t py() const {return grid_properties.py;}
+  idx_t rx() const {return grid_properties.rx;}
+  idx_t ry() const {return grid_properties.ry;}
+
+
 
   std::vector<double> const & knot_vector_x() const {
     return grid_properties.knot_vect_x;

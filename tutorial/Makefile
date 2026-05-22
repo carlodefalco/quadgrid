@@ -11,7 +11,7 @@
 ## LDFLAGS = "-L/opt/local/libexec/onetbb/lib/"
 
 
-CXX ?= /opt/local/bin/clang++
+CXX ?= /usr/bin/g++
 CPPFLAGS ?= -I../include -I./json/single_include/nlohmann/ -I./json/single_include -I./cdf_timer/src
 CXXFLAGS ?= -std=c++17 -O3
 QUADGRIDSRC ?= ../src/particles.cpp
@@ -22,7 +22,8 @@ LIBS ?=
 grid_velocity_field : grid_velocity_field.cpp 
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(QUADGRIDSRC) $(TIMERSRC) grid_velocity_field.cpp -o grid_velocity_field $(LDFLAGS) $(LIBS)
 
-
+mass_test: test_mass_quadgrid.cpp
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) $(QUADGRIDSRC) $(TIMERSRC) test_mass_quadgrid.cpp -o mass_test
 ## clone dependencies via git
 loaddeps :
 	git clone --depth 1 git@github.com:carlodefalco/cdf_timer.git

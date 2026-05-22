@@ -133,7 +133,7 @@ namespace bspline {
     const FLT Umin = *Ubegin;
     const FLT Umax = *std::prev(Uend);
     
-    if ((u >= Umin) && ( u <= Umax)) {
+    if ((u >= Umin) && ( u < Umax)) {
    
       if (p == 0) {
 	Nder = FLT(0.0);
