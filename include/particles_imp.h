@@ -96,6 +96,24 @@ particles_t::p2g
 
 }
 
+//p2g with custom helper
+template<typename UnaryFunction>
+void
+particles_t::p2g
+(std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+
+ #ifdef USE_THRUST
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ #else
+ range<idx_t> rng (0, this->num_particles);
+ range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ #endif
+
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper); 
+
+};
+
 
 template<typename str>
 void
@@ -224,6 +242,25 @@ particles_t::p2gd
 
 }
 
+//P2GD with custom helper
+template<typename UnaryFunction>
+void
+particles_t::p2gd
+(std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+ 
+ #ifdef USE_THRUST
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ #else
+ range<idx_t> rng (0, this->num_particles);
+ range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ #endif
+ 
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ 
+ };
+
+
 template<typename str>
 void
 particles_t::g2p
@@ -316,6 +353,26 @@ particles_t::g2p
     
   }
 }
+
+//g2p with custom helper
+template<typename UnaryFunction>
+void
+particles_t::g2p
+ (std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+ 
+  #ifdef USE_THRUST
+  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+  #else
+  range<idx_t> rng (0, this->num_particles);
+  range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+  #endif
+ 
+  algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ 
+};
+
+
 
 template<typename str>
 void
@@ -417,9 +474,9 @@ particles_t::g2pd
 
      
     #ifdef USE_THRUST
-    auto const & device_gvar = vars.at (getkey (gvarnames, ivar));
-    auto & device_dpropx = dprops.at (getkey (pxvarnames, ivar));
-    auto & device_dpropy = dprops.at (getkey (pyvarnames, ivar));
+    auto const & device_gvar = device_grid_vars.at (getkey (gvarnames, ivar));
+    auto & device_dpropx = device_dprops.at (getkey (pxvarnames, ivar));
+    auto & device_dpropy = device_dprops.at (getkey (pyvarnames, ivar));
     thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
     g2pd_helper_t helper(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), device_grid_M.cbegin(), device_gvar.cbegin(),
     device_ptcl_to_grd.cbegin(), grid.num_rows (), grid.hx (), grid.hy (), thrust::raw_pointer_cast(device_dpropx.data()), 
@@ -442,6 +499,69 @@ particles_t::g2pd
 
   }
 }
+
+
+//g2pd with custom helper
+template<typename UnaryFunction>
+void
+particles_t::g2pd
+ (std::map<std::string, device_vector_t<real_t>> & vars,
+ UnaryFunction helper){
+ 
+ #ifdef USE_THRUST
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ #else
+ range<idx_t> rng (0, this->num_particles);
+ range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ #endif
+ 
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ };
+
+
+
+
+#ifdef USE_THRUST
+// Updates 'device_ptcl_to_grd'
+class
+particles_t::update_ptcl_to_grd_device{
+ 
+public:
+ 
+  static
+  void
+  update(particles_t& p){
+  ptcl_to_grd_update_t p2gu (thrust::raw_pointer_cast(p.device_ptcl_to_grd.data ()), thrust::raw_pointer_cast(p.device_x.data ()),
+                             thrust::raw_pointer_cast(p.device_y.data ()), p.grid.hx (), p.grid.hy (), p.grid.num_rows ());
+ 
+  thrust::counting_iterator<idx_t> first_p(0), last_p(p.num_particles);
+  thrust::for_each(device_exec_policy, first_p, last_p, p2gu);}
+};
+ 
+#endif
+
+//Updates 'host_ptcl_to_grd'
+class
+particles_t::update_ptcl_to_grd_host{
+ 
+public:
+
+ static 
+ void 
+ update(particles_t& p){
+    ptcl_to_grd_update_t p2gu (p.ptcl_to_grd.begin (), p.x.begin (), p.y.begin (), p.grid.hx(), p.grid.hy(), p.grid.num_rows() );
+    range rng (0, p.num_particles);
+    std::for_each(rng.begin(), rng.end(), p2gu);}
+ 
+ };
+
+template<class backend>
+void
+particles_t::update_ptcl_to_grd () {
+  backend::update(*this);
+};
+
+
 
 template<>
 void
