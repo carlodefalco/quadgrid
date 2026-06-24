@@ -55,4 +55,11 @@ $$
  U_p = \sum_i N_i(x_p) u_i  
  $$
  
- 
+### Documentation instructions
+
+* switch to the ˆdoxygenˆbranch
+* merge ˆmainˆinto ˆdoxygenˆ
+* go to folder ˆdocˆ and generate docs
+* git add the ˆdocsˆ folder, commit and push
+
+
