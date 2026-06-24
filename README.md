@@ -57,9 +57,9 @@ $$
  
 ### Documentation instructions
 
-* switch to the ˆdoxygenˆbranch
-* merge ˆmainˆinto ˆdoxygenˆ
-* go to folder ˆdocˆ and generate docs
-* git add the ˆdocsˆ folder, commit and push
+* switch to the `doxygen` branch
+* merge `main` into `doxygen`
+* go to folder `doc` and generate docs
+* git add the `docs` folder, commit and push
 
 
