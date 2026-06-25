@@ -129,16 +129,16 @@ particles_t::p2gd
     (vars, pxvarnames, pyvarnames, area, gvarnames, apply_mass);
 }
 
-template<typename GVAR_t, typename PVAR_t, typename P2C_t>
+template<typename GVAR_t, typename PVAR_t, typename P2C_t, typename DPROPX_t, typename DPROPY_t, typename DPROPAREA_t>
 class
 p2gd_helper_t{
 
   using idx_t = particles_t::idx_t;
   const PVAR_t x;
   const PVAR_t y;
-  const PVAR_t dpropx;
-  const PVAR_t dpropy;
-  const PVAR_t dproparea;
+  const DPROPX_t dpropx;
+  const DPROPY_t dpropy;
+  const DPROPAREA_t dproparea;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
   const real_t hx;
@@ -152,7 +152,7 @@ public :
 
   p2gd_helper_t (const PVAR_t x_, const PVAR_t y_,  const GVAR_t M_,
 		GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
-		const real_t hx_, const real_t hy_, const PVAR_t dpropx_, const PVAR_t dpropy_, const PVAR_t dproparea_, bool apply_mass_)
+		const real_t hx_, const real_t hy_, const DPROPX_t dpropx_, const DPROPY_t dpropy_, const DPROPAREA_t dproparea_, bool apply_mass_)
     : x(x_), y(y_), M(M_), gvar(gvar_), 
       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
       dpropx(dpropx_), dpropy(dpropy_), dproparea(dproparea_), apply_mass(apply_mass_) {};
@@ -275,14 +275,14 @@ particles_t::g2p
 
 //! @brief Template class for the implementation
 //! of the `g2p` method.
-template<typename GVAR_t, typename PVAR_t, typename P2C_t>
+template<typename GVAR_t, typename PVAR_t, typename P2C_t, typename GRIDM_t>
 class
 g2p_helper_t {
 
   using idx_t = particles_t::idx_t;
   PVAR_t x;
   PVAR_t y;
-  const GVAR_t M;
+  const GRIDM_t M;
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
@@ -293,7 +293,7 @@ g2p_helper_t {
   
 public :
 
-  g2p_helper_t (const PVAR_t x_, const PVAR_t y_, GVAR_t M_,
+  g2p_helper_t (const PVAR_t x_, const PVAR_t y_, GRIDM_t M_,
 		const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
 		const real_t hx_, const real_t hy_, PVAR_t dprop_, bool apply_mass_)
     : x(x_), y(y_), M(M_), gvar(gvar_),
@@ -309,6 +309,7 @@ public :
     auto yy = y[ip];
     auto r = qgt::gind2row (ptcl_to_grd[ip], nrows);
     auto c = qgt::gind2col (ptcl_to_grd[ip], nrows);
+    dprop[ip] = 0.;
     for (idx_t inode = 0; inode < 4; ++inode) {  
       N = apply_mass ? qgt::shp (xx, yy, inode, c, r, hx, hy) * M[qgt::gt(inode, c, r, nrows)] :
 	qgt::shp (xx, yy, inode, c, r, hx, hy);
@@ -389,14 +390,14 @@ particles_t::g2pd
 
 //! @brief Template class for the implementation
 //! `g2pd` method.
-template<typename GVAR_t, typename PVAR_t, typename P2C_t>
+template<typename GVAR_t, typename PVAR_t, typename P2C_t, typename GRIDM_t>
 class
 g2pd_helper_t {
 
   using idx_t = particles_t::idx_t;
   PVAR_t x;
   PVAR_t y;
-  const GVAR_t M;
+  const GRIDM_t M;
   const GVAR_t gvar;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
@@ -408,7 +409,7 @@ g2pd_helper_t {
   
 public :
 
-  g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, const GVAR_t M_,
+  g2pd_helper_t (const PVAR_t x_, const PVAR_t y_, const GRIDM_t M_,
 		 const GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
 		 const real_t hx_, const real_t hy_, PVAR_t dpropx_, PVAR_t dpropy_,
 		 bool apply_mass_)
@@ -562,6 +563,51 @@ particles_t::update_ptcl_to_grd () {
 };
 
 
+template<typename str>
+void
+particles_t::p2g_print
+(std::map<std::string, vector_t<real_t>> & vars,
+ std::initializer_list<str> const & pvarnames,
+ std::initializer_list<str> const & gvarnames,
+ bool apply_mass) const {
+  using strlist = std::initializer_list<str> const &;
+  p2g_print<strlist, strlist>
+    (vars, pvarnames, gvarnames, apply_mass);
+}
+
+template<typename GT, typename PT>
+void
+particles_t::p2g_print
+(std::map<std::string, vector_t<real_t>> & vars,
+ PT const & pvarnames,
+ GT const & gvarnames,
+ bool apply_mass) const {
+
+  using idx_t = quadgrid_t<std::vector<double>>::idx_t;
+  double N = 0.0, xx = 0.0, yy = 0.0;
+
+
+  for (std::size_t ivar = 0; ivar < std::size(gvarnames); ++ivar) {
+    auto & gvar = vars[getkey(gvarnames, ivar)];
+    auto const & dprop = dprops.at (getkey(pvarnames, ivar));
+
+    for (idx_t ip = 0; ip <= this->num_particles; ++ip) {
+      xx = x[ip];
+      yy = y[ip];
+      auto icell = grid[ptcl_to_grd[ip]];
+      for (idx_t inode = 0; inode < 4; ++inode) {
+        N = icell.shp(xx, yy, inode) * dprop[ip];
+	gvar[icell.gt(inode)] += N;
+      }
+    }
+  }
+
+  if (apply_mass)
+    for (std::size_t ivar = 0; ivar < std::size (gvarnames); ++ivar)
+      for (idx_t ii = 0; ii < M.size (); ++ii) {
+        vars[getkey(gvarnames, ivar)][ii]  /= M[ii];
+      }
+}
 
 template<>
 void
