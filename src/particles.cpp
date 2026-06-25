@@ -106,6 +106,8 @@ particles_t::memcpy_host_to_device () {
   
   for (const auto & p : iprops)
     device_iprops[p.first] = p.second;
+  
+  std::cout<<"Memcpy Host to Device"<<std::endl;
 }
 
 void
@@ -119,9 +121,8 @@ particles_t::memcpy_device_to_host ()
     for (const auto & p : device_dprops)
        dprops[p.first] = p.second;
    
+    std::cout<<"Memcpy Device to Host"<<std::endl;
 }
-
-
 
 #endif
 
