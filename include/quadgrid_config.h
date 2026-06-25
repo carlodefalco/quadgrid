@@ -1,6 +1,6 @@
 #ifndef QUADGRID_CONFIG_H
 #define QUADGRID_CONFIG_H
-#endif
+
 #ifdef USE_MPI_H
 #include <mpi.h>
 #else
@@ -10,29 +10,41 @@
 #define MPI_Comm_size(x, y) { *y = 0; }
 #define MPI_Comm_rank(x, y) { *y = 0; }
 #endif
+
 #ifdef USE_THRUST
-#ifdef THRUST_CPU
-#include<atomicAdd.h>
-#endif
-#define JSON_HAS_RANGES 0   //fixes conflict between json and nvcc/gcc 
-#include<thrust/device_vector.h>
-#include<thrust/execution_policy.h>
-#include<thrust/host_vector.h>
+#include <thrust/device_vector.h>
+#include <thrust/execution_policy.h>
+#include <thrust/host_vector.h>
+#include <thrust/copy.h>
+#include <thrust/iterator/counting_iterator.h>
+#include <thrust/transform.h>
+#include <thrust/fill.h>
+#include <thrust/functional.h>
 #define DEVICE  __device__
 #define HOST  __host__
 #define vector_t  thrust::host_vector
 #define device_vector_t  thrust::device_vector
 #define algorithm_namespace thrust
 #define device_exec_policy thrust::device
+#define host_exec_policy thrust::host
+
+#ifdef THRUST_CPU
+#include <atomicAdd.h>
+#endif
+
 #else
-#include<atomicAdd.h>
-#include<vector>
-#include<execution>
+#include <functional>
+#include <algorithm>
+#include <atomicAdd.h>
+#include <vector>
+#include <execution>
 #define DEVICE  
 #define HOST  
 #define vector_t std::vector
 #define device_vector_t std::vector
 #define algorithm_namespace std
-#define device_exec_policy std::execution::seq
+#define device_exec_policy std::execution::par_unseq
 #endif
 using real_t = double;
+
+#endif
