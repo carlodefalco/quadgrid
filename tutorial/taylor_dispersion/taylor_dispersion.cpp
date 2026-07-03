@@ -1,18 +1,31 @@
 #include "taylor_dispersion.h"
 #include <thrust/extrema.h>
 
+#ifndef THRUST_CPU
+#if defined(__HIPCC__) || defined(__HIP_PLATFORM_AMD__)
+#include <hip/hip_runtime.h>
+#define gpuGetDeviceCount hipGetDeviceCount
+#define gpuSetDevice hipSetDevice
+#define gpuGetDevice hipGetDevice
+#else
+#define gpuGetDeviceCount cudaGetDeviceCount
+#define gpuSetDevice cudaSetDevice
+#define gpuGetDevice cudaGetDevice
+#endif
+#endif
+
 int main(){
 
 #ifndef THRUST_CPU
  int num_gpus;
- auto err = cudaGetDeviceCount (&num_gpus); if (err) return err;
+ auto err = gpuGetDeviceCount (&num_gpus); if (err) return err;
  std::cerr << "num_gpus=" << num_gpus <<std::endl;
  int device;
  //for (int gpu = 0; gpu < num_gpus; ++gpu)
  int gpu = 1;
  {
-  int  err = cudaSetDevice (gpu); if (err) return err;
-  err = cudaGetDevice (&device); if (err) return err;
+  int  err = gpuSetDevice (gpu); if (err) return err;
+  err = gpuGetDevice (&device); if (err) return err;
   std::cerr << "running on gpu n. " << device << std::endl;}
 #endif
  
