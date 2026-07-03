@@ -1,5 +1,6 @@
 #include "taylor_dispersion.h"
 #include <thrust/extrema.h>
+#include <thrust/iterator/transform_iterator.h>
 
 #ifndef THRUST_CPU
 #if defined(__HIPCC__) || defined(__HIP_PLATFORM_AMD__)
@@ -141,10 +142,10 @@ int main(){
   p.p2g(p.device_grid_vars, Jdrift_y);
  
   thrust::transform(p.device_grid_vars["Jdrift_x"].begin(), p.device_grid_vars["Jdrift_x"].end(),
-                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdrift_x"].begin(), thrust::divides<double>());
+                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdrift_x"].begin(), safe_divide());
 
   thrust::transform(p.device_grid_vars["Jdrift_y"].begin(), p.device_grid_vars["Jdrift_y"].end(), 
-                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdrift_y"].begin(), thrust::divides<double>());
+                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdrift_y"].begin(), safe_divide());
   timer.toc("p2g");
   
   //P2GD of Jdiff 
@@ -153,10 +154,10 @@ int main(){
   p.p2gd(p.device_grid_vars, Jdiff_y);
 
   thrust::transform(p.device_grid_vars["Jdiff_x"].begin(), p.device_grid_vars["Jdiff_x"].end(),
-                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdiff_x"].begin(), thrust::divides<double>());
+                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdiff_x"].begin(), safe_divide());
 
   thrust::transform(p.device_grid_vars["Jdiff_y"].begin(), p.device_grid_vars["Jdiff_y"].end(),
-                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdiff_y"].begin(), thrust::divides<double>());
+                    p.device_grid_vars["rho"].begin(), p.device_grid_vars["Jdiff_y"].begin(), safe_divide());
   //set BC
   thrust::for_each(thrust::device, first_n, last_n, bc);
   timer.toc("p2gd");
@@ -169,10 +170,13 @@ int main(){
 
   //Compute dt
   timer.tic("dt");
-  auto maxvx = thrust::max_element (p.device_dprops["VX"].begin (), p.device_dprops["VX"].end ());
-  step.dt = .5 * qg.hx() / (*maxvx);
-  auto maxvy = thrust::max_element (p.device_dprops["VY"].begin (), p.device_dprops["VY"].end ());
-  step.dt = fmin (step.dt, .5 * qg.hy() / (*maxvy));
+  auto abs_vx = thrust::make_transform_iterator(p.device_dprops["VX"].begin(), abs_no_nan());
+  auto abs_vy = thrust::make_transform_iterator(p.device_dprops["VY"].begin(), abs_no_nan());
+  real_t maxvx = *thrust::max_element(abs_vx, abs_vx + p.num_particles);
+  real_t maxvy = *thrust::max_element(abs_vy, abs_vy + p.num_particles);
+  real_t dtx = maxvx > 0.0 ? .5 * qg.hx() / maxvx : dtsave * (isave + 1) - t;
+  real_t dty = maxvy > 0.0 ? .5 * qg.hy() / maxvy : dtsave * (isave + 1) - t;
+  step.dt = fmin (dtx, dty);
   if (t + step.dt > dtsave * (isave + 1)) step.dt = dtsave * (isave + 1) - t;
   timer.toc("dt");
 

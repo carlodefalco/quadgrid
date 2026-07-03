@@ -15,6 +15,21 @@
 #include <quadgrid_config.h>
 
 
+struct safe_divide {
+  HOST DEVICE
+  real_t operator()(real_t num, real_t den) const {
+    return den > 0.0 ? num / den : 0.0;
+  }
+};
+
+struct abs_no_nan {
+  HOST DEVICE
+  real_t operator()(real_t value) const {
+    return value == value ? (value < 0.0 ? -value : value) : 0.0;
+  }
+};
+
+
 template<typename PVAR_t>
 class
 stepper {
@@ -286,4 +301,3 @@ public:
 
 
 #endif
-
