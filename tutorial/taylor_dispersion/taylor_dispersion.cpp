@@ -21,12 +21,9 @@ int main(){
  auto err = gpuGetDeviceCount (&num_gpus); if (err) return err;
  std::cerr << "num_gpus=" << num_gpus <<std::endl;
  int device;
- //for (int gpu = 0; gpu < num_gpus; ++gpu)
- int gpu = 1;
- {
-  int  err = gpuSetDevice (gpu); if (err) return err;
-  err = gpuGetDevice (&device); if (err) return err;
-  std::cerr << "running on gpu n. " << device << std::endl;}
+ err = gpuSetDevice (num_gpus - 1); if (err) return err;
+ err = gpuGetDevice (&device); if (err) return err;
+ std::cerr << "running on gpu n. " << device << std::endl;
 #endif
  
  using idx_t = particles_t::idx_t;
