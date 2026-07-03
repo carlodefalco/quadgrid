@@ -1,7 +1,9 @@
 #include "taylor_dispersion.h"
+#include <thrust/extrema.h>
 
 int main(){
 
+#ifndef THRUST_CPU
  int num_gpus;
  auto err = cudaGetDeviceCount (&num_gpus); if (err) return err;
  std::cerr << "num_gpus=" << num_gpus <<std::endl;
@@ -12,6 +14,7 @@ int main(){
   int  err = cudaSetDevice (gpu); if (err) return err;
   err = cudaGetDevice (&device); if (err) return err;
   std::cerr << "running on gpu n. " << device << std::endl;}
+#endif
  
  using idx_t = particles_t::idx_t;
 
