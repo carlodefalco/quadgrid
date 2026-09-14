@@ -6,6 +6,7 @@ This directory contains example problems and tutorials demonstrating the usage o
 Tested on:
 * gcc 13.3.0
 * nvcc 12.0.14
+* octave 8.4.0
 
 Before compiling any of the tutorial targets, ensure all library dependencies are loaded locally within this directory.
 
