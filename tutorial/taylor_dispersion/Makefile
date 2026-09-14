@@ -17,4 +17,4 @@ thrust_cpu : taylor_dispersion.cpp taylor_dispersion.h
 	nvcc $(THRUST_CPU_CXXFLAGS) $(CPPFLAGS) --expt-relaxed-constexpr -DUSE_THRUST -DTHRUST_DEVICE_SYSTEM=THRUST_DEVICE_SYSTEM_CPP -DTHRUST_CPU $(QUADGRIDSRC) $(TIMERSRC) taylor_dispersion.cpp -o taylordispersion.cpu $(LDFLAGS) $(LIBS)
 
 clean :
-	$(RM) *.o *.csv *.vts *.json taylordispersion
+	$(RM) *.o *.csv *.vts *.json taylordispersion taylordispersion.cpu taylordispersion.hip
