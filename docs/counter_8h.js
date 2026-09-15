@@ -1,5 +1,5 @@
 var counter_8h =
 [
-    [ "range< N >", "structrange.html", "structrange" ],
-    [ "range< N >::iterator", "structrange_1_1iterator.html", "structrange_1_1iterator" ]
+    [ "range&lt; N &gt;", "structrange.html", "structrange" ],
+    [ "range&lt; N &gt;::iterator", "structrange_1_1iterator.html", "structrange_1_1iterator" ]
 ];

@@ -9,6 +9,5 @@ var searchData=
   ['blue_6',['blue',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5a48d6215903dff56238e52e8891380c8f',1,'particles_t']]],
   ['bspline_7',['bspline',['../namespacebspline.html',1,'']]],
   ['buffer_8',['buffer',['../structprops__t.html#a310ba84c85f7fa29d52ac72b9fe922bb',1,'props_t']]],
-  ['build_5fmass_9',['build_mass',['../structparticles__t.html#adcd0da9f3014b7be706940d3fdf4bdda',1,'particles_t']]],
-  ['building_20the_20examples_10',['Building the examples',['../index.html#autotoc_md2',1,'']]]
+  ['build_5fmass_9',['build_mass',['../structparticles__t.html#adcd0da9f3014b7be706940d3fdf4bdda',1,'particles_t']]]
 ];

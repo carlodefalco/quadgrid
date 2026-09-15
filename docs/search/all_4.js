@@ -11,6 +11,5 @@ var searchData=
   ['erase_5fptcl_8',['erase_ptcl',['../structprops__t.html#aecaaedf4f7373fe2f8dcf04597b1b55b',1,'props_t']]],
   ['esempio_5fcsv_5fgz_2ecpp_9',['esempio_csv_gz.cpp',['../esempio__csv__gz_8cpp.html',1,'']]],
   ['esempio_5fjson_2ecpp_10',['esempio_json.cpp',['../esempio__json_8cpp.html',1,'']]],
-  ['esempio_5fjson_5fgz_2ecpp_11',['esempio_json_gz.cpp',['../esempio__json__gz_8cpp.html',1,'']]],
-  ['examples_12',['Building the examples',['../index.html#autotoc_md2',1,'']]]
+  ['esempio_5fjson_5fgz_2ecpp_11',['esempio_json_gz.cpp',['../esempio__json__gz_8cpp.html',1,'']]]
 ];
