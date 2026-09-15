@@ -1,0 +1,5 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=1:host=cpu05
+#PBS -q cpu
+
+quadgrid/tutorial/taylor_dispersion/taylordispersion.cpu > quadgrid/tutorial/taylor_dispersion/out.log 2> quadgrid/tutorial/taylor_dispersion/error.log 
