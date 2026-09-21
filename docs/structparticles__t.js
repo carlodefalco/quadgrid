@@ -46,6 +46,8 @@ var structparticles__t =
     [ "p2g", "structparticles__t.html#a9c8483c5a1d84026d4642603eed83219", null ],
     [ "p2g", "structparticles__t.html#ab8146a87a1eaa9532b59741b9cac0b1c", null ],
     [ "p2g", "structparticles__t.html#a7a7b5203fdf83e6df190d7f8f3f178d1", null ],
+    [ "p2g_print", "structparticles__t.html#a2cc892f5e75ccd2f1da3ce53cb4cfd74", null ],
+    [ "p2g_print", "structparticles__t.html#af0f1e12c7c63a033fb9beb779c21a79b", null ],
     [ "p2gd", "structparticles__t.html#aeaa15aeb75fea660fd1da7b004765c95", null ],
     [ "p2gd", "structparticles__t.html#a29e4f406743e70096b02c3bccca4ed2c", null ],
     [ "p2gd", "structparticles__t.html#a659d9cef371f26fb8253b2f56c5f4172", null ],

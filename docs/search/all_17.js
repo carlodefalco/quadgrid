@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['y_0',['y',['../structparticles__t.html#ad2f0488c81da734438b3853c598ff226',1,'particles_t::y'],['../classptcl__to__grd__update__t.html#ad919fae4f5b95c64c8814ff646072071',1,'ptcl_to_grd_update_t::y'],['../classp2g__helper__t.html#aefafbe835867f7d34628723970e0070e',1,'p2g_helper_t::y'],['../classp2gd__helper__t.html#a01ff1816d5ab372b00c92657bafe8f12',1,'p2gd_helper_t::y'],['../classg2p__helper__t.html#a59b060af327f8b5c6b5fe79735a80d9d',1,'g2p_helper_t::y'],['../classg2pd__helper__t.html#a21b68f72e28bd70c88e243375624188e',1,'g2pd_helper_t::y'],['../classstepper.html#a31b13074c127f725730e3174be9f4702',1,'stepper::y'],['../classstepper.html#a67023c103f30c981daea6dc6261daffd',1,'stepper::y'],['../make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517',1,'y:&#160;make_input_json.m'],['../write__velocity__field__json_8m.html#ab07c21934cff3c45a6327df02597f517',1,'y:&#160;write_velocity_field_json.m']]],
-  ['yc_1',['yc',['../particle__remove__example_8cpp.html#a550e3ebe21ae9b8d11fcfef1b6fe959a',1,'particle_remove_example.cpp']]]
+  ['update_0',['update',['../classparticles__t_1_1update__ptcl__to__grd__host.html#ad9e2189447e54e87a7b5b7e5f94728bb',1,'particles_t::update_ptcl_to_grd_host']]],
+  ['update_5fptcl_5fto_5fgrd_1',['update_ptcl_to_grd',['../structparticles__t.html#afb5788b7005d185312bb3466e32fc4ac',1,'particles_t']]],
+  ['update_5fptcl_5fto_5fgrd_5fhost_2',['update_ptcl_to_grd_host',['../classparticles__t_1_1update__ptcl__to__grd__host.html',1,'particles_t']]]
 ];

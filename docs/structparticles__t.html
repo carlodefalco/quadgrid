@@ -180,6 +180,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab8146a87a1eaa9532b59741b9cac0b1c template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8146a87a1eaa9532b59741b9cac0b1c">p2g</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, bool apply_mass=false)</td></tr>
 <tr class="memitem:a7a7b5203fdf83e6df190d7f8f3f178d1" id="r_a7a7b5203fdf83e6df190d7f8f3f178d1"><td class="memTemplParams" colspan="2">template&lt;typename UnaryFunction&gt; </td></tr>
 <tr class="memitem:a7a7b5203fdf83e6df190d7f8f3f178d1 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a7b5203fdf83e6df190d7f8f3f178d1">p2g</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, UnaryFunction helper)</td></tr>
+<tr class="memitem:a2cc892f5e75ccd2f1da3ce53cb4cfd74" id="r_a2cc892f5e75ccd2f1da3ce53cb4cfd74"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
+<tr class="memitem:a2cc892f5e75ccd2f1da3ce53cb4cfd74 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cc892f5e75ccd2f1da3ce53cb4cfd74">p2g_print</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, PT const &amp;pvarnames, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
+<tr class="memitem:af0f1e12c7c63a033fb9beb779c21a79b" id="r_af0f1e12c7c63a033fb9beb779c21a79b"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
+<tr class="memitem:af0f1e12c7c63a033fb9beb779c21a79b template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0f1e12c7c63a033fb9beb779c21a79b">p2g_print</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, bool apply_mass=false) const</td></tr>
 <tr class="memitem:aeaa15aeb75fea660fd1da7b004765c95" id="r_aeaa15aeb75fea660fd1da7b004765c95"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
 <tr class="memitem:aeaa15aeb75fea660fd1da7b004765c95 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaa15aeb75fea660fd1da7b004765c95">p2gd</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, PT const &amp;pxvarnames, PT const &amp;pyvarnames, std::string const &amp;area, GT const &amp;gvarnames, bool apply_mass=false)</td></tr>
 <tr class="memitem:a29e4f406743e70096b02c3bccca4ed2c" id="r_a29e4f406743e70096b02c3bccca4ed2c"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
@@ -1271,6 +1275,72 @@ template&lt;typename UnaryFunction&gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">UnaryFunction</td>          <td class="paramname"><span class="paramname"><em>helper</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cc892f5e75ccd2f1da3ce53cb4cfd74" name="a2cc892f5e75ccd2f1da3ce53cb4cfd74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc892f5e75ccd2f1da3ce53cb4cfd74">&#9670;&#160;</a></span>p2g_print() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename GT, typename PT&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::p2g_print </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PT const &amp;</td>          <td class="paramname"><span class="paramname"><em>pvarnames</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GT const &amp;</td>          <td class="paramname"><span class="paramname"><em>gvarnames</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0f1e12c7c63a033fb9beb779c21a79b" name="af0f1e12c7c63a033fb9beb779c21a79b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f1e12c7c63a033fb9beb779c21a79b">&#9670;&#160;</a></span>p2g_print() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::p2g_print </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>pvarnames</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>gvarnames</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -93,7 +93,9 @@ $(function(){initNavTree('quadgrid__config_8h.html','',''); });
   <div class="headertitle"><div class="title">quadgrid_config.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="atomic_add_8h_source.html">atomicAdd.h</a>&gt;</code><br />
+<div class="textblock"><code>#include &lt;functional&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;<a class="el" href="atomic_add_8h_source.html">atomicAdd.h</a>&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 <code>#include &lt;execution&gt;</code><br />
 </div>
@@ -111,7 +113,7 @@ Macros</h2></td></tr>
 <tr class="memitem:acb41430bc5720dda7d1c45d91a0b0221" id="r_acb41430bc5720dda7d1c45d91a0b0221"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&#160;&#160;&#160;std::vector</td></tr>
 <tr class="memitem:ad08d8b03f276f9be656ec5268629f89b" id="r_ad08d8b03f276f9be656ec5268629f89b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&#160;&#160;&#160;std::vector</td></tr>
 <tr class="memitem:a6eb7b678d25c34fb1988d369d6b3102a" id="r_a6eb7b678d25c34fb1988d369d6b3102a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6eb7b678d25c34fb1988d369d6b3102a">algorithm_namespace</a>&#160;&#160;&#160;std</td></tr>
-<tr class="memitem:a109283b3cd23ca6b508e47b7c18db3c9" id="r_a109283b3cd23ca6b508e47b7c18db3c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a109283b3cd23ca6b508e47b7c18db3c9">device_exec_policy</a>&#160;&#160;&#160;std::execution::seq</td></tr>
+<tr class="memitem:a109283b3cd23ca6b508e47b7c18db3c9" id="r_a109283b3cd23ca6b508e47b7c18db3c9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a109283b3cd23ca6b508e47b7c18db3c9">device_exec_policy</a>&#160;&#160;&#160;std::execution::par_unseq</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -153,7 +155,7 @@ Typedefs</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define device_exec_policy&#160;&#160;&#160;std::execution::seq</td>
+          <td class="memname">#define device_exec_policy&#160;&#160;&#160;std::execution::par_unseq</td>
         </tr>
       </table>
 </div><div class="memdoc">

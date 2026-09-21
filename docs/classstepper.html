@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>quadgrid: stepper&lt; PVAR_t &gt; Class Template Reference</title>
+<title>quadgrid: stepper Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,7 +90,7 @@ $(function(){initNavTree('classstepper.html','','classstepper-members'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">stepper&lt; PVAR_t &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">stepper Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -99,111 +99,43 @@ $(function(){initNavTree('classstepper.html','','classstepper-members'); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a029e10fa82f89221ff7a600ec1e9b7f5" id="r_a029e10fa82f89221ff7a600ec1e9b7f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a029e10fa82f89221ff7a600ec1e9b7f5">stepper</a> (std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)</td></tr>
-<tr class="memitem:aaa5613afc66c9ec5158d13153293339b" id="r_aaa5613afc66c9ec5158d13153293339b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa5613afc66c9ec5158d13153293339b">operator()</a> (int n)</td></tr>
-<tr class="memdesc:aaa5613afc66c9ec5158d13153293339b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
-<tr class="memitem:a0ea1575444c8232b6c76318793a0ac00" id="r_a0ea1575444c8232b6c76318793a0ac00"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ea1575444c8232b6c76318793a0ac00">stepper</a> (std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, std::vector&lt; double &gt; &amp;dist_, std::vector&lt; double &gt; &amp;dist_dx_, std::vector&lt; double &gt; &amp;dist_dy_, const double hx_, const double hy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)</td></tr>
-<tr class="memitem:aaa5613afc66c9ec5158d13153293339b" id="r_aaa5613afc66c9ec5158d13153293339b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa5613afc66c9ec5158d13153293339b">operator()</a> (int n)</td></tr>
-<tr class="memdesc:aaa5613afc66c9ec5158d13153293339b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
-<tr class="memitem:aacff113180191cfb5395fda2b463041b" id="r_aacff113180191cfb5395fda2b463041b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aacff113180191cfb5395fda2b463041b">stepper</a> (PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> dt_, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> D_)</td></tr>
-<tr class="memitem:a3e2fa7e63a4e50ea42a830f9ced37aac" id="r_a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e2fa7e63a4e50ea42a830f9ced37aac">operator()</a> (int n)</td></tr>
-<tr class="memdesc:a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
+<tr class="memitem:a075df46017d863b85fc4326458d6e83a" id="r_a075df46017d863b85fc4326458d6e83a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a075df46017d863b85fc4326458d6e83a">stepper</a> (std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, std::vector&lt; double &gt; &amp;dist_, std::vector&lt; double &gt; &amp;dist_dx_, std::vector&lt; double &gt; &amp;dist_dy_, const double hx_, const double hy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)</td></tr>
+<tr class="memitem:acfe5617c9b1dae40dd60b10f634e409b" id="r_acfe5617c9b1dae40dd60b10f634e409b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe5617c9b1dae40dd60b10f634e409b">operator()</a> (int n)</td></tr>
+<tr class="memdesc:acfe5617c9b1dae40dd60b10f634e409b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a7ca6380526dcbe8c477c12369605fdf6" id="r_a7ca6380526dcbe8c477c12369605fdf6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ca6380526dcbe8c477c12369605fdf6">dt</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:aca1fe4446b9960d0001ebf5310b3b9ca" id="r_aca1fe4446b9960d0001ebf5310b3b9ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a></td></tr>
-<tr class="memitem:a31b13074c127f725730e3174be9f4702" id="r_a31b13074c127f725730e3174be9f4702"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31b13074c127f725730e3174be9f4702">y</a></td></tr>
-<tr class="memitem:a011fe905d884fc1fec1a7537710f71a1" id="r_a011fe905d884fc1fec1a7537710f71a1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a></td></tr>
-<tr class="memitem:ad808c26d726a646e0ffe2f2a2cd59d86" id="r_ad808c26d726a646e0ffe2f2a2cd59d86"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a></td></tr>
-<tr class="memitem:abdfd0b0d4fb430b1755fe70bdad99fee" id="r_abdfd0b0d4fb430b1755fe70bdad99fee"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a></td></tr>
-<tr class="memitem:ac2b788ecc88ef4350608ceb6372054a6" id="r_ac2b788ecc88ef4350608ceb6372054a6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a></td></tr>
-<tr class="memitem:a926f30b0257a278273497fa31f22deb3" id="r_a926f30b0257a278273497fa31f22deb3"><td class="memItemLeft" align="right" valign="top">std::function&lt; double(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a926f30b0257a278273497fa31f22deb3">normal</a></td></tr>
-<tr class="memitem:afed3952ddcc613d4bc5c0816d5eb4a6c" id="r_afed3952ddcc613d4bc5c0816d5eb4a6c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afed3952ddcc613d4bc5c0816d5eb4a6c">dist</a></td></tr>
-<tr class="memitem:afda81380d72e73025f74ef5cc8151973" id="r_afda81380d72e73025f74ef5cc8151973"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a></td></tr>
-<tr class="memitem:ac0cc815428ab19fda8141b7707a02398" id="r_ac0cc815428ab19fda8141b7707a02398"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a></td></tr>
-<tr class="memitem:aa56a65215d22e0ba9a409a78e7a00056" id="r_aa56a65215d22e0ba9a409a78e7a00056"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa56a65215d22e0ba9a409a78e7a00056">hx</a></td></tr>
-<tr class="memitem:a0fe5ee367df3d93d18c29f34f122beb9" id="r_a0fe5ee367df3d93d18c29f34f122beb9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fe5ee367df3d93d18c29f34f122beb9">hy</a></td></tr>
-<tr class="memitem:abde8571aa3910824d215850ff4f2aaf2" id="r_abde8571aa3910824d215850ff4f2aaf2"><td class="memItemLeft" align="right" valign="top">PVAR_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abde8571aa3910824d215850ff4f2aaf2">x</a></td></tr>
-<tr class="memitem:a67023c103f30c981daea6dc6261daffd" id="r_a67023c103f30c981daea6dc6261daffd"><td class="memItemLeft" align="right" valign="top">PVAR_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67023c103f30c981daea6dc6261daffd">y</a></td></tr>
-<tr class="memitem:ad7218de5e1bde32acb3e9d8746e1d945" id="r_ad7218de5e1bde32acb3e9d8746e1d945"><td class="memItemLeft" align="right" valign="top">PVAR_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a></td></tr>
-<tr class="memitem:ab4e9015b4a08b798f6dd36681b415ed3" id="r_ab4e9015b4a08b798f6dd36681b415ed3"><td class="memItemLeft" align="right" valign="top">PVAR_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a></td></tr>
-<tr class="memitem:ab3df69cec6933c0f9c06a018340776fe" id="r_ab3df69cec6933c0f9c06a018340776fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a></td></tr>
-<tr class="memitem:a24db7597bac64f833819585cbd539e86" id="r_a24db7597bac64f833819585cbd539e86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24db7597bac64f833819585cbd539e86">D</a></td></tr>
+<tr class="memitem:af33b3c073dca017e72692b05001f999a" id="r_af33b3c073dca017e72692b05001f999a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af33b3c073dca017e72692b05001f999a">x</a></td></tr>
+<tr class="memitem:a7792577c3c7793b1ca21f3a6c13474f0" id="r_a7792577c3c7793b1ca21f3a6c13474f0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7792577c3c7793b1ca21f3a6c13474f0">y</a></td></tr>
+<tr class="memitem:ad4111de9a9f161081e49f807a3d2466e" id="r_ad4111de9a9f161081e49f807a3d2466e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4111de9a9f161081e49f807a3d2466e">vx</a></td></tr>
+<tr class="memitem:a9bcb277337ffba89102c304642876245" id="r_a9bcb277337ffba89102c304642876245"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9bcb277337ffba89102c304642876245">vy</a></td></tr>
+<tr class="memitem:aae147be03104be71d282942fd25039ad" id="r_aae147be03104be71d282942fd25039ad"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae147be03104be71d282942fd25039ad">dist</a></td></tr>
+<tr class="memitem:a90dece6c8697107085b582c55351e60c" id="r_a90dece6c8697107085b582c55351e60c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90dece6c8697107085b582c55351e60c">dist_dx</a></td></tr>
+<tr class="memitem:ac16a92fc25d3f66567b76e8102fad67f" id="r_ac16a92fc25d3f66567b76e8102fad67f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac16a92fc25d3f66567b76e8102fad67f">dist_dy</a></td></tr>
+<tr class="memitem:a263bd0b845bceeb303bc6fff3f57faf3" id="r_a263bd0b845bceeb303bc6fff3f57faf3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a263bd0b845bceeb303bc6fff3f57faf3">hx</a></td></tr>
+<tr class="memitem:a731836f632943d0e98b5be2ba81539ec" id="r_a731836f632943d0e98b5be2ba81539ec"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a731836f632943d0e98b5be2ba81539ec">hy</a></td></tr>
+<tr class="memitem:aa27a49e891de16d766e279969ba79ac9" id="r_aa27a49e891de16d766e279969ba79ac9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa27a49e891de16d766e279969ba79ac9">D</a></td></tr>
+<tr class="memitem:a6635b252b3714aa7adc761be2324e32f" id="r_a6635b252b3714aa7adc761be2324e32f"><td class="memItemLeft" align="right" valign="top">std::function&lt; double(void)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6635b252b3714aa7adc761be2324e32f">normal</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename PVAR_t&gt;<br />
-class stepper&lt; PVAR_t &gt;</div><p>Functor class for moving particles. </p>
+<div class="textblock"><p>Functor class for moving particles. </p>
 <p>This class captures references to particle positions and velocities and overloads the call operator to allow use in STL algorithms in particular the std::for_each method </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a029e10fa82f89221ff7a600ec1e9b7f5" name="a029e10fa82f89221ff7a600ec1e9b7f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a029e10fa82f89221ff7a600ec1e9b7f5">&#9670;&#160;</a></span>stepper() <span class="overload">[1/3]</span></h2>
+<a id="a075df46017d863b85fc4326458d6e83a" name="a075df46017d863b85fc4326458d6e83a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a075df46017d863b85fc4326458d6e83a">&#9670;&#160;</a></span>stepper()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;<a class="el" href="classstepper.html">::stepper</a> </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vx_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vy_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>D_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::function&lt; double(void)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>noise_</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0ea1575444c8232b6c76318793a0ac00" name="a0ea1575444c8232b6c76318793a0ac00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ea1575444c8232b6c76318793a0ac00">&#9670;&#160;</a></span>stepper() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;<a class="el" href="classstepper.html">::stepper</a> </td>
+          <td class="memname">stepper::stepper </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x_</em></span>, </td>
         </tr>
@@ -272,131 +204,18 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="aacff113180191cfb5395fda2b463041b" name="aacff113180191cfb5395fda2b463041b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacff113180191cfb5395fda2b463041b">&#9670;&#160;</a></span>stepper() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;<a class="el" href="classstepper.html">::stepper</a> </td>
-          <td>(</td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>x_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>y_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>vx_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>vy_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>dt_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>D_</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aaa5613afc66c9ec5158d13153293339b" name="aaa5613afc66c9ec5158d13153293339b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa5613afc66c9ec5158d13153293339b">&#9670;&#160;</a></span>operator()() <span class="overload">[1/3]</span></h2>
+<a id="acfe5617c9b1dae40dd60b10f634e409b" name="acfe5617c9b1dae40dd60b10f634e409b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe5617c9b1dae40dd60b10f634e409b">&#9670;&#160;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>call operator applying motion to the n-th particle. </p>
-<p>overload of the call operator to apply motion to the n-th particle use velocity field for deterministic motion component plus gaussian noise to represent diffusion/Brownian motion </p>
-
-</div>
-</div>
-<a id="aaa5613afc66c9ec5158d13153293339b" name="aaa5613afc66c9ec5158d13153293339b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa5613afc66c9ec5158d13153293339b">&#9670;&#160;</a></span>operator()() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>call operator applying motion to the n-th particle. </p>
-<p>overload of the call operator to apply motion to the n-th particle use velocity field for deterministic motion component plus gaussian noise to represent diffusion/Brownian motion </p>
-
-</div>
-</div>
-<a id="a3e2fa7e63a4e50ea42a830f9ced37aac" name="a3e2fa7e63a4e50ea42a830f9ced37aac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::operator() </td>
+          <td class="memname">void stepper::operator() </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
           <td></td>
@@ -415,19 +234,17 @@ template&lt;typename PVAR_t&gt; </div>
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ac2b788ecc88ef4350608ceb6372054a6" name="ac2b788ecc88ef4350608ceb6372054a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b788ecc88ef4350608ceb6372054a6">&#9670;&#160;</a></span>D <span class="overload">[1/2]</span></h2>
+<a id="aa27a49e891de16d766e279969ba79ac9" name="aa27a49e891de16d766e279969ba79ac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa27a49e891de16d766e279969ba79ac9">&#9670;&#160;</a></span>D</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::D</td>
+          <td class="memname">double stepper::D</td>
         </tr>
       </table>
   </td>
@@ -439,19 +256,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="a24db7597bac64f833819585cbd539e86" name="a24db7597bac64f833819585cbd539e86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24db7597bac64f833819585cbd539e86">&#9670;&#160;</a></span>D <span class="overload">[2/2]</span></h2>
+<a id="aae147be03104be71d282942fd25039ad" name="aae147be03104be71d282942fd25039ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae147be03104be71d282942fd25039ad">&#9670;&#160;</a></span>dist</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::D</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::dist</td>
         </tr>
       </table>
   </td>
@@ -463,19 +278,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="afed3952ddcc613d4bc5c0816d5eb4a6c" name="afed3952ddcc613d4bc5c0816d5eb4a6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afed3952ddcc613d4bc5c0816d5eb4a6c">&#9670;&#160;</a></span>dist</h2>
+<a id="a90dece6c8697107085b582c55351e60c" name="a90dece6c8697107085b582c55351e60c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90dece6c8697107085b582c55351e60c">&#9670;&#160;</a></span>dist_dx</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dist</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::dist_dx</td>
         </tr>
       </table>
   </td>
@@ -487,19 +300,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="afda81380d72e73025f74ef5cc8151973" name="afda81380d72e73025f74ef5cc8151973"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afda81380d72e73025f74ef5cc8151973">&#9670;&#160;</a></span>dist_dx</h2>
+<a id="ac16a92fc25d3f66567b76e8102fad67f" name="ac16a92fc25d3f66567b76e8102fad67f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac16a92fc25d3f66567b76e8102fad67f">&#9670;&#160;</a></span>dist_dy</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dist_dx</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::dist_dy</td>
         </tr>
       </table>
   </td>
@@ -511,19 +322,31 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="ac0cc815428ab19fda8141b7707a02398" name="ac0cc815428ab19fda8141b7707a02398"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0cc815428ab19fda8141b7707a02398">&#9670;&#160;</a></span>dist_dy</h2>
+<a id="a7ca6380526dcbe8c477c12369605fdf6" name="a7ca6380526dcbe8c477c12369605fdf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca6380526dcbe8c477c12369605fdf6">&#9670;&#160;</a></span>dt</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">double stepper::dt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a263bd0b845bceeb303bc6fff3f57faf3" name="a263bd0b845bceeb303bc6fff3f57faf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a263bd0b845bceeb303bc6fff3f57faf3">&#9670;&#160;</a></span>hx</h2>
+
+<div class="memitem">
+<div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dist_dy</td>
+          <td class="memname">double stepper::hx</td>
         </tr>
       </table>
   </td>
@@ -535,19 +358,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="abdfd0b0d4fb430b1755fe70bdad99fee" name="abdfd0b0d4fb430b1755fe70bdad99fee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdfd0b0d4fb430b1755fe70bdad99fee">&#9670;&#160;</a></span>dt <span class="overload">[1/2]</span></h2>
+<a id="a731836f632943d0e98b5be2ba81539ec" name="a731836f632943d0e98b5be2ba81539ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a731836f632943d0e98b5be2ba81539ec">&#9670;&#160;</a></span>hy</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dt</td>
+          <td class="memname">double stepper::hy</td>
         </tr>
       </table>
   </td>
@@ -559,19 +380,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="ab3df69cec6933c0f9c06a018340776fe" name="ab3df69cec6933c0f9c06a018340776fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3df69cec6933c0f9c06a018340776fe">&#9670;&#160;</a></span>dt <span class="overload">[2/2]</span></h2>
+<a id="a6635b252b3714aa7adc761be2324e32f" name="a6635b252b3714aa7adc761be2324e32f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6635b252b3714aa7adc761be2324e32f">&#9670;&#160;</a></span>normal</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dt</td>
+          <td class="memname">std::function&lt;double (void)&gt; stepper::normal</td>
         </tr>
       </table>
   </td>
@@ -583,19 +402,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="aa56a65215d22e0ba9a409a78e7a00056" name="aa56a65215d22e0ba9a409a78e7a00056"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa56a65215d22e0ba9a409a78e7a00056">&#9670;&#160;</a></span>hx</h2>
+<a id="ad4111de9a9f161081e49f807a3d2466e" name="ad4111de9a9f161081e49f807a3d2466e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4111de9a9f161081e49f807a3d2466e">&#9670;&#160;</a></span>vx</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::hx</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::vx</td>
         </tr>
       </table>
   </td>
@@ -607,19 +424,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="a0fe5ee367df3d93d18c29f34f122beb9" name="a0fe5ee367df3d93d18c29f34f122beb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe5ee367df3d93d18c29f34f122beb9">&#9670;&#160;</a></span>hy</h2>
+<a id="a9bcb277337ffba89102c304642876245" name="a9bcb277337ffba89102c304642876245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bcb277337ffba89102c304642876245">&#9670;&#160;</a></span>vy</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::hy</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::vy</td>
         </tr>
       </table>
   </td>
@@ -631,19 +446,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="a926f30b0257a278273497fa31f22deb3" name="a926f30b0257a278273497fa31f22deb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a926f30b0257a278273497fa31f22deb3">&#9670;&#160;</a></span>normal</h2>
+<a id="af33b3c073dca017e72692b05001f999a" name="af33b3c073dca017e72692b05001f999a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af33b3c073dca017e72692b05001f999a">&#9670;&#160;</a></span>x</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt; double(void)&gt; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::normal</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::x</td>
         </tr>
       </table>
   </td>
@@ -655,19 +468,17 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="a011fe905d884fc1fec1a7537710f71a1" name="a011fe905d884fc1fec1a7537710f71a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a011fe905d884fc1fec1a7537710f71a1">&#9670;&#160;</a></span>vx <span class="overload">[1/2]</span></h2>
+<a id="a7792577c3c7793b1ca21f3a6c13474f0" name="a7792577c3c7793b1ca21f3a6c13474f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7792577c3c7793b1ca21f3a6c13474f0">&#9670;&#160;</a></span>y</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vx</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; stepper::y</td>
         </tr>
       </table>
   </td>
@@ -679,178 +490,8 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="ad7218de5e1bde32acb3e9d8746e1d945" name="ad7218de5e1bde32acb3e9d8746e1d945"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7218de5e1bde32acb3e9d8746e1d945">&#9670;&#160;</a></span>vx <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PVAR_t <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vx</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad808c26d726a646e0ffe2f2a2cd59d86" name="ad808c26d726a646e0ffe2f2a2cd59d86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad808c26d726a646e0ffe2f2a2cd59d86">&#9670;&#160;</a></span>vy <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vy</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab4e9015b4a08b798f6dd36681b415ed3" name="ab4e9015b4a08b798f6dd36681b415ed3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4e9015b4a08b798f6dd36681b415ed3">&#9670;&#160;</a></span>vy <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PVAR_t <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vy</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aca1fe4446b9960d0001ebf5310b3b9ca" name="aca1fe4446b9960d0001ebf5310b3b9ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca1fe4446b9960d0001ebf5310b3b9ca">&#9670;&#160;</a></span>x <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::x</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abde8571aa3910824d215850ff4f2aaf2" name="abde8571aa3910824d215850ff4f2aaf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abde8571aa3910824d215850ff4f2aaf2">&#9670;&#160;</a></span>x <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PVAR_t <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::x</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a31b13074c127f725730e3174be9f4702" name="a31b13074c127f725730e3174be9f4702"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31b13074c127f725730e3174be9f4702">&#9670;&#160;</a></span>y <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::y</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a67023c103f30c981daea6dc6261daffd" name="a67023c103f30c981daea6dc6261daffd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67023c103f30c981daea6dc6261daffd">&#9670;&#160;</a></span>y <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">PVAR_t <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::y</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="grid__velocity__field_8cpp.html">grid_velocity_field.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="grid__velocity__field__comsol_8cpp.html">grid_velocity_field_comsol.cpp</a></li>
-<li><a class="el" href="grid__velocity__field__thrust_8cpp.html">grid_velocity_field_thrust.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

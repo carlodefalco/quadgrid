@@ -1,16 +1,12 @@
 var searchData=
 [
-  ['e_0',['e',['../classquadgrid__t_1_1cell__t.html#aa5dab2261e3956c19db37336b2568342',1,'quadgrid_t::cell_t']]],
-  ['edges_5fper_5fcell_1',['edges_per_cell',['../classquadgrid__t_1_1cell__t.html#a54292d0b32b9384efe48ad656442f750',1,'quadgrid_t::cell_t']]],
-  ['end_2',['end',['../structrange.html#a529753a2ff11c1e3921d860f0e3bfddd',1,'range']]],
-  ['end_5f_3',['end_',['../structrange.html#a3eada2a23942dc0b35aec4ede4e05024',1,'range']]],
-  ['end_5fcell_5fcol_4',['end_cell_col',['../structquadgrid__t_1_1grid__properties__t.html#a64455c8461f8e677ca57d4e60ef1d664',1,'quadgrid_t::grid_properties_t::end_cell_col'],['../classquadgrid__t_1_1cell__t.html#a067f5f685244cec69d4402142bdd1bc9',1,'quadgrid_t::cell_t::end_cell_col()']]],
-  ['end_5fcell_5frow_5',['end_cell_row',['../structquadgrid__t_1_1grid__properties__t.html#a52425f0ac83b2ee1abf512423dfdfd31',1,'quadgrid_t::grid_properties_t::end_cell_row'],['../classquadgrid__t_1_1cell__t.html#a6dd476ff070a787f12ee358af62e00c9',1,'quadgrid_t::cell_t::end_cell_row()']]],
-  ['end_5fcell_5fsweep_6',['end_cell_sweep',['../classquadgrid__t.html#ae8a00f836fb9726b771683f83ea8de87',1,'quadgrid_t::end_cell_sweep()'],['../classquadgrid__t.html#adc8598dada3a589f19bd324018256967',1,'quadgrid_t::end_cell_sweep() const']]],
-  ['end_5fneighbor_5fsweep_7',['end_neighbor_sweep',['../classquadgrid__t_1_1cell__t.html#a900d7a86d031caa76909d57327b3ffe8',1,'quadgrid_t::cell_t::end_neighbor_sweep()'],['../classquadgrid__t_1_1cell__t.html#a5e4a6e7fc67c9b919825dafecc1f1afb',1,'quadgrid_t::cell_t::end_neighbor_sweep() const']]],
-  ['erase_5fptcl_8',['erase_ptcl',['../structprops__t.html#aecaaedf4f7373fe2f8dcf04597b1b55b',1,'props_t']]],
-  ['esempio_5fcsv_5fgz_2ecpp_9',['esempio_csv_gz.cpp',['../esempio__csv__gz_8cpp.html',1,'']]],
-  ['esempio_5fjson_2ecpp_10',['esempio_json.cpp',['../esempio__json_8cpp.html',1,'']]],
-  ['esempio_5fjson_5fgz_2ecpp_11',['esempio_json_gz.cpp',['../esempio__json__gz_8cpp.html',1,'']]],
-  ['examples_12',['Building the examples',['../index.html#autotoc_md2',1,'']]]
+  ['a_20cartesian_20quad_20grid_0',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
+  ['a_20simple_20c_20library_20for_20particles_20in_20a_20cartesian_20quad_20grid_1',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
+  ['algorithm_5fnamespace_2',['algorithm_namespace',['../quadgrid__config_8h.html#a6eb7b678d25c34fb1988d369d6b3102a',1,'quadgrid_config.h']]],
+  ['all_5fcolors_3',['all_colors',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5a50a9e895c1e4985107d8d312a54180fd',1,'particles_t']]],
+  ['and_20building_4',['Prerequisites and Building',['..//Volumes/Dischetto/carlo/_Programmi/Miei/C++/quadgrid_latest/tutorial/README.md#autotoc_md5',1,'']]],
+  ['apply_5fmass_5',['apply_mass',['../classp2g__helper__t.html#ae1ec59c75645de7334385c57dcf903b3',1,'p2g_helper_t::apply_mass'],['../classp2gd__helper__t.html#afc1437714d72042c65d57668b51da600',1,'p2gd_helper_t::apply_mass'],['../classg2p__helper__t.html#a4752c727a67f6bc70e6578710ebc98e8',1,'g2p_helper_t::apply_mass'],['../classg2pd__helper__t.html#a3925021317c2790c73bcd1e24d81e0c9',1,'g2pd_helper_t::apply_mass']]],
+  ['at_6',['at',['../structprops__t.html#a817aab6589ffb6f72ac89b9bd76ec6f6',1,'props_t']]],
+  ['atomicadd_7',['atomicAdd',['../atomic_add_8h.html#a879ad9c1b5b8e1293470ea7174712533',1,'atomicAdd.h']]],
+  ['atomicadd_2eh_8',['atomicAdd.h',['../atomic_add_8h.html',1,'']]]
 ];
