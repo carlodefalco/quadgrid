@@ -21,10 +21,10 @@ The repository consists of the following folders :
       template methods of the `quadgrid_t`  class
 	- `particles.h` declares the `particles_t` clares representing
       particles embedded in a `quadgrid_t` grid
-* @ref `src` contains implementation of methods in the above classes that
+* `src` contains implementation of methods in the above classes that
   do not depend on template parameters
-* @ref `test`  provides a few tests and examples
-* @ref `tutorial`  provides a set of tutorials
+* `test`  provides a few tests and examples
+* `tutorial`  provides a set of tutorials
     
 ### Main methods in the particles_t class
 
