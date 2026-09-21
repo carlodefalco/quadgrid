@@ -15,16 +15,16 @@ The repository consists of the following folders :
 
 * `include`  contains headers (*`.h`) and template method definition
   files (`*_imp.h`) the main files included are
-	* `quadgrid_cpp.h`  including the declaration of the (template) class
+	- `quadgrid_cpp.h` including the declaration of the (template) class
       `quadgrid_t` representing the quad grid
-	* `quadgrid_cpp_imp.h` contains *out-of-line* definitions for
-      template methods of the `quadgrid_t`  class   
-	* `particles.h` declares the `particles_t` clares representing
+	- `quadgrid_cpp_imp.h` contains *out-of-line* definitions for
+      template methods of the `quadgrid_t`  class
+	- `particles.h` declares the `particles_t` clares representing
       particles embedded in a `quadgrid_t` grid
-* `src` contains implementation of methods in the above classes that
+* @ref `src` contains implementation of methods in the above classes that
   do not depend on template parameters
-* `test`  provides a few tests and examples
-* `tutorial`  provides a set of tutorials
+* @ref `test`  provides a few tests and examples
+* @ref `tutorial`  provides a set of tutorials
     
 ### Main methods in the particles_t class
 
