@@ -359,6 +359,19 @@ particles_t {
   p2g (std::map<std::string, device_vector_t<real_t>> & vars,
        UnaryFunction helper);
 
+  template<typename GT, typename PT>
+  void
+  p2g_print (std::map<std::string, vector_t<real_t>> & vars,
+       PT const & pvarnames,
+       GT const & gvarnames,
+       bool apply_mass = false) const;
+
+  template<typename str>
+  void
+  p2g_print (std::map<std::string, vector_t<real_t>> & vars,
+       std::initializer_list<str> const & pvarnames,
+       std::initializer_list<str> const & gvarnames,
+       bool apply_mass = false) const;
 
   template<typename GT, typename PT>
   void
