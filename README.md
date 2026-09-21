@@ -24,19 +24,7 @@ The repository consists of the following folders :
 * `src` contains implementation of methods in the above classes that
   do not depend on template parameters
 * `test`  provides a few tests and examples
-* `octave` provides a draft of an interface for accessing quadgrid
-  objects from within the [GNU Octave](http://www.octave.org)
-  interpreter, which consists of 
-    * `quadgrid.h`  defining the `quadgrid` class inheriting from
-      `octave_base_value`
-	* `quadgrid.cc` defines two Octave functions `quadgrid` and
-      `quadgrid_loop`accessible from the interpreter
-
-### Building the examples
-
-To build the examples move to the `test` directory and run
-
-    mpicxx -std=c++17 -I../include -o particle_sort_example particle_sort_example.cpp ../src/particles.cpp
+* `tutorial`  provides a set of tutorials
     
 ### Main methods in the particles_t class
 
