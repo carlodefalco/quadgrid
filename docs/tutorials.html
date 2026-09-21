@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>quadgrid: Related Pages</title>
+<title>quadgrid: Tutorials</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('pages.html','',''); });
+$(function(){initNavTree('tutorials.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -89,19 +89,37 @@ $(function(){initNavTree('pages.html','',''); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Related Pages</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Tutorials </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all related documentation pages:</div><div class="directory">
-<table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="tutorial.html" target="_self">Tutorial</a></td><td class="desc"></td></tr>
-<tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="tutorials.html" target="_self">Tutorials</a></td><td class="desc"></td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><a class="el" href="todo.html" target="_self">Todo List</a></td><td class="desc"></td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Tutorials</h1>
+<p>The directory . contains example problems and tutorials demonstrating the usage of <b>QuadGrid</b> —a C++/Octave library for simple Cartesian quad grids. These tutorials cover advection-diffusion problems on both CPU and GPU (via Thrust).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Overview</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Tutorial 1</h3>
+<p>Solves a 2D transport problem combining deterministic velocity advection with stochastic Brownian motion. Backend: CPU.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Tutorial 2</h3>
+<p>This tutorial demonstrates the use of the <b>Thrust</b> library to solve a 2D advection only problem. Backend CPU(Standard/Thrust), NVIDIA GPU(Thrust).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Tutorial 3</h3>
+<p>Solves a 2D transport problem combining deterministic velocity advection and deterministic diffusion. Backend: CPU(Thrust), NVIDIA GPU(Thrust).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Tutorial 4: Taylor Dispersion</h3>
+<p>Simulates solute spreading in shear flows. Reference: <em><a href="https://doi.org/10.1063/1.3078518">https://doi.org/10.1063/1.3078518</a></em>. Backend: CPU(Thrust), NVIDIA GPU(Thrust), AMD GPU(Thrust + hip). </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

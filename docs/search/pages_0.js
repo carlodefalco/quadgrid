@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['1_0',['Tutorial 1',['..//Volumes/Dischetto/carlo/_Programmi/Miei/C++/quadgrid_latest/tutorial/README.md#autotoc_md6',1,'']]]
+  ['1_0',['Tutorial 1',['../tutorials.html#autotoc_md6',1,'']]]
 ];
