@@ -1,9 +1,9 @@
 var searchData=
 [
   ['nodes_5fper_5fcell_0',['nodes_per_cell',['../classquadgrid__t_1_1cell__t.html#ad9c6810edcf118044a71cf25fa204636',1,'quadgrid_t::cell_t']]],
-  ['normal_1',['normal',['../classstepper.html#a6635b252b3714aa7adc761be2324e32f',1,'stepper']]],
+  ['normal_1',['normal',['../classstepper.html#a926f30b0257a278273497fa31f22deb3',1,'stepper']]],
   ['not_5fon_5fboundary_2',['NOT_ON_BOUNDARY',['../classquadgrid__t_1_1cell__t.html#a130dca92588c04c3fa091efbff2a33df',1,'quadgrid_t::cell_t']]],
-  ['nrows_3',['nrows',['../classptcl__to__grd__update__t.html#a71d4b3b66e53bd0d99563dd40c4d8d37',1,'ptcl_to_grd_update_t::nrows'],['../classg2p__helper__t.html#ade74b9563ee852652142ffbfdf5c01c1',1,'g2p_helper_t::nrows'],['../classg2pd__helper__t.html#a5a79a5afe00adfb676f16e9f8c377485',1,'g2pd_helper_t::nrows']]],
+  ['nrows_3',['nrows',['../classptcl__to__grd__update__t.html#a71d4b3b66e53bd0d99563dd40c4d8d37',1,'ptcl_to_grd_update_t::nrows'],['../classp2g__helper__t.html#a42809acfad7e95e1cf920e72ff422783',1,'p2g_helper_t::nrows'],['../classp2gd__helper__t.html#a9c5ef5a2ea8f71ec8e805b57156ee995',1,'p2gd_helper_t::nrows'],['../classg2p__helper__t.html#ade74b9563ee852652142ffbfdf5c01c1',1,'g2p_helper_t::nrows'],['../classg2pd__helper__t.html#a5a79a5afe00adfb676f16e9f8c377485',1,'g2pd_helper_t::nrows']]],
   ['num_5fglobal_5fnodes_4',['num_global_nodes',['../make__input__json_8m.html#aafbebd2d1fc58dd53135e7950c084533',1,'num_global_nodes:&#160;make_input_json.m'],['../write__velocity__field__json_8m.html#aafbebd2d1fc58dd53135e7950c084533',1,'num_global_nodes:&#160;write_velocity_field_json.m']]],
   ['num_5fowned_5fnodes_5',['num_owned_nodes',['../structquadgrid__t_1_1grid__properties__t.html#ae8ec5c5031cb930cd2388864f9daebea',1,'quadgrid_t::grid_properties_t']]],
   ['num_5fparticles_6',['num_particles',['../structparticles__t.html#a4805ba84b0fd692529f0647daf0d02ec',1,'particles_t::num_particles'],['../make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627',1,'num_particles:&#160;make_input_json.m'],['../write__velocity__field__json_8m.html#a35359a728879976197157e8bf94b9a62',1,'num_particles:&#160;write_velocity_field_json.m']]],

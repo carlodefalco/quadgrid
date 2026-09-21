@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['set_5fsizes_0',['set_sizes',['../classquadgrid__t.html#a64e2e448850c5cc1a8ae5945019f4f54',1,'quadgrid_t']]],
-  ['shg_1',['shg',['../classquadgrid__t.html#a2f39b7d9504156ba8469ff605e388cbd',1,'quadgrid_t::shg()'],['../classquadgrid__t_1_1cell__t.html#ac364718c90a04d99fa11eba6cc6a685d',1,'quadgrid_t::cell_t::shg()']]],
-  ['shp_2',['shp',['../classquadgrid__t.html#a0370153b9ce9a2ff9390d44cbc2b6c7b',1,'quadgrid_t::shp()'],['../classquadgrid__t_1_1cell__t.html#ab39743759822a0816f44da1f59aa82a1',1,'quadgrid_t::cell_t::shp(double x, double y, idx_t inode) const']]],
-  ['shp_5fnew_3',['shp_new',['../classquadgrid__t_1_1cell__t.html#afcdbeb4be6e47e1c0c5fbe77aab33e31',1,'quadgrid_t::cell_t']]],
+  ['set_5fsizes_0',['set_sizes',['../classquadgrid__t.html#a675a9722097d4eb01917a546fc557bb2',1,'quadgrid_t']]],
+  ['shg_1',['shg',['../classquadgrid__t.html#a8feb14e6ae6a7160820f4d84653058e9',1,'quadgrid_t::shg()'],['../classquadgrid__t_1_1cell__t.html#a239c5f683c07e028a04bb3f6e46674d6',1,'quadgrid_t::cell_t::shg()']]],
+  ['shp_2',['shp',['../classquadgrid__t.html#a8affc8005cd8cb0003c523da3ed2236e',1,'quadgrid_t::shp()'],['../classquadgrid__t_1_1cell__t.html#afb600e5736bbacde739e36a2c0ada45d',1,'quadgrid_t::cell_t::shp(real_t x, real_t y, idx_t inode) const']]],
+  ['shp_5fnew_3',['shp_new',['../classquadgrid__t_1_1cell__t.html#a0d4e25ae5a2334cfc0123ef010d91ead',1,'quadgrid_t::cell_t']]],
   ['start_5fcell_5fcol_4',['start_cell_col',['../classquadgrid__t_1_1cell__t.html#afe34d70ba36d24f75a0d16b263df8fb7',1,'quadgrid_t::cell_t']]],
   ['start_5fcell_5frow_5',['start_cell_row',['../classquadgrid__t_1_1cell__t.html#a03fdbdc56bea9296ae6f7fdd1bd6b6b7',1,'quadgrid_t::cell_t']]],
-  ['stepper_6',['stepper',['../classstepper.html#a526517f6c8fcea43ce274087abade07f',1,'stepper']]],
-  ['sub2gind_7',['sub2gind',['../classquadgrid__t.html#a612e28d4109b2d933ae49414b97a625a',1,'quadgrid_t::sub2gind()'],['../classquadgrid__t_1_1cell__t.html#a0e1049d79821d80f0312a73087cd70a3',1,'quadgrid_t::cell_t::sub2gind()'],['../classquadgrid__t.html#a1043e6701c9462ebd498a770677833c5',1,'quadgrid_t::sub2gind()']]],
+  ['stepper_6',['stepper',['../classstepper.html#a029e10fa82f89221ff7a600ec1e9b7f5',1,'stepper::stepper(std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)'],['../classstepper.html#a0ea1575444c8232b6c76318793a0ac00',1,'stepper::stepper(std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, std::vector&lt; double &gt; &amp;dist_, std::vector&lt; double &gt; &amp;dist_dx_, std::vector&lt; double &gt; &amp;dist_dy_, const double hx_, const double hy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)'],['../classstepper.html#aacff113180191cfb5395fda2b463041b',1,'stepper::stepper(PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, real_t dt_, real_t D_)']]],
+  ['sub2gind_7',['sub2gind',['../classquadgrid__t.html#a8135d2bf9f8d9b934782c51ed21697da',1,'quadgrid_t::sub2gind()'],['../classquadgrid__t_1_1cell__t.html#a0e1049d79821d80f0312a73087cd70a3',1,'quadgrid_t::cell_t::sub2gind()'],['../classquadgrid__t.html#a1043e6701c9462ebd498a770677833c5',1,'quadgrid_t::sub2gind()']]],
   ['swap_8',['swap',['../structswap.html#a6f262f9962e7dc6cdd0441da5baa4a3b',1,'swap']]]
 ];

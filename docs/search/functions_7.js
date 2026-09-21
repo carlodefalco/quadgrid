@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hx_0',['hx',['../classquadgrid__t.html#a6ecb5e0b0096b8c7b01209c510ac0bab',1,'quadgrid_t']]],
-  ['hy_1',['hy',['../classquadgrid__t.html#a5c0f8e1f4b8227b0add3cfa944c69559',1,'quadgrid_t']]]
+  ['hx_0',['hx',['../classquadgrid__t.html#ae6e23243940ffbd960ce3f1b6c79d6ad',1,'quadgrid_t']]],
+  ['hy_1',['hy',['../classquadgrid__t.html#a3e60524b7325f7bb20a03d99fe102410',1,'quadgrid_t']]]
 ];

@@ -96,6 +96,7 @@ $(function(){initNavTree('quadgrid__cpp_8h.html','',''); });
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;<a class="el" href="quadgrid__config_8h_source.html">quadgrid_config.h</a>&gt;</code><br />
 <code>#include &lt;json.hpp&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
@@ -110,106 +111,7 @@ Classes</h2></td></tr>
 <tr class="memitem:quadgrid_5Ft_3C_20distributed_5Fvector_20_3E_3A_3Acell_5Fiterator" id="r_quadgrid_5Ft_3C_20distributed_5Fvector_20_3E_3A_3Acell_5Fiterator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquadgrid__t_1_1cell__iterator.html">quadgrid_t&lt; distributed_vector &gt;::cell_iterator</a></td></tr>
 <tr class="memitem:quadgrid_5Ft_3C_20distributed_5Fvector_20_3E_3A_3Aneighbor_5Fiterator" id="r_quadgrid_5Ft_3C_20distributed_5Fvector_20_3E_3A_3Aneighbor_5Fiterator"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquadgrid__t_1_1neighbor__iterator.html">quadgrid_t&lt; distributed_vector &gt;::neighbor_iterator</a></td></tr>
 <tr class="memitem:quadgrid_5Ft_3C_20distributed_5Fvector_20_3E_3A_3Acell_5Ft" id="r_quadgrid_5Ft_3C_20distributed_5Fvector_20_3E_3A_3Acell_5Ft"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classquadgrid__t_1_1cell__t.html">quadgrid_t&lt; distributed_vector &gt;::cell_t</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:ae0a6553e8d5ccdb943ae1b816e4ac5ee" id="r_ae0a6553e8d5ccdb943ae1b816e4ac5ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a>&#160;&#160;&#160;int</td></tr>
-<tr class="memitem:a2df6a15627583d5e6f5a48550644cbef" id="r_a2df6a15627583d5e6f5a48550644cbef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a>&#160;&#160;&#160;1</td></tr>
-<tr class="memitem:abcc46493f660b1e73833cd6553d57f8b" id="r_abcc46493f660b1e73833cd6553d57f8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcc46493f660b1e73833cd6553d57f8b">MPI_Initialized</a>(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>)</td></tr>
-<tr class="memitem:aa515a185c0d75c35ac0a4e8a507437f0" id="r_aa515a185c0d75c35ac0a4e8a507437f0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa515a185c0d75c35ac0a4e8a507437f0">MPI_Comm_size</a>(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>,  <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>)</td></tr>
-<tr class="memitem:aff6481f998eb4f05aeea3181d497ea09" id="r_aff6481f998eb4f05aeea3181d497ea09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff6481f998eb4f05aeea3181d497ea09">MPI_Comm_rank</a>(<a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>,  <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>)</td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="ae0a6553e8d5ccdb943ae1b816e4ac5ee" name="ae0a6553e8d5ccdb943ae1b816e4ac5ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0a6553e8d5ccdb943ae1b816e4ac5ee">&#9670;&#160;</a></span>MPI_Comm</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MPI_Comm&#160;&#160;&#160;int</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aff6481f998eb4f05aeea3181d497ea09" name="aff6481f998eb4f05aeea3181d497ea09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff6481f998eb4f05aeea3181d497ea09">&#9670;&#160;</a></span>MPI_Comm_rank</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MPI_Comm_rank</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">{ *<a class="code hl_variable" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a> = 0; }</div>
-<div class="ttc" id="amake__input__json_8m_html_ab07c21934cff3c45a6327df02597f517"><div class="ttname"><a href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a></div><div class="ttdeci">y</div><div class="ttdef"><b>Definition</b> make_input_json.m:6</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aa515a185c0d75c35ac0a4e8a507437f0" name="aa515a185c0d75c35ac0a4e8a507437f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa515a185c0d75c35ac0a4e8a507437f0">&#9670;&#160;</a></span>MPI_Comm_size</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MPI_Comm_size</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">{ *<a class="code hl_variable" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a> = 0; }</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a2df6a15627583d5e6f5a48550644cbef" name="a2df6a15627583d5e6f5a48550644cbef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2df6a15627583d5e6f5a48550644cbef">&#9670;&#160;</a></span>MPI_COMM_WORLD</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MPI_COMM_WORLD&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="abcc46493f660b1e73833cd6553d57f8b" name="abcc46493f660b1e73833cd6553d57f8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcc46493f660b1e73833cd6553d57f8b">&#9670;&#160;</a></span>MPI_Initialized</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MPI_Initialized</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em><a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

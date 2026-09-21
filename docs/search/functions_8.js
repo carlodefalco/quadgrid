@@ -2,8 +2,8 @@ var searchData=
 [
   ['init_5fnames_0',['init_names',['../structprops__t.html#ae9c7c0b2ce2c28802654f34096afdde1',1,'props_t']]],
   ['init_5fparticle_5fmesh_1',['init_particle_mesh',['../structparticles__t.html#a58b5bea8f17ea6a62e526c0baea96e50',1,'particles_t']]],
-  ['init_5fparticle_5fpositions_2',['init_particle_positions',['../structparticles__t.html#afd5730c3fc4181726a77b90ef5886d78',1,'particles_t']]],
-  ['init_5fprops_3',['init_props',['../structparticles__t.html#a7500d757b2199c2be82f990b3fceac94',1,'particles_t']]],
+  ['init_5fparticle_5fpositions_2',['init_particle_positions',['../structparticles__t.html#a30726146d9878c6e1667ab5cf3f59378',1,'particles_t']]],
+  ['init_5fprops_3',['init_props',['../structparticles__t.html#a6c2d8bcf56bcec656628ffc90c59fc50',1,'particles_t']]],
   ['inside_4',['inside',['../particle__remove__example_8cpp.html#aaceed14ed02cdc5b93ab849120488bbe',1,'particle_remove_example.cpp']]],
   ['ip_5',['ip',['../structparticles__t.html#a13f909acf0b25f6a2370df5afc4fbde8',1,'particles_t::ip(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a067b0fb0d9a67124e8c12f58f4b7eab1',1,'particles_t::ip(const std::string &amp;name, idx_t ii) const']]],
   ['is_5fdefined_6',['is_defined',['../classquadgrid.html#a851156796248eb8b5342cd1776244eff',1,'quadgrid']]],

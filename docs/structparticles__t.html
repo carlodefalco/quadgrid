@@ -99,6 +99,10 @@ $(function(){initNavTree('structparticles__t.html','','structparticles__t-member
 
 <p><code>#include &lt;<a class="el" href="particles_8h_source.html">particles.h</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:update_5Fptcl_5Fto_5Fgrd_5Fhost" id="r_update_5Fptcl_5Fto_5Fgrd_5Fhost"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classparticles__t_1_1update__ptcl__to__grd__host.html">update_ptcl_to_grd_host</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a839105e0a564b6ac175f7fcf47ed6a64" id="r_a839105e0a564b6ac175f7fcf47ed6a64"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_format</a> : idx_t { <a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64a628cb5675ff524f3e719b7aa2e88fe3f">csv</a> = 0
@@ -116,114 +120,127 @@ Public Types</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="memdesc:a7b80b5e5ae186946e649524a083bb6b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of cell colors.  <a href="#a7b80b5e5ae186946e649524a083bb6b5">More...</a><br /></td></tr>
-<tr class="memitem:a52087bebea70a9f493fa7d7c6266ec2a" id="r_a52087bebea70a9f493fa7d7c6266ec2a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> = <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;<a class="el" href="classquadgrid__t.html">::idx_t</a></td></tr>
-<tr class="memdesc:a52087bebea70a9f493fa7d7c6266ec2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">datatype for indexing into vectors of properties  <br /></td></tr>
+<tr class="memitem:a6dc35017fb8dbaebc347c3b8a8aabcf0" id="r_a6dc35017fb8dbaebc347c3b8a8aabcf0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> = <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt;&gt;<a class="el" href="classquadgrid__t.html">::idx_t</a></td></tr>
+<tr class="memdesc:a6dc35017fb8dbaebc347c3b8a8aabcf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">datatype for indexing into vectors of properties  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aed22c8828daf8a352caa203df3fad8c6" id="r_aed22c8828daf8a352caa203df3fad8c6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed22c8828daf8a352caa203df3fad8c6">default_x_generator</a> ()</td></tr>
-<tr class="memdesc:aed22c8828daf8a352caa203df3fad8c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default generator function used to set up x-coordinates of particle positions if none is is specified.  <br /></td></tr>
-<tr class="memitem:ab7c1cad7c83ace102e68eabe7e84c1bf" id="r_ab7c1cad7c83ace102e68eabe7e84c1bf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7c1cad7c83ace102e68eabe7e84c1bf">default_y_generator</a> ()</td></tr>
-<tr class="memdesc:ab7c1cad7c83ace102e68eabe7e84c1bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default generator function used to set up y-coordinates of particle positions if none is is specified.  <br /></td></tr>
+<tr class="memitem:a6be18dfd4d45e01fe8e0b14bed11cad9" id="r_a6be18dfd4d45e01fe8e0b14bed11cad9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6be18dfd4d45e01fe8e0b14bed11cad9">default_x_generator</a> ()</td></tr>
+<tr class="memdesc:a6be18dfd4d45e01fe8e0b14bed11cad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default generator function used to set up x-coordinates of particle positions if none is is specified.  <br /></td></tr>
+<tr class="memitem:a8032ebcf783cec2b1e41ccce9dbac4c5" id="r_a8032ebcf783cec2b1e41ccce9dbac4c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8032ebcf783cec2b1e41ccce9dbac4c5">default_y_generator</a> ()</td></tr>
+<tr class="memdesc:a8032ebcf783cec2b1e41ccce9dbac4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The default generator function used to set up y-coordinates of particle positions if none is is specified.  <br /></td></tr>
 <tr class="memitem:a84ff5e75cac554ab1024f099138efb43" id="r_a84ff5e75cac554ab1024f099138efb43"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_format</a> fmt&gt; </td></tr>
 <tr class="memitem:a84ff5e75cac554ab1024f099138efb43 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84ff5e75cac554ab1024f099138efb43">print</a> (std::ostream &amp;os) const</td></tr>
 <tr class="memdesc:a84ff5e75cac554ab1024f099138efb43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template for export function.  <br /></td></tr>
-<tr class="memitem:a32b39694e2c803918733f31c6e1c95b8" id="r_a32b39694e2c803918733f31c6e1c95b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32b39694e2c803918733f31c6e1c95b8">particles_t</a> (<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> n, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</td></tr>
-<tr class="memdesc:a32b39694e2c803918733f31c6e1c95b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplest form of constructor.  <br /></td></tr>
-<tr class="memitem:ace2a684dff95f793e184ad28c337179b" id="r_ace2a684dff95f793e184ad28c337179b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace2a684dff95f793e184ad28c337179b">particles_t</a> (const nlohmann::json &amp;j, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</td></tr>
-<tr class="memdesc:ace2a684dff95f793e184ad28c337179b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ctor to import data from json.  <br /></td></tr>
-<tr class="memitem:ae07fa58dec580bf07828f06a100e77ee" id="r_ae07fa58dec580bf07828f06a100e77ee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae07fa58dec580bf07828f06a100e77ee">particles_t</a> (<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_)</td></tr>
-<tr class="memdesc:ae07fa58dec580bf07828f06a100e77ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with default position generators.  <br /></td></tr>
-<tr class="memitem:a27caa2f9df6ef02983ec99918efd7db4" id="r_a27caa2f9df6ef02983ec99918efd7db4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27caa2f9df6ef02983ec99918efd7db4">particles_t</a> (<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_, const std::vector&lt; double &gt; &amp;xv, const std::vector&lt; double &gt; &amp;yv)</td></tr>
-<tr class="memdesc:a27caa2f9df6ef02983ec99918efd7db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with custom position vectors.  <br /></td></tr>
-<tr class="memitem:af6a50a83252c25a4c534086dc31d9325" id="r_af6a50a83252c25a4c534086dc31d9325"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6a50a83252c25a4c534086dc31d9325">particles_t</a> (<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> n, const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;grid_, std::function&lt; double()&gt; xgen, std::function&lt; double()&gt; ygen)</td></tr>
-<tr class="memdesc:af6a50a83252c25a4c534086dc31d9325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with custom position generators.  <br /></td></tr>
-<tr class="memitem:a7500d757b2199c2be82f990b3fceac94" id="r_a7500d757b2199c2be82f990b3fceac94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7500d757b2199c2be82f990b3fceac94">init_props</a> (const std::vector&lt; std::string &gt; &amp;ipropnames, const std::vector&lt; std::string &gt; &amp;dpropnames)</td></tr>
-<tr class="memdesc:a7500d757b2199c2be82f990b3fceac94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize particle properties.  <br /></td></tr>
-<tr class="memitem:a992770f9eab92adba7bbf674d18dcc4c" id="r_a992770f9eab92adba7bbf674d18dcc4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a992770f9eab92adba7bbf674d18dcc4c">remove_in_region</a> (std::function&lt; bool(double, double)&gt; fun)</td></tr>
-<tr class="memdesc:a992770f9eab92adba7bbf674d18dcc4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase particcles based on coordinates.  <br /></td></tr>
+<tr class="memitem:ae6e88b3c1d8c014f64e80f20bb9357ae" id="r_ae6e88b3c1d8c014f64e80f20bb9357ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6e88b3c1d8c014f64e80f20bb9357ae">particles_t</a> (<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> n, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;grid_)</td></tr>
+<tr class="memdesc:ae6e88b3c1d8c014f64e80f20bb9357ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplest form of constructor.  <br /></td></tr>
+<tr class="memitem:a5abed22dcb2fda6e9e9f9b969c68dae9" id="r_a5abed22dcb2fda6e9e9f9b969c68dae9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5abed22dcb2fda6e9e9f9b969c68dae9">particles_t</a> (const nlohmann::json &amp;j, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;grid_)</td></tr>
+<tr class="memdesc:a5abed22dcb2fda6e9e9f9b969c68dae9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ctor to import data from json.  <br /></td></tr>
+<tr class="memitem:a6ea4cd5d284b6041b91c10bbc5edce90" id="r_a6ea4cd5d284b6041b91c10bbc5edce90"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ea4cd5d284b6041b91c10bbc5edce90">particles_t</a> (<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> n, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;ipropnames, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;grid_)</td></tr>
+<tr class="memdesc:a6ea4cd5d284b6041b91c10bbc5edce90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with default position generators.  <br /></td></tr>
+<tr class="memitem:ac44116e516f900246d5d552b8306f3b3" id="r_ac44116e516f900246d5d552b8306f3b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac44116e516f900246d5d552b8306f3b3">particles_t</a> (<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> n, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;ipropnames, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;grid_, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &amp;xv, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &amp;yv)</td></tr>
+<tr class="memdesc:ac44116e516f900246d5d552b8306f3b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with custom position vectors.  <br /></td></tr>
+<tr class="memitem:a43bfd5ceeefaac615364b57d49de50f8" id="r_a43bfd5ceeefaac615364b57d49de50f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43bfd5ceeefaac615364b57d49de50f8">particles_t</a> (<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> n, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;ipropnames, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;dpropnames, const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;grid_, std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt; xgen, std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt; ygen)</td></tr>
+<tr class="memdesc:a43bfd5ceeefaac615364b57d49de50f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with custom position generators.  <br /></td></tr>
+<tr class="memitem:a6c2d8bcf56bcec656628ffc90c59fc50" id="r_a6c2d8bcf56bcec656628ffc90c59fc50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c2d8bcf56bcec656628ffc90c59fc50">init_props</a> (const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;ipropnames, const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;dpropnames)</td></tr>
+<tr class="memdesc:a6c2d8bcf56bcec656628ffc90c59fc50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize particle properties.  <br /></td></tr>
+<tr class="memitem:a7c15a4d0086868f318a48fe44f421a04" id="r_a7c15a4d0086868f318a48fe44f421a04"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c15a4d0086868f318a48fe44f421a04">remove_in_region</a> (std::function&lt; bool(<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>)&gt; fun)</td></tr>
+<tr class="memdesc:a7c15a4d0086868f318a48fe44f421a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erase particcles based on coordinates.  <br /></td></tr>
+<tr class="memitem:a16baf24f421a49aba6c5bcfa01644781" id="r_a16baf24f421a49aba6c5bcfa01644781"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16baf24f421a49aba6c5bcfa01644781">memcpy_host_to_device</a> ()</td></tr>
+<tr class="memdesc:a16baf24f421a49aba6c5bcfa01644781"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy Host To Device.  <br /></td></tr>
+<tr class="memitem:afb00416b3b775d99a84f56a2bb17cae2" id="r_afb00416b3b775d99a84f56a2bb17cae2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb00416b3b775d99a84f56a2bb17cae2">memcpy_device_to_host</a> ()</td></tr>
+<tr class="memdesc:afb00416b3b775d99a84f56a2bb17cae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy Device To Host.  <br /></td></tr>
 <tr class="memitem:a58b5bea8f17ea6a62e526c0baea96e50" id="r_a58b5bea8f17ea6a62e526c0baea96e50"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58b5bea8f17ea6a62e526c0baea96e50">init_particle_mesh</a> ()</td></tr>
 <tr class="memdesc:a58b5bea8f17ea6a62e526c0baea96e50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build grid/particles connectivity.  <br /></td></tr>
-<tr class="memitem:a666a6727e62fb93cf5cb24f089b9dc03" id="r_a666a6727e62fb93cf5cb24f089b9dc03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a666a6727e62fb93cf5cb24f089b9dc03">update_ptcl_to_grd</a> ()</td></tr>
-<tr class="memdesc:a666a6727e62fb93cf5cb24f089b9dc03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the<span class="tt">ptcl_to_grd</span> map only, without changing.  <br /></td></tr>
+<tr class="memitem:afb5788b7005d185312bb3466e32fc4ac" id="r_afb5788b7005d185312bb3466e32fc4ac"><td class="memTemplParams" colspan="2">template&lt;class backend&gt; </td></tr>
+<tr class="memitem:afb5788b7005d185312bb3466e32fc4ac template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb5788b7005d185312bb3466e32fc4ac">update_ptcl_to_grd</a> ()</td></tr>
+<tr class="memdesc:afb5788b7005d185312bb3466e32fc4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the<span class="tt">ptcl_to_grd</span> map only, without changing.  <br /></td></tr>
 <tr class="memitem:a3487859ee528fce9caa647c78a764f6e" id="r_a3487859ee528fce9caa647c78a764f6e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3487859ee528fce9caa647c78a764f6e">mark_by_cell_color</a> ()</td></tr>
 <tr class="memdesc:a3487859ee528fce9caa647c78a764f6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark particles by cell color.  <br /></td></tr>
-<tr class="memitem:aefa81ed3811e09a92b7b0fdb4a9ea4f0" id="r_aefa81ed3811e09a92b7b0fdb4a9ea4f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefa81ed3811e09a92b7b0fdb4a9ea4f0">reorder</a> (std::vector&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &gt; &amp;)</td></tr>
-<tr class="memdesc:aefa81ed3811e09a92b7b0fdb4a9ea4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorder coordinates an properties according to the ordering vvector.  <br /></td></tr>
-<tr class="memitem:afd5730c3fc4181726a77b90ef5886d78" id="r_afd5730c3fc4181726a77b90ef5886d78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd5730c3fc4181726a77b90ef5886d78">init_particle_positions</a> (std::function&lt; double()&gt; xgentr, std::function&lt; double()&gt; ygentr)</td></tr>
-<tr class="memdesc:afd5730c3fc4181726a77b90ef5886d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize particle positions with generator functions.  <br /></td></tr>
+<tr class="memitem:adea22c19239f9bdbdf0243c1c5cfa35d" id="r_adea22c19239f9bdbdf0243c1c5cfa35d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adea22c19239f9bdbdf0243c1c5cfa35d">reorder</a> (<a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &gt; &amp;)</td></tr>
+<tr class="memdesc:adea22c19239f9bdbdf0243c1c5cfa35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorder coordinates an properties according to the ordering vvector.  <br /></td></tr>
+<tr class="memitem:a30726146d9878c6e1667ab5cf3f59378" id="r_a30726146d9878c6e1667ab5cf3f59378"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30726146d9878c6e1667ab5cf3f59378">init_particle_positions</a> (std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt; xgentr, std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt; ygentr)</td></tr>
+<tr class="memdesc:a30726146d9878c6e1667ab5cf3f59378"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize particle positions with generator functions.  <br /></td></tr>
 <tr class="memitem:adcd0da9f3014b7be706940d3fdf4bdda" id="r_adcd0da9f3014b7be706940d3fdf4bdda"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcd0da9f3014b7be706940d3fdf4bdda">build_mass</a> ()</td></tr>
 <tr class="memdesc:adcd0da9f3014b7be706940d3fdf4bdda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a mass matrix.  <br /></td></tr>
-<tr class="memitem:a3621354e988ebfe087659884d67d6f4f" id="r_a3621354e988ebfe087659884d67d6f4f"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3621354e988ebfe087659884d67d6f4f">dp</a> (const std::string &amp;name, <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> ii)</td></tr>
-<tr class="memdesc:a3621354e988ebfe087659884d67d6f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <span class="tt">dprops.at (name) [ii]</span>  <br /></td></tr>
-<tr class="memitem:a9d763b378b755824d56711f62806ea60" id="r_a9d763b378b755824d56711f62806ea60"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d763b378b755824d56711f62806ea60">dp</a> (const std::string &amp;name, <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> ii) const</td></tr>
-<tr class="memdesc:a9d763b378b755824d56711f62806ea60"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <span class="tt">dprops.at (name) [ii]</span>  <br /></td></tr>
-<tr class="memitem:a13f909acf0b25f6a2370df5afc4fbde8" id="r_a13f909acf0b25f6a2370df5afc4fbde8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13f909acf0b25f6a2370df5afc4fbde8">ip</a> (const std::string &amp;name, <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> ii)</td></tr>
+<tr class="memitem:a179cba414a0c0d74b1e8bccda2506856" id="r_a179cba414a0c0d74b1e8bccda2506856"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a179cba414a0c0d74b1e8bccda2506856">dp</a> (const std::string &amp;name, <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> ii)</td></tr>
+<tr class="memdesc:a179cba414a0c0d74b1e8bccda2506856"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <span class="tt">dprops.at (name) [ii]</span>  <br /></td></tr>
+<tr class="memitem:a56a1a4a94cfe03b14954b21fa85ee9c8" id="r_a56a1a4a94cfe03b14954b21fa85ee9c8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56a1a4a94cfe03b14954b21fa85ee9c8">dp</a> (const std::string &amp;name, <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> ii) const</td></tr>
+<tr class="memdesc:a56a1a4a94cfe03b14954b21fa85ee9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <span class="tt">dprops.at (name) [ii]</span>  <br /></td></tr>
+<tr class="memitem:a13f909acf0b25f6a2370df5afc4fbde8" id="r_a13f909acf0b25f6a2370df5afc4fbde8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13f909acf0b25f6a2370df5afc4fbde8">ip</a> (const std::string &amp;name, <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> ii)</td></tr>
 <tr class="memdesc:a13f909acf0b25f6a2370df5afc4fbde8"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <span class="tt">iprops.at (name) [ii]</span>  <br /></td></tr>
-<tr class="memitem:a067b0fb0d9a67124e8c12f58f4b7eab1" id="r_a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a067b0fb0d9a67124e8c12f58f4b7eab1">ip</a> (const std::string &amp;name, <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> ii) const</td></tr>
+<tr class="memitem:a067b0fb0d9a67124e8c12f58f4b7eab1" id="r_a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a067b0fb0d9a67124e8c12f58f4b7eab1">ip</a> (const std::string &amp;name, <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> ii) const</td></tr>
 <tr class="memdesc:a067b0fb0d9a67124e8c12f58f4b7eab1"><td class="mdescLeft">&#160;</td><td class="mdescRight">shortcut for <span class="tt">iprops.at (name) [ii]</span>  <br /></td></tr>
-<tr class="memitem:afd0e7b3d2bbf9f47b798805a6a1ba270" id="r_afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd0e7b3d2bbf9f47b798805a6a1ba270">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false) const</td></tr>
-<tr class="memdesc:afd0e7b3d2bbf9f47b798805a6a1ba270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <br /></td></tr>
-<tr class="memitem:a07dc3e137357921e2deeeed8be3af476" id="r_a07dc3e137357921e2deeeed8be3af476"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
-<tr class="memitem:a07dc3e137357921e2deeeed8be3af476 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07dc3e137357921e2deeeed8be3af476">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pvarnames, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
-<tr class="memdesc:a07dc3e137357921e2deeeed8be3af476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <br /></td></tr>
-<tr class="memitem:a292241924cc9e45c88383504bf9b42cc" id="r_a292241924cc9e45c88383504bf9b42cc"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
-<tr class="memitem:a292241924cc9e45c88383504bf9b42cc template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a292241924cc9e45c88383504bf9b42cc">p2g</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, bool apply_mass=false) const</td></tr>
-<tr class="memitem:a310ce986f59ab758bf3cab369bd918d1" id="r_a310ce986f59ab758bf3cab369bd918d1"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
-<tr class="memitem:a310ce986f59ab758bf3cab369bd918d1 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a310ce986f59ab758bf3cab369bd918d1">p2gd</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, PT const &amp;pxvarnames, PT const &amp;pyvarnames, std::string const &amp;area, GT const &amp;gvarnames, bool apply_mass=false) const</td></tr>
-<tr class="memitem:a6d0cbbad31c777319e767fab59635fff" id="r_a6d0cbbad31c777319e767fab59635fff"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
-<tr class="memitem:a6d0cbbad31c777319e767fab59635fff template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d0cbbad31c777319e767fab59635fff">p2gd</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pxvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pyvarnames, std::string const &amp;area, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, bool apply_mass=false) const</td></tr>
-<tr class="memitem:a48fed34d3ef5d847253d65a94f1c2c1d" id="r_a48fed34d3ef5d847253d65a94f1c2c1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48fed34d3ef5d847253d65a94f1c2c1d">g2p</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, bool apply_mass=false)</td></tr>
-<tr class="memitem:aa57d80d38599a02a5dd25100c5c0fa3f" id="r_aa57d80d38599a02a5dd25100c5c0fa3f"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
-<tr class="memitem:aa57d80d38599a02a5dd25100c5c0fa3f template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa57d80d38599a02a5dd25100c5c0fa3f">g2p</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pvarnames, bool apply_mass=false)</td></tr>
-<tr class="memitem:a71f39ecfea690af2bbdddd30b1776c6d" id="r_a71f39ecfea690af2bbdddd30b1776c6d"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
-<tr class="memitem:a71f39ecfea690af2bbdddd30b1776c6d template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71f39ecfea690af2bbdddd30b1776c6d">g2p</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pvarnames, bool apply_mass=false)</td></tr>
-<tr class="memitem:adb5af0b00e910077aebaec213fafedce" id="r_adb5af0b00e910077aebaec213fafedce"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
-<tr class="memitem:adb5af0b00e910077aebaec213fafedce template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb5af0b00e910077aebaec213fafedce">g2pd</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pxvarnames, PT const &amp;pyvarnames, bool apply_mass=false)</td></tr>
-<tr class="memitem:ad137a17b286a7de37a13676e6ee043d6" id="r_ad137a17b286a7de37a13676e6ee043d6"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
-<tr class="memitem:ad137a17b286a7de37a13676e6ee043d6 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad137a17b286a7de37a13676e6ee043d6">g2pd</a> (const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pxvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pyvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:a01a4c3ab9f68d5b92e5af66af780cd2c" id="r_a01a4c3ab9f68d5b92e5af66af780cd2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01a4c3ab9f68d5b92e5af66af780cd2c">p2g</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, bool apply_mass=false)</td></tr>
+<tr class="memdesc:a01a4c3ab9f68d5b92e5af66af780cd2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <br /></td></tr>
+<tr class="memitem:a9c8483c5a1d84026d4642603eed83219" id="r_a9c8483c5a1d84026d4642603eed83219"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
+<tr class="memitem:a9c8483c5a1d84026d4642603eed83219 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c8483c5a1d84026d4642603eed83219">p2g</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, PT const &amp;pvarnames, GT const &amp;gvarnames, bool apply_mass=false)</td></tr>
+<tr class="memdesc:a9c8483c5a1d84026d4642603eed83219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Map particle variables to the grid.  <br /></td></tr>
+<tr class="memitem:ab8146a87a1eaa9532b59741b9cac0b1c" id="r_ab8146a87a1eaa9532b59741b9cac0b1c"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
+<tr class="memitem:ab8146a87a1eaa9532b59741b9cac0b1c template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab8146a87a1eaa9532b59741b9cac0b1c">p2g</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:a7a7b5203fdf83e6df190d7f8f3f178d1" id="r_a7a7b5203fdf83e6df190d7f8f3f178d1"><td class="memTemplParams" colspan="2">template&lt;typename UnaryFunction&gt; </td></tr>
+<tr class="memitem:a7a7b5203fdf83e6df190d7f8f3f178d1 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a7b5203fdf83e6df190d7f8f3f178d1">p2g</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, UnaryFunction helper)</td></tr>
+<tr class="memitem:aeaa15aeb75fea660fd1da7b004765c95" id="r_aeaa15aeb75fea660fd1da7b004765c95"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
+<tr class="memitem:aeaa15aeb75fea660fd1da7b004765c95 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaa15aeb75fea660fd1da7b004765c95">p2gd</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, PT const &amp;pxvarnames, PT const &amp;pyvarnames, std::string const &amp;area, GT const &amp;gvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:a29e4f406743e70096b02c3bccca4ed2c" id="r_a29e4f406743e70096b02c3bccca4ed2c"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
+<tr class="memitem:a29e4f406743e70096b02c3bccca4ed2c template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29e4f406743e70096b02c3bccca4ed2c">p2gd</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pxvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pyvarnames, std::string const &amp;area, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:a659d9cef371f26fb8253b2f56c5f4172" id="r_a659d9cef371f26fb8253b2f56c5f4172"><td class="memTemplParams" colspan="2">template&lt;typename UnaryFunction&gt; </td></tr>
+<tr class="memitem:a659d9cef371f26fb8253b2f56c5f4172 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a659d9cef371f26fb8253b2f56c5f4172">p2gd</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, UnaryFunction helper)</td></tr>
+<tr class="memitem:a327c57b7fa7ce7ecd6c6e3f8de4d299a" id="r_a327c57b7fa7ce7ecd6c6e3f8de4d299a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a327c57b7fa7ce7ecd6c6e3f8de4d299a">g2p</a> (const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, bool apply_mass=false)</td></tr>
+<tr class="memitem:a875e4eadfb506debcef273757ff563e3" id="r_a875e4eadfb506debcef273757ff563e3"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
+<tr class="memitem:a875e4eadfb506debcef273757ff563e3 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a875e4eadfb506debcef273757ff563e3">g2p</a> (const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:a391e76e4ffbc622308e56a7806fc2e97" id="r_a391e76e4ffbc622308e56a7806fc2e97"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
+<tr class="memitem:a391e76e4ffbc622308e56a7806fc2e97 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a391e76e4ffbc622308e56a7806fc2e97">g2p</a> (const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:ad73fc01513ca9c38e737e35cf7f758d5" id="r_ad73fc01513ca9c38e737e35cf7f758d5"><td class="memTemplParams" colspan="2">template&lt;typename UnaryFunction&gt; </td></tr>
+<tr class="memitem:ad73fc01513ca9c38e737e35cf7f758d5 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad73fc01513ca9c38e737e35cf7f758d5">g2p</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, UnaryFunction helper)</td></tr>
+<tr class="memitem:a0f504da1f34b2a1f3c64df90c5ecbd1e" id="r_a0f504da1f34b2a1f3c64df90c5ecbd1e"><td class="memTemplParams" colspan="2">template&lt;typename GT, typename PT&gt; </td></tr>
+<tr class="memitem:a0f504da1f34b2a1f3c64df90c5ecbd1e template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f504da1f34b2a1f3c64df90c5ecbd1e">g2pd</a> (const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, GT const &amp;gvarnames, PT const &amp;pxvarnames, PT const &amp;pyvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:a929932186e941ea229b42f33cae737c7" id="r_a929932186e941ea229b42f33cae737c7"><td class="memTemplParams" colspan="2">template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a>&gt; </td></tr>
+<tr class="memitem:a929932186e941ea229b42f33cae737c7 template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a929932186e941ea229b42f33cae737c7">g2pd</a> (const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;gvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pxvarnames, std::initializer_list&lt; <a class="el" href="make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03">str</a> &gt; const &amp;pyvarnames, bool apply_mass=false)</td></tr>
+<tr class="memitem:aec4b264202f405c1cafef2ddc5b275df" id="r_aec4b264202f405c1cafef2ddc5b275df"><td class="memTemplParams" colspan="2">template&lt;typename UnaryFunction&gt; </td></tr>
+<tr class="memitem:aec4b264202f405c1cafef2ddc5b275df template"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec4b264202f405c1cafef2ddc5b275df">g2pd</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;vars, UnaryFunction helper)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8480ad46e4c13e25595d5d926995382a" id="r_a8480ad46e4c13e25595d5d926995382a"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8480ad46e4c13e25595d5d926995382a">getkey</a> (std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;varnames, std::size_t ivar)</td></tr>
-<tr class="memitem:ae89daf302e0bee2147c919d559cae195" id="r_ae89daf302e0bee2147c919d559cae195"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae89daf302e0bee2147c919d559cae195">getkey</a> (std::vector&lt; std::string &gt; const &amp;varnames, std::size_t ivar)</td></tr>
+<tr class="memitem:af9d1560f449b9b2d1330538533368b11" id="r_af9d1560f449b9b2d1330538533368b11"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af9d1560f449b9b2d1330538533368b11">getkey</a> (std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; const &amp;varnames, std::size_t ivar)</td></tr>
+<tr class="memitem:a08fbd791e9e07f49af0e72227c4c51ae" id="r_a08fbd791e9e07f49af0e72227c4c51ae"><td class="memItemLeft" align="right" valign="top">static const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08fbd791e9e07f49af0e72227c4c51ae">getkey</a> (<a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; const &amp;varnames, std::size_t ivar)</td></tr>
 <tr class="memitem:a84674e31be49f4421ba74633732e96c5" id="r_a84674e31be49f4421ba74633732e96c5"><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84674e31be49f4421ba74633732e96c5">getkey</a> (std::initializer_list&lt; const char * &gt; const &amp;varnames, std::size_t ivar)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a4805ba84b0fd692529f0647daf0d02ec" id="r_a4805ba84b0fd692529f0647daf0d02ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4805ba84b0fd692529f0647daf0d02ec">num_particles</a></td></tr>
+<tr class="memitem:a4805ba84b0fd692529f0647daf0d02ec" id="r_a4805ba84b0fd692529f0647daf0d02ec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4805ba84b0fd692529f0647daf0d02ec">num_particles</a></td></tr>
 <tr class="memdesc:a4805ba84b0fd692529f0647daf0d02ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of particles.  <br /></td></tr>
-<tr class="memitem:ac34d8516ddc6eb69f0329ddd3ed31dcb" id="r_ac34d8516ddc6eb69f0329ddd3ed31dcb"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac34d8516ddc6eb69f0329ddd3ed31dcb">x</a></td></tr>
-<tr class="memdesc:ac34d8516ddc6eb69f0329ddd3ed31dcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">x coordinate of particle positions.  <br /></td></tr>
-<tr class="memitem:ad66b9250b4500c6b8f068a29bc18972b" id="r_ad66b9250b4500c6b8f068a29bc18972b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad66b9250b4500c6b8f068a29bc18972b">y</a></td></tr>
-<tr class="memdesc:ad66b9250b4500c6b8f068a29bc18972b"><td class="mdescLeft">&#160;</td><td class="mdescRight">y coordinate of particle positions.  <br /></td></tr>
-<tr class="memitem:a2adf734d33fc2f167678274b0b007412" id="r_a2adf734d33fc2f167678274b0b007412"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::vector&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2adf734d33fc2f167678274b0b007412">iprops</a></td></tr>
-<tr class="memdesc:a2adf734d33fc2f167678274b0b007412"><td class="mdescLeft">&#160;</td><td class="mdescRight">integer type quantities associated with the particles.  <br /></td></tr>
-<tr class="memitem:a9405175dfc59330ddb971860f0321dab" id="r_a9405175dfc59330ddb971860f0321dab"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9405175dfc59330ddb971860f0321dab">dprops</a></td></tr>
-<tr class="memdesc:a9405175dfc59330ddb971860f0321dab"><td class="mdescLeft">&#160;</td><td class="mdescRight"><span class="tt">double</span> type quantities associated with the particles.  <br /></td></tr>
-<tr class="memitem:aebe3ce98a23311531e0d8be5cf71a271" id="r_aebe3ce98a23311531e0d8be5cf71a271"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebe3ce98a23311531e0d8be5cf71a271">M</a></td></tr>
-<tr class="memdesc:aebe3ce98a23311531e0d8be5cf71a271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mass matrix to be used for transfers if required.  <br /></td></tr>
-<tr class="memitem:a21d45be17b4c8493bea2368bc75c811a" id="r_a21d45be17b4c8493bea2368bc75c811a"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>, std::vector&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21d45be17b4c8493bea2368bc75c811a">grd_to_ptcl</a></td></tr>
-<tr class="memdesc:a21d45be17b4c8493bea2368bc75c811a"><td class="mdescLeft">&#160;</td><td class="mdescRight">grid-&gt;particles connectivity.  <br /></td></tr>
-<tr class="memitem:aa998aa77963f90ceb629c5819db56c90" id="r_aa998aa77963f90ceb629c5819db56c90"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa998aa77963f90ceb629c5819db56c90">ptcl_to_grd</a></td></tr>
-<tr class="memdesc:aa998aa77963f90ceb629c5819db56c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">particles-&gt;grid connectivity.  <br /></td></tr>
-<tr class="memitem:a214cc37e94fc0eaecde84d6b6e624cb1" id="r_a214cc37e94fc0eaecde84d6b6e624cb1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a214cc37e94fc0eaecde84d6b6e624cb1">ptcl_grd_color</a></td></tr>
-<tr class="memdesc:a214cc37e94fc0eaecde84d6b6e624cb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">color of particle's cell.  <br /></td></tr>
-<tr class="memitem:a68834707308f986b4a92951fb22afae3" id="r_a68834707308f986b4a92951fb22afae3"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68834707308f986b4a92951fb22afae3">grid</a></td></tr>
-<tr class="memdesc:a68834707308f986b4a92951fb22afae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">refernce to a grid object.  <br /></td></tr>
+<tr class="memitem:aaa4d1c6de47a5de0dc3d1f62f94d0a40" id="r_aaa4d1c6de47a5de0dc3d1f62f94d0a40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa4d1c6de47a5de0dc3d1f62f94d0a40">x</a></td></tr>
+<tr class="memdesc:aaa4d1c6de47a5de0dc3d1f62f94d0a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">x coordinate of particle positions.  <br /></td></tr>
+<tr class="memitem:ad2f0488c81da734438b3853c598ff226" id="r_ad2f0488c81da734438b3853c598ff226"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2f0488c81da734438b3853c598ff226">y</a></td></tr>
+<tr class="memdesc:ad2f0488c81da734438b3853c598ff226"><td class="mdescLeft">&#160;</td><td class="mdescRight">y coordinate of particle positions.  <br /></td></tr>
+<tr class="memitem:a5ec72b624eeab661753e2d11478077a2" id="r_a5ec72b624eeab661753e2d11478077a2"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ec72b624eeab661753e2d11478077a2">iprops</a></td></tr>
+<tr class="memdesc:a5ec72b624eeab661753e2d11478077a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">integer type quantities associated with the particles.  <br /></td></tr>
+<tr class="memitem:ac2d4d1c6acc102ae607945090383d5ff" id="r_ac2d4d1c6acc102ae607945090383d5ff"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2d4d1c6acc102ae607945090383d5ff">dprops</a></td></tr>
+<tr class="memdesc:ac2d4d1c6acc102ae607945090383d5ff"><td class="mdescLeft">&#160;</td><td class="mdescRight"><span class="tt">double</span> type quantities associated with the particles.  <br /></td></tr>
+<tr class="memitem:a892ecff3eeae8c1818733ec3f93a2c8d" id="r_a892ecff3eeae8c1818733ec3f93a2c8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a892ecff3eeae8c1818733ec3f93a2c8d">M</a></td></tr>
+<tr class="memdesc:a892ecff3eeae8c1818733ec3f93a2c8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mass matrix to be used for transfers if required.  <br /></td></tr>
+<tr class="memitem:a966e3a3b90ea1d75bc08c807fcd7cdfc" id="r_a966e3a3b90ea1d75bc08c807fcd7cdfc"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a966e3a3b90ea1d75bc08c807fcd7cdfc">grd_to_ptcl</a></td></tr>
+<tr class="memdesc:a966e3a3b90ea1d75bc08c807fcd7cdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">grid-&gt;particles connectivity.  <br /></td></tr>
+<tr class="memitem:a52bf20e3abdee78f9eede25573d044e2" id="r_a52bf20e3abdee78f9eede25573d044e2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52bf20e3abdee78f9eede25573d044e2">ptcl_to_grd</a></td></tr>
+<tr class="memdesc:a52bf20e3abdee78f9eede25573d044e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">particles-&gt;grid connectivity.  <br /></td></tr>
+<tr class="memitem:a5dc6868d80b1d270894558067812ba8d" id="r_a5dc6868d80b1d270894558067812ba8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dc6868d80b1d270894558067812ba8d">ptcl_grd_color</a></td></tr>
+<tr class="memdesc:a5dc6868d80b1d270894558067812ba8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">color of particle's cell.  <br /></td></tr>
+<tr class="memitem:abe0c1319b4669d6e89a838e06ee58179" id="r_abe0c1319b4669d6e89a838e06ee58179"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe0c1319b4669d6e89a838e06ee58179">grid</a></td></tr>
+<tr class="memdesc:abe0c1319b4669d6e89a838e06ee58179"><td class="mdescLeft">&#160;</td><td class="mdescRight">refernce to a grid object.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class to represent particles embedded in a grid. </p>
-<p>Offers methods for transfer of quantities from particles to grid or vice-versa (<a class="el" href="#afd0e7b3d2bbf9f47b798805a6a1ba270" title="Map particle variables to the grid.">particles_t::p2g</a>, <span class="tt">g2p, p2gd</span>, <span class="tt">g2pd</span>). Initial positions of the particles are chosen at random unless otherwise specified. To each particle a set one can associate a set of <span class="tt">double</span> and one of <span class="tt">int</span> which are stored in the <span class="tt">std::map</span> variables <span class="tt">dprops</span> and <span class="tt">iprops</span>, respectively. Can compute a (lumped) mass matrix to be used in the transfer functions. If particles are moved, the connectivity must be updated invoking the method <span class="tt">init_particle_mesh ()</span> </p>
+<p>Offers methods for transfer of quantities from particles to grid or vice-versa (<a class="el" href="#a01a4c3ab9f68d5b92e5af66af780cd2c" title="Map particle variables to the grid.">particles_t::p2g</a>, <span class="tt">g2p, p2gd</span>, <span class="tt">g2pd</span>). Initial positions of the particles are chosen at random unless otherwise specified. To each particle a set one can associate a set of <span class="tt">double</span> and one of <span class="tt">int</span> which are stored in the <span class="tt">std::map</span> variables <span class="tt">dprops</span> and <span class="tt">iprops</span>, respectively. Can compute a (lumped) mass matrix to be used in the transfer functions. If particles are moved, the connectivity must be updated invoking the method <span class="tt">init_particle_mesh ()</span> </p>
 </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a52087bebea70a9f493fa7d7c6266ec2a" name="a52087bebea70a9f493fa7d7c6266ec2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52087bebea70a9f493fa7d7c6266ec2a">&#9670;&#160;</a></span>idx_t</h2>
+<a id="a6dc35017fb8dbaebc347c3b8a8aabcf0" name="a6dc35017fb8dbaebc347c3b8a8aabcf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">&#9670;&#160;</a></span>idx_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">particles_t::idx_t</a> = <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt;&gt;<a class="el" href="classquadgrid__t.html">::idx_t</a></td>
+          <td class="memname">using <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">particles_t::idx_t</a> = <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt;&gt;<a class="el" href="classquadgrid__t.html">::idx_t</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -243,7 +260,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a7b80b5e5ae186946e649524a083bb6b5">particles_t::cell_color</a> : <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>
+          <td class="memname">enum class <a class="el" href="#a7b80b5e5ae186946e649524a083bb6b5">particles_t::cell_color</a> : <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>
         </tr>
       </table>
   </td>
@@ -274,7 +291,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">particles_t::output_format</a> : <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>
+          <td class="memname">enum class <a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">particles_t::output_format</a> : <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>
         </tr>
       </table>
   </td>
@@ -296,8 +313,8 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a32b39694e2c803918733f31c6e1c95b8" name="a32b39694e2c803918733f31c6e1c95b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32b39694e2c803918733f31c6e1c95b8">&#9670;&#160;</a></span>particles_t() <span class="overload">[1/5]</span></h2>
+<a id="ae6e88b3c1d8c014f64e80f20bb9357ae" name="ae6e88b3c1d8c014f64e80f20bb9357ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e88b3c1d8c014f64e80f20bb9357ae">&#9670;&#160;</a></span>particles_t() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,12 +325,12 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">particles_t::particles_t </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -334,8 +351,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ace2a684dff95f793e184ad28c337179b" name="ace2a684dff95f793e184ad28c337179b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace2a684dff95f793e184ad28c337179b">&#9670;&#160;</a></span>particles_t() <span class="overload">[2/5]</span></h2>
+<a id="a5abed22dcb2fda6e9e9f9b969c68dae9" name="a5abed22dcb2fda6e9e9f9b969c68dae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5abed22dcb2fda6e9e9f9b969c68dae9">&#9670;&#160;</a></span>particles_t() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,7 +368,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -366,8 +383,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ae07fa58dec580bf07828f06a100e77ee" name="ae07fa58dec580bf07828f06a100e77ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae07fa58dec580bf07828f06a100e77ee">&#9670;&#160;</a></span>particles_t() <span class="overload">[3/5]</span></h2>
+<a id="a6ea4cd5d284b6041b91c10bbc5edce90" name="a6ea4cd5d284b6041b91c10bbc5edce90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea4cd5d284b6041b91c10bbc5edce90">&#9670;&#160;</a></span>particles_t() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,22 +392,22 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">particles_t::particles_t </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -400,16 +417,16 @@ Public Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of particles </td></tr>
     <tr><td class="paramname">grid_</td><td><a class="el" href="classquadgrid__t.html">quadgrid_t</a> object, sizes need to have been already set up. </td></tr>
-    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a2adf734d33fc2f167678274b0b007412" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
-    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#a9405175dfc59330ddb971860f0321dab" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
+    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a5ec72b624eeab661753e2d11478077a2" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
+    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#ac2d4d1c6acc102ae607945090383d5ff" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a27caa2f9df6ef02983ec99918efd7db4" name="a27caa2f9df6ef02983ec99918efd7db4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27caa2f9df6ef02983ec99918efd7db4">&#9670;&#160;</a></span>particles_t() <span class="overload">[4/5]</span></h2>
+<a id="ac44116e516f900246d5d552b8306f3b3" name="ac44116e516f900246d5d552b8306f3b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44116e516f900246d5d552b8306f3b3">&#9670;&#160;</a></span>particles_t() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,32 +434,32 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">particles_t::particles_t </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>xv</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>xv</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>yv</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>yv</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -452,8 +469,8 @@ Public Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of particles </td></tr>
     <tr><td class="paramname">grid_</td><td><a class="el" href="classquadgrid__t.html">quadgrid_t</a> object, sizes need to have been already set up. </td></tr>
-    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a2adf734d33fc2f167678274b0b007412" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
-    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#a9405175dfc59330ddb971860f0321dab" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
+    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a5ec72b624eeab661753e2d11478077a2" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
+    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#ac2d4d1c6acc102ae607945090383d5ff" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
     <tr><td class="paramname">xv</td><td>the x-coordinates of new particles. </td></tr>
     <tr><td class="paramname">yv</td><td>the y-coordinates of new particles. </td></tr>
   </table>
@@ -462,8 +479,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af6a50a83252c25a4c534086dc31d9325" name="af6a50a83252c25a4c534086dc31d9325"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6a50a83252c25a4c534086dc31d9325">&#9670;&#160;</a></span>particles_t() <span class="overload">[5/5]</span></h2>
+<a id="a43bfd5ceeefaac615364b57d49de50f8" name="a43bfd5ceeefaac615364b57d49de50f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bfd5ceeefaac615364b57d49de50f8">&#9670;&#160;</a></span>particles_t() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,32 +488,32 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">particles_t::particles_t </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>grid_</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; double()&gt;</td>          <td class="paramname"><span class="paramname"><em>xgen</em></span>, </td>
+          <td class="paramtype">std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt;</td>          <td class="paramname"><span class="paramname"><em>xgen</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; double()&gt;</td>          <td class="paramname"><span class="paramname"><em>ygen</em></span>&#160;)</td>
+          <td class="paramtype">std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt;</td>          <td class="paramname"><span class="paramname"><em>ygen</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -506,8 +523,8 @@ Public Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">n</td><td>number of particles </td></tr>
     <tr><td class="paramname">grid_</td><td><a class="el" href="classquadgrid__t.html">quadgrid_t</a> object, sizes need to have been already set up. </td></tr>
-    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a2adf734d33fc2f167678274b0b007412" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
-    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#a9405175dfc59330ddb971860f0321dab" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
+    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a5ec72b624eeab661753e2d11478077a2" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
+    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#ac2d4d1c6acc102ae607945090383d5ff" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
     <tr><td class="paramname">xgen</td><td>generator function for the x-coordinates of new particles. </td></tr>
     <tr><td class="paramname">ygen</td><td>generator function for the y-coordinates of new particles. </td></tr>
   </table>
@@ -537,14 +554,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aed22c8828daf8a352caa203df3fad8c6" name="aed22c8828daf8a352caa203df3fad8c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed22c8828daf8a352caa203df3fad8c6">&#9670;&#160;</a></span>default_x_generator()</h2>
+<a id="a6be18dfd4d45e01fe8e0b14bed11cad9" name="a6be18dfd4d45e01fe8e0b14bed11cad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6be18dfd4d45e01fe8e0b14bed11cad9">&#9670;&#160;</a></span>default_x_generator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double particles_t::default_x_generator </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> particles_t::default_x_generator </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -557,14 +574,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab7c1cad7c83ace102e68eabe7e84c1bf" name="ab7c1cad7c83ace102e68eabe7e84c1bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7c1cad7c83ace102e68eabe7e84c1bf">&#9670;&#160;</a></span>default_y_generator()</h2>
+<a id="a8032ebcf783cec2b1e41ccce9dbac4c5" name="a8032ebcf783cec2b1e41ccce9dbac4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8032ebcf783cec2b1e41ccce9dbac4c5">&#9670;&#160;</a></span>default_y_generator()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double particles_t::default_y_generator </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> particles_t::default_y_generator </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -577,8 +594,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a3621354e988ebfe087659884d67d6f4f" name="a3621354e988ebfe087659884d67d6f4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3621354e988ebfe087659884d67d6f4f">&#9670;&#160;</a></span>dp() <span class="overload">[1/2]</span></h2>
+<a id="a179cba414a0c0d74b1e8bccda2506856" name="a179cba414a0c0d74b1e8bccda2506856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a179cba414a0c0d74b1e8bccda2506856">&#9670;&#160;</a></span>dp() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -587,14 +604,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double &amp; particles_t::dp </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &amp; particles_t::dp </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -608,8 +625,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a9d763b378b755824d56711f62806ea60" name="a9d763b378b755824d56711f62806ea60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d763b378b755824d56711f62806ea60">&#9670;&#160;</a></span>dp() <span class="overload">[2/2]</span></h2>
+<a id="a56a1a4a94cfe03b14954b21fa85ee9c8" name="a56a1a4a94cfe03b14954b21fa85ee9c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56a1a4a94cfe03b14954b21fa85ee9c8">&#9670;&#160;</a></span>dp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -618,14 +635,14 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const double &amp; particles_t::dp </td>
+          <td class="memname">const <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &amp; particles_t::dp </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;) const</td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -639,8 +656,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a48fed34d3ef5d847253d65a94f1c2c1d" name="a48fed34d3ef5d847253d65a94f1c2c1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48fed34d3ef5d847253d65a94f1c2c1d">&#9670;&#160;</a></span>g2p() <span class="overload">[1/3]</span></h2>
+<a id="a327c57b7fa7ce7ecd6c6e3f8de4d299a" name="a327c57b7fa7ce7ecd6c6e3f8de4d299a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a327c57b7fa7ce7ecd6c6e3f8de4d299a">&#9670;&#160;</a></span>g2p() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -651,7 +668,7 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void particles_t::g2p </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -668,8 +685,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a71f39ecfea690af2bbdddd30b1776c6d" name="a71f39ecfea690af2bbdddd30b1776c6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71f39ecfea690af2bbdddd30b1776c6d">&#9670;&#160;</a></span>g2p() <span class="overload">[2/3]</span></h2>
+<a id="a391e76e4ffbc622308e56a7806fc2e97" name="a391e76e4ffbc622308e56a7806fc2e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391e76e4ffbc622308e56a7806fc2e97">&#9670;&#160;</a></span>g2p() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -679,7 +696,7 @@ template&lt;typename GT, typename PT&gt; </div>
         <tr>
           <td class="memname">void particles_t::g2p </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -701,8 +718,8 @@ template&lt;typename GT, typename PT&gt; </div>
 
 </div>
 </div>
-<a id="aa57d80d38599a02a5dd25100c5c0fa3f" name="aa57d80d38599a02a5dd25100c5c0fa3f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa57d80d38599a02a5dd25100c5c0fa3f">&#9670;&#160;</a></span>g2p() <span class="overload">[3/3]</span></h2>
+<a id="a875e4eadfb506debcef273757ff563e3" name="a875e4eadfb506debcef273757ff563e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a875e4eadfb506debcef273757ff563e3">&#9670;&#160;</a></span>g2p() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -712,7 +729,7 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::g2p </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -734,8 +751,31 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="adb5af0b00e910077aebaec213fafedce" name="adb5af0b00e910077aebaec213fafedce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb5af0b00e910077aebaec213fafedce">&#9670;&#160;</a></span>g2pd() <span class="overload">[1/2]</span></h2>
+<a id="ad73fc01513ca9c38e737e35cf7f758d5" name="ad73fc01513ca9c38e737e35cf7f758d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad73fc01513ca9c38e737e35cf7f758d5">&#9670;&#160;</a></span>g2p() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UnaryFunction&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::g2p </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunction</td>          <td class="paramname"><span class="paramname"><em>helper</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f504da1f34b2a1f3c64df90c5ecbd1e" name="a0f504da1f34b2a1f3c64df90c5ecbd1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f504da1f34b2a1f3c64df90c5ecbd1e">&#9670;&#160;</a></span>g2pd() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,7 +785,7 @@ template&lt;typename GT, typename PT&gt; </div>
         <tr>
           <td class="memname">void particles_t::g2pd </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -772,8 +812,8 @@ template&lt;typename GT, typename PT&gt; </div>
 
 </div>
 </div>
-<a id="ad137a17b286a7de37a13676e6ee043d6" name="ad137a17b286a7de37a13676e6ee043d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad137a17b286a7de37a13676e6ee043d6">&#9670;&#160;</a></span>g2pd() <span class="overload">[2/2]</span></h2>
+<a id="a929932186e941ea229b42f33cae737c7" name="a929932186e941ea229b42f33cae737c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a929932186e941ea229b42f33cae737c7">&#9670;&#160;</a></span>g2pd() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -783,7 +823,7 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::g2pd </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">const std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -804,6 +844,29 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec4b264202f405c1cafef2ddc5b275df" name="aec4b264202f405c1cafef2ddc5b275df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec4b264202f405c1cafef2ddc5b275df">&#9670;&#160;</a></span>g2pd() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UnaryFunction&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::g2pd </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunction</td>          <td class="paramname"><span class="paramname"><em>helper</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -839,8 +902,8 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="a8480ad46e4c13e25595d5d926995382a" name="a8480ad46e4c13e25595d5d926995382a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8480ad46e4c13e25595d5d926995382a">&#9670;&#160;</a></span>getkey() <span class="overload">[2/3]</span></h2>
+<a id="af9d1560f449b9b2d1330538533368b11" name="af9d1560f449b9b2d1330538533368b11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9d1560f449b9b2d1330538533368b11">&#9670;&#160;</a></span>getkey() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -851,7 +914,7 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">const std::string &amp; particles_t::getkey </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>varnames</em></span>, </td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>varnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -868,8 +931,8 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="ae89daf302e0bee2147c919d559cae195" name="ae89daf302e0bee2147c919d559cae195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae89daf302e0bee2147c919d559cae195">&#9670;&#160;</a></span>getkey() <span class="overload">[3/3]</span></h2>
+<a id="a08fbd791e9e07f49af0e72227c4c51ae" name="a08fbd791e9e07f49af0e72227c4c51ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08fbd791e9e07f49af0e72227c4c51ae">&#9670;&#160;</a></span>getkey() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -880,7 +943,7 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">const std::string &amp; particles_t::getkey </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; std::string &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>varnames</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; const &amp;</td>          <td class="paramname"><span class="paramname"><em>varnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -917,8 +980,8 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="afd5730c3fc4181726a77b90ef5886d78" name="afd5730c3fc4181726a77b90ef5886d78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd5730c3fc4181726a77b90ef5886d78">&#9670;&#160;</a></span>init_particle_positions()</h2>
+<a id="a30726146d9878c6e1667ab5cf3f59378" name="a30726146d9878c6e1667ab5cf3f59378"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30726146d9878c6e1667ab5cf3f59378">&#9670;&#160;</a></span>init_particle_positions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -926,12 +989,12 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::init_particle_positions </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; double()&gt;</td>          <td class="paramname"><span class="paramname"><em>xgentr</em></span>, </td>
+          <td class="paramtype">std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt;</td>          <td class="paramname"><span class="paramname"><em>xgentr</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::function&lt; double()&gt;</td>          <td class="paramname"><span class="paramname"><em>ygentr</em></span>&#160;)</td>
+          <td class="paramtype">std::function&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>()&gt;</td>          <td class="paramname"><span class="paramname"><em>ygentr</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -941,8 +1004,8 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="a7500d757b2199c2be82f990b3fceac94" name="a7500d757b2199c2be82f990b3fceac94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7500d757b2199c2be82f990b3fceac94">&#9670;&#160;</a></span>init_props()</h2>
+<a id="a6c2d8bcf56bcec656628ffc90c59fc50" name="a6c2d8bcf56bcec656628ffc90c59fc50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c2d8bcf56bcec656628ffc90c59fc50">&#9670;&#160;</a></span>init_props()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -950,12 +1013,12 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::init_props </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ipropnames</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dpropnames</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -963,8 +1026,8 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 <p>Initialize particle properties. </p>
 <p>Allocates vectors to store particle properties, this is invoked automatically if the CTOR is invoked specifying property names, must be invoked manually otherwise. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a2adf734d33fc2f167678274b0b007412" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
-    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#a9405175dfc59330ddb971860f0321dab" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
+    <tr><td class="paramname">ipropnames</td><td>keys for entries in the <a class="el" href="#a5ec72b624eeab661753e2d11478077a2" title="integer type quantities associated with the particles.">particles_t::iprops</a> map. </td></tr>
+    <tr><td class="paramname">dpropnames</td><td>keys for entries in the <a class="el" href="#ac2d4d1c6acc102ae607945090383d5ff" title="double type quantities associated with the particles.">particles_t::dprops</a> map. </td></tr>
   </table>
   </dd>
 </dl>
@@ -981,14 +1044,14 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &amp; particles_t::ip </td>
+          <td class="memname"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &amp; particles_t::ip </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1012,14 +1075,14 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &amp; particles_t::ip </td>
+          <td class="memname">const <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &amp; particles_t::ip </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;) const</td>
+          <td class="paramtype"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ii</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -1052,8 +1115,46 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="afd0e7b3d2bbf9f47b798805a6a1ba270" name="afd0e7b3d2bbf9f47b798805a6a1ba270"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd0e7b3d2bbf9f47b798805a6a1ba270">&#9670;&#160;</a></span>p2g() <span class="overload">[1/3]</span></h2>
+<a id="afb00416b3b775d99a84f56a2bb17cae2" name="afb00416b3b775d99a84f56a2bb17cae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb00416b3b775d99a84f56a2bb17cae2">&#9670;&#160;</a></span>memcpy_device_to_host()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::memcpy_device_to_host </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy Device To Host. </p>
+
+</div>
+</div>
+<a id="a16baf24f421a49aba6c5bcfa01644781" name="a16baf24f421a49aba6c5bcfa01644781"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16baf24f421a49aba6c5bcfa01644781">&#9670;&#160;</a></span>memcpy_host_to_device()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::memcpy_host_to_device </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copy Host To Device. </p>
+
+</div>
+</div>
+<a id="a01a4c3ab9f68d5b92e5af66af780cd2c" name="a01a4c3ab9f68d5b92e5af66af780cd2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a4c3ab9f68d5b92e5af66af780cd2c">&#9670;&#160;</a></span>p2g() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1064,12 +1165,12 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::p2g </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1084,8 +1185,8 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
 
 </div>
 </div>
-<a id="a07dc3e137357921e2deeeed8be3af476" name="a07dc3e137357921e2deeeed8be3af476"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07dc3e137357921e2deeeed8be3af476">&#9670;&#160;</a></span>p2g() <span class="overload">[2/3]</span></h2>
+<a id="a9c8483c5a1d84026d4642603eed83219" name="a9c8483c5a1d84026d4642603eed83219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c8483c5a1d84026d4642603eed83219">&#9670;&#160;</a></span>p2g() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1095,7 +1196,7 @@ template&lt;typename GT, typename PT&gt; </div>
         <tr>
           <td class="memname">void particles_t::p2g </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1110,7 +1211,7 @@ template&lt;typename GT, typename PT&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1120,8 +1221,8 @@ template&lt;typename GT, typename PT&gt; </div>
 
 </div>
 </div>
-<a id="a292241924cc9e45c88383504bf9b42cc" name="a292241924cc9e45c88383504bf9b42cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a292241924cc9e45c88383504bf9b42cc">&#9670;&#160;</a></span>p2g() <span class="overload">[3/3]</span></h2>
+<a id="ab8146a87a1eaa9532b59741b9cac0b1c" name="ab8146a87a1eaa9532b59741b9cac0b1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8146a87a1eaa9532b59741b9cac0b1c">&#9670;&#160;</a></span>p2g() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1131,7 +1232,7 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::p2g </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1146,15 +1247,38 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a310ce986f59ab758bf3cab369bd918d1" name="a310ce986f59ab758bf3cab369bd918d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a310ce986f59ab758bf3cab369bd918d1">&#9670;&#160;</a></span>p2gd() <span class="overload">[1/2]</span></h2>
+<a id="a7a7b5203fdf83e6df190d7f8f3f178d1" name="a7a7b5203fdf83e6df190d7f8f3f178d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a7b5203fdf83e6df190d7f8f3f178d1">&#9670;&#160;</a></span>p2g() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UnaryFunction&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::p2g </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunction</td>          <td class="paramname"><span class="paramname"><em>helper</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeaa15aeb75fea660fd1da7b004765c95" name="aeaa15aeb75fea660fd1da7b004765c95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaa15aeb75fea660fd1da7b004765c95">&#9670;&#160;</a></span>p2gd() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1164,7 +1288,7 @@ template&lt;typename GT, typename PT&gt; </div>
         <tr>
           <td class="memname">void particles_t::p2gd </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1189,15 +1313,15 @@ template&lt;typename GT, typename PT&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a6d0cbbad31c777319e767fab59635fff" name="a6d0cbbad31c777319e767fab59635fff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d0cbbad31c777319e767fab59635fff">&#9670;&#160;</a></span>p2gd() <span class="overload">[2/2]</span></h2>
+<a id="a29e4f406743e70096b02c3bccca4ed2c" name="a29e4f406743e70096b02c3bccca4ed2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29e4f406743e70096b02c3bccca4ed2c">&#9670;&#160;</a></span>p2gd() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1207,7 +1331,7 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="memname">void particles_t::p2gd </td>
           <td>(</td>
-          <td class="paramtype">std::map&lt; std::string, std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1232,7 +1356,30 @@ template&lt;typename <a class="el" href="make__input__json_8m.html#a4b99ff73a8a8
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;) const</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>apply_mass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a659d9cef371f26fb8253b2f56c5f4172" name="a659d9cef371f26fb8253b2f56c5f4172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659d9cef371f26fb8253b2f56c5f4172">&#9670;&#160;</a></span>p2gd() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename UnaryFunction&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void particles_t::p2gd </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; std::string, <a class="el" href="quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b">device_vector_t</a>&lt; <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunction</td>          <td class="paramname"><span class="paramname"><em>helper</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1269,8 +1416,8 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="a992770f9eab92adba7bbf674d18dcc4c" name="a992770f9eab92adba7bbf674d18dcc4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a992770f9eab92adba7bbf674d18dcc4c">&#9670;&#160;</a></span>remove_in_region()</h2>
+<a id="a7c15a4d0086868f318a48fe44f421a04" name="a7c15a4d0086868f318a48fe44f421a04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c15a4d0086868f318a48fe44f421a04">&#9670;&#160;</a></span>remove_in_region()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1281,7 +1428,7 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
         <tr>
           <td class="memname">void particles_t::remove_in_region </td>
           <td>(</td>
-          <td class="paramtype">std::function&lt; bool(double, double)&gt;</td>          <td class="paramname"><span class="paramname"><em>fun</em></span></td><td>)</td>
+          <td class="paramtype">std::function&lt; bool(<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>)&gt;</td>          <td class="paramname"><span class="paramname"><em>fun</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1297,8 +1444,8 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="aefa81ed3811e09a92b7b0fdb4a9ea4f0" name="aefa81ed3811e09a92b7b0fdb4a9ea4f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefa81ed3811e09a92b7b0fdb4a9ea4f0">&#9670;&#160;</a></span>reorder()</h2>
+<a id="adea22c19239f9bdbdf0243c1c5cfa35d" name="adea22c19239f9bdbdf0243c1c5cfa35d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adea22c19239f9bdbdf0243c1c5cfa35d">&#9670;&#160;</a></span>reorder()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1306,7 +1453,7 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
         <tr>
           <td class="memname">void particles_t::reorder </td>
           <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ordering</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt; <a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>ordering</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1316,11 +1463,13 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="a666a6727e62fb93cf5cb24f089b9dc03" name="a666a6727e62fb93cf5cb24f089b9dc03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a666a6727e62fb93cf5cb24f089b9dc03">&#9670;&#160;</a></span>update_ptcl_to_grd()</h2>
+<a id="afb5788b7005d185312bb3466e32fc4ac" name="afb5788b7005d185312bb3466e32fc4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb5788b7005d185312bb3466e32fc4ac">&#9670;&#160;</a></span>update_ptcl_to_grd()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class backend&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">void particles_t::update_ptcl_to_grd </td>
@@ -1336,14 +1485,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a9405175dfc59330ddb971860f0321dab" name="a9405175dfc59330ddb971860f0321dab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9405175dfc59330ddb971860f0321dab">&#9670;&#160;</a></span>dprops</h2>
+<a id="ac2d4d1c6acc102ae607945090383d5ff" name="ac2d4d1c6acc102ae607945090383d5ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d4d1c6acc102ae607945090383d5ff">&#9670;&#160;</a></span>dprops</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, std::vector&lt;double&gt; &gt; particles_t::dprops</td>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt; &gt; particles_t::dprops</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1352,14 +1501,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="a21d45be17b4c8493bea2368bc75c811a" name="a21d45be17b4c8493bea2368bc75c811a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21d45be17b4c8493bea2368bc75c811a">&#9670;&#160;</a></span>grd_to_ptcl</h2>
+<a id="a966e3a3b90ea1d75bc08c807fcd7cdfc" name="a966e3a3b90ea1d75bc08c807fcd7cdfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966e3a3b90ea1d75bc08c807fcd7cdfc">&#9670;&#160;</a></span>grd_to_ptcl</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>, std::vector&lt;<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>&gt; &gt; particles_t::grd_to_ptcl</td>
+          <td class="memname">std::map&lt;<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>&gt; &gt; particles_t::grd_to_ptcl</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1368,14 +1517,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="a68834707308f986b4a92951fb22afae3" name="a68834707308f986b4a92951fb22afae3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68834707308f986b4a92951fb22afae3">&#9670;&#160;</a></span>grid</h2>
+<a id="abe0c1319b4669d6e89a838e06ee58179" name="abe0c1319b4669d6e89a838e06ee58179"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe0c1319b4669d6e89a838e06ee58179">&#9670;&#160;</a></span>grid</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;std::vector&lt;double&gt; &gt;&amp; particles_t::grid</td>
+          <td class="memname">const <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt; &gt;&amp; particles_t::grid</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1384,14 +1533,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="a2adf734d33fc2f167678274b0b007412" name="a2adf734d33fc2f167678274b0b007412"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2adf734d33fc2f167678274b0b007412">&#9670;&#160;</a></span>iprops</h2>
+<a id="a5ec72b624eeab661753e2d11478077a2" name="a5ec72b624eeab661753e2d11478077a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec72b624eeab661753e2d11478077a2">&#9670;&#160;</a></span>iprops</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;std::string, std::vector&lt;<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>&gt; &gt; particles_t::iprops</td>
+          <td class="memname">std::map&lt;std::string, <a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>&gt; &gt; particles_t::iprops</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1400,14 +1549,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="aebe3ce98a23311531e0d8be5cf71a271" name="aebe3ce98a23311531e0d8be5cf71a271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebe3ce98a23311531e0d8be5cf71a271">&#9670;&#160;</a></span>M</h2>
+<a id="a892ecff3eeae8c1818733ec3f93a2c8d" name="a892ecff3eeae8c1818733ec3f93a2c8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a892ecff3eeae8c1818733ec3f93a2c8d">&#9670;&#160;</a></span>M</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt; particles_t::M</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt; particles_t::M</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1423,7 +1572,7 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a> particles_t::num_particles</td>
+          <td class="memname"><a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a> particles_t::num_particles</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1432,14 +1581,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="a214cc37e94fc0eaecde84d6b6e624cb1" name="a214cc37e94fc0eaecde84d6b6e624cb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a214cc37e94fc0eaecde84d6b6e624cb1">&#9670;&#160;</a></span>ptcl_grd_color</h2>
+<a id="a5dc6868d80b1d270894558067812ba8d" name="a5dc6868d80b1d270894558067812ba8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dc6868d80b1d270894558067812ba8d">&#9670;&#160;</a></span>ptcl_grd_color</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>&gt; particles_t::ptcl_grd_color</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>&gt; particles_t::ptcl_grd_color</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1448,14 +1597,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="aa998aa77963f90ceb629c5819db56c90" name="aa998aa77963f90ceb629c5819db56c90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa998aa77963f90ceb629c5819db56c90">&#9670;&#160;</a></span>ptcl_to_grd</h2>
+<a id="a52bf20e3abdee78f9eede25573d044e2" name="a52bf20e3abdee78f9eede25573d044e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52bf20e3abdee78f9eede25573d044e2">&#9670;&#160;</a></span>ptcl_to_grd</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="#a52087bebea70a9f493fa7d7c6266ec2a">idx_t</a>&gt; particles_t::ptcl_to_grd</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="#a6dc35017fb8dbaebc347c3b8a8aabcf0">idx_t</a>&gt; particles_t::ptcl_to_grd</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1464,14 +1613,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="ac34d8516ddc6eb69f0329ddd3ed31dcb" name="ac34d8516ddc6eb69f0329ddd3ed31dcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac34d8516ddc6eb69f0329ddd3ed31dcb">&#9670;&#160;</a></span>x</h2>
+<a id="aaa4d1c6de47a5de0dc3d1f62f94d0a40" name="aaa4d1c6de47a5de0dc3d1f62f94d0a40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4d1c6de47a5de0dc3d1f62f94d0a40">&#9670;&#160;</a></span>x</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt; particles_t::x</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt; particles_t::x</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1480,14 +1629,14 @@ template&lt;<a class="el" href="#a839105e0a564b6ac175f7fcf47ed6a64">output_forma
 
 </div>
 </div>
-<a id="ad66b9250b4500c6b8f068a29bc18972b" name="ad66b9250b4500c6b8f068a29bc18972b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad66b9250b4500c6b8f068a29bc18972b">&#9670;&#160;</a></span>y</h2>
+<a id="ad2f0488c81da734438b3853c598ff226" name="ad2f0488c81da734438b3853c598ff226"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2f0488c81da734438b3853c598ff226">&#9670;&#160;</a></span>y</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt; particles_t::y</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#acb41430bc5720dda7d1c45d91a0b0221">vector_t</a>&lt;<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&gt; particles_t::y</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -110,9 +110,9 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abb30e07d6fad9d768d1bf1c5ffde56b9" id="r_abb30e07d6fad9d768d1bf1c5ffde56b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb30e07d6fad9d768d1bf1c5ffde56b9">from_json</a> (const nlohmann::json &amp;j, <a class="el" href="structquadgrid__t_1_1grid__properties__t.html">grid_properties_t</a> &amp;q)</td></tr>
-<tr class="memitem:ae85fbbf425db58129ae109339760535e" id="r_ae85fbbf425db58129ae109339760535e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85fbbf425db58129ae109339760535e">quadgrid_t</a> (<a class="el" href="quadgrid__cpp_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a> _comm=<a class="el" href="quadgrid__cpp_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a>)</td></tr>
+<tr class="memitem:ae85fbbf425db58129ae109339760535e" id="r_ae85fbbf425db58129ae109339760535e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae85fbbf425db58129ae109339760535e">quadgrid_t</a> (<a class="el" href="quadgrid__config_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a> _comm=<a class="el" href="quadgrid__config_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a>)</td></tr>
 <tr class="memdesc:ae85fbbf425db58129ae109339760535e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor, set all pointers to nullptr.  <br /></td></tr>
-<tr class="memitem:ac667a29469520226fc66bab4708a0295" id="r_ac667a29469520226fc66bab4708a0295"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac667a29469520226fc66bab4708a0295">quadgrid_t</a> (const nlohmann::json &amp;j, <a class="el" href="quadgrid__cpp_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a> _comm=<a class="el" href="quadgrid__cpp_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a>)</td></tr>
+<tr class="memitem:ac667a29469520226fc66bab4708a0295" id="r_ac667a29469520226fc66bab4708a0295"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac667a29469520226fc66bab4708a0295">quadgrid_t</a> (const nlohmann::json &amp;j, <a class="el" href="quadgrid__config_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a> _comm=<a class="el" href="quadgrid__config_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a>)</td></tr>
 <tr class="memdesc:ac667a29469520226fc66bab4708a0295"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ctor that reads grid properties from a json object.  <br /></td></tr>
 <tr class="memitem:a736dfabcbe5660de903320e7ba7da8d4" id="r_a736dfabcbe5660de903320e7ba7da8d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a736dfabcbe5660de903320e7ba7da8d4">quadgrid_t</a> (const <a class="el" href="classquadgrid__t.html">quadgrid_t</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a736dfabcbe5660de903320e7ba7da8d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete copy constructor.  <br /></td></tr>
@@ -120,7 +120,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a719386fd8e12854033048cf8d2c87de5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete assignment operator.  <br /></td></tr>
 <tr class="memitem:af0d8188e3aa9db5e6d71264aafef6628" id="r_af0d8188e3aa9db5e6d71264aafef6628"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0d8188e3aa9db5e6d71264aafef6628">~quadgrid_t</a> ()=default</td></tr>
 <tr class="memdesc:af0d8188e3aa9db5e6d71264aafef6628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
-<tr class="memitem:a64e2e448850c5cc1a8ae5945019f4f54" id="r_a64e2e448850c5cc1a8ae5945019f4f54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64e2e448850c5cc1a8ae5945019f4f54">set_sizes</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numcols, double <a class="el" href="#a6ecb5e0b0096b8c7b01209c510ac0bab">hx</a>, double <a class="el" href="#a5c0f8e1f4b8227b0add3cfa944c69559">hy</a>)</td></tr>
+<tr class="memitem:a675a9722097d4eb01917a546fc557bb2" id="r_a675a9722097d4eb01917a546fc557bb2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a675a9722097d4eb01917a546fc557bb2">set_sizes</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numcols, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#ae6e23243940ffbd960ce3f1b6c79d6ad">hx</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#a3e60524b7325f7bb20a03d99fe102410">hy</a>)</td></tr>
 <tr class="memitem:a6399657de5ea2eb8583d7d8ee8c055fb" id="r_a6399657de5ea2eb8583d7d8ee8c055fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6399657de5ea2eb8583d7d8ee8c055fb">vtk_export</a> (const char *filename, const std::map&lt; std::string, distributed_vector &gt; &amp;f) const</td></tr>
 <tr class="memitem:ab7546eb2e48c7872fbf6bd8e6cb7fbec" id="r_ab7546eb2e48c7872fbf6bd8e6cb7fbec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7546eb2e48c7872fbf6bd8e6cb7fbec">octave_ascii_export</a> (const char *filename, const std::map&lt; std::string, distributed_vector &gt; &amp;f) const</td></tr>
 <tr class="memitem:ab6d76b448713838ffc88923ecd643511" id="r_ab6d76b448713838ffc88923ecd643511"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classquadgrid__t_1_1cell__iterator.html">cell_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6d76b448713838ffc88923ecd643511">begin_cell_sweep</a> ()</td></tr>
@@ -134,8 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af8d44222b92ddc4d4fff19eb6aea13ff" id="r_af8d44222b92ddc4d4fff19eb6aea13ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8d44222b92ddc4d4fff19eb6aea13ff">num_global_cells</a> () const</td></tr>
 <tr class="memitem:a8bb188d8bc64a47849b760a26bdd016f" id="r_a8bb188d8bc64a47849b760a26bdd016f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bb188d8bc64a47849b760a26bdd016f">num_rows</a> () const</td></tr>
 <tr class="memitem:a485d2fddfb3e302f27042bf6e1202496" id="r_a485d2fddfb3e302f27042bf6e1202496"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a485d2fddfb3e302f27042bf6e1202496">num_cols</a> () const</td></tr>
-<tr class="memitem:a6ecb5e0b0096b8c7b01209c510ac0bab" id="r_a6ecb5e0b0096b8c7b01209c510ac0bab"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ecb5e0b0096b8c7b01209c510ac0bab">hx</a> () const</td></tr>
-<tr class="memitem:a5c0f8e1f4b8227b0add3cfa944c69559" id="r_a5c0f8e1f4b8227b0add3cfa944c69559"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c0f8e1f4b8227b0add3cfa944c69559">hy</a> () const</td></tr>
+<tr class="memitem:ae6e23243940ffbd960ce3f1b6c79d6ad" id="r_ae6e23243940ffbd960ce3f1b6c79d6ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6e23243940ffbd960ce3f1b6c79d6ad">hx</a> () const</td></tr>
+<tr class="memitem:a3e60524b7325f7bb20a03d99fe102410" id="r_a3e60524b7325f7bb20a03d99fe102410"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e60524b7325f7bb20a03d99fe102410">hy</a> () const</td></tr>
 <tr class="memitem:a1043e6701c9462ebd498a770677833c5" id="r_a1043e6701c9462ebd498a770677833c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1043e6701c9462ebd498a770677833c5">sub2gind</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c) const</td></tr>
 <tr class="memitem:a131635ca04bd59d1369f63e8ad256a74" id="r_a131635ca04bd59d1369f63e8ad256a74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a131635ca04bd59d1369f63e8ad256a74">gind2row</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idx) const</td></tr>
 <tr class="memitem:af5ed9f0fc8713ccd68e361f36f71bf83" id="r_af5ed9f0fc8713ccd68e361f36f71bf83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5ed9f0fc8713ccd68e361f36f71bf83">gind2col</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idx) const</td></tr>
@@ -143,17 +143,17 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4780730f34a2a81e15ff2d14114237a7" id="r_a4780730f34a2a81e15ff2d14114237a7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4780730f34a2a81e15ff2d14114237a7">gind2col</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows)</td></tr>
-<tr class="memitem:ae4ff0b0f83bf11ba8ccc0fa2feb750d9" id="r_ae4ff0b0f83bf11ba8ccc0fa2feb750d9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4ff0b0f83bf11ba8ccc0fa2feb750d9">gind2row</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows)</td></tr>
-<tr class="memitem:a3a7c27069ac07e971f0029ac9d0d990c" id="r_a3a7c27069ac07e971f0029ac9d0d990c"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a7c27069ac07e971f0029ac9d0d990c">gt</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> cidx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> ridx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows)</td></tr>
-<tr class="memitem:a4dc382e259c501edb9f70aa423643420" id="r_a4dc382e259c501edb9f70aa423643420"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dc382e259c501edb9f70aa423643420">p</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idir, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> colidx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> rowidx, double <a class="el" href="#a6ecb5e0b0096b8c7b01209c510ac0bab">hx</a>, double <a class="el" href="#a5c0f8e1f4b8227b0add3cfa944c69559">hy</a>)</td></tr>
-<tr class="memitem:a0370153b9ce9a2ff9390d44cbc2b6c7b" id="r_a0370153b9ce9a2ff9390d44cbc2b6c7b"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0370153b9ce9a2ff9390d44cbc2b6c7b">shp</a> (double <a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, double <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, double <a class="el" href="#a6ecb5e0b0096b8c7b01209c510ac0bab">hx</a>, double <a class="el" href="#a5c0f8e1f4b8227b0add3cfa944c69559">hy</a>)</td></tr>
-<tr class="memitem:a2f39b7d9504156ba8469ff605e388cbd" id="r_a2f39b7d9504156ba8469ff605e388cbd"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f39b7d9504156ba8469ff605e388cbd">shg</a> (double <a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, double <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idir, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, double <a class="el" href="#a6ecb5e0b0096b8c7b01209c510ac0bab">hx</a>, double <a class="el" href="#a5c0f8e1f4b8227b0add3cfa944c69559">hy</a>)</td></tr>
-<tr class="memitem:a612e28d4109b2d933ae49414b97a625a" id="r_a612e28d4109b2d933ae49414b97a625a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a612e28d4109b2d933ae49414b97a625a">sub2gind</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> nr)</td></tr>
+<tr class="memitem:aa078cfe983387ffe0e04e6ff53143f41" id="r_aa078cfe983387ffe0e04e6ff53143f41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa078cfe983387ffe0e04e6ff53143f41">gind2col</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows)</td></tr>
+<tr class="memitem:a43fe2a2a4943a231db38b48c6529aedc" id="r_a43fe2a2a4943a231db38b48c6529aedc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43fe2a2a4943a231db38b48c6529aedc">gind2row</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows)</td></tr>
+<tr class="memitem:a960fd2521375ba0b00cee354b1dced2e" id="r_a960fd2521375ba0b00cee354b1dced2e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a960fd2521375ba0b00cee354b1dced2e">gt</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> cidx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> ridx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> numrows)</td></tr>
+<tr class="memitem:a56cb50bf2396e3733cafa7989284777e" id="r_a56cb50bf2396e3733cafa7989284777e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56cb50bf2396e3733cafa7989284777e">p</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idir, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> colidx, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> rowidx, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#ae6e23243940ffbd960ce3f1b6c79d6ad">hx</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#a3e60524b7325f7bb20a03d99fe102410">hy</a>)</td></tr>
+<tr class="memitem:a8affc8005cd8cb0003c523da3ed2236e" id="r_a8affc8005cd8cb0003c523da3ed2236e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8affc8005cd8cb0003c523da3ed2236e">shp</a> (<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#ae6e23243940ffbd960ce3f1b6c79d6ad">hx</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#a3e60524b7325f7bb20a03d99fe102410">hy</a>)</td></tr>
+<tr class="memitem:a8feb14e6ae6a7160820f4d84653058e9" id="r_a8feb14e6ae6a7160820f4d84653058e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8feb14e6ae6a7160820f4d84653058e9">shg</a> (<a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df">x</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="make__input__json_8m.html#ab07c21934cff3c45a6327df02597f517">y</a>, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> idir, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> inode, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#ae6e23243940ffbd960ce3f1b6c79d6ad">hx</a>, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="#a3e60524b7325f7bb20a03d99fe102410">hy</a>)</td></tr>
+<tr class="memitem:a8135d2bf9f8d9b934782c51ed21697da" id="r_a8135d2bf9f8d9b934782c51ed21697da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8135d2bf9f8d9b934782c51ed21697da">sub2gind</a> (<a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> r, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> c, <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> nr)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a84c6f4c444541bb2ea33518f5ac40fb3" id="r_a84c6f4c444541bb2ea33518f5ac40fb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__cpp_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84c6f4c444541bb2ea33518f5ac40fb3">comm</a></td></tr>
+<tr class="memitem:a84c6f4c444541bb2ea33518f5ac40fb3" id="r_a84c6f4c444541bb2ea33518f5ac40fb3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="quadgrid__config_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84c6f4c444541bb2ea33518f5ac40fb3">comm</a></td></tr>
 <tr class="memitem:aeaa02c9a35b8c022f08391ce622de24a" id="r_aeaa02c9a35b8c022f08391ce622de24a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaa02c9a35b8c022f08391ce622de24a">rank</a></td></tr>
 <tr class="memitem:a9fa4e508457966e2b8640830ef9afc46" id="r_a9fa4e508457966e2b8640830ef9afc46"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa4e508457966e2b8640830ef9afc46">size</a></td></tr>
 </table><table class="memberdecls">
@@ -195,7 +195,7 @@ template&lt;class distributed_vector&gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;<a class="el" href="classquadgrid__t.html">::quadgrid_t</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="quadgrid__cpp_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a></td>          <td class="paramname"><span class="paramname"><em>_comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="quadgrid__cpp_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a></td>          <td class="paramname"><span class="paramname"><em>_comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="quadgrid__config_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -229,7 +229,7 @@ template&lt;class distributed_vector&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="quadgrid__cpp_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a></td>          <td class="paramname"><span class="paramname"><em>_comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="quadgrid__cpp_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a></td>          <td class="paramname"><span class="paramname"><em>_comm</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="quadgrid__config_8h.html#a2df6a15627583d5e6f5a48550644cbef">MPI_COMM_WORLD</a></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -452,8 +452,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a4780730f34a2a81e15ff2d14114237a7" name="a4780730f34a2a81e15ff2d14114237a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4780730f34a2a81e15ff2d14114237a7">&#9670;&#160;</a></span>gind2col() <span class="overload">[2/2]</span></h2>
+<a id="aa078cfe983387ffe0e04e6ff53143f41" name="aa078cfe983387ffe0e04e6ff53143f41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa078cfe983387ffe0e04e6ff53143f41">&#9670;&#160;</a></span>gind2col() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -464,7 +464,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::gind2col </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::gind2col </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
@@ -510,8 +510,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="ae4ff0b0f83bf11ba8ccc0fa2feb750d9" name="ae4ff0b0f83bf11ba8ccc0fa2feb750d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4ff0b0f83bf11ba8ccc0fa2feb750d9">&#9670;&#160;</a></span>gind2row() <span class="overload">[2/2]</span></h2>
+<a id="a43fe2a2a4943a231db38b48c6529aedc" name="a43fe2a2a4943a231db38b48c6529aedc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43fe2a2a4943a231db38b48c6529aedc">&#9670;&#160;</a></span>gind2row() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -522,7 +522,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::gind2row </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::gind2row </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>idx</em></span>, </td>
         </tr>
@@ -541,8 +541,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a3a7c27069ac07e971f0029ac9d0d990c" name="a3a7c27069ac07e971f0029ac9d0d990c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a7c27069ac07e971f0029ac9d0d990c">&#9670;&#160;</a></span>gt()</h2>
+<a id="a960fd2521375ba0b00cee354b1dced2e" name="a960fd2521375ba0b00cee354b1dced2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a960fd2521375ba0b00cee354b1dced2e">&#9670;&#160;</a></span>gt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -553,7 +553,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::gt </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::gt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>inode</em></span>, </td>
         </tr>
@@ -582,8 +582,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a6ecb5e0b0096b8c7b01209c510ac0bab" name="a6ecb5e0b0096b8c7b01209c510ac0bab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ecb5e0b0096b8c7b01209c510ac0bab">&#9670;&#160;</a></span>hx()</h2>
+<a id="ae6e23243940ffbd960ce3f1b6c79d6ad" name="ae6e23243940ffbd960ce3f1b6c79d6ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6e23243940ffbd960ce3f1b6c79d6ad">&#9670;&#160;</a></span>hx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -594,7 +594,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::hx </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::hx </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -609,8 +609,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a5c0f8e1f4b8227b0add3cfa944c69559" name="a5c0f8e1f4b8227b0add3cfa944c69559"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c0f8e1f4b8227b0add3cfa944c69559">&#9670;&#160;</a></span>hy()</h2>
+<a id="a3e60524b7325f7bb20a03d99fe102410" name="a3e60524b7325f7bb20a03d99fe102410"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e60524b7325f7bb20a03d99fe102410">&#9670;&#160;</a></span>hy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -621,7 +621,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::hy </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::hy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -864,8 +864,8 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
-<a id="a4dc382e259c501edb9f70aa423643420" name="a4dc382e259c501edb9f70aa423643420"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dc382e259c501edb9f70aa423643420">&#9670;&#160;</a></span>p()</h2>
+<a id="a56cb50bf2396e3733cafa7989284777e" name="a56cb50bf2396e3733cafa7989284777e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56cb50bf2396e3733cafa7989284777e">&#9670;&#160;</a></span>p()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -876,7 +876,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::p </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::p </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>idir</em></span>, </td>
         </tr>
@@ -898,12 +898,12 @@ template&lt;class distributed_vector&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -915,8 +915,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a64e2e448850c5cc1a8ae5945019f4f54" name="a64e2e448850c5cc1a8ae5945019f4f54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64e2e448850c5cc1a8ae5945019f4f54">&#9670;&#160;</a></span>set_sizes()</h2>
+<a id="a675a9722097d4eb01917a546fc557bb2" name="a675a9722097d4eb01917a546fc557bb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a675a9722097d4eb01917a546fc557bb2">&#9670;&#160;</a></span>set_sizes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -936,20 +936,20 @@ template&lt;class T&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a2f39b7d9504156ba8469ff605e388cbd" name="a2f39b7d9504156ba8469ff605e388cbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f39b7d9504156ba8469ff605e388cbd">&#9670;&#160;</a></span>shg()</h2>
+<a id="a8feb14e6ae6a7160820f4d84653058e9" name="a8feb14e6ae6a7160820f4d84653058e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8feb14e6ae6a7160820f4d84653058e9">&#9670;&#160;</a></span>shg()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -960,14 +960,14 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::shg </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::shg </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -992,12 +992,12 @@ template&lt;class distributed_vector&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1009,8 +1009,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a0370153b9ce9a2ff9390d44cbc2b6c7b" name="a0370153b9ce9a2ff9390d44cbc2b6c7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0370153b9ce9a2ff9390d44cbc2b6c7b">&#9670;&#160;</a></span>shp()</h2>
+<a id="a8affc8005cd8cb0003c523da3ed2236e" name="a8affc8005cd8cb0003c523da3ed2236e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8affc8005cd8cb0003c523da3ed2236e">&#9670;&#160;</a></span>shp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1021,14 +1021,14 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::shp </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::shp </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1048,12 +1048,12 @@ template&lt;class distributed_vector&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>hy</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1096,8 +1096,8 @@ template&lt;class distributed_vector&gt; </div>
 
 </div>
 </div>
-<a id="a612e28d4109b2d933ae49414b97a625a" name="a612e28d4109b2d933ae49414b97a625a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a612e28d4109b2d933ae49414b97a625a">&#9670;&#160;</a></span>sub2gind() <span class="overload">[2/2]</span></h2>
+<a id="a8135d2bf9f8d9b934782c51ed21697da" name="a8135d2bf9f8d9b934782c51ed21697da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8135d2bf9f8d9b934782c51ed21697da">&#9670;&#160;</a></span>sub2gind() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1108,7 +1108,7 @@ template&lt;class distributed_vector&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::sub2gind </td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea">HOST</a> static <a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> <a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::sub2gind </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a9485b4396682d1582c8e2e7c34351476">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
         </tr>
@@ -1165,7 +1165,7 @@ template&lt;class distributed_vector&gt; </div>
 template&lt;class distributed_vector&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="quadgrid__cpp_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::comm</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ae0a6553e8d5ccdb943ae1b816e4ac5ee">MPI_Comm</a> <a class="el" href="classquadgrid__t.html">quadgrid_t</a>&lt; distributed_vector &gt;::comm</td>
         </tr>
       </table>
 </div><div class="memdoc">
