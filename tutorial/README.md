@@ -1,19 +1,11 @@
 # QuadGrid Tutorials
 
-This directory contains example problems and tutorials demonstrating the usage of **QuadGrid**—a C++/Octave library for simple Cartesian quad grids. These tutorials cover advection-diffusion problems on both CPU and GPU (via NVIDIA Thrust).
+This directory contains example problems and tutorials demonstrating
+the usage of 
+**QuadGrid**—a C++/Octave library for simple Cartesian quad grids. 
+These tutorials cover advection-diffusion problems on both CPU and GPU (via Thrust).
 
-## Prerequisites and Building 
-Tested on:
-* gcc 13.3.0
-* nvcc 12.0.14
-* octave 8.4.0
 
-Before compiling any of the tutorial targets, ensure all library dependencies are loaded locally within this directory.
-
-```bash
-# 1. Load dependencies
-make loaddeps
-```
 ## Overview
 
 ### Tutorial 1
