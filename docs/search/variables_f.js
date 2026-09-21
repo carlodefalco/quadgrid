@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['x_0',['x',['../structparticles__t.html#aaa4d1c6de47a5de0dc3d1f62f94d0a40',1,'particles_t::x'],['../classptcl__to__grd__update__t.html#ac30f6eb3b9dd2e1fcb6378dfc6b3e7ee',1,'ptcl_to_grd_update_t::x'],['../classp2g__helper__t.html#afc533808189317e216c717af2fe737f1',1,'p2g_helper_t::x'],['../classp2gd__helper__t.html#a9c2f5b8f2e9985f5b4cf63e5b65634a8',1,'p2gd_helper_t::x'],['../classg2p__helper__t.html#ac25c8ee5ad1267f4cee4e2c9b1149b43',1,'g2p_helper_t::x'],['../classg2pd__helper__t.html#ac0674d7676f326ab7e0436ae5826d106',1,'g2pd_helper_t::x'],['../make__input__json_8m.html#a2f4ed7189f7ea0b549d50863249cf7df',1,'x:&#160;make_input_json.m']]],
-  ['xc_1',['xc',['../particle__remove__example_8cpp.html#a11f379fb701891c280a621b592b4d884',1,'particle_remove_example.cpp']]]
+  ['s_0',['S',['../mmorton_8cc.html#aedc455814654c3707a2896eb7b16fc79',1,'mmorton.cc']]],
+  ['size_1',['size',['../classquadgrid__t.html#a9fa4e508457966e2b8640830ef9afc46',1,'quadgrid_t']]],
+  ['start_5fcell_5fcol_2',['start_cell_col',['../structquadgrid__t_1_1grid__properties__t.html#aaa399ca18da4a2daf5ffe81439408531',1,'quadgrid_t::grid_properties_t']]],
+  ['start_5fcell_5frow_3',['start_cell_row',['../structquadgrid__t_1_1grid__properties__t.html#a3f27c35c1a671466a5391fc565d70072',1,'quadgrid_t::grid_properties_t']]],
+  ['start_5fowned_5fnodes_4',['start_owned_nodes',['../structquadgrid__t_1_1grid__properties__t.html#af4fe331f1f6e5c2aaf97888a002838f1',1,'quadgrid_t::grid_properties_t']]]
 ];

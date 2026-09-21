@@ -27,16 +27,16 @@ var NAVTREE =
   [ "quadgrid", "index.html", [
     [ "quadgrid - a simple c++ library for particles in a cartesian quad grid", "index.html", null ],
     [ "Tutorials", "tutorials.html", [
-      [ "Tutorials", "tutorials.html#autotoc_md4", [
-        [ "Overview", "tutorials.html#autotoc_md5", [
-          [ "Tutorial 1", "tutorials.html#autotoc_md6", null ],
-          [ "Tutorial 2", "tutorials.html#autotoc_md7", null ],
-          [ "Tutorial 3", "tutorials.html#autotoc_md8", null ],
-          [ "Tutorial 4: Taylor Dispersion", "tutorials.html#autotoc_md9", null ]
+      [ "Tutorials", "tutorials.html#autotoc_md3", [
+        [ "Overview", "tutorials.html#autotoc_md4", [
+          [ "<a class=\"el\" href=\"tutorial_1.html\" title=\"Tutorial 1\">Tutorial 1</a>", "tutorials.html#autotoc_md5", null ],
+          [ "Tutorial 2", "tutorials.html#autotoc_md6", null ],
+          [ "Tutorial 3", "tutorials.html#autotoc_md7", null ],
+          [ "Tutorial 4: Taylor Dispersion", "tutorials.html#autotoc_md8", null ]
         ] ]
       ] ]
     ] ],
-    [ "Todo List", "todo.html", null ],
+    [ "Tutorial 1", "tutorial_1.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -73,9 +73,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03"
+"classquadgrid__t_1_1neighbor__iterator.html#a681d0fe41fbe78271dd5da5485ef869b",
+"structrange_1_1iterator.html#ad021ddf9a1a3b0740318df3bc581b5c0"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';

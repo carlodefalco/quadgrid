@@ -1,29 +1,27 @@
 var searchData=
 [
-  ['data_0',['data',['../classquadgrid__t_1_1cell__iterator.html#a2055c37a5c8e0fadc1ee8adeb7195271',1,'quadgrid_t::cell_iterator::data'],['../classquadgrid__t_1_1neighbor__iterator.html#a8da0b05e6542abdc14d34232a4076856',1,'quadgrid_t::neighbor_iterator::data']]],
-  ['declare_5fov_5ftypeid_5ffunctions_5fand_5fdata_1',['DECLARE_OV_TYPEID_FUNCTIONS_AND_DATA',['../classquadgrid.html#addc7068c08c68daac1839de7cbc2727e',1,'quadgrid']]],
-  ['default_5fx_5fgenerator_2',['default_x_generator',['../structparticles__t.html#a6be18dfd4d45e01fe8e0b14bed11cad9',1,'particles_t']]],
-  ['default_5fy_5fgenerator_3',['default_y_generator',['../structparticles__t.html#a8032ebcf783cec2b1e41ccce9dbac4c5',1,'particles_t']]],
-  ['define_5fov_5ftypeid_5ffunctions_5fand_5fdata_4',['DEFINE_OV_TYPEID_FUNCTIONS_AND_DATA',['../quadgrid_8cc.html#a575af7564fade5d06575e370015fbc55',1,'quadgrid.cc']]],
-  ['defmethod_5fdld_5',['DEFMETHOD_DLD',['../quadgrid_8cc.html#a0ae2472da9bdff6ac4d96d9d0f6c8e3e',1,'DEFMETHOD_DLD(quadgrid, interp, args,,&quot;-*- texinfo -*-\n\
-@deftypefn {Loadable Function} {} @var{QG} = quadgrid (@var{nx}, \
-@var{hx}, @var{ny}, @var{hy})\n\
-Return in @var{QG} a quadgrid object.\n\
-@end deftypefn&quot;):&#160;quadgrid.cc'],['../quadgrid_8cc.html#a66039b2ef20c6edd001680e4846e9f23',1,'DEFMETHOD_DLD(quadgrid_loop, interp, args,,&quot;-*- texinfo -*-\n\
-@deftypefn {Loadable Function} {} @var{QG} = MPI_COMM_WORLD (@var{qg}, @var{nx}, \
-@var{hx}, @var{ny}, @var{hy})\n\
-Return in @var{QG} a quadgrid object.\n\
-@end deftypefn&quot;):&#160;quadgrid.cc']]],
+  ['d_0',['D',['../classp2gd__step2.html#aa890e96690bed832bf468c2e66f9ceb4',1,'p2gd_step2::D'],['../classstepper.html#ac2b788ecc88ef4350608ceb6372054a6',1,'stepper::D'],['../classstepper.html#a24db7597bac64f833819585cbd539e86',1,'stepper::D']]],
+  ['data_1',['1. Generate Input Data',['../dir_3fd467b86eff10ff2efd95ace0b26c9a.html#autotoc_md17',1,'']]],
+  ['data_2',['data',['../classquadgrid__t_1_1cell__iterator.html#a2055c37a5c8e0fadc1ee8adeb7195271',1,'quadgrid_t::cell_iterator::data'],['../classquadgrid__t_1_1neighbor__iterator.html#a8da0b05e6542abdc14d34232a4076856',1,'quadgrid_t::neighbor_iterator::data']]],
+  ['default_5fx_5fgenerator_3',['default_x_generator',['../structparticles__t.html#a6be18dfd4d45e01fe8e0b14bed11cad9',1,'particles_t']]],
+  ['default_5fy_5fgenerator_4',['default_y_generator',['../structparticles__t.html#a8032ebcf783cec2b1e41ccce9dbac4c5',1,'particles_t']]],
+  ['dependencies_20tools_5',['Required Dependencies &amp;amp; Tools',['../dir_3fd467b86eff10ff2efd95ace0b26c9a.html#autotoc_md12',1,'']]],
   ['device_6',['DEVICE',['../quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22',1,'quadgrid_config.h']]],
   ['device_5fexec_5fpolicy_7',['device_exec_policy',['../quadgrid__config_8h.html#a109283b3cd23ca6b508e47b7c18db3c9',1,'quadgrid_config.h']]],
   ['device_5fvector_5ft_8',['device_vector_t',['../quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b',1,'quadgrid_config.h']]],
-  ['difference_5ftype_9',['difference_type',['../structrange_1_1iterator.html#ab9c56949cb2b5595176fb0b27c5e943f',1,'range::iterator::difference_type'],['../structprops__t.html#a7f0a0015ce5ced134e6c3938b53843ce',1,'props_t::difference_type']]],
-  ['dispersion_10',['Tutorial 4: Taylor Dispersion',['../tutorials.html#autotoc_md9',1,'']]],
-  ['dp_11',['dp',['../structparticles__t.html#a179cba414a0c0d74b1e8bccda2506856',1,'particles_t::dp(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a56a1a4a94cfe03b14954b21fa85ee9c8',1,'particles_t::dp(const std::string &amp;name, idx_t ii) const']]],
-  ['dprop_12',['dprop',['../classp2g__helper__t.html#a6c1e1f18a13110463b1708d35001cc6d',1,'p2g_helper_t::dprop'],['../classg2p__helper__t.html#ac565ad95c5ad524a5aa677e33e6892ef',1,'g2p_helper_t::dprop']]],
-  ['dproparea_13',['dproparea',['../classp2gd__helper__t.html#ad50c9aca72a4fd5bcc7e117a4533635e',1,'p2gd_helper_t']]],
-  ['dprops_14',['dprops',['../structparticles__t.html#ac2d4d1c6acc102ae607945090383d5ff',1,'particles_t::dprops'],['../make__input__json_8m.html#a17d5e6ed8dbac2c8f0cd3cfdafa9c7c6',1,'dprops:&#160;make_input_json.m']]],
-  ['dprops_5ft_15',['dprops_t',['../contiguous__memory__particles_8cpp.html#acc5474399a760a88a888b924a0dd5e4d',1,'contiguous_memory_particles.cpp']]],
-  ['dpropx_16',['dpropx',['../classp2gd__helper__t.html#a8b8fba03cc011c5f71d806d379c1e528',1,'p2gd_helper_t::dpropx'],['../classg2pd__helper__t.html#a5959dc3943ea881fc391ce1580c56373',1,'g2pd_helper_t::dpropx']]],
-  ['dpropy_17',['dpropy',['../classp2gd__helper__t.html#a0deaa0d3f8fce5edf257fd117269e2ec',1,'p2gd_helper_t::dpropy'],['../classg2pd__helper__t.html#a652c494fe7dfff17ce7d0c21aae8470f',1,'g2pd_helper_t::dpropy']]]
+  ['difference_5ftype_9',['difference_type',['../structrange_1_1iterator.html#ab9c56949cb2b5595176fb0b27c5e943f',1,'range::iterator']]],
+  ['dispersion_10',['Tutorial 4: Taylor Dispersion',['../tutorials.html#autotoc_md8',1,'']]],
+  ['dispersion_20test_20case_11',['Taylor–Aris Dispersion Test Case',['../dir_3fd467b86eff10ff2efd95ace0b26c9a.html#autotoc_md9',1,'']]],
+  ['divv_12',['divV',['../classupdate_rho.html#ad60b2074c8253cbd6c1b3b5ddb98cc48',1,'updateRho']]],
+  ['dp_13',['dp',['../structparticles__t.html#a179cba414a0c0d74b1e8bccda2506856',1,'particles_t::dp(const std::string &amp;name, idx_t ii)'],['../structparticles__t.html#a56a1a4a94cfe03b14954b21fa85ee9c8',1,'particles_t::dp(const std::string &amp;name, idx_t ii) const']]],
+  ['dprop_14',['dprop',['../classp2g__helper__t.html#a6c1e1f18a13110463b1708d35001cc6d',1,'p2g_helper_t::dprop'],['../classg2p__helper__t.html#ac565ad95c5ad524a5aa677e33e6892ef',1,'g2p_helper_t::dprop'],['../classg2p__step3.html#a731e54c362485bc852633c170238a1a6',1,'g2p_step3::dprop'],['../classg2pd__step4.html#a9b83739230ef61e4fb1f32a8d8edb8b0',1,'g2pd_step4::dprop']]],
+  ['dprop1_15',['dprop1',['../classp2g__step1.html#a49a8ec40b64b7cf5b827fa8a499a71ed',1,'p2g_step1']]],
+  ['dprop2_16',['dprop2',['../classp2g__step1.html#a935045ab9c8756f5a2f9f8b995bab06e',1,'p2g_step1']]],
+  ['dproparea_17',['dproparea',['../classp2gd__helper__t.html#ad50c9aca72a4fd5bcc7e117a4533635e',1,'p2gd_helper_t']]],
+  ['dprops_18',['dprops',['../structparticles__t.html#ac2d4d1c6acc102ae607945090383d5ff',1,'particles_t']]],
+  ['dpropx_19',['dpropx',['../classp2gd__helper__t.html#a8b8fba03cc011c5f71d806d379c1e528',1,'p2gd_helper_t::dpropx'],['../classg2pd__helper__t.html#a5959dc3943ea881fc391ce1580c56373',1,'g2pd_helper_t::dpropx'],['../classp2gd__step2.html#ab67e61270235c3f3d39143ea38583c80',1,'p2gd_step2::dpropx']]],
+  ['dpropy_20',['dpropy',['../classp2gd__helper__t.html#a0deaa0d3f8fce5edf257fd117269e2ec',1,'p2gd_helper_t::dpropy'],['../classg2pd__helper__t.html#a652c494fe7dfff17ce7d0c21aae8470f',1,'g2pd_helper_t::dpropy'],['../classp2gd__step2.html#a776432948faf38f32b9bdddc68b1fed7',1,'p2gd_step2::dpropy']]],
+  ['drift_5fdiffusion_2ecpp_21',['drift_diffusion.cpp',['../drift__diffusion_8cpp.html',1,'']]],
+  ['drift_5fdiffusion_2eh_22',['drift_diffusion.h',['../drift__diffusion_8h.html',1,'']]],
+  ['dt_23',['dt',['../classstepper.html#ab3df69cec6933c0f9c06a018340776fe',1,'stepper::dt'],['../classstepper.html#abdfd0b0d4fb430b1755fe70bdad99fee',1,'stepper::dt'],['../classupdate_rho.html#a1d218d6017656d1ed42b4be6062045fc',1,'updateRho::dt']]]
 ];

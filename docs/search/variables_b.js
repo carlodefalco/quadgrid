@@ -1,13 +1,6 @@
 var searchData=
 [
-  ['nodes_5fper_5fcell_0',['nodes_per_cell',['../classquadgrid__t_1_1cell__t.html#ad9c6810edcf118044a71cf25fa204636',1,'quadgrid_t::cell_t']]],
-  ['not_5fon_5fboundary_1',['NOT_ON_BOUNDARY',['../classquadgrid__t_1_1cell__t.html#a130dca92588c04c3fa091efbff2a33df',1,'quadgrid_t::cell_t']]],
-  ['nrows_2',['nrows',['../classptcl__to__grd__update__t.html#a71d4b3b66e53bd0d99563dd40c4d8d37',1,'ptcl_to_grd_update_t::nrows'],['../classp2g__helper__t.html#a42809acfad7e95e1cf920e72ff422783',1,'p2g_helper_t::nrows'],['../classp2gd__helper__t.html#ac0c35dbf118b5c582201a2f9d975e776',1,'p2gd_helper_t::nrows'],['../classg2p__helper__t.html#a3cc98b9116b7dc8a393ccd926b915230',1,'g2p_helper_t::nrows'],['../classg2pd__helper__t.html#ab13daedef4c3b9cec1c8315c76bf5b89',1,'g2pd_helper_t::nrows']]],
-  ['num_5fglobal_5fnodes_3',['num_global_nodes',['../make__input__json_8m.html#aafbebd2d1fc58dd53135e7950c084533',1,'make_input_json.m']]],
-  ['num_5fowned_5fnodes_4',['num_owned_nodes',['../structquadgrid__t_1_1grid__properties__t.html#ae8ec5c5031cb930cd2388864f9daebea',1,'quadgrid_t::grid_properties_t']]],
-  ['num_5fparticles_5',['num_particles',['../structparticles__t.html#a4805ba84b0fd692529f0647daf0d02ec',1,'particles_t::num_particles'],['../make__input__json_8m.html#a179aeb2b88545273cbe7225a27e84627',1,'num_particles:&#160;make_input_json.m']]],
-  ['num_5fprops_6',['num_props',['../structprops__t.html#af9d6aaea803123ad92a325fe82f8e7ac',1,'props_t']]],
-  ['num_5fptcls_7',['num_ptcls',['../structprops__t.html#a5d1cdc9c4cfc493f288247814f95663b',1,'props_t']]],
-  ['numcols_8',['numcols',['../structquadgrid__t_1_1grid__properties__t.html#ab7a8d9371d6ac8fb233b3815fa9a2882',1,'quadgrid_t::grid_properties_t']]],
-  ['numrows_9',['numrows',['../structquadgrid__t_1_1grid__properties__t.html#abd04d2c612e9f8b8350df90d2cf21787',1,'quadgrid_t::grid_properties_t']]]
+  ['m_0',['M',['../structparticles__t.html#a892ecff3eeae8c1818733ec3f93a2c8d',1,'particles_t::M'],['../classp2g__helper__t.html#a91f8e54fb9e0d114361b6fcd2235fa8b',1,'p2g_helper_t::M'],['../classp2gd__helper__t.html#a553914d9b4ba842dadde2567018552d5',1,'p2gd_helper_t::M'],['../classg2p__helper__t.html#afd9a038f0dcb2a6c05a3d50f59a1469e',1,'g2p_helper_t::M'],['../classg2pd__helper__t.html#a1c2582082b351aa0cfbf61ade3267b34',1,'g2pd_helper_t::M'],['../classp2g__step1.html#a740ddf6db90b5cabd74ee47346c6f522',1,'p2g_step1::M'],['../classp2gd__step2.html#aa6e163a06f343c64402b8ed8a1716950',1,'p2gd_step2::M'],['../classg2p__step3.html#a9f6bdddf94a554931a95d5e9c153f762',1,'g2p_step3::M'],['../classg2pd__step4.html#a8f7456218472863106cc8304de6cd375',1,'g2pd_step4::M'],['../mmorton_8cc.html#aa918da7d207652d606a0fd4ba80a4017',1,'M:&#160;mmorton.cc']]],
+  ['max_5fcoord_1',['max_coord',['../mmorton_8h.html#a242e0791d5e9757e7d4705485845666a',1,'mmorton.h']]],
+  ['max_5flevel_2',['max_level',['../mmorton_8h.html#aa22be290f6ad317adef9b277e2452d8b',1,'mmorton.h']]]
 ];

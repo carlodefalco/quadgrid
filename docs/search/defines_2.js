@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['host_0',['HOST',['../quadgrid__config_8h.html#abbbcf3c42c997889127cc676754a6fea',1,'quadgrid_config.h']]]
+  ['gpugetdevice_0',['gpuGetDevice',['../taylor__dispersion_8cpp.html#a29550905f407e726938879939a6adebe',1,'taylor_dispersion.cpp']]],
+  ['gpugetdevicecount_1',['gpuGetDeviceCount',['../taylor__dispersion_8cpp.html#afb745f163b409fe70635cd363b5d86a3',1,'taylor_dispersion.cpp']]],
+  ['gpusetdevice_2',['gpuSetDevice',['../taylor__dispersion_8cpp.html#ae49e8419108ee862bbb4e8115827991f',1,'taylor_dispersion.cpp']]]
 ];
