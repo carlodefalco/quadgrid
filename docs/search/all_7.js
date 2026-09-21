@@ -19,7 +19,7 @@ Return in @var{QG} a quadgrid object.\n\
   ['device_5fexec_5fpolicy_8',['device_exec_policy',['../quadgrid__config_8h.html#a109283b3cd23ca6b508e47b7c18db3c9',1,'quadgrid_config.h']]],
   ['device_5fvector_5ft_9',['device_vector_t',['../quadgrid__config_8h.html#ad08d8b03f276f9be656ec5268629f89b',1,'quadgrid_config.h']]],
   ['difference_5ftype_10',['difference_type',['../structrange_1_1iterator.html#ab9c56949cb2b5595176fb0b27c5e943f',1,'range::iterator::difference_type'],['../structprops__t.html#a7f0a0015ce5ced134e6c3938b53843ce',1,'props_t::difference_type']]],
-  ['dispersion_11',['Tutorial 4: Taylor Dispersion',['..//Volumes/Dischetto/carlo/_Programmi/Miei/C++/quadgrid_latest/tutorial/README.md#autotoc_md10',1,'']]],
+  ['dispersion_11',['Tutorial 4: Taylor Dispersion',['..//Volumes/Dischetto/carlo/_Programmi/Miei/C++/quadgrid_latest/tutorial/README.md#autotoc_md9',1,'']]],
   ['dist_12',['dist',['../classstepper.html#aae147be03104be71d282942fd25039ad',1,'stepper']]],
   ['dist_5fdx_13',['dist_dx',['../classstepper.html#a90dece6c8697107085b582c55351e60c',1,'stepper']]],
   ['dist_5fdy_14',['dist_dy',['../classstepper.html#ac16a92fc25d3f66567b76e8102fad67f',1,'stepper']]],
