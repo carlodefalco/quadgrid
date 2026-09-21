@@ -1,14 +1,15 @@
-# QuadGrid Tutorials
+\page tutorials Tutorials
 
-This directory contains example problems and tutorials demonstrating
-the usage of 
-**QuadGrid**—a C++/Octave library for simple Cartesian quad grids. 
+# Tutorials
+
+The directory . contains example problems and tutorials demonstrating
+the usage of **QuadGrid** —a C++/Octave library for simple Cartesian quad grids. 
 These tutorials cover advection-diffusion problems on both CPU and GPU (via Thrust).
 
 
 ## Overview
 
-### Tutorial 1
+### \subpage tutorial_1 "Tutorial 1"
 Solves a 2D transport problem combining deterministic velocity advection with stochastic Brownian motion. Backend: CPU.
 
 ### Tutorial 2
