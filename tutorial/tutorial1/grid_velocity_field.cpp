@@ -1,4 +1,4 @@
-// \page tutorial_1 "Tutorial 1"
+/// \page tutorial_1 Tutorial 1
 
 #include <json.hpp>
 #include <particles.h>
@@ -17,7 +17,7 @@
 /// This class captures references to particle
 /// positions and velocities and overloads the
 /// call operator to allow use in STL algorithms
-/// in particular the std::for_each method 
+/// in particular the std::for_each method
 class
 stepper {
 private :
@@ -26,18 +26,18 @@ private :
   std::vector<double> &vx;
   std::vector<double> &vy;
 
-  double dt, D; 
+  double dt, D;
   std::function<double (void)> normal;
-  
+
 public :
-  
+
   stepper (std::vector<double> &x_, std::vector<double> &y_,
 	   std::vector<double> &vx_, std::vector<double> &vy_,
 	   double dt_, double D_, std::function<double (void)> &noise_)
     : x(x_), y(y_), vx(vx_), vy(vy_), dt{dt_}, D{D_}, normal(noise_) { }
 
   //! @brief call operator applying motion to the n-th particle.
-  
+
   /// overload of the call operator
   /// to apply motion to the n-th particle
   /// use velocity field for deterministic
@@ -45,19 +45,19 @@ public :
   /// to represent diffusion/Brownian motion
   void operator() (int n) {
     double dxb, dyb;
-  
+
     //Brownian motion displacements
     dxb=std::sqrt (2*D*dt) * normal();
     dyb=std::sqrt (2*D*dt) * normal();
- 
+
     //update particles positions
     x[n] += vx[n] * dt + dxb;
     y[n] += vy[n] * dt + dyb;
-      
+
     // Apply boundary conditions (unelastic walls)
     y[n] = std::min (1.999, std::max (0.001, y[n]));
     x[n] = std::min (1.999, std::max (0.001, x[n]));
-  } 
+  }
 
 };
 
@@ -68,7 +68,7 @@ int
 main () {
 
   cdf::timer::timer_t timer;
-    
+
   // read data from file
   constexpr auto filename = "velocity.json";
 
@@ -82,14 +82,14 @@ main () {
   // create particles from properties in the json object
   // and the above created grid
   particles_t p (j, qg);
-  
+
   // as we will use the mass matrix we must initialize it manually
   p.build_mass ();
 
   // the variables defined on the grid are not class members
-  std::map<std::string, std::vector<double>> vars= 
+  std::map<std::string, std::vector<double>> vars=
     j["grid_vars"].get<std::map<std::string, std::vector<double>>> ();
-    
+
   inbuf.close ();
 
   // Diffusion is modelled as a Gaussian process
@@ -131,7 +131,7 @@ main () {
     // Or use an STL algorithm
     range rng (0, p.num_particles);
     std::for_each (rng.begin (), rng.end (), state);
-      
+
     timer.toc("move partcles");
 
     // Rebuild particle <-> grid connectivity
@@ -139,7 +139,7 @@ main () {
     timer.tic("init_particle_mesh");
     p.init_particle_mesh ();
     timer.toc("init_particle_mesh");
-    
+
     // Project particle masses onto the greed and
     // build a density field, only used for output
     timer.tic("p2g");
@@ -148,21 +148,21 @@ main () {
 
     // Don't save at every timestep
     if (it % 50 == 0) {
-      
+
       // write particle data to file
       const std::string ofilename = "particle";
       const std::string ofileext = ".csv";
       const std::string numfile = std::string(".") + std::to_string(it);
-	
-      std::ofstream outbuf (ofilename + numfile + ofileext);  
+
+      std::ofstream outbuf (ofilename + numfile + ofileext);
       p.print<particles_t::output_format::csv> (outbuf);
-	
+
       outbuf.close ();
-	
+
       // write grid data to file
       const std::string gfilename = std::string("grid.") + std::to_string(it) + std::string(".vts");
       qg.vtk_export (gfilename.c_str(), vars);
-      
+
     }
   }
 
