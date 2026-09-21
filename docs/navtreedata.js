@@ -26,7 +26,6 @@ var NAVTREE =
 [
   [ "quadgrid", "index.html", [
     [ "quadgrid - a simple c++ library for particles in a cartesian quad grid", "index.html", null ],
-    [ "Tutorial", "tutorial.html", null ],
     [ "Tutorials", "tutorials.html", [
       [ "Tutorials", "tutorials.html#autotoc_md4", [
         [ "Overview", "tutorials.html#autotoc_md5", [
@@ -74,8 +73,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"functions_y.html",
-"tutorials.html#autotoc_md4"
+"make__input__json_8m.html#a4b99ff73a8a869319570237b5c57ab03"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
