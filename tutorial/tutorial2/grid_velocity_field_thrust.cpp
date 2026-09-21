@@ -11,10 +11,6 @@
 #include <timer.h>
 #include <quadgrid_config.h>
 
-/// \page tutorial Tutorial
-/// This is a tutorial, see the annotated source 
-/// source at .grid_velocity_field.cpp
-
 //! @brief Functor class for moving particles.
 
 /// This class captures references to particle
