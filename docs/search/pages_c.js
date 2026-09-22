@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['main_20methods_20in_20the_20particles_5ft_20class_0',['Main methods in the particles_t class',['../index.html#autotoc_md2',1,'']]],
-  ['methods_20in_20the_20particles_5ft_20class_1',['Main methods in the particles_t class',['../index.html#autotoc_md2',1,'']]]
+  ['library_20for_20particles_20in_20a_20cartesian_20quad_20grid_0',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
+  ['license_1',['License',['../index.html#autotoc_md0',1,'']]],
+  ['list_20of_20tutorials_2',['List of tutorials',['../tutorials_list.html',1,'tutorials']]]
 ];

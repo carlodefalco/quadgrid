@@ -125,13 +125,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('classstepper.h
 <p>Functor class for moving particles.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a89a0402464254d08ed44c8761a4d69c1" id="r_a89a0402464254d08ed44c8761a4d69c1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a89a0402464254d08ed44c8761a4d69c1">stepper</a> (PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> dt_)</td></tr>
-<tr class="memitem:a3e2fa7e63a4e50ea42a830f9ced37aac" id="r_a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="memItemLeft"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void&#160;</td><td class="memItemRight"><a class="el" href="#a3e2fa7e63a4e50ea42a830f9ced37aac">operator()</a> (int n)</td></tr>
-<tr class="memdesc:a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
 <tr class="memitem:a029e10fa82f89221ff7a600ec1e9b7f5" id="r_a029e10fa82f89221ff7a600ec1e9b7f5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a029e10fa82f89221ff7a600ec1e9b7f5">stepper</a> (std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)</td></tr>
 <tr class="memitem:aaa5613afc66c9ec5158d13153293339b" id="r_aaa5613afc66c9ec5158d13153293339b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa5613afc66c9ec5158d13153293339b">operator()</a> (int n)</td></tr>
 <tr class="memdesc:aaa5613afc66c9ec5158d13153293339b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
@@ -141,90 +138,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a89a0402464254d08ed44c8761a4d69c1" id="r_a89a0402464254d08ed44c8761a4d69c1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a89a0402464254d08ed44c8761a4d69c1">stepper</a> (PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> dt_)</td></tr>
 <tr class="memitem:a3e2fa7e63a4e50ea42a830f9ced37aac" id="r_a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="memItemLeft"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void&#160;</td><td class="memItemRight"><a class="el" href="#a3e2fa7e63a4e50ea42a830f9ced37aac">operator()</a> (int n)</td></tr>
 <tr class="memdesc:a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ab3df69cec6933c0f9c06a018340776fe" id="r_ab3df69cec6933c0f9c06a018340776fe"><td class="memItemLeft"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a></td></tr>
+<tr class="memitem:a89a0402464254d08ed44c8761a4d69c1" id="r_a89a0402464254d08ed44c8761a4d69c1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a89a0402464254d08ed44c8761a4d69c1">stepper</a> (PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, <a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> dt_)</td></tr>
+<tr class="memitem:a3e2fa7e63a4e50ea42a830f9ced37aac" id="r_a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="memItemLeft"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void&#160;</td><td class="memItemRight"><a class="el" href="#a3e2fa7e63a4e50ea42a830f9ced37aac">operator()</a> (int n)</td></tr>
+<tr class="memdesc:a3e2fa7e63a4e50ea42a830f9ced37aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
+<tr class="memitem:a0ea1575444c8232b6c76318793a0ac00" id="r_a0ea1575444c8232b6c76318793a0ac00"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0ea1575444c8232b6c76318793a0ac00">stepper</a> (std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, std::vector&lt; double &gt; &amp;dist_, std::vector&lt; double &gt; &amp;dist_dx_, std::vector&lt; double &gt; &amp;dist_dy_, const double hx_, const double hy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)</td></tr>
+<tr class="memitem:aaa5613afc66c9ec5158d13153293339b" id="r_aaa5613afc66c9ec5158d13153293339b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa5613afc66c9ec5158d13153293339b">operator()</a> (int n)</td></tr>
+<tr class="memdesc:aaa5613afc66c9ec5158d13153293339b"><td class="mdescLeft">&#160;</td><td class="mdescRight">call operator applying motion to the n-th particle.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
+<tr class="memitem:aca1fe4446b9960d0001ebf5310b3b9ca" id="r_aca1fe4446b9960d0001ebf5310b3b9ca"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a></td></tr>
+<tr class="memitem:a31b13074c127f725730e3174be9f4702" id="r_a31b13074c127f725730e3174be9f4702"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a31b13074c127f725730e3174be9f4702">y</a></td></tr>
+<tr class="memitem:a011fe905d884fc1fec1a7537710f71a1" id="r_a011fe905d884fc1fec1a7537710f71a1"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a></td></tr>
+<tr class="memitem:ad808c26d726a646e0ffe2f2a2cd59d86" id="r_ad808c26d726a646e0ffe2f2a2cd59d86"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a></td></tr>
+<tr class="memitem:abdfd0b0d4fb430b1755fe70bdad99fee" id="r_abdfd0b0d4fb430b1755fe70bdad99fee"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a></td></tr>
+<tr class="memitem:ac2b788ecc88ef4350608ceb6372054a6" id="r_ac2b788ecc88ef4350608ceb6372054a6"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a></td></tr>
+<tr class="memitem:a926f30b0257a278273497fa31f22deb3" id="r_a926f30b0257a278273497fa31f22deb3"><td class="memItemLeft">std::function&lt; double(void)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a926f30b0257a278273497fa31f22deb3">normal</a></td></tr>
 <tr class="memitem:abde8571aa3910824d215850ff4f2aaf2" id="r_abde8571aa3910824d215850ff4f2aaf2"><td class="memItemLeft">PVAR_t&#160;</td><td class="memItemRight"><a class="el" href="#abde8571aa3910824d215850ff4f2aaf2">x</a></td></tr>
 <tr class="memitem:a67023c103f30c981daea6dc6261daffd" id="r_a67023c103f30c981daea6dc6261daffd"><td class="memItemLeft">PVAR_t&#160;</td><td class="memItemRight"><a class="el" href="#a67023c103f30c981daea6dc6261daffd">y</a></td></tr>
 <tr class="memitem:ad7218de5e1bde32acb3e9d8746e1d945" id="r_ad7218de5e1bde32acb3e9d8746e1d945"><td class="memItemLeft">PVAR_t&#160;</td><td class="memItemRight"><a class="el" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a></td></tr>
 <tr class="memitem:ab4e9015b4a08b798f6dd36681b415ed3" id="r_ab4e9015b4a08b798f6dd36681b415ed3"><td class="memItemLeft">PVAR_t&#160;</td><td class="memItemRight"><a class="el" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a></td></tr>
-<tr class="memitem:aad83eade545f4faf761e217181d09f9e" id="r_aad83eade545f4faf761e217181d09f9e"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aad83eade545f4faf761e217181d09f9e">x</a></td></tr>
-<tr class="memitem:ad589713be25aafd3eeb2c1866ead8c12" id="r_ad589713be25aafd3eeb2c1866ead8c12"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad589713be25aafd3eeb2c1866ead8c12">y</a></td></tr>
-<tr class="memitem:acc8c09cbdbab19b0a7f34febf8881eb8" id="r_acc8c09cbdbab19b0a7f34febf8881eb8"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#acc8c09cbdbab19b0a7f34febf8881eb8">vx</a></td></tr>
-<tr class="memitem:a445a972f18f926763dc32c7dcadd1ccd" id="r_a445a972f18f926763dc32c7dcadd1ccd"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a445a972f18f926763dc32c7dcadd1ccd">vy</a></td></tr>
-<tr class="memitem:abdfd0b0d4fb430b1755fe70bdad99fee" id="r_abdfd0b0d4fb430b1755fe70bdad99fee"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a></td></tr>
-<tr class="memitem:ac2b788ecc88ef4350608ceb6372054a6" id="r_ac2b788ecc88ef4350608ceb6372054a6"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a></td></tr>
-<tr class="memitem:ae8a27caea8588f6eb13b57d2e8cbe52f" id="r_ae8a27caea8588f6eb13b57d2e8cbe52f"><td class="memItemLeft">std::function&lt; double(void)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae8a27caea8588f6eb13b57d2e8cbe52f">normal</a></td></tr>
+<tr class="memitem:ab3df69cec6933c0f9c06a018340776fe" id="r_ab3df69cec6933c0f9c06a018340776fe"><td class="memItemLeft"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a></td></tr>
 <tr class="memitem:a24db7597bac64f833819585cbd539e86" id="r_a24db7597bac64f833819585cbd539e86"><td class="memItemLeft"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a24db7597bac64f833819585cbd539e86">D</a></td></tr>
+<tr class="memitem:afed3952ddcc613d4bc5c0816d5eb4a6c" id="r_afed3952ddcc613d4bc5c0816d5eb4a6c"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afed3952ddcc613d4bc5c0816d5eb4a6c">dist</a></td></tr>
+<tr class="memitem:afda81380d72e73025f74ef5cc8151973" id="r_afda81380d72e73025f74ef5cc8151973"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a></td></tr>
+<tr class="memitem:ac0cc815428ab19fda8141b7707a02398" id="r_ac0cc815428ab19fda8141b7707a02398"><td class="memItemLeft">std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a></td></tr>
+<tr class="memitem:aa56a65215d22e0ba9a409a78e7a00056" id="r_aa56a65215d22e0ba9a409a78e7a00056"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#aa56a65215d22e0ba9a409a78e7a00056">hx</a></td></tr>
+<tr class="memitem:a0fe5ee367df3d93d18c29f34f122beb9" id="r_a0fe5ee367df3d93d18c29f34f122beb9"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a0fe5ee367df3d93d18c29f34f122beb9">hy</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename PVAR_t&gt;<br />
 class stepper&lt; PVAR_t &gt;</div><p>Functor class for moving particles. </p>
 <p>This class captures references to particle positions and velocities and overloads the call operator to allow use in STL algorithms in particular the std::for_each method </p>
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00034">34</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00021">21</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a89a0402464254d08ed44c8761a4d69c1" name="a89a0402464254d08ed44c8761a4d69c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89a0402464254d08ed44c8761a4d69c1">&#9670;&#160;</a></span>stepper() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::stepper </td>
-          <td>(</td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>x_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>y_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>vx_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>vy_</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>dt_</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00045">45</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   48</span>    : <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>} { }</div>
-<div class="ttc" id="aclassstepper_html"><div class="ttname"><a href="classstepper.html">stepper</a></div><div class="ttdoc">Functor class for moving particles.</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00034">taylor_dispersion.h:35</a></div></div>
-<div class="ttc" id="aclassstepper_html_a67023c103f30c981daea6dc6261daffd"><div class="ttname"><a href="#a67023c103f30c981daea6dc6261daffd">stepper::y</a></div><div class="ttdeci">PVAR_t y</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00038">taylor_dispersion.h:38</a></div></div>
-<div class="ttc" id="aclassstepper_html_ab3df69cec6933c0f9c06a018340776fe"><div class="ttname"><a href="#ab3df69cec6933c0f9c06a018340776fe">stepper::dt</a></div><div class="ttdeci">real_t dt</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00044">taylor_dispersion.h:44</a></div></div>
-<div class="ttc" id="aclassstepper_html_ab4e9015b4a08b798f6dd36681b415ed3"><div class="ttname"><a href="#ab4e9015b4a08b798f6dd36681b415ed3">stepper::vy</a></div><div class="ttdeci">PVAR_t vy</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00040">taylor_dispersion.h:40</a></div></div>
-<div class="ttc" id="aclassstepper_html_abde8571aa3910824d215850ff4f2aaf2"><div class="ttname"><a href="#abde8571aa3910824d215850ff4f2aaf2">stepper::x</a></div><div class="ttdeci">PVAR_t x</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00037">taylor_dispersion.h:37</a></div></div>
-<div class="ttc" id="aclassstepper_html_ad7218de5e1bde32acb3e9d8746e1d945"><div class="ttname"><a href="#ad7218de5e1bde32acb3e9d8746e1d945">stepper::vx</a></div><div class="ttdeci">PVAR_t vx</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00039">taylor_dispersion.h:39</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a029e10fa82f89221ff7a600ec1e9b7f5" name="a029e10fa82f89221ff7a600ec1e9b7f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a029e10fa82f89221ff7a600ec1e9b7f5">&#9670;&#160;</a></span>stepper() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a029e10fa82f89221ff7a600ec1e9b7f5">&#9670;&#160;</a></span>stepper() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,14 +228,20 @@ template&lt;typename PVAR_t&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00034">34</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>    : <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>}, <a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>{<a class="code hl_class" href="classstepper.html">D_</a>}, <a class="code hl_variable" href="#ae8a27caea8588f6eb13b57d2e8cbe52f">normal</a>(<a class="code hl_class" href="classstepper.html">noise_</a>) { }</div>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>    : <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>}, <a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>{<a class="code hl_class" href="classstepper.html">D_</a>}, <a class="code hl_variable" href="#a926f30b0257a278273497fa31f22deb3">normal</a>(<a class="code hl_class" href="classstepper.html">noise_</a>) { }</div>
+<div class="ttc" id="aclassstepper_html"><div class="ttname"><a href="classstepper.html">stepper</a></div><div class="ttdoc">Functor class for moving particles.</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00021">grid_velocity_field.cpp:22</a></div></div>
+<div class="ttc" id="aclassstepper_html_a011fe905d884fc1fec1a7537710f71a1"><div class="ttname"><a href="#a011fe905d884fc1fec1a7537710f71a1">stepper::vx</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; vx</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00026">grid_velocity_field.cpp:26</a></div></div>
+<div class="ttc" id="aclassstepper_html_a31b13074c127f725730e3174be9f4702"><div class="ttname"><a href="#a31b13074c127f725730e3174be9f4702">stepper::y</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; y</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00025">grid_velocity_field.cpp:25</a></div></div>
+<div class="ttc" id="aclassstepper_html_a926f30b0257a278273497fa31f22deb3"><div class="ttname"><a href="#a926f30b0257a278273497fa31f22deb3">stepper::normal</a></div><div class="ttdeci">std::function&lt; double(void)&gt; normal</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00030">grid_velocity_field.cpp:30</a></div></div>
+<div class="ttc" id="aclassstepper_html_abdfd0b0d4fb430b1755fe70bdad99fee"><div class="ttname"><a href="#abdfd0b0d4fb430b1755fe70bdad99fee">stepper::dt</a></div><div class="ttdeci">double dt</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00029">grid_velocity_field.cpp:29</a></div></div>
 <div class="ttc" id="aclassstepper_html_ac2b788ecc88ef4350608ceb6372054a6"><div class="ttname"><a href="#ac2b788ecc88ef4350608ceb6372054a6">stepper::D</a></div><div class="ttdeci">double D</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00029">grid_velocity_field.cpp:29</a></div></div>
-<div class="ttc" id="aclassstepper_html_ae8a27caea8588f6eb13b57d2e8cbe52f"><div class="ttname"><a href="#ae8a27caea8588f6eb13b57d2e8cbe52f">stepper::normal</a></div><div class="ttdeci">std::function&lt; double(void)&gt; normal</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00030">grid_velocity_field.cpp:30</a></div></div>
+<div class="ttc" id="aclassstepper_html_aca1fe4446b9960d0001ebf5310b3b9ca"><div class="ttname"><a href="#aca1fe4446b9960d0001ebf5310b3b9ca">stepper::x</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; x</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00024">grid_velocity_field.cpp:24</a></div></div>
+<div class="ttc" id="aclassstepper_html_ad808c26d726a646e0ffe2f2a2cd59d86"><div class="ttname"><a href="#ad808c26d726a646e0ffe2f2a2cd59d86">stepper::vy</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; vy</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field_8cpp_source.html#l00027">grid_velocity_field.cpp:27</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="aacff113180191cfb5395fda2b463041b" name="aacff113180191cfb5395fda2b463041b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacff113180191cfb5395fda2b463041b">&#9670;&#160;</a></span>stepper() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aacff113180191cfb5395fda2b463041b">&#9670;&#160;</a></span>stepper() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,12 +290,12 @@ template&lt;typename PVAR_t&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="grid__velocity__field__thrust_8cpp_source.html#l00034">34</a> of file <a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   37</span>    : <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>}, <a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>{<a class="code hl_class" href="classstepper.html">D_</a>} { }</div>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>    : <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>}, <a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>{<a class="code hl_class" href="classstepper.html">D_</a>} { }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="a89a0402464254d08ed44c8761a4d69c1" name="a89a0402464254d08ed44c8761a4d69c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89a0402464254d08ed44c8761a4d69c1">&#9670;&#160;</a></span>stepper() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a0402464254d08ed44c8761a4d69c1">&#9670;&#160;</a></span>stepper() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -383,13 +339,12 @@ template&lt;typename PVAR_t&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00031">31</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>    : <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>} { }</div>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>    : <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>} { }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a3e2fa7e63a4e50ea42a830f9ced37aac" name="a3e2fa7e63a4e50ea42a830f9ced37aac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[1/4]</span></h2>
+<a id="a89a0402464254d08ed44c8761a4d69c1" name="a89a0402464254d08ed44c8761a4d69c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a0402464254d08ed44c8761a4d69c1">&#9670;&#160;</a></span>stepper() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,10 +355,29 @@ template&lt;typename PVAR_t&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::operator() </td>
+          <td class="memname"><a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::stepper </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>x_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>y_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>vx_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">PVAR_t</td>          <td class="paramname"><span class="paramname"><em>vy_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a></td>          <td class="paramname"><span class="paramname"><em>dt_</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -413,25 +387,104 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>call operator applying motion to the n-th particle. </p>
-<p>overload of the call operator to apply motion to the n-th particle use velocity field </p>
-
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00057">57</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>                          {</div>
-<div class="line"><span class="lineno">   58</span> </div>
-<div class="line"><span class="lineno">   59</span>    <span class="comment">//update particles positions</span></div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>; </div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>; </div>
-<div class="line"><span class="lineno">   62</span>      </div>
-<div class="line"><span class="lineno">   63</span>    <span class="comment">// Apply boundary conditions (unelastic walls)</span></div>
-<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">fmin</a> (0.1999, <a class="code hl_class" href="classstepper.html">fmax</a> (0.001, <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
-<div class="line"><span class="lineno">   65</span>  </div>
-<div class="line"><span class="lineno">   66</span>  } </div>
+<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00045">45</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>    : <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>} { }</div>
 </div><!-- fragment -->
 </div>
 </div>
+<a id="a0ea1575444c8232b6c76318793a0ac00" name="a0ea1575444c8232b6c76318793a0ac00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ea1575444c8232b6c76318793a0ac00">&#9670;&#160;</a></span>stepper() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::stepper </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>x_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>y_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vx_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vy_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dist_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dist_dx_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>dist_dy_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>hx_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>hy_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>dt_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>D_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; double(void)&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>noise_</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00037">37</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>    : <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>(<a class="code hl_class" href="classstepper.html">x_</a>), <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>(<a class="code hl_class" href="classstepper.html">y_</a>), <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>(<a class="code hl_class" href="classstepper.html">vx_</a>), <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>(<a class="code hl_class" href="classstepper.html">vy_</a>), <a class="code hl_variable" href="#afed3952ddcc613d4bc5c0816d5eb4a6c">dist</a>(<a class="code hl_class" href="classstepper.html">dist_</a>), <a class="code hl_variable" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a>(<a class="code hl_class" href="classstepper.html">dist_dx_</a>),</div>
+<div class="line"><span class="lineno">   43</span>      <a class="code hl_variable" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a>(<a class="code hl_class" href="classstepper.html">dist_dy_</a>), <a class="code hl_variable" href="#aa56a65215d22e0ba9a409a78e7a00056">hx</a>{<a class="code hl_class" href="classstepper.html">hx_</a>}, <a class="code hl_variable" href="#a0fe5ee367df3d93d18c29f34f122beb9">hy</a>{<a class="code hl_class" href="classstepper.html">hy_</a>}, <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>{<a class="code hl_class" href="classstepper.html">dt_</a>}, <a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>{<a class="code hl_class" href="classstepper.html">D_</a>}, <a class="code hl_variable" href="#a926f30b0257a278273497fa31f22deb3">normal</a>(<a class="code hl_class" href="classstepper.html">noise_</a>) { }</div>
+<div class="ttc" id="aclassstepper_html_a0fe5ee367df3d93d18c29f34f122beb9"><div class="ttname"><a href="#a0fe5ee367df3d93d18c29f34f122beb9">stepper::hy</a></div><div class="ttdeci">double hy</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field__comsol_8cpp_source.html#l00029">grid_velocity_field_comsol.cpp:29</a></div></div>
+<div class="ttc" id="aclassstepper_html_aa56a65215d22e0ba9a409a78e7a00056"><div class="ttname"><a href="#aa56a65215d22e0ba9a409a78e7a00056">stepper::hx</a></div><div class="ttdeci">double hx</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field__comsol_8cpp_source.html#l00029">grid_velocity_field_comsol.cpp:29</a></div></div>
+<div class="ttc" id="aclassstepper_html_ac0cc815428ab19fda8141b7707a02398"><div class="ttname"><a href="#ac0cc815428ab19fda8141b7707a02398">stepper::dist_dy</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; dist_dy</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field__comsol_8cpp_source.html#l00028">grid_velocity_field_comsol.cpp:28</a></div></div>
+<div class="ttc" id="aclassstepper_html_afda81380d72e73025f74ef5cc8151973"><div class="ttname"><a href="#afda81380d72e73025f74ef5cc8151973">stepper::dist_dx</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; dist_dx</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field__comsol_8cpp_source.html#l00027">grid_velocity_field_comsol.cpp:27</a></div></div>
+<div class="ttc" id="aclassstepper_html_afed3952ddcc613d4bc5c0816d5eb4a6c"><div class="ttname"><a href="#afed3952ddcc613d4bc5c0816d5eb4a6c">stepper::dist</a></div><div class="ttdeci">std::vector&lt; double &gt; &amp; dist</div><div class="ttdef"><b>Definition</b> <a href="grid__velocity__field__comsol_8cpp_source.html#l00026">grid_velocity_field_comsol.cpp:26</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aaa5613afc66c9ec5158d13153293339b" name="aaa5613afc66c9ec5158d13153293339b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa5613afc66c9ec5158d13153293339b">&#9670;&#160;</a></span>operator()() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa5613afc66c9ec5158d13153293339b">&#9670;&#160;</a></span>operator()() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,22 +516,22 @@ template&lt;typename PVAR_t&gt; </div>
 <div class="line"><span class="lineno">   47</span>    <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">dxb</a>, <a class="code hl_class" href="classstepper.html">dyb</a>;</div>
 <div class="line"><span class="lineno">   48</span> </div>
 <div class="line"><span class="lineno">   49</span>    <span class="comment">//Brownian motion displacements</span></div>
-<div class="line"><span class="lineno">   50</span>    <a class="code hl_class" href="classstepper.html">dxb</a>=<a class="code hl_class" href="classstepper.html">std::sqrt</a> (2*<a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>*<a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>) * <a class="code hl_variable" href="#ae8a27caea8588f6eb13b57d2e8cbe52f">normal</a>();</div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_class" href="classstepper.html">dyb</a>=<a class="code hl_class" href="classstepper.html">std::sqrt</a> (2*<a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>*<a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>) * <a class="code hl_variable" href="#ae8a27caea8588f6eb13b57d2e8cbe52f">normal</a>();</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_class" href="classstepper.html">dxb</a>=<a class="code hl_class" href="classstepper.html">std::sqrt</a> (2*<a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>*<a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>) * <a class="code hl_variable" href="#a926f30b0257a278273497fa31f22deb3">normal</a>();</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_class" href="classstepper.html">dyb</a>=<a class="code hl_class" href="classstepper.html">std::sqrt</a> (2*<a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>*<a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>) * <a class="code hl_variable" href="#a926f30b0257a278273497fa31f22deb3">normal</a>();</div>
 <div class="line"><span class="lineno">   52</span> </div>
 <div class="line"><span class="lineno">   53</span>    <span class="comment">//update particles positions</span></div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a> + <a class="code hl_class" href="classstepper.html">dxb</a>;</div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a> + <a class="code hl_class" href="classstepper.html">dyb</a>;</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a> + <a class="code hl_class" href="classstepper.html">dxb</a>;</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a> + <a class="code hl_class" href="classstepper.html">dyb</a>;</div>
 <div class="line"><span class="lineno">   56</span> </div>
 <div class="line"><span class="lineno">   57</span>    <span class="comment">// Apply boundary conditions (unelastic walls)</span></div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
 <div class="line"><span class="lineno">   60</span>  }</div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="a3e2fa7e63a4e50ea42a830f9ced37aac" name="a3e2fa7e63a4e50ea42a830f9ced37aac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,18 +567,18 @@ template&lt;typename PVAR_t&gt; </div>
 <div class="line"><span class="lineno">   52</span>    <span class="comment">//dyb=std::sqrt (2*D*dt) * normal();</span></div>
 <div class="line"><span class="lineno">   53</span> </div>
 <div class="line"><span class="lineno">   54</span>    <span class="comment">//update particles positions</span></div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>; <span class="comment">//+ dxb;</span></div>
-<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>; <span class="comment">//+ dyb;</span></div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>; <span class="comment">//+ dxb;</span></div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>; <span class="comment">//+ dyb;</span></div>
 <div class="line"><span class="lineno">   57</span>      </div>
 <div class="line"><span class="lineno">   58</span>    <span class="comment">// Apply boundary conditions (unelastic walls)</span></div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (1.999, <a class="code hl_class" href="classstepper.html">std::max</a> (0.001, <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
 <div class="line"><span class="lineno">   61</span>  } </div>
 </div><!-- fragment -->
 </div>
 </div>
 <a id="a3e2fa7e63a4e50ea42a830f9ced37aac" name="a3e2fa7e63a4e50ea42a830f9ced37aac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[3/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,13 +609,116 @@ template&lt;typename PVAR_t&gt; </div>
 <div class="fragment"><div class="line"><span class="lineno">   43</span>                          {</div>
 <div class="line"><span class="lineno">   44</span> </div>
 <div class="line"><span class="lineno">   45</span>    <span class="comment">//update particles positions</span></div>
-<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad7218de5e1bde32acb3e9d8746e1d945">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>; </div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ab4e9015b4a08b798f6dd36681b415ed3">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#ab3df69cec6933c0f9c06a018340776fe">dt</a>; </div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>; </div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>; </div>
 <div class="line"><span class="lineno">   48</span>      </div>
 <div class="line"><span class="lineno">   49</span>    <span class="comment">// Apply boundary conditions (unelastic walls)</span></div>
-<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">fmin</a> (1.999, <a class="code hl_class" href="classstepper.html">fmax</a> (0.001, <a class="code hl_variable" href="#a67023c103f30c981daea6dc6261daffd">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">fmin</a> (1.999, <a class="code hl_class" href="classstepper.html">fmax</a> (0.001, <a class="code hl_variable" href="#abde8571aa3910824d215850ff4f2aaf2">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">fmin</a> (1.999, <a class="code hl_class" href="classstepper.html">fmax</a> (0.001, <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">fmin</a> (1.999, <a class="code hl_class" href="classstepper.html">fmax</a> (0.001, <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
 <div class="line"><span class="lineno">   52</span>  } </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a3e2fa7e63a4e50ea42a830f9ced37aac" name="a3e2fa7e63a4e50ea42a830f9ced37aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e2fa7e63a4e50ea42a830f9ced37aac">&#9670;&#160;</a></span>operator()() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>call operator applying motion to the n-th particle. </p>
+<p>overload of the call operator to apply motion to the n-th particle use velocity field </p>
+
+<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00057">57</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>                          {</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="comment">//update particles positions</span></div>
+<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>; </div>
+<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>; </div>
+<div class="line"><span class="lineno">   62</span>      </div>
+<div class="line"><span class="lineno">   63</span>    <span class="comment">// Apply boundary conditions (unelastic walls)</span></div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">fmin</a> (0.1999, <a class="code hl_class" href="classstepper.html">fmax</a> (0.001, <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   65</span>  </div>
+<div class="line"><span class="lineno">   66</span>  } </div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aaa5613afc66c9ec5158d13153293339b" name="aaa5613afc66c9ec5158d13153293339b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa5613afc66c9ec5158d13153293339b">&#9670;&#160;</a></span>operator()() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>call operator applying motion to the n-th particle. </p>
+<p>overload of the call operator to apply motion to the n-th particle use velocity field for deterministic motion component plus gaussian noise to represent diffusion/Brownian motion </p>
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00052">52</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                          {</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">dxb</a>, <a class="code hl_class" href="classstepper.html">dyb</a>;</div>
+<div class="line"><span class="lineno">   54</span>  </div>
+<div class="line"><span class="lineno">   55</span>    <span class="comment">//Brownian motion displacements</span></div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_class" href="classstepper.html">dxb</a>=<a class="code hl_class" href="classstepper.html">std::sqrt</a> (2*<a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>*<a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>) * <a class="code hl_variable" href="#a926f30b0257a278273497fa31f22deb3">normal</a>();</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_class" href="classstepper.html">dyb</a>=<a class="code hl_class" href="classstepper.html">std::sqrt</a> (2*<a class="code hl_variable" href="#ac2b788ecc88ef4350608ceb6372054a6">D</a>*<a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a>) * <a class="code hl_variable" href="#a926f30b0257a278273497fa31f22deb3">normal</a>();</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="comment">//update particles positions</span></div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">dx</a> = <a class="code hl_variable" href="#a011fe905d884fc1fec1a7537710f71a1">vx</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a> + <a class="code hl_class" href="classstepper.html">dxb</a>;</div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">dy</a> = <a class="code hl_variable" href="#ad808c26d726a646e0ffe2f2a2cd59d86">vy</a>[<a class="code hl_class" href="classstepper.html">n</a>] * <a class="code hl_variable" href="#abdfd0b0d4fb430b1755fe70bdad99fee">dt</a> + <a class="code hl_class" href="classstepper.html">dyb</a>;</div>
+<div class="line"><span class="lineno">   62</span>    <span class="comment">// Apply boundary conditions </span></div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#afed3952ddcc613d4bc5c0816d5eb4a6c">dist</a>[<a class="code hl_class" href="classstepper.html">n</a>] &lt;= 2*<a class="code hl_class" href="classstepper.html">dx</a> || <a class="code hl_variable" href="#afed3952ddcc613d4bc5c0816d5eb4a6c">dist</a>[<a class="code hl_class" href="classstepper.html">n</a>] &lt; 2*<a class="code hl_class" href="classstepper.html">dy</a>) {</div>
+<div class="line"><span class="lineno">   64</span>      <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">normdist</a> = <a class="code hl_class" href="classstepper.html">std::sqrt</a> (<a class="code hl_variable" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a>[<a class="code hl_class" href="classstepper.html">n</a>]*<a class="code hl_variable" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a>[<a class="code hl_class" href="classstepper.html">n</a>] + <a class="code hl_variable" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a>[<a class="code hl_class" href="classstepper.html">n</a>]*<a class="code hl_variable" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a>[<a class="code hl_class" href="classstepper.html">n</a>]);</div>
+<div class="line"><span class="lineno">   65</span>      <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">verx</a> = <a class="code hl_variable" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a>[<a class="code hl_class" href="classstepper.html">n</a>] / <a class="code hl_class" href="classstepper.html">normdist</a>;</div>
+<div class="line"><span class="lineno">   66</span>      <span class="keywordtype">double</span> <a class="code hl_class" href="classstepper.html">very</a> = <a class="code hl_variable" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a>[<a class="code hl_class" href="classstepper.html">n</a>] / <a class="code hl_class" href="classstepper.html">normdist</a>;</div>
+<div class="line"><span class="lineno">   67</span>      <span class="keywordflow">if</span> (<a class="code hl_variable" href="#afed3952ddcc613d4bc5c0816d5eb4a6c">dist</a>[<a class="code hl_class" href="classstepper.html">n</a>] &lt; 0) { <a class="code hl_class" href="classstepper.html">verx</a> = <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] &gt; 1.6 ? -1. : 1.; <a class="code hl_class" href="classstepper.html">very</a> = 0.; }       </div>
+<div class="line"><span class="lineno">   68</span>      <a class="code hl_class" href="classstepper.html">dx</a> = <a class="code hl_variable" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a>[<a class="code hl_class" href="classstepper.html">n</a>]/<a class="code hl_class" href="classstepper.html">normdist</a> * <a class="code hl_class" href="classstepper.html">std::max</a>(0., <a class="code hl_variable" href="#afda81380d72e73025f74ef5cc8151973">dist_dx</a>[<a class="code hl_class" href="classstepper.html">n</a>]*<a class="code hl_class" href="classstepper.html">dx</a>/<a class="code hl_class" href="classstepper.html">normdist</a>);</div>
+<div class="line"><span class="lineno">   69</span>      <a class="code hl_class" href="classstepper.html">dy</a> = <a class="code hl_variable" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a>[<a class="code hl_class" href="classstepper.html">n</a>]/<a class="code hl_class" href="classstepper.html">normdist</a> * <a class="code hl_class" href="classstepper.html">std::max</a>(0., <a class="code hl_variable" href="#ac0cc815428ab19fda8141b7707a02398">dist_dy</a>[<a class="code hl_class" href="classstepper.html">n</a>]*<a class="code hl_class" href="classstepper.html">dy</a>/<a class="code hl_class" href="classstepper.html">normdist</a>);</div>
+<div class="line"><span class="lineno">   70</span>    }</div>
+<div class="line"><span class="lineno">   71</span>    </div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_class" href="classstepper.html">dx</a>;    </div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] += <a class="code hl_class" href="classstepper.html">dy</a>;</div>
+<div class="line"><span class="lineno">   74</span>    </div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>    <span class="comment">// Constrain particles within domain</span></div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] &gt; 8.9) { <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = .1; <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = 1.6; };</div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (3.1, <a class="code hl_class" href="classstepper.html">std::max</a> (0.1, <a class="code hl_variable" href="#a31b13074c127f725730e3174be9f4702">y</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>] = <a class="code hl_class" href="classstepper.html">std::min</a> (8.9, <a class="code hl_class" href="classstepper.html">std::max</a> (0.1, <a class="code hl_variable" href="#aca1fe4446b9960d0001ebf5310b3b9ca">x</a>[<a class="code hl_class" href="classstepper.html">n</a>]));</div>
+<div class="line"><span class="lineno">   80</span>  } </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -619,26 +775,86 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="ab3df69cec6933c0f9c06a018340776fe" name="ab3df69cec6933c0f9c06a018340776fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3df69cec6933c0f9c06a018340776fe">&#9670;&#160;</a></span>dt <span class="overload">[1/2]</span></h2>
+<a id="afed3952ddcc613d4bc5c0816d5eb4a6c" name="afed3952ddcc613d4bc5c0816d5eb4a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afed3952ddcc613d4bc5c0816d5eb4a6c">&#9670;&#160;</a></span>dist</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dt</td>
+          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dist</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00044">44</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00026">26</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
+
+</div>
+</div>
+<a id="afda81380d72e73025f74ef5cc8151973" name="afda81380d72e73025f74ef5cc8151973"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afda81380d72e73025f74ef5cc8151973">&#9670;&#160;</a></span>dist_dx</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dist_dx</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00027">27</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac0cc815428ab19fda8141b7707a02398" name="ac0cc815428ab19fda8141b7707a02398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cc815428ab19fda8141b7707a02398">&#9670;&#160;</a></span>dist_dy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dist_dy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00028">28</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
 
 </div>
 </div>
 <a id="abdfd0b0d4fb430b1755fe70bdad99fee" name="abdfd0b0d4fb430b1755fe70bdad99fee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdfd0b0d4fb430b1755fe70bdad99fee">&#9670;&#160;</a></span>dt <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abdfd0b0d4fb430b1755fe70bdad99fee">&#9670;&#160;</a></span>dt <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -663,8 +879,8 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
-<a id="ae8a27caea8588f6eb13b57d2e8cbe52f" name="ae8a27caea8588f6eb13b57d2e8cbe52f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8a27caea8588f6eb13b57d2e8cbe52f">&#9670;&#160;</a></span>normal</h2>
+<a id="ab3df69cec6933c0f9c06a018340776fe" name="ab3df69cec6933c0f9c06a018340776fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3df69cec6933c0f9c06a018340776fe">&#9670;&#160;</a></span>dt <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -675,7 +891,85 @@ template&lt;typename PVAR_t&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::function&lt;double (void)&gt; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::normal</td>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6">real_t</a> <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::dt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__thrust_8cpp_source.html#l00029">29</a> of file <a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa56a65215d22e0ba9a409a78e7a00056" name="aa56a65215d22e0ba9a409a78e7a00056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa56a65215d22e0ba9a409a78e7a00056">&#9670;&#160;</a></span>hx</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::hx</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00029">29</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a0fe5ee367df3d93d18c29f34f122beb9" name="a0fe5ee367df3d93d18c29f34f122beb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fe5ee367df3d93d18c29f34f122beb9">&#9670;&#160;</a></span>hy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::hy</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__comsol_8cpp_source.html#l00029">29</a> of file <a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a926f30b0257a278273497fa31f22deb3" name="a926f30b0257a278273497fa31f22deb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a926f30b0257a278273497fa31f22deb3">&#9670;&#160;</a></span>normal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::function&lt; double(void)&gt; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::normal</td>
         </tr>
       </table>
   </td>
@@ -689,8 +983,34 @@ template&lt;typename PVAR_t&gt; </div>
 
 </div>
 </div>
+<a id="a011fe905d884fc1fec1a7537710f71a1" name="a011fe905d884fc1fec1a7537710f71a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a011fe905d884fc1fec1a7537710f71a1">&#9670;&#160;</a></span>vx <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vx</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00026">26</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
+
+</div>
+</div>
 <a id="ad7218de5e1bde32acb3e9d8746e1d945" name="ad7218de5e1bde32acb3e9d8746e1d945"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7218de5e1bde32acb3e9d8746e1d945">&#9670;&#160;</a></span>vx <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7218de5e1bde32acb3e9d8746e1d945">&#9670;&#160;</a></span>vx <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -711,12 +1031,12 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00039">39</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__thrust_8cpp_source.html#l00026">26</a> of file <a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a>.</p>
 
 </div>
 </div>
-<a id="acc8c09cbdbab19b0a7f34febf8881eb8" name="acc8c09cbdbab19b0a7f34febf8881eb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc8c09cbdbab19b0a7f34febf8881eb8">&#9670;&#160;</a></span>vx <span class="overload">[2/2]</span></h2>
+<a id="ad808c26d726a646e0ffe2f2a2cd59d86" name="ad808c26d726a646e0ffe2f2a2cd59d86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad808c26d726a646e0ffe2f2a2cd59d86">&#9670;&#160;</a></span>vy <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -727,7 +1047,7 @@ template&lt;typename PVAR_t&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vx</td>
+          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vy</td>
         </tr>
       </table>
   </td>
@@ -737,12 +1057,12 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00026">26</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00027">27</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
 
 </div>
 </div>
 <a id="ab4e9015b4a08b798f6dd36681b415ed3" name="ab4e9015b4a08b798f6dd36681b415ed3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4e9015b4a08b798f6dd36681b415ed3">&#9670;&#160;</a></span>vy <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4e9015b4a08b798f6dd36681b415ed3">&#9670;&#160;</a></span>vy <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -763,12 +1083,12 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00040">40</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__thrust_8cpp_source.html#l00027">27</a> of file <a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a>.</p>
 
 </div>
 </div>
-<a id="a445a972f18f926763dc32c7dcadd1ccd" name="a445a972f18f926763dc32c7dcadd1ccd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a445a972f18f926763dc32c7dcadd1ccd">&#9670;&#160;</a></span>vy <span class="overload">[2/2]</span></h2>
+<a id="aca1fe4446b9960d0001ebf5310b3b9ca" name="aca1fe4446b9960d0001ebf5310b3b9ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca1fe4446b9960d0001ebf5310b3b9ca">&#9670;&#160;</a></span>x <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -779,7 +1099,7 @@ template&lt;typename PVAR_t&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::vy</td>
+          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::x</td>
         </tr>
       </table>
   </td>
@@ -789,12 +1109,12 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00027">27</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00024">24</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
 
 </div>
 </div>
 <a id="abde8571aa3910824d215850ff4f2aaf2" name="abde8571aa3910824d215850ff4f2aaf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abde8571aa3910824d215850ff4f2aaf2">&#9670;&#160;</a></span>x <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abde8571aa3910824d215850ff4f2aaf2">&#9670;&#160;</a></span>x <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -815,12 +1135,12 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00037">37</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__thrust_8cpp_source.html#l00024">24</a> of file <a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a>.</p>
 
 </div>
 </div>
-<a id="aad83eade545f4faf761e217181d09f9e" name="aad83eade545f4faf761e217181d09f9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad83eade545f4faf761e217181d09f9e">&#9670;&#160;</a></span>x <span class="overload">[2/2]</span></h2>
+<a id="a31b13074c127f725730e3174be9f4702" name="a31b13074c127f725730e3174be9f4702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b13074c127f725730e3174be9f4702">&#9670;&#160;</a></span>y <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -831,7 +1151,7 @@ template&lt;typename PVAR_t&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::x</td>
+          <td class="memname">std::vector&lt; double &gt; &amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::y</td>
         </tr>
       </table>
   </td>
@@ -841,12 +1161,12 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00024">24</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00025">25</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
 
 </div>
 </div>
 <a id="a67023c103f30c981daea6dc6261daffd" name="a67023c103f30c981daea6dc6261daffd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67023c103f30c981daea6dc6261daffd">&#9670;&#160;</a></span>y <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67023c103f30c981daea6dc6261daffd">&#9670;&#160;</a></span>y <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -867,41 +1187,16 @@ template&lt;typename PVAR_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00038">38</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
-
-</div>
-</div>
-<a id="ad589713be25aafd3eeb2c1866ead8c12" name="ad589713be25aafd3eeb2c1866ead8c12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad589713be25aafd3eeb2c1866ead8c12">&#9670;&#160;</a></span>y <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;double&gt;&amp; <a class="el" href="classstepper.html">stepper</a>&lt; PVAR_t &gt;::y</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="grid__velocity__field_8cpp_source.html#l00025">25</a> of file <a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="grid__velocity__field__thrust_8cpp_source.html#l00025">25</a> of file <a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a></li>
 <li><a class="el" href="grid__velocity__field_8cpp_source.html">grid_velocity_field.cpp</a></li>
 <li><a class="el" href="grid__velocity__field__thrust_8cpp_source.html">grid_velocity_field_thrust.cpp</a></li>
 <li><a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a></li>
+<li><a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a></li>
+<li><a class="el" href="grid__velocity__field__comsol_8cpp_source.html">grid_velocity_field_comsol.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

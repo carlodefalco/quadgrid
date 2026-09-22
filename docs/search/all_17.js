@@ -1,7 +1,23 @@
 var searchData=
 [
-  ['update_0',['update',['../classparticles__t_1_1update__ptcl__to__grd__host.html#ad9e2189447e54e87a7b5b7e5f94728bb',1,'particles_t::update_ptcl_to_grd_host']]],
-  ['update_5fptcl_5fto_5fgrd_1',['update_ptcl_to_grd',['../structparticles__t.html#afb5788b7005d185312bb3466e32fc4ac',1,'particles_t']]],
-  ['update_5fptcl_5fto_5fgrd_5fhost_2',['update_ptcl_to_grd_host',['../classparticles__t_1_1update__ptcl__to__grd__host.html',1,'particles_t']]],
-  ['updaterho_3',['updateRho',['../classupdate_rho.html',1,'updateRho&lt; PVAR_t &gt;'],['../classupdate_rho.html#ad51c8748dbb0c047521185a93ae4b62f',1,'updateRho::updateRho()']]]
+  ['t_0',['t',['../classquadgrid__t_1_1cell__t.html#ae435eeb07925843079f71378e1d0c4ba',1,'quadgrid_t::cell_t']]],
+  ['taylor–aris_20dispersion_20test_20case_1',['Taylor–Aris Dispersion Test Case',['../dir_3c17663034a0a3597dbb6a1c1f03437e.html#autotoc_md3',1,'']]],
+  ['taylor_5fdispersion_2ecpp_2',['taylor_dispersion.cpp',['../taylor__dispersion_8cpp.html',1,'']]],
+  ['taylor_5fdispersion_2eh_3',['taylor_dispersion.h',['../taylor__dispersion_8h.html',1,'']]],
+  ['tbasisfun_2eh_4',['tbasisfun.h',['../tbasisfun_8h.html',1,'']]],
+  ['test_20case_5',['Taylor–Aris Dispersion Test Case',['../dir_3c17663034a0a3597dbb6a1c1f03437e.html#autotoc_md3',1,'']]],
+  ['the_20particles_5ft_20class_6',['Main methods in the particles_t class',['../index.html#autotoc_md2',1,'']]],
+  ['the_20simulation_7',['2. Run the Simulation',['../dir_3c17663034a0a3597dbb6a1c1f03437e.html#autotoc_md12',1,'']]],
+  ['to_5fjson_8',['to_json',['../particles_8cpp.html#a4b68e87009ff969d07de829b38095855',1,'to_json(nlohmann::json &amp;j, const particles_t &amp;p):&#160;particles.cpp'],['../particles_8h.html#a4b68e87009ff969d07de829b38095855',1,'to_json(nlohmann::json &amp;j, const particles_t &amp;p):&#160;particles.cpp']]],
+  ['tools_9',['Required Dependencies &amp;amp; Tools',['../dir_3c17663034a0a3597dbb6a1c1f03437e.html#autotoc_md6',1,'']]],
+  ['trasporto_10',['Equazione Diffusione e trasporto',['../tutorial_4.html#autotoc_md13',1,'']]],
+  ['tutorial_201_11',['Tutorial 1',['../tutorial_1.html',1,'tutorials_list']]],
+  ['tutorial_202_12',['Tutorial 2',['../tutorial_2.html',1,'tutorials_list']]],
+  ['tutorial_203_13',['Tutorial 3',['../tutorial_3.html',1,'tutorials_list']]],
+  ['tutorial_204_14',['Tutorial 4',['../tutorial_4.html',1,'tutorials_list']]],
+  ['tutorial_205_15',['Tutorial 5',['../tutorial_5.html',1,'tutorials_list']]],
+  ['tutorial_2ftutorial4_2freadme_2emd_16',['README.md',['../tutorial_2tutorial4_2_r_e_a_d_m_e_8md.html',1,'']]],
+  ['tutorials_17',['Tutorials',['../tutorials.html',1,'']]],
+  ['tutorials_18',['List of tutorials',['../tutorials_list.html',1,'tutorials']]],
+  ['tutorials_2edox_19',['tutorials.dox',['../tutorials_8dox.html',1,'']]]
 ];

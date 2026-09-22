@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('classp2gd__ste
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -154,7 +154,7 @@ Private Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt;<br />
 class p2gd_step2&lt; PVAR_t, GVAR_t, P2C_t &gt;</div>
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00119">119</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00105">105</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a4f69530d71627115e3ed44df79248737" name="a4f69530d71627115e3ed44df79248737"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f69530d71627115e3ed44df79248737">&#9670;&#160;</a></span>idx_t <span class="overload">[1/2]</span></h2>
@@ -178,7 +178,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00122">122</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00108">108</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -204,7 +204,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00108">108</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00122">122</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
 
 </div>
 </div>
@@ -288,23 +288,23 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00139">139</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  142</span>    : <a class="code hl_variable" href="#a8e9f8021e38e2601f768e5e769cf5dfd">x</a>(<a class="code hl_class" href="classp2gd__step2.html">x_</a>), <a class="code hl_variable" href="#a73b478eb49ae636a65b8c4cada448f10">y</a>(<a class="code hl_class" href="classp2gd__step2.html">y_</a>), <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>(<a class="code hl_class" href="classp2gd__step2.html">M_</a>), <a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>(<a class="code hl_class" href="classp2gd__step2.html">gvar_</a>), </div>
-<div class="line"><span class="lineno">  143</span>      <a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>(<a class="code hl_class" href="classp2gd__step2.html">ptcl_to_grd_</a>), <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>(<a class="code hl_class" href="classp2gd__step2.html">nrows_</a>), <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>(<a class="code hl_class" href="classp2gd__step2.html">hx_</a>), <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>(<a class="code hl_class" href="classp2gd__step2.html">hy_</a>),</div>
-<div class="line"><span class="lineno">  144</span>      <a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>(<a class="code hl_class" href="classp2gd__step2.html">D_</a>), <a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropx_</a>), <a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropy_</a>),  <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a>(<a class="code hl_class" href="classp2gd__step2.html">apply_mass_</a>) {};</div>
-<div class="ttc" id="aclassp2gd__step2_html"><div class="ttname"><a href="classp2gd__step2.html">p2gd_step2</a></div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00119">taylor_dispersion.h:120</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_a2ee690e90eedf14e37f7597ac5e6c403"><div class="ttname"><a href="#a2ee690e90eedf14e37f7597ac5e6c403">p2gd_step2::nrows</a></div><div class="ttdeci">const idx_t nrows</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00128">taylor_dispersion.h:128</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_a73b478eb49ae636a65b8c4cada448f10"><div class="ttname"><a href="#a73b478eb49ae636a65b8c4cada448f10">p2gd_step2::y</a></div><div class="ttdeci">const PVAR_t y</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00124">taylor_dispersion.h:124</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_a776432948faf38f32b9bdddc68b1fed7"><div class="ttname"><a href="#a776432948faf38f32b9bdddc68b1fed7">p2gd_step2::dpropy</a></div><div class="ttdeci">const PVAR_t dpropy</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00126">taylor_dispersion.h:126</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_a80b42f4788d0cdbc616367f73d792fcb"><div class="ttname"><a href="#a80b42f4788d0cdbc616367f73d792fcb">p2gd_step2::gvar</a></div><div class="ttdeci">GVAR_t gvar</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00133">taylor_dispersion.h:133</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_a8e9f8021e38e2601f768e5e769cf5dfd"><div class="ttname"><a href="#a8e9f8021e38e2601f768e5e769cf5dfd">p2gd_step2::x</a></div><div class="ttdeci">const PVAR_t x</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00123">taylor_dispersion.h:123</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_a9e65633d4f17e58dc7cb25380eda551d"><div class="ttname"><a href="#a9e65633d4f17e58dc7cb25380eda551d">p2gd_step2::hx</a></div><div class="ttdeci">const real_t hx</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00129">taylor_dispersion.h:129</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_aa6e163a06f343c64402b8ed8a1716950"><div class="ttname"><a href="#aa6e163a06f343c64402b8ed8a1716950">p2gd_step2::M</a></div><div class="ttdeci">GVAR_t M</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00132">taylor_dispersion.h:132</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_aa7f779a4f2d9ea1fb98b37e44593f316"><div class="ttname"><a href="#aa7f779a4f2d9ea1fb98b37e44593f316">p2gd_step2::apply_mass</a></div><div class="ttdeci">bool apply_mass</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00135">taylor_dispersion.h:135</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_aa890e96690bed832bf468c2e66f9ceb4"><div class="ttname"><a href="#aa890e96690bed832bf468c2e66f9ceb4">p2gd_step2::D</a></div><div class="ttdeci">const real_t D</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00131">taylor_dispersion.h:131</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_ab67e61270235c3f3d39143ea38583c80"><div class="ttname"><a href="#ab67e61270235c3f3d39143ea38583c80">p2gd_step2::dpropx</a></div><div class="ttdeci">const PVAR_t dpropx</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00125">taylor_dispersion.h:125</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_ae93ccc13d82cdced72c1f5b7bccbea3f"><div class="ttname"><a href="#ae93ccc13d82cdced72c1f5b7bccbea3f">p2gd_step2::ptcl_to_grd</a></div><div class="ttdeci">const P2C_t ptcl_to_grd</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00127">taylor_dispersion.h:127</a></div></div>
-<div class="ttc" id="aclassp2gd__step2_html_aeee875bcad7060bdfb589969f4801538"><div class="ttname"><a href="#aeee875bcad7060bdfb589969f4801538">p2gd_step2::hy</a></div><div class="ttdeci">const real_t hy</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00130">taylor_dispersion.h:130</a></div></div>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00125">125</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  128</span>    : <a class="code hl_variable" href="#a8e9f8021e38e2601f768e5e769cf5dfd">x</a>(<a class="code hl_class" href="classp2gd__step2.html">x_</a>), <a class="code hl_variable" href="#a73b478eb49ae636a65b8c4cada448f10">y</a>(<a class="code hl_class" href="classp2gd__step2.html">y_</a>), <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>(<a class="code hl_class" href="classp2gd__step2.html">M_</a>), <a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>(<a class="code hl_class" href="classp2gd__step2.html">gvar_</a>), </div>
+<div class="line"><span class="lineno">  129</span>      <a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>(<a class="code hl_class" href="classp2gd__step2.html">ptcl_to_grd_</a>), <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>(<a class="code hl_class" href="classp2gd__step2.html">nrows_</a>), <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>(<a class="code hl_class" href="classp2gd__step2.html">hx_</a>), <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>(<a class="code hl_class" href="classp2gd__step2.html">hy_</a>),</div>
+<div class="line"><span class="lineno">  130</span>      <a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>(<a class="code hl_class" href="classp2gd__step2.html">D_</a>), <a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropx_</a>), <a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropy_</a>),  <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a>(<a class="code hl_class" href="classp2gd__step2.html">apply_mass_</a>) {};</div>
+<div class="ttc" id="aclassp2gd__step2_html"><div class="ttname"><a href="classp2gd__step2.html">p2gd_step2</a></div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00105">drift_diffusion.h:106</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_a2ee690e90eedf14e37f7597ac5e6c403"><div class="ttname"><a href="#a2ee690e90eedf14e37f7597ac5e6c403">p2gd_step2::nrows</a></div><div class="ttdeci">const idx_t nrows</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00114">drift_diffusion.h:114</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_a73b478eb49ae636a65b8c4cada448f10"><div class="ttname"><a href="#a73b478eb49ae636a65b8c4cada448f10">p2gd_step2::y</a></div><div class="ttdeci">const PVAR_t y</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00110">drift_diffusion.h:110</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_a776432948faf38f32b9bdddc68b1fed7"><div class="ttname"><a href="#a776432948faf38f32b9bdddc68b1fed7">p2gd_step2::dpropy</a></div><div class="ttdeci">const PVAR_t dpropy</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00112">drift_diffusion.h:112</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_a80b42f4788d0cdbc616367f73d792fcb"><div class="ttname"><a href="#a80b42f4788d0cdbc616367f73d792fcb">p2gd_step2::gvar</a></div><div class="ttdeci">GVAR_t gvar</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00119">drift_diffusion.h:119</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_a8e9f8021e38e2601f768e5e769cf5dfd"><div class="ttname"><a href="#a8e9f8021e38e2601f768e5e769cf5dfd">p2gd_step2::x</a></div><div class="ttdeci">const PVAR_t x</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00109">drift_diffusion.h:109</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_a9e65633d4f17e58dc7cb25380eda551d"><div class="ttname"><a href="#a9e65633d4f17e58dc7cb25380eda551d">p2gd_step2::hx</a></div><div class="ttdeci">const real_t hx</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00115">drift_diffusion.h:115</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_aa6e163a06f343c64402b8ed8a1716950"><div class="ttname"><a href="#aa6e163a06f343c64402b8ed8a1716950">p2gd_step2::M</a></div><div class="ttdeci">GVAR_t M</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00118">drift_diffusion.h:118</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_aa7f779a4f2d9ea1fb98b37e44593f316"><div class="ttname"><a href="#aa7f779a4f2d9ea1fb98b37e44593f316">p2gd_step2::apply_mass</a></div><div class="ttdeci">bool apply_mass</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00121">drift_diffusion.h:121</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_aa890e96690bed832bf468c2e66f9ceb4"><div class="ttname"><a href="#aa890e96690bed832bf468c2e66f9ceb4">p2gd_step2::D</a></div><div class="ttdeci">const real_t D</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00117">drift_diffusion.h:117</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_ab67e61270235c3f3d39143ea38583c80"><div class="ttname"><a href="#ab67e61270235c3f3d39143ea38583c80">p2gd_step2::dpropx</a></div><div class="ttdeci">const PVAR_t dpropx</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00111">drift_diffusion.h:111</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_ae93ccc13d82cdced72c1f5b7bccbea3f"><div class="ttname"><a href="#ae93ccc13d82cdced72c1f5b7bccbea3f">p2gd_step2::ptcl_to_grd</a></div><div class="ttdeci">const P2C_t ptcl_to_grd</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00113">drift_diffusion.h:113</a></div></div>
+<div class="ttc" id="aclassp2gd__step2_html_aeee875bcad7060bdfb589969f4801538"><div class="ttname"><a href="#aeee875bcad7060bdfb589969f4801538">p2gd_step2::hy</a></div><div class="ttdeci">const real_t hy</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00116">drift_diffusion.h:116</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -387,62 +387,16 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00125">125</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  128</span>    : <a class="code hl_variable" href="#a8e9f8021e38e2601f768e5e769cf5dfd">x</a>(<a class="code hl_class" href="classp2gd__step2.html">x_</a>), <a class="code hl_variable" href="#a73b478eb49ae636a65b8c4cada448f10">y</a>(<a class="code hl_class" href="classp2gd__step2.html">y_</a>), <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>(<a class="code hl_class" href="classp2gd__step2.html">M_</a>), <a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>(<a class="code hl_class" href="classp2gd__step2.html">gvar_</a>), </div>
-<div class="line"><span class="lineno">  129</span>      <a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>(<a class="code hl_class" href="classp2gd__step2.html">ptcl_to_grd_</a>), <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>(<a class="code hl_class" href="classp2gd__step2.html">nrows_</a>), <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>(<a class="code hl_class" href="classp2gd__step2.html">hx_</a>), <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>(<a class="code hl_class" href="classp2gd__step2.html">hy_</a>),</div>
-<div class="line"><span class="lineno">  130</span>      <a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>(<a class="code hl_class" href="classp2gd__step2.html">D_</a>), <a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropx_</a>), <a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropy_</a>),  <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a>(<a class="code hl_class" href="classp2gd__step2.html">apply_mass_</a>) {};</div>
+<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00139">139</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>    : <a class="code hl_variable" href="#a8e9f8021e38e2601f768e5e769cf5dfd">x</a>(<a class="code hl_class" href="classp2gd__step2.html">x_</a>), <a class="code hl_variable" href="#a73b478eb49ae636a65b8c4cada448f10">y</a>(<a class="code hl_class" href="classp2gd__step2.html">y_</a>), <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>(<a class="code hl_class" href="classp2gd__step2.html">M_</a>), <a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>(<a class="code hl_class" href="classp2gd__step2.html">gvar_</a>), </div>
+<div class="line"><span class="lineno">  143</span>      <a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>(<a class="code hl_class" href="classp2gd__step2.html">ptcl_to_grd_</a>), <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>(<a class="code hl_class" href="classp2gd__step2.html">nrows_</a>), <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>(<a class="code hl_class" href="classp2gd__step2.html">hx_</a>), <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>(<a class="code hl_class" href="classp2gd__step2.html">hy_</a>),</div>
+<div class="line"><span class="lineno">  144</span>      <a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>(<a class="code hl_class" href="classp2gd__step2.html">D_</a>), <a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropx_</a>), <a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>(<a class="code hl_class" href="classp2gd__step2.html">dpropy_</a>),  <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a>(<a class="code hl_class" href="classp2gd__step2.html">apply_mass_</a>) {};</div>
 </div><!-- fragment -->
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aba5e01448c57bc19feb49cb4b0f0aa7a" name="aba5e01448c57bc19feb49cb4b0f0aa7a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aba5e01448c57bc19feb49cb4b0f0aa7a">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void <a class="el" href="classp2gd__step2.html">p2gd_step2</a>&lt; PVAR_t, GVAR_t, P2C_t &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a4f69530d71627115e3ed44df79248737">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ip</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00148">148</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>                        {</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keyword">using </span><a class="code hl_class" href="classp2gd__step2.html">qgt</a> = <a class="code hl_class" href="classp2gd__step2.html">quadgrid_t&lt;GVAR_t&gt;</a>;</div>
-<div class="line"><span class="lineno">  150</span>    <a class="code hl_class" href="classp2gd__step2.html">real_t</a> <a class="code hl_class" href="classp2gd__step2.html">Nx</a> = 0.0, <a class="code hl_class" href="classp2gd__step2.html">Ny</a> = 0.0;</div>
-<div class="line"><span class="lineno">  151</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">xx</a> = <a class="code hl_variable" href="#a8e9f8021e38e2601f768e5e769cf5dfd">x</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>];</div>
-<div class="line"><span class="lineno">  152</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">yy</a> = <a class="code hl_variable" href="#a73b478eb49ae636a65b8c4cada448f10">y</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>];</div>
-<div class="line"><span class="lineno">  153</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">r</a> = <a class="code hl_class" href="classp2gd__step2.html">qgt::gind2row</a> (<a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>], <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>);</div>
-<div class="line"><span class="lineno">  154</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">c</a> = <a class="code hl_class" href="classp2gd__step2.html">qgt::gind2col</a> (<a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>], <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>);</div>
-<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="#a4f69530d71627115e3ed44df79248737">idx_t</a> <a class="code hl_class" href="classp2gd__step2.html">inode</a> = 0; <a class="code hl_class" href="classp2gd__step2.html">inode</a> &lt; 4; ++<a class="code hl_class" href="classp2gd__step2.html">inode</a>) {  </div>
-<div class="line"><span class="lineno">  156</span>      <a class="code hl_class" href="classp2gd__step2.html">Nx</a> = <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a> ? <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 0, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>) / <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)] :</div>
-<div class="line"><span class="lineno">  157</span>        <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 0, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>);</div>
-<div class="line"><span class="lineno">  158</span>      <a class="code hl_class" href="classp2gd__step2.html">Ny</a> = <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a> ? <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 1, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>) / <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)] :</div>
-<div class="line"><span class="lineno">  159</span>      <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 1, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>);</div>
-<div class="line"><span class="lineno">  160</span> </div>
-<div class="line"><span class="lineno">  161</span>      <a class="code hl_class" href="classp2gd__step2.html">atomicAdd</a>(&amp;(<a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)]), (<a class="code hl_class" href="classp2gd__step2.html">Nx</a>*<a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>] + <a class="code hl_class" href="classp2gd__step2.html">Ny</a>*<a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>])*<a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>);</div>
-<div class="line"><span class="lineno">  162</span>    }</div>
-<div class="line"><span class="lineno">  163</span>  } </div>
-<div class="ttc" id="aclassp2gd__step2_html_a4f69530d71627115e3ed44df79248737"><div class="ttname"><a href="#a4f69530d71627115e3ed44df79248737">p2gd_step2::idx_t</a></div><div class="ttdeci">particles_t::idx_t idx_t</div><div class="ttdef"><b>Definition</b> <a href="taylor__dispersion_8h_source.html#l00122">taylor_dispersion.h:122</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aba5e01448c57bc19feb49cb4b0f0aa7a" name="aba5e01448c57bc19feb49cb4b0f0aa7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba5e01448c57bc19feb49cb4b0f0aa7a">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -483,6 +437,52 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 <div class="line"><span class="lineno">  147</span>      <a class="code hl_class" href="classp2gd__step2.html">atomicAdd</a>(&amp;(<a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)]), (<a class="code hl_class" href="classp2gd__step2.html">Nx</a>*<a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>] + <a class="code hl_class" href="classp2gd__step2.html">Ny</a>*<a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>])*<a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>);</div>
 <div class="line"><span class="lineno">  148</span>    }</div>
 <div class="line"><span class="lineno">  149</span>  } </div>
+<div class="ttc" id="aclassp2gd__step2_html_a4f69530d71627115e3ed44df79248737"><div class="ttname"><a href="#a4f69530d71627115e3ed44df79248737">p2gd_step2::idx_t</a></div><div class="ttdeci">particles_t::idx_t idx_t</div><div class="ttdef"><b>Definition</b> <a href="drift__diffusion_8h_source.html#l00108">drift_diffusion.h:108</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aba5e01448c57bc19feb49cb4b0f0aa7a" name="aba5e01448c57bc19feb49cb4b0f0aa7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba5e01448c57bc19feb49cb4b0f0aa7a">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="quadgrid__config_8h.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a> void <a class="el" href="classp2gd__step2.html">p2gd_step2</a>&lt; PVAR_t, GVAR_t, P2C_t &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a4f69530d71627115e3ed44df79248737">idx_t</a></td>          <td class="paramname"><span class="paramname"><em>ip</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00148">148</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>                        {</div>
+<div class="line"><span class="lineno">  149</span>    <span class="keyword">using </span><a class="code hl_class" href="classp2gd__step2.html">qgt</a> = <a class="code hl_class" href="classp2gd__step2.html">quadgrid_t&lt;GVAR_t&gt;</a>;</div>
+<div class="line"><span class="lineno">  150</span>    <a class="code hl_class" href="classp2gd__step2.html">real_t</a> <a class="code hl_class" href="classp2gd__step2.html">Nx</a> = 0.0, <a class="code hl_class" href="classp2gd__step2.html">Ny</a> = 0.0;</div>
+<div class="line"><span class="lineno">  151</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">xx</a> = <a class="code hl_variable" href="#a8e9f8021e38e2601f768e5e769cf5dfd">x</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>];</div>
+<div class="line"><span class="lineno">  152</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">yy</a> = <a class="code hl_variable" href="#a73b478eb49ae636a65b8c4cada448f10">y</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>];</div>
+<div class="line"><span class="lineno">  153</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">r</a> = <a class="code hl_class" href="classp2gd__step2.html">qgt::gind2row</a> (<a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>], <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>);</div>
+<div class="line"><span class="lineno">  154</span>    <span class="keyword">auto</span> <a class="code hl_class" href="classp2gd__step2.html">c</a> = <a class="code hl_class" href="classp2gd__step2.html">qgt::gind2col</a> (<a class="code hl_variable" href="#ae93ccc13d82cdced72c1f5b7bccbea3f">ptcl_to_grd</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>], <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>);</div>
+<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">for</span> (<a class="code hl_typedef" href="#a4f69530d71627115e3ed44df79248737">idx_t</a> <a class="code hl_class" href="classp2gd__step2.html">inode</a> = 0; <a class="code hl_class" href="classp2gd__step2.html">inode</a> &lt; 4; ++<a class="code hl_class" href="classp2gd__step2.html">inode</a>) {  </div>
+<div class="line"><span class="lineno">  156</span>      <a class="code hl_class" href="classp2gd__step2.html">Nx</a> = <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a> ? <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 0, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>) / <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)] :</div>
+<div class="line"><span class="lineno">  157</span>        <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 0, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>);</div>
+<div class="line"><span class="lineno">  158</span>      <a class="code hl_class" href="classp2gd__step2.html">Ny</a> = <a class="code hl_variable" href="#aa7f779a4f2d9ea1fb98b37e44593f316">apply_mass</a> ? <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 1, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>) / <a class="code hl_variable" href="#aa6e163a06f343c64402b8ed8a1716950">M</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)] :</div>
+<div class="line"><span class="lineno">  159</span>      <a class="code hl_class" href="classp2gd__step2.html">qgt::shg</a> (<a class="code hl_class" href="classp2gd__step2.html">xx</a>, <a class="code hl_class" href="classp2gd__step2.html">yy</a>, 1, <a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a9e65633d4f17e58dc7cb25380eda551d">hx</a>, <a class="code hl_variable" href="#aeee875bcad7060bdfb589969f4801538">hy</a>);</div>
+<div class="line"><span class="lineno">  160</span> </div>
+<div class="line"><span class="lineno">  161</span>      <a class="code hl_class" href="classp2gd__step2.html">atomicAdd</a>(&amp;(<a class="code hl_variable" href="#a80b42f4788d0cdbc616367f73d792fcb">gvar</a>[<a class="code hl_class" href="classp2gd__step2.html">qgt::gt</a>(<a class="code hl_class" href="classp2gd__step2.html">inode</a>, <a class="code hl_class" href="classp2gd__step2.html">c</a>, <a class="code hl_class" href="classp2gd__step2.html">r</a>, <a class="code hl_variable" href="#a2ee690e90eedf14e37f7597ac5e6c403">nrows</a>)]), (<a class="code hl_class" href="classp2gd__step2.html">Nx</a>*<a class="code hl_variable" href="#ab67e61270235c3f3d39143ea38583c80">dpropx</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>] + <a class="code hl_class" href="classp2gd__step2.html">Ny</a>*<a class="code hl_variable" href="#a776432948faf38f32b9bdddc68b1fed7">dpropy</a>[<a class="code hl_class" href="classp2gd__step2.html">ip</a>])*<a class="code hl_variable" href="#aa890e96690bed832bf468c2e66f9ceb4">D</a>);</div>
+<div class="line"><span class="lineno">  162</span>    }</div>
+<div class="line"><span class="lineno">  163</span>  } </div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -509,7 +509,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00135">135</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00121">121</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -535,7 +535,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00131">131</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00117">117</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -561,7 +561,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00125">125</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00111">111</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -587,7 +587,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00126">126</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00112">112</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -613,7 +613,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00133">133</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00119">119</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -639,7 +639,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00129">129</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00115">115</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -665,7 +665,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00130">130</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00116">116</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -691,7 +691,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00132">132</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00118">118</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -717,7 +717,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00128">128</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00114">114</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -743,7 +743,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00127">127</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00113">113</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -769,7 +769,7 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00123">123</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00109">109</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
@@ -795,13 +795,13 @@ template&lt;typename PVAR_t, typename GVAR_t, typename P2C_t&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="taylor__dispersion_8h_source.html#l00124">124</a> of file <a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="drift__diffusion_8h_source.html#l00110">110</a> of file <a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a></li>
 <li><a class="el" href="drift__diffusion_8h_source.html">drift_diffusion.h</a></li>
+<li><a class="el" href="taylor__dispersion_8h_source.html">taylor_dispersion.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

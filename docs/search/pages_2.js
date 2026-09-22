@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['3_0',['Tutorial 3',['../tutorials.html#autotoc_md7',1,'']]]
+  ['3_0',['Tutorial 3',['../tutorial_3.html',1,'tutorials_list']]]
 ];

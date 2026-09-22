@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['b_0',['B',['../mmorton_8cc.html#a947f4bced3b9149167cb4ecdb3e5122e',1,'mmorton.cc']]],
-  ['begin_1',['begin',['../structrange.html#a0c5464e9fe3764f7d7a6ddac220e0490',1,'range']]],
-  ['begin_5f_2',['begin_',['../structrange.html#a4a85ebaf53f78c549b26bf7191fe1db8',1,'range']]],
-  ['begin_5fcell_5fsweep_3',['begin_cell_sweep',['../classquadgrid__t.html#ab6d76b448713838ffc88923ecd643511',1,'quadgrid_t::begin_cell_sweep()'],['../classquadgrid__t.html#a840ec8b5370ebd3890ee2e555a49df8e',1,'quadgrid_t::begin_cell_sweep() const']]],
-  ['begin_5fneighbor_5fsweep_4',['begin_neighbor_sweep',['../classquadgrid__t_1_1cell__t.html#aef42c433f7ebe280326a58bb799cb6bd',1,'quadgrid_t::cell_t::begin_neighbor_sweep()'],['../classquadgrid__t_1_1cell__t.html#a5a51ed908e3514cc8b2edc6160df2d9b',1,'quadgrid_t::cell_t::begin_neighbor_sweep() const']]],
-  ['black_5',['black',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5a1ffd9e753c8054cc61456ac7fac1ac89',1,'particles_t']]],
-  ['blue_6',['blue',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5a48d6215903dff56238e52e8891380c8f',1,'particles_t']]],
-  ['boundary_7',['boundary',['../classboundary.html',1,'boundary&lt; GVAR_t &gt;'],['../classboundary.html#ab0d39041753a9a9c5fb3b12e3f7161f8',1,'boundary::boundary()']]],
-  ['bspline_8',['bspline',['../namespacebspline.html',1,'']]],
-  ['build_5fmass_9',['build_mass',['../structparticles__t.html#adcd0da9f3014b7be706940d3fdf4bdda',1,'particles_t']]]
+  ['a_20cartesian_20quad_20grid_0',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
+  ['a_20simple_20c_20library_20for_20particles_20in_20a_20cartesian_20quad_20grid_1',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
+  ['abs_5fno_5fnan_2',['abs_no_nan',['../structabs__no__nan.html',1,'']]],
+  ['aggiornamento_20della_20velocità_3',['Aggiornamento della velocità',['../tutorial_4.html#autotoc_md17',1,'']]],
+  ['algorithm_5fnamespace_4',['algorithm_namespace',['../quadgrid__config_8h.html#a6eb7b678d25c34fb1988d369d6b3102a',1,'quadgrid_config.h']]],
+  ['all_5fcolors_5',['all_colors',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5a50a9e895c1e4985107d8d312a54180fd',1,'particles_t']]],
+  ['apply_5fmass_6',['apply_mass',['../classp2g__helper__t.html#ae1ec59c75645de7334385c57dcf903b3',1,'p2g_helper_t::apply_mass'],['../classp2gd__helper__t.html#afc1437714d72042c65d57668b51da600',1,'p2gd_helper_t::apply_mass'],['../classg2p__helper__t.html#a4752c727a67f6bc70e6578710ebc98e8',1,'g2p_helper_t::apply_mass'],['../classg2pd__helper__t.html#a3925021317c2790c73bcd1e24d81e0c9',1,'g2pd_helper_t::apply_mass'],['../classp2g__step1.html#a9cff4d84c4a7bd66d6e2f96d027a37ae',1,'p2g_step1::apply_mass'],['../classp2gd__step2.html#aa7f779a4f2d9ea1fb98b37e44593f316',1,'p2gd_step2::apply_mass'],['../classg2p__step3.html#a54d2eb0dffcd8ee1dbbd907361d76074',1,'g2p_step3::apply_mass'],['../classg2pd__step4.html#ab3428a72b6f0937c9adf7d34baea3d6b',1,'g2pd_step4::apply_mass']]],
+  ['atomicadd_7',['atomicAdd',['../atomic_add_8h.html#a879ad9c1b5b8e1293470ea7174712533',1,'atomicAdd.h']]],
+  ['atomicadd_2eh_8',['atomicAdd.h',['../atomic_add_8h.html',1,'']]]
 ];

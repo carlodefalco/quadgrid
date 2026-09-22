@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['generate_20input_20data_0',['1. Generate Input Data',['../dir_3fd467b86eff10ff2efd95ace0b26c9a.html#autotoc_md17',1,'']]],
-  ['grid_1',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
-  ['guide_2',['Compilation Guide',['../dir_3fd467b86eff10ff2efd95ace0b26c9a.html#autotoc_md14',1,'']]]
+  ['flusso_20di_20diffusione_0',['Flusso di diffusione',['../tutorial_4.html#autotoc_md16',1,'']]],
+  ['flusso_20di_20drift_1',['Flusso di drift',['../tutorial_4.html#autotoc_md15',1,'']]],
+  ['for_20particles_20in_20a_20cartesian_20quad_20grid_2',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]]
 ];

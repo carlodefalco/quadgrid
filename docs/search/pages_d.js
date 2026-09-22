@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['overview_0',['Overview',['../tutorials.html#autotoc_md4',1,'']]]
+  ['main_20methods_20in_20the_20particles_5ft_20class_0',['Main methods in the particles_t class',['../index.html#autotoc_md2',1,'']]],
+  ['methods_20in_20the_20particles_5ft_20class_1',['Main methods in the particles_t class',['../index.html#autotoc_md2',1,'']]]
 ];

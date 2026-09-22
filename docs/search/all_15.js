@@ -1,17 +1,18 @@
 var searchData=
 [
-  ['s_0',['S',['../mmorton_8cc.html#aedc455814654c3707a2896eb7b16fc79',1,'mmorton.cc']]],
-  ['safe_5fdivide_1',['safe_divide',['../structsafe__divide.html',1,'']]],
-  ['set_5fsizes_2',['set_sizes',['../classquadgrid__t.html#a675a9722097d4eb01917a546fc557bb2',1,'quadgrid_t']]],
-  ['shg_3',['shg',['../classquadgrid__t.html#a8feb14e6ae6a7160820f4d84653058e9',1,'quadgrid_t::shg()'],['../classquadgrid__t_1_1cell__t.html#a239c5f683c07e028a04bb3f6e46674d6',1,'quadgrid_t::cell_t::shg()']]],
-  ['shp_4',['shp',['../classquadgrid__t.html#a8affc8005cd8cb0003c523da3ed2236e',1,'quadgrid_t::shp()'],['../classquadgrid__t_1_1cell__t.html#afb600e5736bbacde739e36a2c0ada45d',1,'quadgrid_t::cell_t::shp(real_t x, real_t y, idx_t inode) const']]],
-  ['shp_5fnew_5',['shp_new',['../classquadgrid__t_1_1cell__t.html#a0d4e25ae5a2334cfc0123ef010d91ead',1,'quadgrid_t::cell_t']]],
-  ['simple_20c_20library_20for_20particles_20in_20a_20cartesian_20quad_20grid_6',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
-  ['simulation_7',['2. Run the Simulation',['../dir_3fd467b86eff10ff2efd95ace0b26c9a.html#autotoc_md18',1,'']]],
-  ['size_8',['size',['../classquadgrid__t.html#a9fa4e508457966e2b8640830ef9afc46',1,'quadgrid_t']]],
-  ['start_5fcell_5fcol_9',['start_cell_col',['../structquadgrid__t_1_1grid__properties__t.html#aaa399ca18da4a2daf5ffe81439408531',1,'quadgrid_t::grid_properties_t::start_cell_col'],['../classquadgrid__t_1_1cell__t.html#afe34d70ba36d24f75a0d16b263df8fb7',1,'quadgrid_t::cell_t::start_cell_col()']]],
-  ['start_5fcell_5frow_10',['start_cell_row',['../structquadgrid__t_1_1grid__properties__t.html#a3f27c35c1a671466a5391fc565d70072',1,'quadgrid_t::grid_properties_t::start_cell_row'],['../classquadgrid__t_1_1cell__t.html#a03fdbdc56bea9296ae6f7fdd1bd6b6b7',1,'quadgrid_t::cell_t::start_cell_row()']]],
-  ['start_5fowned_5fnodes_11',['start_owned_nodes',['../structquadgrid__t_1_1grid__properties__t.html#af4fe331f1f6e5c2aaf97888a002838f1',1,'quadgrid_t::grid_properties_t']]],
-  ['stepper_12',['stepper',['../classstepper.html',1,'stepper&lt; PVAR_t &gt;'],['../classstepper.html#a89a0402464254d08ed44c8761a4d69c1',1,'stepper::stepper(PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, real_t dt_)'],['../classstepper.html#a029e10fa82f89221ff7a600ec1e9b7f5',1,'stepper::stepper(std::vector&lt; double &gt; &amp;x_, std::vector&lt; double &gt; &amp;y_, std::vector&lt; double &gt; &amp;vx_, std::vector&lt; double &gt; &amp;vy_, double dt_, double D_, std::function&lt; double(void)&gt; &amp;noise_)'],['../classstepper.html#aacff113180191cfb5395fda2b463041b',1,'stepper::stepper(PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, real_t dt_, real_t D_)'],['../classstepper.html#a89a0402464254d08ed44c8761a4d69c1',1,'stepper::stepper(PVAR_t x_, PVAR_t y_, PVAR_t vx_, PVAR_t vy_, real_t dt_)']]],
-  ['sub2gind_13',['sub2gind',['../classquadgrid__t.html#a8135d2bf9f8d9b934782c51ed21697da',1,'quadgrid_t::sub2gind()'],['../classquadgrid__t_1_1cell__t.html#a0e1049d79821d80f0312a73087cd70a3',1,'quadgrid_t::cell_t::sub2gind()'],['../classquadgrid__t.html#a1043e6701c9462ebd498a770677833c5',1,'quadgrid_t::sub2gind()']]]
+  ['range_0',['range',['../structrange.html',1,'range&lt; N &gt;'],['../structrange_1_1iterator.html#a982e754214d3a01b73c8a27323b791c0',1,'range::iterator::range()'],['../structrange.html#a1e5db4b6a8bd1fd42eebdf972a8a6a05',1,'range::range()']]],
+  ['rank_1',['rank',['../classquadgrid__t.html#aeaa02c9a35b8c022f08391ce622de24a',1,'quadgrid_t']]],
+  ['ratio_2',['ratio',['../namespacebspline.html#aa77da18568582a75999d862830573e1f',1,'bspline']]],
+  ['readme_2emd_3',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['real_5ft_4',['real_t',['../quadgrid__config_8h.html#ab46614359717672dc9a4eed4669be6e6',1,'quadgrid_config.h']]],
+  ['red_5',['red',['../structparticles__t.html#a7b80b5e5ae186946e649524a083bb6b5abda9643ac6601722a28f238714274da4',1,'particles_t']]],
+  ['reference_6',['reference',['../structrange_1_1iterator.html#a24dc6d08447e21e2dd5086c9f1663d62',1,'range::iterator']]],
+  ['remove_5fin_5fregion_7',['remove_in_region',['../structparticles__t.html#a7c15a4d0086868f318a48fe44f421a04',1,'particles_t']]],
+  ['reorder_8',['reorder',['../structparticles__t.html#adea22c19239f9bdbdf0243c1c5cfa35d',1,'particles_t']]],
+  ['required_20dependencies_20tools_9',['Required Dependencies &amp;amp; Tools',['../dir_3c17663034a0a3597dbb6a1c1f03437e.html#autotoc_md6',1,'']]],
+  ['reset_10',['reset',['../classquadgrid__t_1_1cell__t.html#a74b2545b0847c06fef48ea54d13aa272',1,'quadgrid_t::cell_t']]],
+  ['rho_11',['rho',['../classupdate_rho.html#a91740e3dafed09dbc9fe3ddd0ee4f748',1,'updateRho']]],
+  ['row_5fidx_12',['row_idx',['../classquadgrid__t_1_1cell__t.html#a25ed6e5b74c97aca65bdb6e43d7a4fe3',1,'quadgrid_t::cell_t']]],
+  ['rowidx_13',['rowidx',['../classquadgrid__t_1_1cell__t.html#a47de0d979b5ba83e2115d1152124951c',1,'quadgrid_t::cell_t']]],
+  ['run_20the_20simulation_14',['2. Run the Simulation',['../dir_3c17663034a0a3597dbb6a1c1f03437e.html#autotoc_md12',1,'']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['library_20for_20particles_20in_20a_20cartesian_20quad_20grid_0',['quadgrid - a simple c++ library for particles in a cartesian quad grid',['../index.html',1,'']]],
-  ['license_1',['License',['../index.html#autotoc_md0',1,'']]],
-  ['local_5fcell_5fidx_2',['local_cell_idx',['../classquadgrid__t_1_1cell__t.html#a61bd6cb0b8fd2af98296e277f73b6e8e',1,'quadgrid_t::cell_t']]]
+  ['jdiffy_0',['Jdiffy',['../classboundary.html#a134cd790f1ee541e1ae36a741162f80c',1,'boundary']]],
+  ['json_1',['json',['../structparticles__t.html#a839105e0a564b6ac175f7fcf47ed6a64a466deec76ecdf5fca6d38571f6324d54',1,'particles_t']]]
 ];

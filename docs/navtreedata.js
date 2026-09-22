@@ -26,17 +26,7 @@ var NAVTREE =
 [
   [ "quadgrid", "index.html", [
     [ "quadgrid - a simple c++ library for particles in a cartesian quad grid", "index.html", null ],
-    [ "Tutorials", "tutorials.html", [
-      [ "Tutorials", "tutorials.html#autotoc_md3", [
-        [ "Overview", "tutorials.html#autotoc_md4", [
-          [ "<a class=\"el\" href=\"tutorial_1.html\" title=\"Tutorial 1\">Tutorial 1</a>", "tutorials.html#autotoc_md5", null ],
-          [ "Tutorial 2", "tutorials.html#autotoc_md6", null ],
-          [ "Tutorial 3", "tutorials.html#autotoc_md7", null ],
-          [ "Tutorial 4: Taylor Dispersion", "tutorials.html#autotoc_md8", null ]
-        ] ]
-      ] ]
-    ] ],
-    [ "Tutorial 1", "tutorial_1.html", null ],
+    [ "Tutorials", "tutorials.html", "tutorials" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -74,7 +64,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "classquadgrid__t_1_1neighbor__iterator.html#a681d0fe41fbe78271dd5da5485ef869b",
-"structrange_1_1iterator.html#ad021ddf9a1a3b0740318df3bc581b5c0"
+"structrange_1_1iterator.html#a3d0ebc6c3bf5d93dad6e1cd1de5bc9fe"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';
