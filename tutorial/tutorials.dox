@@ -50,7 +50,10 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 /*! \page tutorial_4 Tutorial 4
 * 
 * Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
-* 
+*
+* The raw code for this example [is here](../tutorial/tutorial4)
+* For the commented code start [here](tutorial/tutorial4/taylor_dispersion.cpp)
+*
 * ## Equazione Diffusione e trasporto
 * 
 * \f[ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
@@ -130,7 +133,6 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 * \f]
 * 
 * 
-* [Code](../tutorial/tutorial4)
 * 
 */
 
