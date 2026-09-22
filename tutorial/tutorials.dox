@@ -53,7 +53,7 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 
  For the commented code start [here](@ref ../tutorial/tutorial4)
 
-* ## Equazione Diffusione e trasporto
+* ## Advection-Diffusion Equation
 * 
 * \f[ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
 * + u\ \mathrm{div} (\mathbf{V}) = 0 \f] 
@@ -61,13 +61,13 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 * \f[ u \mathbf{V} = \mathbf{J} = \mathbf{J^{\mathrm{drift}} + J^{\mathrm{diff}}} =\boldsymbol{\beta}\ u - D \nabla u \f]
 * 
 * 
-* ## Concentrazione sulla griglia
+* ## Concentration on the grid
 * 
-* nell'MPM l'informazione su \f$u\f$ è concentrata nelle particelle
+* In MPM, information about \f$u\f$ is concentrated on the particles.
 * 
 * \f[ U = \sum_p U_p\ \delta (x - x_p) \f]
 * 
-* per trasferire questa quantità sulla griglia va effettuato un **P2G**
+* to transfer this quantity on the grid we apply a Particle-to-Grid **(P2G)** transfer.
 * 
 * \f{align}{
 * M_i u_i  &= 
@@ -75,15 +75,15 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 *  \int_\Omega u(x)\ \varphi_i(x) \\ &= \sum_p \int_\Omega U_p\ \delta (x - x_p) \ \varphi_i(x) \\ &= \sum_p  U_p\ \varphi_i(x_p)\quad \forall i
 * \f}
 * 
-* ## Flusso di drift
+* ## Convective Flux
 * 
 * \f[ \mathbf{J}^{\mathrm{drift}} = \boldsymbol{\beta}\ u \f]
 *  
-* Per trasferire questa informazione alla griglia bisogna effettuare un **P2G**, per ciascuna componente del termine di flusso convettivo, ad esempio
+* To transfer this quantity on the grid we use a **P2G**, one for each component of the flux, for instance
 * 
 * \f[ J^{\mathrm{drift}}_{x} =  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x} \f]
 * 
-* il **P2G** si può descrivere come 
+* mathematically **P2G** can be described as
 * 
 * \f{align}{
 * M_i \mathbf{j}^{\mathrm{drift}}_i \cdot \hat{x} &=
@@ -92,15 +92,15 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 * \sum_p \boldsymbol{\beta}(x_p)\cdot\hat{x}\ U_p\ \varphi_i(x_p)\qquad \forall i
 * \f}
 * 
-* ## Flusso di diffusione
+* ## Diffusive Flux
 * 
 * \f[\mathbf{J}^{\mathrm{diff}} = -D\ \nabla u\f]
 * 
-* Per trasferire questa informazione alla griglia bisogna effettuare un **P2GD**, per ciascuna componente del termine di flusso convettivo, ad esempio
+* To transfer this quantity on the grid we use a Particle-to-Grid-Derivative **(P2GD)** transfer, one for each component of the flux, for instanceo
 * 
 * \f[ {J}^{\mathrm{diff}}_{x} =  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x} \f]
 * 
-* il **P2GD** si può descrivere come 
+* mathematically the **P2GD** can be described as 
 * 
 * \f{align}{
 * M_i \mathbf{j}^{\mathrm{diff}}_i \cdot \hat{x} &=
@@ -112,7 +112,7 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 * \f}
 * 
 * 
-* ## Aggiornamento della velocità 
+* ## Velocity Update 
 * 
 * \f[  M_i \mathbf{v}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i + M_i \mathbf{j}^{\mathrm{diff}}_i)
 * \f]
@@ -125,10 +125,10 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 * (M_i u_i)
 * \f]
 * 
-* Per avere la velocità delle particelle devo effettuare un **G2P**
+* We transfer the velocity back to the particles using a Grid-to-Particles **(G2P)** transfer.*
 * 
 * \f[
-* \mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{drift}}_i\right)\varphi_i(x_p)  
+* \mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{diff}}_i\right)\varphi_i(x_p)  
 * \f]
 * 
 * 
