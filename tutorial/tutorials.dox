@@ -27,7 +27,7 @@ See this page for a
 
 Solves a 2D transport problem combining deterministic velocity advection with stochastic Brownian motion.
 
-[Code](../tutorial/tutorial1)
+[Code](@ref ../tutorial/tutorial1)
 
 */
 
@@ -35,7 +35,7 @@ Solves a 2D transport problem combining deterministic velocity advection with st
 
 Demonstrates the use of the **Thrust** library. Solve a 2D advection only problem.
 
-[Code](../tutorial/tutorial2)
+[Code](@ref ../tutorial/tutorial2)
 
 */
 
@@ -43,17 +43,16 @@ Demonstrates the use of the **Thrust** library. Solve a 2D advection only proble
 
 Solve an Advection-Diffusion problem in parallel with thrust.
 
-[Code](../tutorial/tutorial3)
+[Code](@ref ../tutorial/tutorial3)
 
 */
 
 /*! \page tutorial_4 Tutorial 4
-* 
-* Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
-*
-* The raw code for this example [is here](../tutorial/tutorial4)
-* For the commented code start [here](@ref ../tutorial/tutorial4/taylor_dispersion.cpp)
-*
+
+ Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
+
+ For the commented code start [here](@ref ../tutorial/tutorial4)
+
 * ## Equazione Diffusione e trasporto
 * 
 * \f[ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
@@ -140,6 +139,6 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 
 Convection in a diverging rectangular duct with a precomputed incompressible flow field.
 
-[Code](../tutorial/tutorial5)
+[Code](@ref ../tutorial/tutorial5)
 
 */
