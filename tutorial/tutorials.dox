@@ -1,23 +1,37 @@
-\page tutorials Tutorials
 
-# Tutorials
+/*! \page tutorials Tutorials
 
-The directory . contains example problems and tutorials demonstrating
+The directory [tutorial](@ref ../tutorial) contains example problems and tutorials demonstrating
 the usage of **QuadGrid** —a C++/Octave library for simple Cartesian quad grids. 
-These tutorials cover advection-diffusion problems on both CPU and GPU (via Thrust).
 
+See this page for a
+\subpage tutorials_list "List of tutorials"
 
-## Overview
+*/
 
-### \subpage tutorial_1 "Tutorial 1"
-Solves a 2D transport problem combining deterministic velocity advection with stochastic Brownian motion. Backend: CPU.
+/*! \page tutorials_list List of tutorials
+// \subpage tutorial_1 : Brownian motion
+// \subpage tutorial_2 : Advection with thrust
+// \subpage tutorial_3 : Advection-Diffusion with thrust
+// \subpage tutorial_4 : Taylor dispersion
+*/
 
-### Tutorial 2
-This tutorial demonstrates the use of the **Thrust** library to solve a 2D advection only problem. Backend CPU(Standard/Thrust), NVIDIA GPU(Thrust).
+/*! \page tutorial_1 Tutorial 1
+Solves a 2D transport problem combining deterministic velocity advection with stochastic Brownian motion.
+[Code](#tutorial1)
+*/
 
-### Tutorial 3 
-Solves a 2D transport problem combining deterministic velocity advection and deterministic diffusion. Backend: CPU(Thrust), NVIDIA GPU(Thrust). 
+/*! \page tutorial_2 Tutorial 2
+Demonstrates the use of the **Thrust** library. Solve a 2D advection only problem.
+[Code](#tutorial2)
+*/
 
-### Tutorial 4: Taylor Dispersion
-Simulates solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*. Backend: CPU(Thrust), NVIDIA GPU(Thrust), AMD GPU(Thrust + hip).
+/*! \page tutorial_3 Tutorial 3
+Solve an Advection-Diffusion problem in parallel with thrust.
+[Code](#tutorial3)
+*/
 
+/*! \page tutorial_4 Tutorial 4
+Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
+[Code](#tutorial4)
+*/
