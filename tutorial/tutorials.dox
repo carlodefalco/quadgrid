@@ -22,21 +22,41 @@ See this page for a
 */
 
 /*! \page tutorial_1 Tutorial 1
+
 Solves a 2D transport problem combining deterministic velocity advection with stochastic Brownian motion.
-[Code](#tutorial1)
+
+[Code](./tutorial1)
+
 */
 
 /*! \page tutorial_2 Tutorial 2
+
 Demonstrates the use of the **Thrust** library. Solve a 2D advection only problem.
-[Code](#tutorial2)
+
+[Code](./tutorial2)
+
 */
 
 /*! \page tutorial_3 Tutorial 3
+
 Solve an Advection-Diffusion problem in parallel with thrust.
-[Code](#tutorial3)
+
+[Code](./tutorial3)
+
 */
 
 /*! \page tutorial_4 Tutorial 4
+
 Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
-[Code](#tutorial4)
+
+[Code](./tutorial4)
+
+*/
+
+/*! \page tutorial_5 Tutorial 5
+
+Convection in a diverging rectangular duct with a precomputed incompressible flow field.
+
+[Code](./tutorial5)
+
 */
