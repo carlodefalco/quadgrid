@@ -10,10 +10,15 @@ See this page for a
 */
 
 /*! \page tutorials_list List of tutorials
+
 // \subpage tutorial_1 : Brownian motion
+
 // \subpage tutorial_2 : Advection with thrust
+
 // \subpage tutorial_3 : Advection-Diffusion with thrust
+
 // \subpage tutorial_4 : Taylor dispersion
+
 */
 
 /*! \page tutorial_1 Tutorial 1
