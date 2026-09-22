@@ -122,11 +122,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('tutorial_4.htm
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Simulate solute spreading in shear flows. Reference: <em><a href="https://doi.org/10.1063/1.3078518">https://doi.org/10.1063/1.3078518</a></em>.</p>
+<p>For the commented code start <a class="el" href="dir_3c17663034a0a3597dbb6a1c1f03437e.html" title="../tutorial/tutorial4">here</a></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 Equazione Diffusione e trasporto</h2>
 <p class="formulaDsp">
 \[ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
-+ u\ \mathrm{div} (\mathbf{V}) = 0 \]
+ + u\ \mathrm{div} (\mathbf{V}) = 0 \]
 </p>
  <p class="formulaDsp">
 \[ D_t u = - u\ \mathrm{div} (\mathbf{V})\]
@@ -142,9 +143,9 @@ Concentrazione sulla griglia</h2>
 </p>
 <p>per trasferire questa quantità sulla griglia va effettuato un <b>P2G</b></p>
 <p class="formulaDsp">
-\begin{align}M_i u_i  &amp;= 
-\sum_j u_j \int_\Omega \varphi_j(x) \ \varphi_i(x) \\ &amp;= 
- \int_\Omega u(x)\ \varphi_i(x) \\ &amp;= \sum_p \int_\Omega U_p\ \delta (x - x_p) \ \varphi_i(x) \\ &amp;= \sum_p  U_p\ \varphi_i(x_p)\quad \forall i
+\begin{align} M_i u_i  &amp;= 
+ \sum_j u_j \int_\Omega \varphi_j(x) \ \varphi_i(x) \\ &amp;= 
+  \int_\Omega u(x)\ \varphi_i(x) \\ &amp;= \sum_p \int_\Omega U_p\ \delta (x - x_p) \ \varphi_i(x) \\ &amp;= \sum_p  U_p\ \varphi_i(x_p)\quad \forall i
 \end{align}
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
@@ -158,10 +159,10 @@ Flusso di drift</h2>
 </p>
 <p>il <b>P2G</b> si può descrivere come</p>
 <p class="formulaDsp">
-\begin{align}M_i \mathbf{j}^{\mathrm{drift}}_i \cdot \hat{x} &amp;=
-\sum_k \int_\Omega  \mathbf{j}^{\mathrm{drift}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &amp;= \int_\Omega  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x}\ \varphi_i(x)\\ &amp;= 
-\sum_p \int_\Omega  \boldsymbol{\beta}\cdot\hat{x}\ U_p\ \delta (x - x_p)\ \varphi_i(x)\\ &amp;=
-\sum_p \boldsymbol{\beta}(x_p)\cdot\hat{x}\ U_p\ \varphi_i(x_p)\qquad \forall i
+\begin{align} M_i \mathbf{j}^{\mathrm{drift}}_i \cdot \hat{x} &amp;=
+ \sum_k \int_\Omega  \mathbf{j}^{\mathrm{drift}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &amp;= \int_\Omega  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x}\ \varphi_i(x)\\ &amp;= 
+ \sum_p \int_\Omega  \boldsymbol{\beta}\cdot\hat{x}\ U_p\ \delta (x - x_p)\ \varphi_i(x)\\ &amp;=
+ \sum_p \boldsymbol{\beta}(x_p)\cdot\hat{x}\ U_p\ \varphi_i(x_p)\qquad \forall i
 \end{align}
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
@@ -175,12 +176,12 @@ Flusso di diffusione</h2>
 </p>
 <p>il <b>P2GD</b> si può descrivere come</p>
 <p class="formulaDsp">
-\begin{align}M_i \mathbf{j}^{\mathrm{diff}}_i \cdot \hat{x} &amp;=
-\sum_k \int_\Omega  \mathbf{j}^{\mathrm{diff}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &amp;= \int_\Omega  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x}\ \varphi_i(x)\\ &amp;= 
-- \int_\Omega D\ \partial_x u\ \varphi_i(x)\\ &amp;=
-\int_\Omega D\ u\ \partial_x \varphi_i(x) - \int_{\partial\Omega} D\ \partial_x u\  \varphi_i(x)\\ &amp;=
-\sum_p \int_\Omega D\  U_p\ \delta (x - x_p)\ \partial_x \varphi_i(x)\\ &amp;=
-\sum_p D \ U_p\ \partial_x \varphi_i(x_p)\qquad \forall i
+\begin{align} M_i \mathbf{j}^{\mathrm{diff}}_i \cdot \hat{x} &amp;=
+ \sum_k \int_\Omega  \mathbf{j}^{\mathrm{diff}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &amp;= \int_\Omega  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x}\ \varphi_i(x)\\ &amp;= 
+ - \int_\Omega D\ \partial_x u\ \varphi_i(x)\\ &amp;=
+ \int_\Omega D\ u\ \partial_x \varphi_i(x) - \int_{\partial\Omega} D\ \partial_x u\  \varphi_i(x)\\ &amp;=
+ \sum_p \int_\Omega D\  U_p\ \delta (x - x_p)\ \partial_x \varphi_i(x)\\ &amp;=
+ \sum_p D \ U_p\ \partial_x \varphi_i(x_p)\qquad \forall i
 \end{align}
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
@@ -190,21 +191,22 @@ Aggiornamento della velocità</h2>
 \]
 </p>
 <p class="formulaDsp">
-\[\mathbf{v}^{\mathrm{drift}}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i) / (M_i u_i)
+\[ \mathbf{v}^{\mathrm{drift}}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i) / (M_i u_i)
 \]
+</p>
+<p><br  />
 </p>
 <p class="formulaDsp">
 \[   \mathbf{v}^{\mathrm{diff}}_i = (M_i \mathbf{j}^{\mathrm{diff}}_i) / 
-(M_i u_i)
+ (M_i u_i)
 \]
 </p>
 <p>Per avere la velocità delle particelle devo effettuare un <b>G2P</b></p>
 <p class="formulaDsp">
-\[\mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{drift}}_i\right)\varphi_i(x_p)  
+\[ \mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{drift}}_i\right)\varphi_i(x_p)  
 \]
 </p>
-<p><a href="../tutorial/tutorial4">Code</a> </p>
-</div></div><!-- contents -->
+ </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
