@@ -10,11 +10,6 @@
 #include "counter.h"
 #include <timer.h>
 
-
-/// \page tutorial Tutorial
-/// This is a tutorial, see the annotated source 
-/// source at .grid_velocity_field_comsol.cpp
-
 //! @brief Functor class for moving particles.
 
 /// This class captures references to particle
