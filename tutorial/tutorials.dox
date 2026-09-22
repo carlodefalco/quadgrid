@@ -48,90 +48,90 @@ Solve an Advection-Diffusion problem in parallel with thrust.
 */
 
 /*! \page tutorial_4 Tutorial 4
-
-Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
-
-## Equazione Diffusione e trasporto
-
-$$ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
-+ u\ \mathrm{div} (\mathbf{V}) = 0 $$ 
-$$ D_t u = - u\ \mathrm{div} (\mathbf{V})$$
-$$ u \mathbf{V} = \mathbf{J} = \mathbf{J^{\mathrm{drift}} + J^{\mathrm{diff}}} =\boldsymbol{\beta}\ u - D \nabla u $$
-
-
-## Concentrazione sulla griglia
-
-nell'MPM l'informazione su $u$ è concentrata nelle particelle
-
-$$ U = \sum_p U_p\ \delta (x - x_p) $$
-
-per trasferire questa quantità sulla griglia va effettuato un **P2G**
-
-\begin{align}
-M_i u_i  &= 
-\sum_j u_j \int_\Omega \varphi_j(x) \ \varphi_i(x) \\ &= 
- \int_\Omega u(x)\ \varphi_i(x) \\ &= \sum_p \int_\Omega U_p\ \delta (x - x_p) \ \varphi_i(x) \\ &= \sum_p  U_p\ \varphi_i(x_p)\quad \forall i
-\end{align}
-
-## Flusso di drift
-
-$$ \mathbf{J}^{\mathrm{drift}} = \boldsymbol{\beta}\ u$$
- 
-Per trasferire questa informazione alla griglia bisogna effettuare un **P2G**, per ciascuna componente del termine di flusso convettivo, ad esempio
-
-$$ J^{\mathrm{drift}}_{x} =  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x}$$
-
-il **P2G** si può descrivere come 
-
-\begin{align}
-M_i \mathbf{j}^{\mathrm{drift}}_i \cdot \hat{x} &=
-\sum_k \int_\Omega  \mathbf{j}^{\mathrm{drift}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &= \int_\Omega  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x}\ \varphi_i(x)\\ &= 
-\sum_p \int_\Omega  \boldsymbol{\beta}\cdot\hat{x}\ U_p\ \delta (x - x_p)\ \varphi_i(x)\\ &=
-\sum_p \boldsymbol{\beta}(x_p)\cdot\hat{x}\ U_p\ \varphi_i(x_p)\qquad \forall i
-\end{align}
-
-## Flusso di diffusione
-
-$$\mathbf{J}^{\mathrm{diff}} = -D\ \nabla u$$
-
-Per trasferire questa informazione alla griglia bisogna effettuare un **P2GD**, per ciascuna componente del termine di flusso convettivo, ad esempio
-
-$$ {J}^{\mathrm{diff}}_{x} =  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x}$$
-
-il **P2GD** si può descrivere come 
-
-\begin{align}
-M_i \mathbf{j}^{\mathrm{diff}}_i \cdot \hat{x} &=
-\sum_k \int_\Omega  \mathbf{j}^{\mathrm{diff}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &= \int_\Omega  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x}\ \varphi_i(x)\\ &= 
-- \int_\Omega D\ \partial_x u\ \varphi_i(x)\\ &=
-\int_\Omega D\ u\ \partial_x \varphi_i(x) - \textcolor{gray}{\int_{\partial\Omega} D\ \partial_x u\  \varphi_i(x)}\\ &=
-\sum_p \int_\Omega D\  U_p\ \delta (x - x_p)\ \partial_x \varphi_i(x)\\ &=
-\sum_p D \ U_p\ \partial_x \varphi_i(x_p)\qquad \forall i
-\end{align}
-
-
-## Aggiornamento della velocità 
-
-$$  M_i \mathbf{v}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i + M_i \mathbf{j}^{\mathrm{diff}}_i)
-$$
-
-$$   
-\mathbf{v}^{\mathrm{drift}}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i) / (M_i u_i)
-$$
-
-$$   \mathbf{v}^{\mathrm{diff}}_i = (M_i \mathbf{j}^{\mathrm{diff}}_i) / 
-(M_i u_i)
-$$
-
-Per avere la velocità delle particelle devo effettuare un **G2P**
-
-$$
-\mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{drift}}_i\right)\varphi_i(x_p)  
-$$
-
-
-[Code](../tutorial/tutorial4)
-
+* 
+* Simulate solute spreading in shear flows. Reference: *https://doi.org/10.1063/1.3078518*.
+* 
+* ## Equazione Diffusione e trasporto
+* 
+* \f[ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
+* + u\ \mathrm{div} (\mathbf{V}) = 0 \f] 
+* \f[ D_t u = - u\ \mathrm{div} (\mathbf{V})\f]
+* \f[ u \mathbf{V} = \mathbf{J} = \mathbf{J^{\mathrm{drift}} + J^{\mathrm{diff}}} =\boldsymbol{\beta}\ u - D \nabla u \f]
+* 
+* 
+* ## Concentrazione sulla griglia
+* 
+* nell'MPM l'informazione su \f$u\f$ è concentrata nelle particelle
+* 
+* \f[ U = \sum_p U_p\ \delta (x - x_p) \f]
+* 
+* per trasferire questa quantità sulla griglia va effettuato un **P2G**
+* 
+* \f{align}{
+* M_i u_i  &= 
+* \sum_j u_j \int_\Omega \varphi_j(x) \ \varphi_i(x) \\ &= 
+*  \int_\Omega u(x)\ \varphi_i(x) \\ &= \sum_p \int_\Omega U_p\ \delta (x - x_p) \ \varphi_i(x) \\ &= \sum_p  U_p\ \varphi_i(x_p)\quad \forall i
+* \f}
+* 
+* ## Flusso di drift
+* 
+* \f[ \mathbf{J}^{\mathrm{drift}} = \boldsymbol{\beta}\ u \f]
+*  
+* Per trasferire questa informazione alla griglia bisogna effettuare un **P2G**, per ciascuna componente del termine di flusso convettivo, ad esempio
+* 
+* \f[ J^{\mathrm{drift}}_{x} =  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x} \f]
+* 
+* il **P2G** si può descrivere come 
+* 
+* \f{align}{
+* M_i \mathbf{j}^{\mathrm{drift}}_i \cdot \hat{x} &=
+* \sum_k \int_\Omega  \mathbf{j}^{\mathrm{drift}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &= \int_\Omega  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x}\ \varphi_i(x)\\ &= 
+* \sum_p \int_\Omega  \boldsymbol{\beta}\cdot\hat{x}\ U_p\ \delta (x - x_p)\ \varphi_i(x)\\ &=
+* \sum_p \boldsymbol{\beta}(x_p)\cdot\hat{x}\ U_p\ \varphi_i(x_p)\qquad \forall i
+* \f}
+* 
+* ## Flusso di diffusione
+* 
+* \f[\mathbf{J}^{\mathrm{diff}} = -D\ \nabla u\f]
+* 
+* Per trasferire questa informazione alla griglia bisogna effettuare un **P2GD**, per ciascuna componente del termine di flusso convettivo, ad esempio
+* 
+* \f[ {J}^{\mathrm{diff}}_{x} =  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x} \f]
+* 
+* il **P2GD** si può descrivere come 
+* 
+* \f{align}{
+* M_i \mathbf{j}^{\mathrm{diff}}_i \cdot \hat{x} &=
+* \sum_k \int_\Omega  \mathbf{j}^{\mathrm{diff}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &= \int_\Omega  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x}\ \varphi_i(x)\\ &= 
+* - \int_\Omega D\ \partial_x u\ \varphi_i(x)\\ &=
+* \int_\Omega D\ u\ \partial_x \varphi_i(x) - \int_{\partial\Omega} D\ \partial_x u\  \varphi_i(x)\\ &=
+* \sum_p \int_\Omega D\  U_p\ \delta (x - x_p)\ \partial_x \varphi_i(x)\\ &=
+* \sum_p D \ U_p\ \partial_x \varphi_i(x_p)\qquad \forall i
+* \f}
+* 
+* 
+* ## Aggiornamento della velocità 
+* 
+* \f[  M_i \mathbf{v}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i + M_i \mathbf{j}^{\mathrm{diff}}_i)
+* \f]
+* 
+* \f[  
+* \mathbf{v}^{\mathrm{drift}}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i) / (M_i u_i)
+* \f]
+* 
+* \f[   \mathbf{v}^{\mathrm{diff}}_i = (M_i \mathbf{j}^{\mathrm{diff}}_i) / 
+* (M_i u_i)
+* \f]
+* 
+* Per avere la velocità delle particelle devo effettuare un **G2P**
+* 
+* \f[
+* \mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{drift}}_i\right)\varphi_i(x_p)  
+* \f]
+* 
+* 
+* [Code](../tutorial/tutorial4)
+* 
 */
 
 /*! \page tutorial_5 Tutorial 5
