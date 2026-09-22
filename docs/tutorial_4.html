@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('tutorial_4.htm
 <div class="textblock"><p>Simulate solute spreading in shear flows. Reference: <em><a href="https://doi.org/10.1063/1.3078518">https://doi.org/10.1063/1.3078518</a></em>.</p>
 <p>For the commented code start <a class="el" href="dir_3c17663034a0a3597dbb6a1c1f03437e.html" title="../tutorial/tutorial4">here</a></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
-Equazione Diffusione e trasporto</h2>
+Advection-Diffusion Equation</h2>
 <p class="formulaDsp">
 \[ \dot{u} +  div (u \mathbf{V}) = \dot{u} + \mathbf{V} \cdot \nabla u
  + u\ \mathrm{div} (\mathbf{V}) = 0 \]
@@ -136,12 +136,12 @@ Equazione Diffusione e trasporto</h2>
 \[ u \mathbf{V} = \mathbf{J} = \mathbf{J^{\mathrm{drift}} + J^{\mathrm{diff}}} =\boldsymbol{\beta}\ u - D \nabla u \]
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
-Concentrazione sulla griglia</h2>
-<p>nell'MPM l'informazione su \(u\) è concentrata nelle particelle</p>
+Concentration on the grid</h2>
+<p>In MPM, information about \(u\) is concentrated on the particles.</p>
 <p class="formulaDsp">
 \[ U = \sum_p U_p\ \delta (x - x_p) \]
 </p>
-<p>per trasferire questa quantità sulla griglia va effettuato un <b>P2G</b></p>
+<p>to transfer this quantity on the grid we apply a Particle-to-Grid <b>(P2G)</b> transfer.</p>
 <p class="formulaDsp">
 \begin{align} M_i u_i  &amp;= 
  \sum_j u_j \int_\Omega \varphi_j(x) \ \varphi_i(x) \\ &amp;= 
@@ -149,15 +149,15 @@ Concentrazione sulla griglia</h2>
 \end{align}
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
-Flusso di drift</h2>
+Convective Flux</h2>
 <p class="formulaDsp">
 \[ \mathbf{J}^{\mathrm{drift}} = \boldsymbol{\beta}\ u \]
 </p>
-<p>Per trasferire questa informazione alla griglia bisogna effettuare un <b>P2G</b>, per ciascuna componente del termine di flusso convettivo, ad esempio</p>
+<p>To transfer this quantity on the grid we use a <b>P2G</b>, one for each component of the flux, for instance</p>
 <p class="formulaDsp">
 \[ J^{\mathrm{drift}}_{x} =  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x} \]
 </p>
-<p>il <b>P2G</b> si può descrivere come</p>
+<p>mathematically <b>P2G</b> can be described as</p>
 <p class="formulaDsp">
 \begin{align} M_i \mathbf{j}^{\mathrm{drift}}_i \cdot \hat{x} &amp;=
  \sum_k \int_\Omega  \mathbf{j}^{\mathrm{drift}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &amp;= \int_\Omega  \mathbf{J}^{\mathrm{drift}} \cdot \hat{x}\ \varphi_i(x)\\ &amp;= 
@@ -166,15 +166,15 @@ Flusso di drift</h2>
 \end{align}
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
-Flusso di diffusione</h2>
+Diffusive Flux</h2>
 <p class="formulaDsp">
 \[\mathbf{J}^{\mathrm{diff}} = -D\ \nabla u\]
 </p>
-<p>Per trasferire questa informazione alla griglia bisogna effettuare un <b>P2GD</b>, per ciascuna componente del termine di flusso convettivo, ad esempio</p>
+<p>To transfer this quantity on the grid we use a Particle-to-Grid-Derivative <b>(P2GD)</b> transfer, one for each component of the flux, for instanceo</p>
 <p class="formulaDsp">
 \[ {J}^{\mathrm{diff}}_{x} =  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x} \]
 </p>
-<p>il <b>P2GD</b> si può descrivere come</p>
+<p>mathematically the <b>P2GD</b> can be described as</p>
 <p class="formulaDsp">
 \begin{align} M_i \mathbf{j}^{\mathrm{diff}}_i \cdot \hat{x} &amp;=
  \sum_k \int_\Omega  \mathbf{j}^{\mathrm{diff}}_k \cdot \hat{x}\ \varphi_k(x)\ \varphi_i(x) \\ &amp;= \int_\Omega  \mathbf{J}^{\mathrm{diff}} \cdot \hat{x}\ \varphi_i(x)\\ &amp;= 
@@ -185,7 +185,7 @@ Flusso di diffusione</h2>
 \end{align}
 </p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
-Aggiornamento della velocità</h2>
+Velocity Update</h2>
 <p class="formulaDsp">
 \[  M_i \mathbf{v}_i = (M_i \mathbf{j}^{\mathrm{drift}}_i + M_i \mathbf{j}^{\mathrm{diff}}_i)
 \]
@@ -201,9 +201,9 @@ Aggiornamento della velocità</h2>
  (M_i u_i)
 \]
 </p>
-<p>Per avere la velocità delle particelle devo effettuare un <b>G2P</b></p>
+<p>We transfer the velocity back to the particles using a Grid-to-Particles <b>(G2P)</b> transfer.*</p>
 <p class="formulaDsp">
-\[ \mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{drift}}_i\right)\varphi_i(x_p)  
+\[ \mathbf{V}_p = \sum_i \left(\mathbf{v}^{\mathrm{drift}}_i\ + \ \mathbf{v}^{\mathrm{diff}}_i\right)\varphi_i(x_p)  
 \]
 </p>
  </div></div><!-- contents -->
