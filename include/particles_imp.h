@@ -14,14 +14,14 @@ particles_t::p2g
     (vars, pvarnames, gvarnames, apply_mass);
 }
 
-template<typename GVAR_t, typename PVAR_t, typename P2C_t>
+template<typename GVAR_t, typename PVAR_t, typename DPROP_t, typename P2C_t>
 class
 p2g_helper_t{
 
   using idx_t = particles_t::idx_t;
   const PVAR_t x;
   const PVAR_t y;
-  const PVAR_t dprop;
+  const DPROP_t dprop;
   const P2C_t ptcl_to_grd;
   const idx_t nrows;
   const real_t hx;
@@ -35,12 +35,12 @@ public :
 
   p2g_helper_t (const PVAR_t x_, const PVAR_t y_, GVAR_t M_, 
 		GVAR_t gvar_, const P2C_t ptcl_to_grd_, const idx_t nrows_,
-		const real_t hx_, const real_t hy_, const PVAR_t dprop_, bool apply_mass_)
+		const real_t hx_, const real_t hy_, const DPROP_t dprop_, bool apply_mass_)
     : x(x_), y(y_), M(M_), gvar(gvar_), 
       ptcl_to_grd(ptcl_to_grd_), nrows(nrows_), hx(hx_), hy(hy_),
       dprop(dprop_), apply_mass(apply_mass_) {};
   
-  DEVICE
+  HOST DEVICE
   void
   operator() (idx_t ip) {
     using qgt = quadgrid_t<GVAR_t>;
@@ -83,11 +83,11 @@ particles_t::p2g
     thrust::raw_pointer_cast(device_gvar.data()), device_ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(),
     grid.hy(), device_dprop.cbegin(), apply_mass);
     #else
-    auto & gvar = vars[getkey(gvarnames, ivar)];
-    auto const & dprop = dprops.at (getkey(pvarnames, ivar));
+    auto & gvar = device_grid_vars[getkey(gvarnames, ivar)];
+    auto const & device_dprop = device_dprops.at (getkey(pvarnames, ivar));
     range<idx_t> rng (0, this->num_particles);
     range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
-    p2g_helper_t helper(x.cbegin(), y.cbegin(), M.begin(), gvar.begin(),  ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(), grid.hy(), dprop.cbegin(), apply_mass);
+    p2g_helper_t helper(device_x.cbegin(), device_y.cbegin(), device_grid_M.begin(), gvar.begin(),  device_ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(), grid.hy(), device_dprop.cbegin(), apply_mass);
     #endif
 
     algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
@@ -100,17 +100,16 @@ particles_t::p2g
 template<typename UnaryFunction>
 void
 particles_t::p2g
-(std::map<std::string, device_vector_t<real_t>> & vars,
- UnaryFunction helper){
+(auto policy, UnaryFunction helper){
 
  #ifdef USE_THRUST
  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ algorithm_namespace::for_each(policy, first_p, last_p, helper); 
  #else
  range<idx_t> rng (0, this->num_particles);
  range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
- #endif
-
  algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper); 
+ #endif
 
 };
 
@@ -208,15 +207,15 @@ particles_t::p2gd
     grid.hy(), device_dpropx.cbegin(), device_dpropy.cbegin(), device_dproparea.cbegin(), apply_mass);
 
     #else
-    auto & gvar = vars[getkey(gvarnames, ivar)];
-    auto const & dpropx = dprops.at (getkey(pxvarnames, ivar));
-    auto const & dpropy = dprops.at (getkey(pyvarnames, ivar));
-    auto const & dproparea = dprops.at (area);
+    auto & device_gvar = device_grid_vars[getkey(gvarnames, ivar)];
+    auto const & device_dpropx = device_dprops.at (getkey(pxvarnames, ivar));
+    auto const & device_dpropy = device_dprops.at (getkey(pyvarnames, ivar));
+    auto const & device_dproparea = device_dprops.at (area);
 
     range<idx_t> rng (0, this->num_particles);
     range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
-    p2gd_helper_t helper(x.cbegin(), y.cbegin(), M.cbegin(), gvar.begin(), ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(), grid.hy(), 
-    dpropx.begin(), dpropy.begin(), dproparea.begin(), apply_mass);
+    p2gd_helper_t helper(device_x.cbegin(), device_y.cbegin(), device_grid_M.cbegin(), device_gvar.begin(), device_ptcl_to_grd.cbegin(), grid.num_rows(), grid.hx(), grid.hy(), 
+    device_dpropx.begin(), device_dpropy.begin(), device_dproparea.begin(), apply_mass);
     #endif
 
     algorithm_namespace::for_each(first_p, last_p, helper);
@@ -246,17 +245,16 @@ particles_t::p2gd
 template<typename UnaryFunction>
 void
 particles_t::p2gd
-(std::map<std::string, device_vector_t<real_t>> & vars,
- UnaryFunction helper){
+(auto policy, UnaryFunction helper){
  
  #ifdef USE_THRUST
  thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ algorithm_namespace::for_each(policy, first_p, last_p, helper);
  #else
  range<idx_t> rng (0, this->num_particles);
  range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
- #endif
- 
  algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
+ #endif
  
  };
 
@@ -340,14 +338,14 @@ particles_t::g2p
     g2p_helper_t helper(thrust::raw_pointer_cast(device_x.data()), thrust::raw_pointer_cast(device_y.data()), device_grid_M.cbegin(), device_gvar.cbegin(),
     device_ptcl_to_grd.cbegin(), grid.num_rows (), grid.hx (), grid.hy (), thrust::raw_pointer_cast(device_dprop.data()), apply_mass);
     #else
-    auto & dprop = dprops.at (getkey (pvarnames, ivar));
-    auto const & gvar = vars.at (getkey (gvarnames, ivar));
+    auto & device_dprop = device_dprops.at (getkey (pvarnames, ivar));
+    auto const & device_gvar = device_grid_vars.at (getkey (gvarnames, ivar));
     range<idx_t> rng (0, this->num_particles);
     range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
-    g2p_helper_t helper (x.begin (), y.begin (), M.cbegin(),
-    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
+    g2p_helper_t helper (device_x.begin (), device_y.begin (),device_grid_M.cbegin(),
+    			 device_gvar.cbegin (), device_ptcl_to_grd.cbegin (),
     			 grid.num_rows (), grid.hx (), grid.hy (),
-    			 dprop.begin (), apply_mass);
+    			 device_dprop.begin (), apply_mass);
     #endif
     
     algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
@@ -359,17 +357,17 @@ particles_t::g2p
 template<typename UnaryFunction>
 void
 particles_t::g2p
- (std::map<std::string, device_vector_t<real_t>> & vars,
- UnaryFunction helper){
+ (auto policy, UnaryFunction helper){
  
   #ifdef USE_THRUST
   thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+  algorithm_namespace::for_each(policy, first_p, last_p, helper);
   #else
   range<idx_t> rng (0, this->num_particles);
   range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+  algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
   #endif
  
-  algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
  
 };
 
@@ -484,16 +482,16 @@ particles_t::g2pd
     thrust::raw_pointer_cast(device_dpropy.data()), apply_mass);
 
     #else
-    auto const & gvar = vars.at (getkey (gvarnames, ivar));
-    auto & dpropx = dprops.at (getkey (pxvarnames, ivar));
-    auto & dpropy = dprops.at (getkey (pyvarnames, ivar));
+    auto const & device_gvar = device_grid_vars.at (getkey (gvarnames, ivar));
+    auto & device_dpropx = device_dprops.at (getkey (pxvarnames, ivar));
+    auto & device_dpropy = device_dprops.at (getkey (pyvarnames, ivar));
 
     range<idx_t> rng (0, this->num_particles);
     range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
-    g2pd_helper_t helper (x.begin (), y.begin (), M.cbegin (),
-    			 gvar.cbegin (), ptcl_to_grd.cbegin (),
+    g2pd_helper_t helper (device_x.begin (), device_y.begin (), device_grid_M.cbegin (),
+    			 device_gvar.cbegin (), device_ptcl_to_grd.cbegin (),
     			 grid.num_rows (), grid.hx (), grid.hy (),
-    			 dpropx.begin (), dpropy.begin (), apply_mass);
+    			 device_dpropx.begin (), device_dpropy.begin (), apply_mass);
     #endif
     
     algorithm_namespace::for_each(first_p, last_p, helper);
@@ -506,23 +504,21 @@ particles_t::g2pd
 template<typename UnaryFunction>
 void
 particles_t::g2pd
- (std::map<std::string, device_vector_t<real_t>> & vars,
- UnaryFunction helper){
+ (auto policy, UnaryFunction helper){
  
  #ifdef USE_THRUST
- thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);
+ thrust::counting_iterator<idx_t> first_p(0), last_p(this -> num_particles);  
+ algorithm_namespace::for_each(policy, first_p, last_p, helper);
  #else
  range<idx_t> rng (0, this->num_particles);
  range<idx_t>::iterator first_p = rng.begin(), last_p = rng.end();
+ algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
  #endif
  
- algorithm_namespace::for_each(device_exec_policy, first_p, last_p, helper);
  };
 
 
 
-
-#ifdef USE_THRUST
 // Updates 'device_ptcl_to_grd'
 class
 particles_t::update_ptcl_to_grd_device{
@@ -532,14 +528,18 @@ public:
   static
   void
   update(particles_t& p){
-  ptcl_to_grd_update_t p2gu (thrust::raw_pointer_cast(p.device_ptcl_to_grd.data ()), thrust::raw_pointer_cast(p.device_x.data ()),
-                             thrust::raw_pointer_cast(p.device_y.data ()), p.grid.hx (), p.grid.hy (), p.grid.num_rows ());
- 
+  ptcl_to_grd_update_t p2gu (algorithm_namespace::raw_pointer_cast(p.device_ptcl_to_grd.data ()), algorithm_namespace::raw_pointer_cast(p.device_x.data ()),
+                             algorithm_namespace::raw_pointer_cast(p.device_y.data ()), p.grid.hx (), p.grid.hy (), p.grid.num_rows ());
+  #ifdef USE_THRUST
   thrust::counting_iterator<idx_t> first_p(0), last_p(p.num_particles);
-  thrust::for_each(device_exec_policy, first_p, last_p, p2gu);}
-};
+  thrust::for_each(device_exec_policy, first_p, last_p, p2gu);
+  #else
+  range rng (0, p.num_particles);
+  std::for_each(rng.begin(), rng.end(), p2gu);
+  #endif
+}};
  
-#endif
+
 
 //Updates 'host_ptcl_to_grd'
 class

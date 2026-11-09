@@ -43,8 +43,28 @@
 #define vector_t std::vector
 #define device_vector_t std::vector
 #define algorithm_namespace std
-#define device_exec_policy std::execution::par_unseq
+#define device_exec_policy std::execution::seq
+#define host_exec_policy std::execution::seq
+
+/*namespace thrust {
+    inline auto device = std::execution::seq; 
+    
+    template<typename T> 
+    constexpr T* raw_pointer_cast(T* ptr) {
+        return ptr;
+    }
+}*/
+
+namespace std {
+    
+    template<typename T> 
+    constexpr T* raw_pointer_cast(T* ptr) {
+        return ptr;
+    }
+}
+
 #endif
+
 using real_t = double;
 
 #endif

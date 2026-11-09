@@ -47,7 +47,7 @@ particles_t {
   vector_t<idx_t> ptcl_grd_color;                 //!< color of particle's cell.
   const quadgrid_t<vector_t<real_t>>& grid;       //!< refernce to a grid object.
 
-  #ifdef USE_THRUST
+  #ifdef USE_THRUST  
   device_vector_t<idx_t> device_ptcl_to_grd;
   device_vector_t<real_t> device_x, device_y;
 
@@ -56,8 +56,22 @@ particles_t {
 
   device_vector_t<real_t> device_grid_M; //mass matrix
   std::map<std::string, device_vector_t<real_t>> device_grid_vars;
+  #else
+  // If we compile without thrust we reference the device quantities to the host counterparts.
+  device_vector_t<idx_t>& device_ptcl_to_grd = ptcl_to_grd;  
+  device_vector_t<real_t>& device_x = x; 
+  device_vector_t<real_t>& device_y = y;
 
+  std::map<std::string, device_vector_t<real_t>>& device_dprops = dprops;
+  std::map<std::string, device_vector_t<idx_t>>&  device_iprops = iprops;
+
+  device_vector_t<real_t>& device_grid_M = M; 
+
+  //except for this map which has no equivalent on host (defined in particles.h)
+  std::map<std::string, device_vector_t<real_t>> device_grid_vars; 
   #endif
+  
+  
 
   //! Enumeration of available output format
   enum class
@@ -356,8 +370,7 @@ particles_t {
   //p2g with custom helper
   template<typename UnaryFunction>
   void
-  p2g (std::map<std::string, device_vector_t<real_t>> & vars,
-       UnaryFunction helper);
+  p2g (auto policy, UnaryFunction helper);
 
   template<typename GT, typename PT>
   void
@@ -394,8 +407,7 @@ particles_t {
   //p2gd with custom helper
   template<typename UnaryFunction>
   void 
-  p2gd (std::map<std::string, device_vector_t<real_t>> & vars,
-        UnaryFunction helper);
+  p2gd (auto policy, UnaryFunction helper);
  
   void
   g2p (const std::map<std::string, device_vector_t<real_t>>& vars,
@@ -420,8 +432,7 @@ particles_t {
   //g2p with custom helper
   template<typename UnaryFunction>
   void 
-  g2p (std::map<std::string, device_vector_t<real_t>> & vars,
-       UnaryFunction helper);
+  g2p (auto policy, UnaryFunction helper);
 
   template<typename GT, typename PT>
   void
@@ -442,8 +453,7 @@ particles_t {
   //g2pd with custom helper
   template<typename UnaryFunction>
   void 
-  g2pd (std::map<std::string, device_vector_t<real_t>> & vars,
-        UnaryFunction helper);
+  g2pd (auto policy, UnaryFunction helper);
 
 };
 
